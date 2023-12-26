@@ -1,0 +1,6 @@
+{
+  "parent": "dungeonblocks:block/template_grate_trapdoor_block_top",
+  "textures": {
+    "1": "dungeonblocks:block/dark_iron"
+  }
+}

@@ -1,0 +1,8 @@
+{
+    "parent": "dungeonblocks:block/sill_block_base",
+    "textures": {
+		"0": "block/mossy_cobblestone",
+        "top": "block/mossy_cobblestone",            
+        "bottom": "block/mossy_cobblestone"
+    }
+}

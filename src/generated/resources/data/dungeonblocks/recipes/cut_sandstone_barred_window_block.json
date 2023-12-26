@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:cut_sandstone"
+    },
+    [
+      {
+        "item": "dungeonblocks:dark_iron_grate"
+      },
+      {
+        "item": "dungeonblocks:dark_iron_grate_trapdoor"
+      }
+    ]
+  ],
+  "result": {
+    "item": "dungeonblocks:cut_sandstone_barred_window_block"
+  }
+}

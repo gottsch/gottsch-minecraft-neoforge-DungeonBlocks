@@ -1,0 +1,29 @@
+{
+    "variants": {
+        "base=up": {
+            "model": "dungeonblocks:block/chiseled_stone_bricks_pillar_block"
+        },
+        "base=down": {
+            "model": "dungeonblocks:block/chiseled_stone_bricks_pillar_block",
+            "x": 180, "uvlock": true
+        },
+        "base=north": {
+            "model": "dungeonblocks:block/chiseled_stone_bricks_pillar_block",
+            "x": 90, "uvlock": true
+        },
+        "base=south": {
+            "model": "dungeonblocks:block/chiseled_stone_bricks_pillar_block",
+            "x": 270, "uvlock": true
+        },
+        "base=west": {
+            "model": "dungeonblocks:block/chiseled_stone_bricks_pillar_block",
+            "x": 90, "uvlock": true,
+            "y": 270
+        },
+        "base=east": {
+            "model": "dungeonblocks:block/chiseled_stone_bricks_pillar_block",
+            "x": 90, "uvlock": true,
+            "y": 90
+        }
+    }
+}

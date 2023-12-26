@@ -1,0 +1,6 @@
+{
+  "parent": "dungeonblocks:block/template_grate_trapdoor_block_open",
+  "textures": {
+    "1": "minecraft:block/weathered_copper"
+  }
+}

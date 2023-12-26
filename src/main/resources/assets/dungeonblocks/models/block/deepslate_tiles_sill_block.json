@@ -1,0 +1,8 @@
+{
+    "parent": "dungeonblocks:block/sill_block_base",
+    "textures": {
+		"0": "block/deepslate_tiles",
+        "top": "block/deepslate_tiles",            
+        "bottom": "block/deepslate_tiles"
+    }
+}

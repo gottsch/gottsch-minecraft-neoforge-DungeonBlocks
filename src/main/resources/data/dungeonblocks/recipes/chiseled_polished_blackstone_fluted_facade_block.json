@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "minecraft:chiseled_polished_blackstone"
+    },
+    "result": "dungeonblocks:chiseled_polished_blackstone_fluted_facade_block",
+    "count": 2
+}

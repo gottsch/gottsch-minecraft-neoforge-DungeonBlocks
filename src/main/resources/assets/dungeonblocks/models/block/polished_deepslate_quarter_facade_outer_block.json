@@ -1,0 +1,9 @@
+{
+    "parent": "dungeonblocks:block/quarter_facade_outer_base",
+    "textures": {
+        "bottom": "block/polished_deepslate",
+        "top": "block/polished_deepslate",
+        "side": "block/polished_deepslate",
+        "north": "block/polished_deepslate"
+    }
+}

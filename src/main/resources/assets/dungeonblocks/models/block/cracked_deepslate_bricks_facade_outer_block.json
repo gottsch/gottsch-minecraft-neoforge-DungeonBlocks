@@ -1,0 +1,9 @@
+{
+    "parent": "dungeonblocks:block/facade_outer_base",
+    "textures": {
+        "bottom": "block/cracked_deepslate_bricks",
+        "top": "block/cracked_deepslate_bricks",
+        "side": "block/cracked_deepslate_bricks",
+        "north": "block/cracked_deepslate_bricks"
+    }
+}

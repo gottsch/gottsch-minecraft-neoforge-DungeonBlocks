@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "minecraft:smooth_stone"
+    },
+    "result": "dungeonblocks:smooth_stone_fluted_facade_block",
+    "count": 2
+}

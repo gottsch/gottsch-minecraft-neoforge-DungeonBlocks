@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "dungeonblocks:block/polished_basalt_greek_block"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "dungeonblocks:block/template_grate_block",
+  "textures": {
+    "0": "minecraft:block/weathered_copper"
+  }
+}

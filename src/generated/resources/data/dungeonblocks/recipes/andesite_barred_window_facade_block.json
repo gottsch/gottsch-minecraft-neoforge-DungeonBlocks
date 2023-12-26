@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "dungeonblocks:andesite_barred_window_block"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "dungeonblocks:andesite_barred_window_facade_block"
+  }
+}

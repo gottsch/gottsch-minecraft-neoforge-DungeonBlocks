@@ -1,0 +1,9 @@
+{
+    "parent": "dungeonblocks:block/quarter_facade_outer_base",
+    "textures": {
+        "bottom": "block/mossy_stone_bricks",
+        "top": "block/mossy_stone_bricks",
+        "side": "block/mossy_stone_bricks",
+        "north": "block/mossy_stone_bricks"
+    }
+}

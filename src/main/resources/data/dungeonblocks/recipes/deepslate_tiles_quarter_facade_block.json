@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "minecraft:deepslate_tiles"
+    },
+    "result": "dungeonblocks:deepslate_tiles_quarter_facade_block",
+    "count": 4
+}

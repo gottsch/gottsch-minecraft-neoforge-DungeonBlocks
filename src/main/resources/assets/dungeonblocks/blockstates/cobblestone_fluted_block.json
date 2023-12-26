@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "": { "model": "dungeonblocks:block/cobblestone_fluted_block" }
+    }
+}

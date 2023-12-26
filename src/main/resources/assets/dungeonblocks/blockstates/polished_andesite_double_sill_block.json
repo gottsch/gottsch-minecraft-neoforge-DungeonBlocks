@@ -1,0 +1,10 @@
+{
+    "variants": {
+        "facing=up": { "model": "dungeonblocks:block/polished_andesite_double_sill_block" },
+        "facing=down": { "model": "dungeonblocks:block/polished_andesite_double_sill_block" },
+        "facing=north": { "model": "dungeonblocks:block/polished_andesite_double_sill_block" },
+        "facing=east": { "model": "dungeonblocks:block/polished_andesite_double_sill_block", "y": 90 },
+        "facing=south": { "model": "dungeonblocks:block/polished_andesite_double_sill_block", "y": 180 },
+        "facing=west": { "model": "dungeonblocks:block/polished_andesite_double_sill_block", "y": 270 }
+    }
+}

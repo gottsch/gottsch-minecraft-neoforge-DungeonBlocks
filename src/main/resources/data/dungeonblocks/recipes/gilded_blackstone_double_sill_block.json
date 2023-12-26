@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "minecraft:gilded_blackstone"
+    },
+    "result": "dungeonblocks:gilded_blackstone_double_sill_block",
+    "count": 1
+}

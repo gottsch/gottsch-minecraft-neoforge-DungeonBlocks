@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "minecraft:diorite"
+    },
+    "result": "dungeonblocks:diorite_quarter_facade_block",
+    "count": 4
+}

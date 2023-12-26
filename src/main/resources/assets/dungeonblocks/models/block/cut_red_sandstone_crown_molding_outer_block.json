@@ -1,0 +1,8 @@
+{
+    "parent": "dungeonblocks:block/crown_molding_outer_block_base",
+    "textures": {
+        "bottom": "block/cut_red_sandstone",
+        "top": "block/cut_red_sandstone",
+        "0": "block/cut_red_sandstone"
+    }
+}

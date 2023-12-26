@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "minecraft:polished_blackstone_bricks"
+    },
+    "result": "dungeonblocks:polished_blackstone_bricks_pillar_base_block",
+    "count": 1
+}

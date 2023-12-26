@@ -1,0 +1,9 @@
+{
+    "parent": "dungeonblocks:block/facade_outer_base",
+    "textures": {
+        "bottom": "block/chiseled_stone_bricks",
+        "top": "block/chiseled_stone_bricks",
+        "side": "block/chiseled_stone_bricks",
+        "north": "block/chiseled_stone_bricks"
+    }
+}

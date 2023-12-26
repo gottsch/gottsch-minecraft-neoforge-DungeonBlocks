@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "c": {
+      "item": "minecraft:candle"
+    },
+    "x": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "ccc",
+    "   ",
+    "xxx"
+  ],
+  "result": {
+    "count": 3,
+    "item": "dungeonblocks:candle_sconce_block"
+  },
+  "show_notification": true
+}

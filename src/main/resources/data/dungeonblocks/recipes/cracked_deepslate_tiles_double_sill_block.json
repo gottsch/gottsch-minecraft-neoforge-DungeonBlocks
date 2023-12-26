@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "minecraft:cracked_deepslate_tiles"
+    },
+    "result": "dungeonblocks:cracked_deepslate_tiles_double_sill_block",
+    "count": 1
+}

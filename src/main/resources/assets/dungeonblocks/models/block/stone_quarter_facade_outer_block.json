@@ -1,0 +1,9 @@
+{
+    "parent": "dungeonblocks:block/quarter_facade_outer_base",
+    "textures": {
+        "bottom": "block/stone",
+        "top": "block/stone",
+        "side": "block/stone",
+        "north": "block/stone"
+    }
+}

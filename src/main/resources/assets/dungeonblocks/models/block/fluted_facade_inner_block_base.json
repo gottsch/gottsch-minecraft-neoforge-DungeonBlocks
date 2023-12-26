@@ -1,0 +1,61 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"textures": {
+		"particle": "#0"
+	},
+	"elements": [
+		{
+			"name": "Main",
+			"from": [2, 0, 10],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 14, 16], "texture": "#0"},
+				"east": {"uv": [0, 0, 6, 16], "texture": "#0"},
+				"south": {"uv": [2, 0, 16, 16], "texture": "#0"},
+				"west": {"uv": [10, 0, 16, 16], "texture": "#0"},
+				"up": {"uv": [2, 10, 16, 16], "texture": "#0"},
+				"down": {"uv": [0, 0, 14, 6], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Main2",
+			"from": [10, 0, 2],
+			"to": [16, 16, 10],
+			"faces": {
+				"north": {"uv": [0, 0, 6, 16], "texture": "#0"},
+				"east": {"uv": [6, 0, 14, 16], "texture": "#0"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#0"},
+				"west": {"uv": [2, 0, 10, 16], "texture": "#0"},
+				"up": {"uv": [10, 2, 16, 10], "texture": "#0"},
+				"down": {"uv": [10, 6, 16, 14], "texture": "#0"}
+			}
+		},
+		{
+			"name": "FluteBorder1",
+			"from": [8, 0.001, 0],
+			"to": [12, 15.999, 4],
+			"faces": {
+				"north": {"uv": [4, 0, 8, 15.998], "texture": "#0"},
+				"east": {"uv": [12, 0, 16, 15.998], "texture": "#0"},
+				"south": {"uv": [0, 0, 8, 16], "texture": "#0"},
+				"west": {"uv": [0, 0, 4, 15.998], "texture": "#0"},
+				"up": {"uv": [8, 0, 12, 4], "texture": "#0"},
+				"down": {"uv": [8, 12, 12, 16], "texture": "#0"}
+			}
+		},
+		{
+			"name": "FluteBorder2",
+			"from": [0, 0.001, 8],
+			"to": [4, 15.999, 12],
+			"faces": {
+				"north": {"uv": [12, 0, 16, 15.998], "texture": "#0"},
+				"east": {"uv": [0, 0, 4, 16], "texture": "#0"},
+				"south": {"uv": [0, 0, 4, 15.998], "texture": "#0"},
+				"west": {"uv": [7, 0, 11, 15.998], "texture": "#0"},
+				"up": {"uv": [0, 8, 4, 12], "texture": "#0"},
+				"down": {"uv": [0, 4, 4, 8], "texture": "#0"}
+			}
+		}
+	]
+}

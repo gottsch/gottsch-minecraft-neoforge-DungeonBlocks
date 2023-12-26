@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "minecraft:deepslate_bricks"
+    },
+    "result": "dungeonblocks:deepslate_bricks_sill_block",
+    "count": 1
+}

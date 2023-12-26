@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "minecraft:chiseled_red_sandstone"
+    },
+    "result": "dungeonblocks:chiseled_red_sandstone_fluted_facade_block",
+    "count": 2
+}

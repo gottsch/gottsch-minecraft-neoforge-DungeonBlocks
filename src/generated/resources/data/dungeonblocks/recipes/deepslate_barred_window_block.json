@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:deepslate"
+    },
+    [
+      {
+        "item": "dungeonblocks:dark_iron_grate"
+      },
+      {
+        "item": "dungeonblocks:dark_iron_grate_trapdoor"
+      }
+    ]
+  ],
+  "result": {
+    "item": "dungeonblocks:deepslate_barred_window_block"
+  }
+}

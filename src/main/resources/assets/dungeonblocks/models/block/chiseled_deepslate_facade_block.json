@@ -1,0 +1,9 @@
+{
+    "parent": "dungeonblocks:block/facade_base",
+    "textures": {
+        "bottom": "block/chiseled_deepslate",
+        "top": "block/chiseled_deepslate",
+        "side": "block/chiseled_deepslate",
+        "north": "block/chiseled_deepslate"
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "minecraft:gilded_blackstone"
+    },
+    "result": "dungeonblocks:gilded_blackstone_crown_molding_block",
+    "count": 2
+}

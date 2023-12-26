@@ -1,0 +1,9 @@
+{
+    "parent": "dungeonblocks:block/quarter_facade_base",
+    "textures": {
+        "bottom": "block/cut_sandstone",
+        "top": "block/cut_sandstone",
+        "side": "block/cut_sandstone",
+        "north": "block/cut_sandstone"
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "parent": "dungeonblocks:block/quarter_facade_base",
+    "textures": {
+        "bottom": "block/deepslate_bricks",
+        "top": "block/deepslate_bricks",
+        "side": "block/deepslate_bricks",
+        "north": "block/deepslate_bricks"
+    }
+}

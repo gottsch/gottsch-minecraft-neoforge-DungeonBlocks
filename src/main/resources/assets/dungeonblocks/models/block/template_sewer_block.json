@@ -1,0 +1,61 @@
+{
+	"parent": "block/block",
+	"textures": {
+		"3": "dungeonblocks:block/sewer_water_still",
+		"particle": "#0"
+	},
+	"elements": [
+		{
+			"name": "west",
+			"from": [0, 3, 0],
+			"to": [3, 16, 16],
+			"faces": {
+				"north": {"uv": [13, 0, 16, 13], "texture": "#1"},
+				"east": {"uv": [16, 0, 0, 13], "texture": "#0"},
+				"south": {"uv": [0, 0, 3, 13], "texture": "#1"},
+				"west": {"uv": [0, 0, 16, 13], "texture": "#0"},
+				"up": {"uv": [0, 13, 16, 16], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [0, 0, 3, 16], "texture": "#missing"}
+			}
+		},
+		{
+			"name": "east",
+			"from": [13, 3, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 3, 13], "texture": "#1"},
+				"east": {"uv": [16, 0, 0, 13], "texture": "#0"},
+				"south": {"uv": [13, 0, 16, 13], "texture": "#1"},
+				"west": {"uv": [0, 0, 16, 13], "texture": "#0"},
+				"up": {"uv": [0, 0, 16, 3], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [0, 0, 3, 16], "texture": "#missing"}
+			}
+		},
+		{
+			"name": "bottom",
+			"from": [0, 0, 0],
+			"to": [16, 3, 16],
+			"faces": {
+				"north": {"uv": [0, 13, 16, 16], "texture": "#1"},
+				"east": {"uv": [0, 13, 16, 16], "texture": "#0"},
+				"south": {"uv": [0, 13, 16, 16], "texture": "#1"},
+				"west": {"uv": [0, 13, 16, 16], "texture": "#0"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"down": {"uv": [0, 0, 16, 16], "rotation": 270, "texture": "#0"}
+			}
+		},
+		{
+			"name": "water",
+			"from": [3, 3, 0],
+			"to": [13, 11, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 10, 8], "texture": "#3"},
+				"east": {"uv": [0, 0, 16, 8], "texture": "#missing"},
+				"south": {"uv": [0, 0, 10, 8], "texture": "#3"},
+				"west": {"uv": [0, 0, 16, 8], "texture": "#missing"},
+				"up": {"uv": [0, 0, 16, 10], "rotation": 90, "texture": "#3"},
+				"down": {"uv": [0, 0, 10, 16], "texture": "#missing"}
+			}
+		}
+	]
+}

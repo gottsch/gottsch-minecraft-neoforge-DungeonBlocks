@@ -1,0 +1,6 @@
+{
+    "parent": "dungeonblocks:block/pillar_base_block_base",
+    "textures": {
+        "0": "block/red_sandstone"
+    }
+}

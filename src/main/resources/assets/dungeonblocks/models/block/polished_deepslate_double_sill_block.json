@@ -1,0 +1,6 @@
+{
+    "parent": "dungeonblocks:block/double_sill_block_base",
+    "textures": {
+        "0": "block/polished_deepslate"
+    }
+}

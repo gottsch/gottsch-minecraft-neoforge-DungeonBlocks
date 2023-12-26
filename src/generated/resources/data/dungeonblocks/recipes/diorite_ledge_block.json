@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "minecraft:diorite"
+  },
+  "result": "dungeonblocks:diorite_ledge_block"
+}

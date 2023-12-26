@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "minecraft:sandstone"
+    },
+    "result": "dungeonblocks:sandstone_fluted_facade_block",
+    "count": 2
+}

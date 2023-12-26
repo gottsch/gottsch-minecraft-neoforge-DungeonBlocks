@@ -1,0 +1,9 @@
+{
+    "parent": "dungeonblocks:block/quarter_facade_inner_base",
+    "textures": {
+        "bottom": "block/obsidian",
+        "top": "block/obsidian",
+        "side": "block/obsidian",
+        "north": "block/obsidian"
+    }
+}

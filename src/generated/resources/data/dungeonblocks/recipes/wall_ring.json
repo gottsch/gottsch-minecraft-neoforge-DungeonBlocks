@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "x": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    " x ",
+    "x x",
+    " x "
+  ],
+  "result": {
+    "item": "dungeonblocks:wall_ring"
+  },
+  "show_notification": true
+}

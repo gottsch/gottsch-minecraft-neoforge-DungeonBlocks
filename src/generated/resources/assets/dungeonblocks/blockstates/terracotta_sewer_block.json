@@ -1,0 +1,147 @@
+{
+  "variants": {
+    "facing=down,shape=bottom_left": {
+      "model": "dungeonblocks:block/terracotta_sewer_block_corner",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=down,shape=bottom_right": {
+      "model": "dungeonblocks:block/terracotta_sewer_block_corner",
+      "uvlock": true
+    },
+    "facing=down,shape=outer_right": {
+      "model": "dungeonblocks:block/terracotta_sewer_block_corner",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=down,shape=straight": {
+      "model": "dungeonblocks:block/terracotta_sewer_block",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=down,shape=top_left": {
+      "model": "dungeonblocks:block/terracotta_sewer_block_corner",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=east,shape=bottom_left": {
+      "model": "dungeonblocks:block/terracotta_sewer_block_corner",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=east,shape=bottom_right": {
+      "model": "dungeonblocks:block/terracotta_sewer_block_corner",
+      "uvlock": true
+    },
+    "facing=east,shape=outer_right": {
+      "model": "dungeonblocks:block/terracotta_sewer_block_corner",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=east,shape=straight": {
+      "model": "dungeonblocks:block/terracotta_sewer_block",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=east,shape=top_left": {
+      "model": "dungeonblocks:block/terracotta_sewer_block_corner",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=north,shape=bottom_left": {
+      "model": "dungeonblocks:block/terracotta_sewer_block_corner",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=north,shape=bottom_right": {
+      "model": "dungeonblocks:block/terracotta_sewer_block_corner",
+      "uvlock": true
+    },
+    "facing=north,shape=outer_right": {
+      "model": "dungeonblocks:block/terracotta_sewer_block_corner",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=north,shape=straight": {
+      "model": "dungeonblocks:block/terracotta_sewer_block",
+      "uvlock": true
+    },
+    "facing=north,shape=top_left": {
+      "model": "dungeonblocks:block/terracotta_sewer_block_corner",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=south,shape=bottom_left": {
+      "model": "dungeonblocks:block/terracotta_sewer_block_corner",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=south,shape=bottom_right": {
+      "model": "dungeonblocks:block/terracotta_sewer_block_corner",
+      "uvlock": true
+    },
+    "facing=south,shape=outer_right": {
+      "model": "dungeonblocks:block/terracotta_sewer_block_corner",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=south,shape=straight": {
+      "model": "dungeonblocks:block/terracotta_sewer_block",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=south,shape=top_left": {
+      "model": "dungeonblocks:block/terracotta_sewer_block_corner",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=up,shape=bottom_left": {
+      "model": "dungeonblocks:block/terracotta_sewer_block_corner",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=up,shape=bottom_right": {
+      "model": "dungeonblocks:block/terracotta_sewer_block_corner",
+      "uvlock": true
+    },
+    "facing=up,shape=outer_right": {
+      "model": "dungeonblocks:block/terracotta_sewer_block_corner",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=up,shape=straight": {
+      "model": "dungeonblocks:block/terracotta_sewer_block",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=up,shape=top_left": {
+      "model": "dungeonblocks:block/terracotta_sewer_block_corner",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=west,shape=bottom_left": {
+      "model": "dungeonblocks:block/terracotta_sewer_block_corner",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=west,shape=bottom_right": {
+      "model": "dungeonblocks:block/terracotta_sewer_block_corner",
+      "uvlock": true
+    },
+    "facing=west,shape=outer_right": {
+      "model": "dungeonblocks:block/terracotta_sewer_block_corner",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=west,shape=straight": {
+      "model": "dungeonblocks:block/terracotta_sewer_block",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=west,shape=top_left": {
+      "model": "dungeonblocks:block/terracotta_sewer_block_corner",
+      "uvlock": true,
+      "y": 180
+    }
+  }
+}

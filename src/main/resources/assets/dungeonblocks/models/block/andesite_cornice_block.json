@@ -1,0 +1,6 @@
+{
+    "parent": "dungeonblocks:block/cornice_block_base",
+    "textures": {
+        "0": "block/andesite"
+    }
+}

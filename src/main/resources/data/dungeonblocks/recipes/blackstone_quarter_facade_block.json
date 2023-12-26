@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "minecraft:blackstone"
+    },
+    "result": "dungeonblocks:blackstone_quarter_facade_block",
+    "count": 4
+}

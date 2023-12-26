@@ -1,0 +1,6 @@
+{
+    "parent": "dungeonblocks:block/pillar_block_base",
+    "textures": {
+        "0": "block/cracked_deepslate_tiles"
+    }
+}

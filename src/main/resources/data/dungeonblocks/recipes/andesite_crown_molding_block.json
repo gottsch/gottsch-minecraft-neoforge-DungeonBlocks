@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "minecraft:andesite"
+    },
+    "result": "dungeonblocks:andesite_crown_molding_block",
+    "count": 2
+}

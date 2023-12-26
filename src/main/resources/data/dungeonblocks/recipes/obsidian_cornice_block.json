@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "minecraft:obsidian"
+    },
+    "result": "dungeonblocks:obsidian_cornice_block",
+    "count": 2
+}

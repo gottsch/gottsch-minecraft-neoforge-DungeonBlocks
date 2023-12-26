@@ -1,0 +1,6 @@
+{
+    "parent": "dungeonblocks:block/fluted_block_base",
+    "textures": {
+        "0": "block/deepslate_tiles"
+    }
+}

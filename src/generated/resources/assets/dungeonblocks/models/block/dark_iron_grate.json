@@ -1,0 +1,6 @@
+{
+  "parent": "dungeonblocks:block/template_grate_block",
+  "textures": {
+    "0": "dungeonblocks:block/dark_iron"
+  }
+}

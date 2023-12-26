@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:smooth_stone"
+    },
+    [
+      {
+        "item": "dungeonblocks:dark_iron_grate"
+      },
+      {
+        "item": "dungeonblocks:dark_iron_grate_trapdoor"
+      }
+    ]
+  ],
+  "result": {
+    "item": "dungeonblocks:smooth_stone_barred_window_block"
+  }
+}

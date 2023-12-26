@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "minecraft:bricks"
+    },
+    "result": "dungeonblocks:bricks_crown_molding_block",
+    "count": 2
+}

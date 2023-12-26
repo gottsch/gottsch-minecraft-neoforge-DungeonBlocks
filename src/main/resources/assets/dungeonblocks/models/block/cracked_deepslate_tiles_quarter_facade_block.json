@@ -1,0 +1,9 @@
+{
+    "parent": "dungeonblocks:block/quarter_facade_base",
+    "textures": {
+        "bottom": "block/cracked_deepslate_tiles",
+        "top": "block/cracked_deepslate_tiles",
+        "side": "block/cracked_deepslate_tiles",
+        "north": "block/cracked_deepslate_tiles"
+    }
+}

@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "": { "model": "dungeonblocks:block/stone_fluted_block" }
+    }
+}

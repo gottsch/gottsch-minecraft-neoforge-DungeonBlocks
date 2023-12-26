@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:stonecutting",
+  "count": 1,
+  "ingredient": {
+    "item": "minecraft:deepslate"
+  },
+  "result": "dungeonblocks:deepslate_corbel_block"
+}

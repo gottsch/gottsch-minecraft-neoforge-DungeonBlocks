@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "candles=0,lit=false": {
+      "model": "dungeonblocks:block/candle_sconce_block"
+    },
+    "candles=0,lit=true": {
+      "model": "dungeonblocks:block/candle_conce_block"
+    },
+    "candles=1,lit=false": {
+      "model": "dungeonblocks:block/candle_sconce_one_candle_block"
+    },
+    "candles=1,lit=true": {
+      "model": "dungeonblocks:block/candle_sconce_one_candle_sconce_lit_block"
+    },
+    "candles=2,lit=false": {
+      "model": "dungeonblocks:block/candle_sconce_two_candles_block"
+    },
+    "candles=2,lit=true": {
+      "model": "dungeonblocks:block/candle_sconce_two_candles_lit_block"
+    },
+    "candles=3,lit=false": {
+      "model": "dungeonblocks:block/candle_sconce_three_candles_block"
+    },
+    "candles=3,lit=true": {
+      "model": "dungeonblocks:block/candle_sconce_three_candles_lit_block"
+    }
+  }
+}

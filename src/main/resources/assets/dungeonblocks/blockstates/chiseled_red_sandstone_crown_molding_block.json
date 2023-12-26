@@ -1,0 +1,38 @@
+{
+    "variants": {
+        "facing=up,shape=straight": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_block" },
+        "facing=down,shape=straight": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_block" },
+        "facing=north,shape=straight": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_block" },
+        "facing=east,shape=straight": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_block", "y": 90 },
+        "facing=south,shape=straight": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_block", "y": 180 },
+        "facing=west,shape=straight": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_block", "y": 270 },
+        
+        "facing=up,shape=inner_left": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_inner_block" },
+        "facing=down,shape=inner_left": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_inner_block" },
+        "facing=north,shape=inner_left": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_inner_block", "y": 90 },
+        "facing=east,shape=inner_left": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_inner_block"  },
+        "facing=south,shape=inner_left": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_inner_block", "y": 180 },
+        "facing=west,shape=inner_left": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_inner_block" },
+        
+        "facing=up,shape=inner_right": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_inner_block" },
+        "facing=down,shape=inner_right": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_inner_block" },
+        "facing=north,shape=inner_right": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_inner_block"},
+        "facing=east,shape=inner_right": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_inner_block" },
+        "facing=south,shape=inner_right": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_inner_block", "y": 270 },
+        "facing=west,shape=inner_right": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_inner_block"},
+        
+        "facing=up,shape=outer_left": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_outer_block" },
+        "facing=down,shape=outer_left": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_outer_block" },
+        "facing=north,shape=outer_left": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_outer_block" },
+        "facing=east,shape=outer_left": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_outer_block" },
+        "facing=south,shape=outer_left": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_outer_block", "y": 270},
+        "facing=west,shape=outer_left": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_outer_block" },
+        
+        "facing=up,shape=outer_right": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_outer_block" },
+        "facing=down,shape=outer_right": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_outer_block" },
+        "facing=north,shape=outer_right": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_outer_block", "y": 90 },
+        "facing=east,shape=outer_right": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_outer_block" },
+        "facing=south,shape=outer_right": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_outer_block", "y": 180 },
+        "facing=west,shape=outer_right": { "model": "dungeonblocks:block/chiseled_red_sandstone_crown_molding_outer_block"}
+    }
+}

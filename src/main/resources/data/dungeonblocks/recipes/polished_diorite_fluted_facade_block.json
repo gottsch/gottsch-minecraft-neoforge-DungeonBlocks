@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "minecraft:polished_diorite"
+    },
+    "result": "dungeonblocks:polished_diorite_fluted_facade_block",
+    "count": 2
+}

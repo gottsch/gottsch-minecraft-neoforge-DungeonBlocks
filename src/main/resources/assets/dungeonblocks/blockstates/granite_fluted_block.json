@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "": { "model": "dungeonblocks:block/granite_fluted_block" }
+    }
+}

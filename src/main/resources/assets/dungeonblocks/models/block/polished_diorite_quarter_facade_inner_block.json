@@ -1,0 +1,9 @@
+{
+    "parent": "dungeonblocks:block/quarter_facade_inner_base",
+    "textures": {
+        "bottom": "block/polished_diorite",
+        "top": "block/polished_diorite",
+        "side": "block/polished_diorite",
+        "north": "block/polished_diorite"
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "parent": "dungeonblocks:block/facade_base",
+    "textures": {
+        "bottom": "block/cracked_stone_bricks",
+        "top": "block/cracked_stone_bricks",
+        "side": "block/cracked_stone_bricks",
+        "north": "block/cracked_stone_bricks"
+    }
+}

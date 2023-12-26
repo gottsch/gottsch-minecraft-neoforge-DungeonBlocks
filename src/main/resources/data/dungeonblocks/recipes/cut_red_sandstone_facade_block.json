@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "minecraft:cut_red_sandstone"
+    },
+    "result": "dungeonblocks:cut_red_sandstone_facade_block",
+    "count": 2
+}

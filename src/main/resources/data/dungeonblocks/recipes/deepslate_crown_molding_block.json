@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "minecraft:deepslate"
+    },
+    "result": "dungeonblocks:deepslate_crown_molding_block",
+    "count": 2
+}

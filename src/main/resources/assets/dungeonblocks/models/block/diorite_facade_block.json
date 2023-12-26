@@ -1,0 +1,9 @@
+{
+    "parent": "dungeonblocks:block/facade_base",
+    "textures": {
+        "bottom": "block/diorite",
+        "top": "block/diorite",
+        "side": "block/diorite",
+        "north": "block/diorite"
+    }
+}

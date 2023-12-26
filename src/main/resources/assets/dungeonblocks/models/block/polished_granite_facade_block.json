@@ -1,0 +1,9 @@
+{
+    "parent": "dungeonblocks:block/facade_base",
+    "textures": {
+        "bottom": "block/polished_granite",
+        "top": "block/polished_granite",
+        "side": "block/polished_granite",
+        "north": "block/polished_granite"
+    }
+}

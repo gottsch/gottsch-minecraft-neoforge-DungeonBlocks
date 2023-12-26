@@ -1,0 +1,6 @@
+{
+  "parent": "dungeonblocks:block/barred_window_block",
+  "textures": {
+    "0": "minecraft:block/diorite"
+  }
+}

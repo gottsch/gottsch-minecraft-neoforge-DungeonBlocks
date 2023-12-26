@@ -1,0 +1,9 @@
+{
+    "parent": "dungeonblocks:block/facade_base",
+    "textures": {
+        "bottom": "block/chiseled_sandstone",
+        "top": "block/chiseled_sandstone",
+        "side": "block/chiseled_sandstone",
+        "north": "block/chiseled_sandstone"
+    }
+}

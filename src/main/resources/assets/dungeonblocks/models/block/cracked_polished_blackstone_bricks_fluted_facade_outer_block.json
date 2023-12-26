@@ -1,0 +1,8 @@
+{
+    "parent": "dungeonblocks:block/fluted_facade_outer_block_base",
+    "textures": {
+        "bottom": "block/cracked_polished_blackstone_bricks",
+        "top": "block/cracked_polished_blackstone_bricks",
+        "0": "block/cracked_polished_blackstone_bricks"
+    }
+}

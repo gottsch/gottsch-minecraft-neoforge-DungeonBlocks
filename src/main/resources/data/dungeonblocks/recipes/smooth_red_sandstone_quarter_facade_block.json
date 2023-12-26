@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:stonecutting",
+    "ingredient": {
+        "item": "minecraft:red_sandstone"
+    },
+    "result": "dungeonblocks:smooth_red_sandstone_quarter_facade_block",
+    "count": 4
+}

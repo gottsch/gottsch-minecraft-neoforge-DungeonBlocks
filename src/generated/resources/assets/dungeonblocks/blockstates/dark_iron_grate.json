@@ -1,0 +1,56 @@
+{
+  "variants": {
+    "base=down,waterlogged=false": {
+      "model": "dungeonblocks:block/dark_iron_grate",
+      "x": 180
+    },
+    "base=down,waterlogged=true": {
+      "model": "dungeonblocks:block/dark_iron_grate",
+      "x": 180
+    },
+    "base=east,waterlogged=false": {
+      "model": "dungeonblocks:block/dark_iron_grate",
+      "x": 90,
+      "y": 90
+    },
+    "base=east,waterlogged=true": {
+      "model": "dungeonblocks:block/dark_iron_grate",
+      "x": 90,
+      "y": 90
+    },
+    "base=north,waterlogged=false": {
+      "model": "dungeonblocks:block/dark_iron_grate",
+      "x": 90
+    },
+    "base=north,waterlogged=true": {
+      "model": "dungeonblocks:block/dark_iron_grate",
+      "x": 90
+    },
+    "base=south,waterlogged=false": {
+      "model": "dungeonblocks:block/dark_iron_grate",
+      "x": 90,
+      "y": 180
+    },
+    "base=south,waterlogged=true": {
+      "model": "dungeonblocks:block/dark_iron_grate",
+      "x": 90,
+      "y": 180
+    },
+    "base=up,waterlogged=false": {
+      "model": "dungeonblocks:block/dark_iron_grate"
+    },
+    "base=up,waterlogged=true": {
+      "model": "dungeonblocks:block/dark_iron_grate"
+    },
+    "base=west,waterlogged=false": {
+      "model": "dungeonblocks:block/dark_iron_grate",
+      "x": 90,
+      "y": 270
+    },
+    "base=west,waterlogged=true": {
+      "model": "dungeonblocks:block/dark_iron_grate",
+      "x": 90,
+      "y": 270
+    }
+  }
+}
