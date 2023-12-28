@@ -20,18 +20,19 @@
 package mod.gottsch.neo.dungeonblocks;
 
 import mod.gottsch.neo.dungeonblocks.core.item.ModCreativeModeTabs;
-import net.minecraftforge.eventbus.api.IEventBus;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.bus.api.SubscribeEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import mod.gottsch.neo.dungeonblocks.core.block.ModBlocks;
 import mod.gottsch.neo.dungeonblocks.core.config.DungeonBlocksConfig;
 import mod.gottsch.neo.dungeonblocks.core.item.ModItems;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.config.ModConfig;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.fml.ModLoadingContext;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.fml.javafmlmod.FMLJavaModLoadingContext;
 
 /**
  * @author Mark Gottschling on Jan 1, 2020
@@ -59,7 +60,7 @@ public class DungeonBlocks {
 		ModCreativeModeTabs.TABS.register(modEventBus);
 
 		// Register the setup method for modloading
-		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+//		FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
 	}
 
 	/**
@@ -67,6 +68,7 @@ public class DungeonBlocks {
 	 * 
 	 * @param event
 	 */
+	@SubscribeEvent
 	private void setup(final FMLCommonSetupEvent event) {
 	}
 

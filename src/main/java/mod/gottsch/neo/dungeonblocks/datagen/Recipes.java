@@ -24,15 +24,17 @@ import mod.gottsch.neo.dungeonblocks.core.block.BarredWindows;
 import mod.gottsch.neo.dungeonblocks.core.block.ModBlocks;
 import mod.gottsch.neo.dungeonblocks.core.setup.Registration;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
 /**
@@ -43,13 +45,13 @@ import java.util.function.Consumer;
 public class Recipes extends RecipeProvider {
 	private static String CRITERIA = "criteria";
 
-		public Recipes(PackOutput output) {
-			super(output);
+		public Recipes(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider) {
+			super(output, lookupProvider);
 		}
 
 		@Override
-		protected void buildRecipes(Consumer<FinishedRecipe> recipe) {
-			Map<Block, RegistryObject<Block>> ingredientMap = new HashMap<>();
+		protected void buildRecipes(RecipeOutput recipe) {
+			Map<Block, DeferredHolder<Block, ? extends Block>> ingredientMap = new HashMap<>();
 
 			// dungeon lantern
 			ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, ModBlocks.DUNGEON_LANTERN.get())
@@ -315,4 +317,6 @@ public class Recipes extends RecipeProvider {
 					});
 
 		}
+
+
 }

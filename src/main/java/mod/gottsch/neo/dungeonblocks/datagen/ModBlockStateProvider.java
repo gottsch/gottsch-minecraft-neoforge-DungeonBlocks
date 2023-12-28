@@ -5,15 +5,17 @@ import mod.gottsch.neo.dungeonblocks.DungeonBlocks;
 import mod.gottsch.neo.dungeonblocks.core.setup.Registration;
 import mod.gottsch.neo.dungeonblocks.core.state.properties.FacadeShape;
 import net.minecraft.core.Direction;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
-import net.minecraftforge.client.model.generators.*;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.client.model.generators.*;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
+import net.neoforged.neoforge.registries.DeferredBlock;
 
 import java.util.function.Function;
 
@@ -132,12 +134,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
         brazierBlock(ModBlocks.BRAZIER);
     }
 
-    private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
+    private void blockWithItem(DeferredHolder<Block, Block> blockRegistryObject) {
         simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
         simpleBlock(blockRegistryObject.get());
     }
 
-    private void modelSingleTexture(RegistryObject<Block> block, ResourceLocation modelName, ResourceLocation texture) {
+    private void modelSingleTexture(DeferredHolder<Block, ? extends Block> block, ResourceLocation modelName, ResourceLocation texture) {
         ModelFile model = models().singleTexture(block.getId().getPath(), modelName, "0", texture);
         myHorizontalBlock(block.get(), model);
     }
@@ -146,7 +148,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         return models().singleTexture(name, modLoc(ModelProvider.BLOCK_FOLDER + "/barred_window_block"), "0", texture);
     }
 
-    public void barredWindowBlock(RegistryObject<Block> block, ResourceLocation texture) {
+    public void barredWindowBlock(DeferredHolder<Block, ? extends Block> block, ResourceLocation texture) {
         barredWindowBlock(block.getId().getPath(), block.get(), texture);
     }
 
@@ -155,7 +157,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         myHorizontalBlock(block, model);
     }
 
-    public void barredWindowFacadeBlock(RegistryObject<Block> block, ResourceLocation texture) {
+    public void barredWindowFacadeBlock(DeferredHolder<Block, ? extends Block> block, ResourceLocation texture) {
         ModelFile model = models().singleTexture(block.getId().getPath(), modLoc(ModelProvider.BLOCK_FOLDER + "/barred_window_facade_block"), "0", texture);
         myHorizontalBlock(block.get(), model);
     }
@@ -165,17 +167,17 @@ public class ModBlockStateProvider extends BlockStateProvider {
         dungeonDoorBlock(block, name, bottom, top);
     }
 
-    public void greekBlock(RegistryObject<Block> block, ResourceLocation texture) {
+    public void greekBlock(DeferredHolder<Block, ? extends Block> block, ResourceLocation texture) {
         ModelFile model = models().cubeAll(block.getId().getPath(), texture);
         myHorizontalBlock(block.get(), model);
     }
 
-    public void torchSconceBlock(RegistryObject<Block> block) {
+    public void torchSconceBlock(DeferredHolder<Block, ? extends Block> block) {
         ModelFile model = models().getExistingFile(modLoc(ModelProvider.BLOCK_FOLDER + "/torch_sconce_block"));
         myHorizontalBlock(block.get(), model);
     }
 
-    public void candleSconceBlock(RegistryObject<Block> block) {
+    public void candleSconceBlock(DeferredHolder<Block, Block> block) {
         ModelFile empty = models().getExistingFile(modLoc(ModelProvider.BLOCK_FOLDER + "/candle_sconce_block"));
 
         ModelFile one_lit = models().getExistingFile(modLoc(ModelProvider.BLOCK_FOLDER + "/candle_sconce_one_candle_lit_block"));
@@ -190,7 +192,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         myCandleSconceBlock(block.get(), empty, one_lit, one_unlit, two_lit, two_unlit, three_lit, three_unlit);
     }
 
-    public void ledgeBlock(RegistryObject<Block> block, ResourceLocation texture) {
+    public void ledgeBlock(DeferredHolder<Block, ? extends Block> block, ResourceLocation texture) {
         String name = block.getId().getPath();
         ModelFile ledge = models().withExistingParent(name, "dungeonblocks:block/ledge_block").texture("0", texture);
         ModelFile inner = models().withExistingParent(name + "_inner", "dungeonblocks:block/" + "ledge_block_inner").texture("0", texture);
@@ -217,7 +219,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 }, LedgeBlock.WATERLOGGED, WaterloggedNonCubeFacingBlock.WATERLOGGED, FacadeShapeBlock.WATERLOGGED);
     }
 
-    public void wallRingBlock(RegistryObject<Block> block) {
+    public void wallRingBlock(DeferredHolder<Block, Block> block) {
        ModelFile model = models().getExistingFile(modLoc(ModelProvider.BLOCK_FOLDER + "/wall_ring"));
        ModelFile openModel = models().getExistingFile(modLoc(ModelProvider.BLOCK_FOLDER + "/wall_ring_open"));
        // TODO get the extended model
@@ -251,7 +253,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         }, WallRingBlock.WATERLOGGED, WaterloggedNonCubeFacingBlock.WATERLOGGED);
     }
 
-    public void plateBracketBlock(RegistryObject<Block> block) {
+    public void plateBracketBlock(DeferredHolder<Block, Block> block) {
         ModelFile model = models().getExistingFile(modLoc(ModelProvider.BLOCK_FOLDER + "/plate_bracket_block"));
         allDirectionBlock(block.get(), model);
     }
@@ -276,22 +278,22 @@ public class ModBlockStateProvider extends BlockStateProvider {
         }, PlateBracketBlock.WATERLOGGED, WaterloggedNonCubeFacingBlock.WATERLOGGED);
     }
 
-    public void hayPatchBlock(RegistryObject<Block> block) {
+    public void hayPatchBlock(DeferredHolder<Block, Block> block) {
         ModelFile model = models().getExistingFile(modLoc(ModelProvider.BLOCK_FOLDER + "/hay_patch_block"));
         simpleBlock(block.get(), model);
     }
-    public void hayPatchBlock(RegistryObject<Block> block, ResourceLocation texture) {
+    public void hayPatchBlock(DeferredHolder<Block, Block> block, ResourceLocation texture) {
         ModelFile model = models().getExistingFile(modLoc(ModelProvider.BLOCK_FOLDER + "/dirty_hay_patch_block"));
         simpleBlock(block.get(), model);
     }
 
-    public void grateBlock(RegistryObject<Block> block, ResourceLocation texture) {
+    public void grateBlock(DeferredHolder<Block, Block> block, ResourceLocation texture) {
         ModelFile model = models().singleTexture(block.getId().getPath(), modLoc(ModelProvider.BLOCK_FOLDER + "/template_grate_block"), "0", texture);
         myDirectionalBlock(block.get(), model);
     }
 
     @Deprecated
-    public void _sewerBlock(RegistryObject<Block> block, ResourceLocation texture, ResourceLocation texture1) {
+    public void _sewerBlock(DeferredHolder<Block, Block> block, ResourceLocation texture, ResourceLocation texture1) {
         ModelFile model = twoTextures(
                 block.getId().getPath(),
                 modLoc(ModelProvider.BLOCK_FOLDER + "/template_sewer_block"), "0", texture, "1", texture1);
@@ -303,7 +305,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         myHorizontalBlock(block.get(), model);
     }
 
-    public void sewerBlock(RegistryObject<Block> block, ResourceLocation texture, ResourceLocation texture1) {
+    public void sewerBlock(DeferredHolder<Block, Block> block, ResourceLocation texture, ResourceLocation texture1) {
         String name = block.getId().getPath();
         ModelFile model = twoTextures(name, modLoc(ModelProvider.BLOCK_FOLDER + "/template_sewer_block"), "0", texture, "1", texture1);
         ModelFile corner = twoTextures(name + "_corner", modLoc(ModelProvider.BLOCK_FOLDER + "/template_sewer_block_corner"), "0", texture, "1", texture1);
@@ -334,7 +336,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
 
-    public void brazierBlock(RegistryObject<Block> block) {
+    public void brazierBlock(DeferredHolder<Block, Block> block) {
         ModelFile brazier_lit = models().getExistingFile(modLoc(ModelProvider.BLOCK_FOLDER + "/brazier_lit_block"));
         ModelFile brazier = models().getExistingFile(modLoc(ModelProvider.BLOCK_FOLDER + "/brazier_block"));
         brazierBlock(block.get(), brazier, brazier_lit);
@@ -465,7 +467,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         return door(name, "dungeon_door_top_right_open", bottom, top);
     }
 
-    public void grateTrapDoorBlock(RegistryObject<Block> block, ResourceLocation texture, boolean orientable) {
+    public void grateTrapDoorBlock(DeferredHolder<Block, Block> block, ResourceLocation texture, boolean orientable) {
         myTrapdoorBlockInternal((TrapDoorBlock) block.get(), block.getId().getPath(), texture, orientable);
     }
 
@@ -497,6 +499,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     private ResourceLocation key(Block block) {
-        return ForgeRegistries.BLOCKS.getKey(block);
+        return BuiltInRegistries.BLOCK.getKey(block);
     }
 }

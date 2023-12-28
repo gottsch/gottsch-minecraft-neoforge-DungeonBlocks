@@ -25,7 +25,7 @@ import mod.gottsch.neo.dungeonblocks.datagen.DataGenMaps;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.registries.DeferredBlock;
 
 import java.util.Set;
 
@@ -73,6 +73,6 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                     }
                     return false;
                     })
-                .map(RegistryObject::get)::iterator;
+                .map(d -> (Block)d.get())::iterator;
     }
 }

@@ -20,7 +20,7 @@ package mod.gottsch.neo.dungeonblocks.datagen;
 import mod.gottsch.neo.dungeonblocks.DungeonBlocks;
 import mod.gottsch.neo.dungeonblocks.core.block.ModBlocks;
 import net.minecraft.data.PackOutput;
-import net.minecraftforge.common.data.LanguageProvider;
+import net.neoforged.neoforge.common.data.LanguageProvider;
 import org.apache.commons.lang3.text.WordUtils;
 
 /**

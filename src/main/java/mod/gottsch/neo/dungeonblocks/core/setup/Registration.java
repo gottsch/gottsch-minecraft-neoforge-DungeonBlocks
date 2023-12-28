@@ -21,12 +21,13 @@ import mod.gottsch.neo.dungeonblocks.DungeonBlocks;
 import mod.gottsch.neo.dungeonblocks.core.block.BarredWindows;
 import mod.gottsch.neo.dungeonblocks.core.block.CorbelBlocks;
 import mod.gottsch.neo.dungeonblocks.core.block.LedgeBlocks;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
 
 /**
  * 
@@ -37,8 +38,8 @@ public class Registration {
 	/*
 	 * deferred registries
 	 */
-	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, DungeonBlocks.MOD_ID);
-	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, DungeonBlocks.MOD_ID);
+	public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(DungeonBlocks.MOD_ID);
+	public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(DungeonBlocks.MOD_ID);
 		
 	/**
 	 * 

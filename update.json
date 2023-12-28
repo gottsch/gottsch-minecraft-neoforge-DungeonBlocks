@@ -1,10 +1,10 @@
 {
     "homepage": "https://minecraft.curseforge.com/projects/dungeonblocks",
     "promos": {
-    "1.20.1-latest": "2.1.0",
-    "1.20.1-recommended": "2.1.0"
+    "1.20.2-latest": "2.1.0",
+    "1.20.2-recommended": "2.1.0"
   },
-    "1.20.1": {
-       "2.1.0": "See https://raw.githubusercontent.com/gottsch/gottsch-minecraft-dungeonblocks/1.20.1-main/CHANGELOG.md"
+    "1.20.2": {
+       "2.1.0": "See https://raw.githubusercontent.com/gottsch/gottsch-minecraft-neoforge-dungeonblocks/1.20.2-main/CHANGELOG.md"
 	}
 }

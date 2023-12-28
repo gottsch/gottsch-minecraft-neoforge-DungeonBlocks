@@ -21,21 +21,20 @@ package mod.gottsch.neo.dungeonblocks.core.config;
 
 import mod.gottsch.neo.dungeonblocks.DungeonBlocks;
 import mod.gottsch.neo.gottschcore.config.AbstractConfig;
-import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.neoforged.neoforge.common.ModConfigSpec;
+import net.neoforged.fml.common.Mod.EventBusSubscriber;
 
 /**
  * 
  * @author Mark Gottschling on Jan 5, 2020
  *
  */
-@EventBusSubscriber(modid = DungeonBlocks.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class DungeonBlocksConfig extends AbstractConfig {
-	protected static final ForgeConfigSpec.Builder COMMON_BUILDER = new ForgeConfigSpec.Builder();
-	protected static final ForgeConfigSpec.Builder CLIENT_BUILDER = new ForgeConfigSpec.Builder();
+	protected static final ModConfigSpec.Builder COMMON_BUILDER = new ModConfigSpec.Builder();
+	protected static final ModConfigSpec.Builder CLIENT_BUILDER = new ModConfigSpec.Builder();
 
-	public static ForgeConfigSpec COMMON_CONFIG;
-	public static ForgeConfigSpec CLIENT_CONFIG;
+	public static ModConfigSpec COMMON_CONFIG;
+	public static ModConfigSpec CLIENT_CONFIG;
 
 	public static DungeonBlocksConfig instance = new DungeonBlocksConfig();
 	
@@ -43,10 +42,6 @@ public class DungeonBlocksConfig extends AbstractConfig {
 		COMMON_CONFIG = COMMON_BUILDER.build();
 	}
 
-	/**
-	 * 
-	 * @param mod
-	 */
 	public DungeonBlocksConfig() {
 	}
 

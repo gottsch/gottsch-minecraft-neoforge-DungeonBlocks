@@ -22,22 +22,22 @@ import mod.gottsch.neo.dungeonblocks.core.setup.Registration;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.DeferredRegister;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+import java.util.function.Supplier;
 
 /**
  * 
  * @author Mark Gottschling Feb 17, 2023
  *
  */
-@Mod.EventBusSubscriber(modid = DungeonBlocks.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModCreativeModeTabs {
 //	public static CreativeModeTab MOD_TAB;
 
 	public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, DungeonBlocks.MOD_ID);
 
-	public static final RegistryObject<CreativeModeTab> MOD_TAB = TABS.register("treasure_tab",
+	public static final Supplier<CreativeModeTab> MOD_TAB = TABS.register("treasure_tab",
 			() -> CreativeModeTab.builder()
 					.title(Component.translatable("itemGroup.dungeonblocks"))
 					.icon(ModItems.LOGO.get()::getDefaultInstance)

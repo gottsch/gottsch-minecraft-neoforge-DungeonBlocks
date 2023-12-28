@@ -25,8 +25,11 @@ import mod.gottsch.neo.dungeonblocks.core.setup.Registration;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredItem;
+
+import java.util.function.Supplier;
 
 /**
  * @author Mark Gottschling on Jan 13, 2020
@@ -35,12 +38,12 @@ import net.minecraftforge.registries.RegistryObject;
  * This class uses @ObjectHolder to get a reference to the items
  *
  */
-@Mod.EventBusSubscriber(modid = DungeonBlocks.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+//@Mod.EventBusSubscriber(modid = DungeonBlocks.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModItems {
 	
 	public static final Item.Properties ITEM_PROPERTIES = new Item.Properties();
 
-	public static final RegistryObject<Item> LOGO = Registration.ITEMS.register("dungeonblocks_logo", () -> new Item(new Item.Properties()));
+	public static final Supplier<Item> LOGO = Registration.ITEMS.register("dungeonblocks_logo", () -> new Item(new Item.Properties()));
 
 	static {
 		// create items
@@ -58,7 +61,7 @@ public class ModItems {
 	}
 	
 	// conveniance method: take a RegistryObject<Block> and make a corresponding RegistryObject<Item> from it
-	public static <B extends Block> RegistryObject<Item> fromBlock(RegistryObject<B> block, Item.Properties itemProperties) {
+	public static <B extends Block> DeferredItem<Item> fromBlock(DeferredHolder<Block, ? extends Block> block, Item.Properties itemProperties) {
 		return Registration.ITEMS.register(block.getId().getPath(), () -> new BlockItem(block.get(), itemProperties));
 	}
 }

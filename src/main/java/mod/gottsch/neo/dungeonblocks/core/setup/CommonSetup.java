@@ -18,15 +18,15 @@
 package mod.gottsch.neo.dungeonblocks.core.setup;
 
 import mod.gottsch.neo.dungeonblocks.DungeonBlocks;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 
 /**
  * 
  * @author Mark Gottschling on Aug 17, 2022
  *
  */
-@Mod.EventBusSubscriber(modid = DungeonBlocks.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+//@Mod.EventBusSubscriber(modid = DungeonBlocks.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class CommonSetup {
     
     public static void setup() {
@@ -34,13 +34,4 @@ public class CommonSetup {
     
     public static void init(FMLCommonSetupEvent event) {
     }
-    
-//	@SubscribeEvent
-//	public static void registemItemsToTab(BuildContents event) {
-//		if (event.getTab() == ModCreativeModeTabs.MOD_TAB) {
-//			ModBlocks.MAP.forEach((block, item) -> {
-//				event.accept(item.get(), TabVisibility.PARENT_AND_SEARCH_TABS);
-//			});
-//		}
-//	}
 }

@@ -24,11 +24,11 @@ import mod.gottsch.neo.dungeonblocks.core.block.ModBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.client.model.generators.ItemModelBuilder;
-import net.minecraftforge.client.model.generators.ItemModelProvider;
-import net.minecraftforge.client.model.generators.ModelFile;
-import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.RegistryObject;
+import net.neoforged.neoforge.client.model.generators.ItemModelBuilder;
+import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
+import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 /**
  * 
@@ -75,17 +75,17 @@ public class ItemModelsProvider extends ItemModelProvider {
 
 	}
 
-	public ItemModelBuilder basicItem(RegistryObject<Item> item, ResourceLocation texture) {
+	public ItemModelBuilder basicItem(DeferredHolder<Item, ? extends Item> item, ResourceLocation texture) {
 		return getBuilder(item.getId().toString())
 				.parent(new ModelFile.UncheckedModelFile("item/generated"))
 				.texture("layer0", texture);
 	}
 
-	public ItemModelBuilder blockItemParent(RegistryObject<Item> item) {
+	public ItemModelBuilder blockItemParent(DeferredHolder<Item, ? extends Item> item) {
 		return withExistingParent(item.getId().getPath(), modLoc("block/" + item.getId().getPath()));
 	}
 
-	public ItemModelBuilder withExistingParent(RegistryObject<Item> item, ResourceLocation parent) {
+	public ItemModelBuilder withExistingParent(DeferredHolder<Item, ? extends Item> item, ResourceLocation parent) {
 		return withExistingParent(item.getId().getPath(), parent);
 	}
 }
