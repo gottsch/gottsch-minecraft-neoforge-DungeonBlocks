@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "dungeonblocks:block/obsidian_pillar_base_block"
+    }
+  }
+}

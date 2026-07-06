@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:terracotta"
+    },
+    [
+      {
+        "item": "dungeonblocks:dark_iron_grate"
+      },
+      {
+        "item": "dungeonblocks:dark_iron_heavy_trapdoor"
+      }
+    ]
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:terracotta_barred_window_block"
+  }
+}

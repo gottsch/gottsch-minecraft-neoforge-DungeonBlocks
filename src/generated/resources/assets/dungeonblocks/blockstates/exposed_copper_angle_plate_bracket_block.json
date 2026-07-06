@@ -1,0 +1,61 @@
+{
+  "variants": {
+    "facing=down,half=bottom": {
+      "model": "dungeonblocks:block/exposed_copper_angle_plate_bracket_block",
+      "uvlock": true,
+      "x": -90
+    },
+    "facing=down,half=top": {
+      "model": "dungeonblocks:block/exposed_copper_angle_plate_bracket_block"
+    },
+    "facing=east,half=bottom": {
+      "model": "dungeonblocks:block/exposed_copper_angle_plate_bracket_block",
+      "uvlock": true,
+      "x": -90,
+      "y": 90
+    },
+    "facing=east,half=top": {
+      "model": "dungeonblocks:block/exposed_copper_angle_plate_bracket_block",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=north,half=bottom": {
+      "model": "dungeonblocks:block/exposed_copper_angle_plate_bracket_block",
+      "uvlock": true,
+      "x": -90
+    },
+    "facing=north,half=top": {
+      "model": "dungeonblocks:block/exposed_copper_angle_plate_bracket_block"
+    },
+    "facing=south,half=bottom": {
+      "model": "dungeonblocks:block/exposed_copper_angle_plate_bracket_block",
+      "uvlock": true,
+      "x": -90,
+      "y": 180
+    },
+    "facing=south,half=top": {
+      "model": "dungeonblocks:block/exposed_copper_angle_plate_bracket_block",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=up,half=bottom": {
+      "model": "dungeonblocks:block/exposed_copper_angle_plate_bracket_block",
+      "uvlock": true,
+      "x": -90
+    },
+    "facing=up,half=top": {
+      "model": "dungeonblocks:block/exposed_copper_angle_plate_bracket_block"
+    },
+    "facing=west,half=bottom": {
+      "model": "dungeonblocks:block/exposed_copper_angle_plate_bracket_block",
+      "uvlock": true,
+      "x": -90,
+      "y": 270
+    },
+    "facing=west,half=top": {
+      "model": "dungeonblocks:block/exposed_copper_angle_plate_bracket_block",
+      "uvlock": true,
+      "y": 270
+    }
+  }
+}

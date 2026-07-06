@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "dungeonblocks:block/mossy_bricks",
+    "side": "dungeonblocks:block/mossy_bricks",
+    "top": "dungeonblocks:block/mossy_bricks"
+  }
+}

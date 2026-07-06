@@ -1,0 +1,6 @@
+{
+  "parent": "dungeonblocks:block/facade_inner_block_base",
+  "textures": {
+    "0": "minecraft:block/cracked_stone_bricks"
+  }
+}

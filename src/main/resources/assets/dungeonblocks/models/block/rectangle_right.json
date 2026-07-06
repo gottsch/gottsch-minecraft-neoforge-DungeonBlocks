@@ -1,0 +1,12 @@
+{
+  "parent": "dungeonblocks:block/rectangle",
+  "textures": {
+    "particle": "#right",
+    "down": "#left",
+    "up": "#right",
+    "north": "#right",
+    "east": "#left",
+    "south": "#left",
+    "west": "#right"
+  }
+}

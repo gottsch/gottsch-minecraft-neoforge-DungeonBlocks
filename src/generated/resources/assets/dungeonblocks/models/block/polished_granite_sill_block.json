@@ -1,0 +1,6 @@
+{
+  "parent": "dungeonblocks:block/sill_block_base",
+  "textures": {
+    "0": "minecraft:block/polished_granite"
+  }
+}

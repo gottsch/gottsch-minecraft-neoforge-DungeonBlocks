@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "dungeonblocks:block/mossy_left_large_brick",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "dungeonblocks:block/mossy_left_large_brick",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "dungeonblocks:block/mossy_left_large_brick"
+    },
+    "facing=south": {
+      "model": "dungeonblocks:block/mossy_left_large_brick",
+      "y": 180
+    },
+    "facing=up": {
+      "model": "dungeonblocks:block/mossy_left_large_brick",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "dungeonblocks:block/mossy_left_large_brick",
+      "y": 270
+    }
+  }
+}

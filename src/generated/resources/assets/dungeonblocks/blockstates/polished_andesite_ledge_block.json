@@ -1,0 +1,151 @@
+{
+  "variants": {
+    "facing=down,shape=inner_left": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block_inner",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=down,shape=inner_right": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block_inner",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=down,shape=outer_left": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block_outer",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=down,shape=outer_right": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block_outer",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=down,shape=straight": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=east,shape=inner_left": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block_inner",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=east,shape=inner_right": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block_inner",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=east,shape=outer_left": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block_outer",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=east,shape=outer_right": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block_outer",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=east,shape=straight": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=north,shape=inner_left": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block_inner",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=north,shape=inner_right": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block_inner",
+      "uvlock": true
+    },
+    "facing=north,shape=outer_left": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block_outer",
+      "uvlock": true
+    },
+    "facing=north,shape=outer_right": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block_outer",
+      "uvlock": true,
+      "y": 90
+    },
+    "facing=north,shape=straight": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block",
+      "uvlock": true
+    },
+    "facing=south,shape=inner_left": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block_inner",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=south,shape=inner_right": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block_inner",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=south,shape=outer_left": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block_outer",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=south,shape=outer_right": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block_outer",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=south,shape=straight": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block",
+      "uvlock": true,
+      "y": 180
+    },
+    "facing=up,shape=inner_left": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block_inner",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=up,shape=inner_right": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block_inner",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=up,shape=outer_left": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block_outer",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=up,shape=outer_right": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block_outer",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=up,shape=straight": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=west,shape=inner_left": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block_inner",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=west,shape=inner_right": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block_inner",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=west,shape=outer_left": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block_outer",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=west,shape=outer_right": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block_outer",
+      "uvlock": true,
+      "y": 270
+    },
+    "facing=west,shape=straight": {
+      "model": "dungeonblocks:block/polished_andesite_ledge_block",
+      "uvlock": true,
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "dungeonblocks:block/angle_plate_bracket_block",
+  "textures": {
+    "0": "minecraft:block/oxidized_copper"
+  }
+}

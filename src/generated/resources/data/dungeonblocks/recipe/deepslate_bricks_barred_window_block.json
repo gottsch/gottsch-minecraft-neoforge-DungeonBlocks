@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "minecraft:deepslate_bricks"
+    },
+    [
+      {
+        "item": "dungeonblocks:dark_iron_grate"
+      },
+      {
+        "item": "dungeonblocks:dark_iron_heavy_trapdoor"
+      }
+    ]
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:deepslate_bricks_barred_window_block"
+  }
+}

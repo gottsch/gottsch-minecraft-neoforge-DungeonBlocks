@@ -1,0 +1,6 @@
+{
+  "parent": "dungeonblocks:block/crown_molding_outer_block_base",
+  "textures": {
+    "0": "minecraft:block/chiseled_sandstone"
+  }
+}

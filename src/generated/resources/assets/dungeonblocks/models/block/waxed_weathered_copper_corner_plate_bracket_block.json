@@ -1,0 +1,6 @@
+{
+  "parent": "dungeonblocks:block/corner_plate_bracket_block",
+  "textures": {
+    "0": "minecraft:block/weathered_copper"
+  }
+}

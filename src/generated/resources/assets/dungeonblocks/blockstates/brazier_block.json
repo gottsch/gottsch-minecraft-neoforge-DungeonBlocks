@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "dungeonblocks:block/brazier_block"
+    },
+    "lit=true": {
+      "model": "dungeonblocks:block/brazier_lit_block"
+    }
+  }
+}

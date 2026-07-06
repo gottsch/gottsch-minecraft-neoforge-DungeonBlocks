@@ -1,0 +1,6 @@
+{
+  "parent": "dungeonblocks:block/arrow_slit_block",
+  "textures": {
+    "0": "minecraft:block/andesite"
+  }
+}

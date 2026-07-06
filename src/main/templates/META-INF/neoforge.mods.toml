@@ -1,0 +1,46 @@
+# The name of the mod loader type to load - for regular FML @Mod mods it should be javafml
+modLoader="javafml"
+
+# A version range to match for said mod loader - for regular FML @Mod it will be the FML/loader version
+loaderVersion="${loader_version_range}"
+
+# License
+license="${mod_license}"
+
+# A URL to refer people to when problems occur with this mod
+issueTrackerURL="https://github.com/gottsch/gottsch-minecraft-dungeonblocks/issues"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+updateJSONURL="https://raw.githubusercontent.com/gottsch/gottsch-minecraft-dungeonblocks/1.21.1-main/update.json"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/dungeonblocks"
+logoFile="dungeonblocks_logo.png"
+credits=""
+authors="${mod_authors}"
+description='''${mod_description}'''
+
+# NeoForge dependency
+[[dependencies.${mod_id}]]
+modId="neoforge"
+type="required"
+versionRange="${neo_version_range}"
+ordering="NONE"
+side="BOTH"
+
+# Minecraft dependency
+[[dependencies.${mod_id}]]
+modId="minecraft"
+type="required"
+versionRange="${minecraft_version_range}"
+ordering="NONE"
+side="BOTH"
+
+# GottschCore dependency (must load first)
+[[dependencies.${mod_id}]]
+modId="gottschcore"
+type="required"
+versionRange="${gottschcore_version_range}"
+ordering="AFTER"
+side="BOTH"

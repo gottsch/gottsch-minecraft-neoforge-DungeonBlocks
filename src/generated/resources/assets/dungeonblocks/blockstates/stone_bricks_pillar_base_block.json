@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "dungeonblocks:block/stone_bricks_pillar_base_block"
+    }
+  }
+}

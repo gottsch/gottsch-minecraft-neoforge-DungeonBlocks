@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "dungeonblocks:block/exposed_copper_valve_wheel",
+      "x": 90
+    },
+    "facing=east": {
+      "model": "dungeonblocks:block/exposed_copper_valve_wheel",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "dungeonblocks:block/exposed_copper_valve_wheel"
+    },
+    "facing=south": {
+      "model": "dungeonblocks:block/exposed_copper_valve_wheel",
+      "y": 180
+    },
+    "facing=up": {
+      "model": "dungeonblocks:block/exposed_copper_valve_wheel",
+      "x": -90
+    },
+    "facing=west": {
+      "model": "dungeonblocks:block/exposed_copper_valve_wheel",
+      "y": 270
+    }
+  }
+}

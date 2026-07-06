@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "dungeonblocks:block/wall_ring_open",
+      "x": 90
+    },
+    "facing=east": {
+      "model": "dungeonblocks:block/wall_ring",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "dungeonblocks:block/wall_ring"
+    },
+    "facing=south": {
+      "model": "dungeonblocks:block/wall_ring",
+      "y": 180
+    },
+    "facing=up": {
+      "model": "dungeonblocks:block/wall_ring",
+      "x": -90
+    },
+    "facing=west": {
+      "model": "dungeonblocks:block/wall_ring",
+      "y": 270
+    }
+  }
+}

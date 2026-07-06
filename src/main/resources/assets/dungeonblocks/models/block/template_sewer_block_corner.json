@@ -1,0 +1,74 @@
+{
+	"parent": "block/block",
+	"textures": {
+		"3": "dungeonblocks:block/sewer_water_still",
+		"particle": "#0"
+	},
+	"elements": [
+		{
+			"name": "east",
+			"from": [13, 3, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 3, 13], "texture": "#1"},
+				"east": {"uv": [16, 0, 0, 13], "texture": "#0"},
+				"south": {"uv": [13, 0, 16, 13], "texture": "#1"},
+				"west": {"uv": [0, 0, 16, 13], "texture": "#0"},
+				"up": {"uv": [0, 0, 16, 3], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [0, 0, 3, 16], "texture": "#missing"}
+			}
+		},
+		{
+			"name": "bottom",
+			"from": [0, 0, 0],
+			"to": [16, 3, 16],
+			"faces": {
+				"north": {"uv": [0, 13, 16, 16], "texture": "#1"},
+				"east": {"uv": [0, 13, 16, 16], "texture": "#0"},
+				"south": {"uv": [0, 13, 16, 16], "texture": "#1"},
+				"west": {"uv": [0, 13, 16, 16], "texture": "#0"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"down": {"uv": [0, 0, 16, 16], "rotation": 270, "texture": "#0"}
+			}
+		},
+		{
+			"name": "south",
+			"from": [0, 3, 13],
+			"to": [13, 16, 16],
+			"faces": {
+				"north": {"uv": [3, 0, 16, 13], "texture": "#0"},
+				"east": {"uv": [0, 0, 3, 13], "texture": "#missing"},
+				"south": {"uv": [0, 0, 13, 13], "texture": "#0"},
+				"west": {"uv": [13, 0, 16, 13], "texture": "#1"},
+				"up": {"uv": [13, 3, 16, 16], "rotation": 90, "texture": "#0"},
+				"down": {"uv": [0, 0, 13, 3], "texture": "#missing"}
+			}
+		},
+		{
+			"name": "water",
+			"from": [0.01, 3, 0.01],
+			"to": [13, 11, 13],
+			"faces": {
+				"north": {"uv": [3, 0, 15.99, 8], "texture": "#3"},
+				"east": {"uv": [0, 0, 12.99, 8], "texture": "#missing"},
+				"south": {"uv": [0, 0, 12.99, 8], "texture": "#missing"},
+				"west": {"uv": [0, 0, 12.99, 8], "texture": "#3"},
+				"up": {"uv": [0, 0, 12.99, 12.99], "texture": "#3"},
+				"down": {"uv": [0, 0, 12.99, 12.99], "texture": "#missing"}
+			}
+		},
+		{
+			"name": "west",
+			"from": [0, 3, 0],
+			"to": [3, 16, 3],
+			"faces": {
+				"north": {"uv": [13, 0, 16, 13], "texture": "#1"},
+				"east": {"uv": [13, 0, 16, 13], "texture": "#1"},
+				"south": {"uv": [0, 0, 3, 13], "texture": "#1"},
+				"west": {"uv": [0, 0, 3, 13], "texture": "#1"},
+				"up": {"uv": [0, 0, 3, 3], "texture": "#0"},
+				"down": {"uv": [0, 0, 3, 3], "texture": "#missing"}
+			}
+		}
+	]
+}

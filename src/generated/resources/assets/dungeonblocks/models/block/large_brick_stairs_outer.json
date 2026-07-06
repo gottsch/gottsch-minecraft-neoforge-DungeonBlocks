@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "dungeonblocks:block/large_bricks",
+    "side": "dungeonblocks:block/large_bricks",
+    "top": "dungeonblocks:block/large_bricks"
+  }
+}

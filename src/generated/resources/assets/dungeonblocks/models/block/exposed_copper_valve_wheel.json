@@ -1,0 +1,6 @@
+{
+  "parent": "dungeonblocks:block/template_valve_wheel",
+  "textures": {
+    "0": "minecraft:block/exposed_copper"
+  }
+}

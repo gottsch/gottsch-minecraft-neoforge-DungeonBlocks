@@ -1,0 +1,50 @@
+{
+  "variants": {
+    "facing=down,waterlogged=false": {
+      "model": "dungeonblocks:block/chiseled_sandstone_barred_window_block",
+      "y": 90
+    },
+    "facing=down,waterlogged=true": {
+      "model": "dungeonblocks:block/chiseled_sandstone_barred_window_block",
+      "y": 90
+    },
+    "facing=east,waterlogged=false": {
+      "model": "dungeonblocks:block/chiseled_sandstone_barred_window_block",
+      "y": 90
+    },
+    "facing=east,waterlogged=true": {
+      "model": "dungeonblocks:block/chiseled_sandstone_barred_window_block",
+      "y": 90
+    },
+    "facing=north,waterlogged=false": {
+      "model": "dungeonblocks:block/chiseled_sandstone_barred_window_block"
+    },
+    "facing=north,waterlogged=true": {
+      "model": "dungeonblocks:block/chiseled_sandstone_barred_window_block"
+    },
+    "facing=south,waterlogged=false": {
+      "model": "dungeonblocks:block/chiseled_sandstone_barred_window_block",
+      "y": 180
+    },
+    "facing=south,waterlogged=true": {
+      "model": "dungeonblocks:block/chiseled_sandstone_barred_window_block",
+      "y": 180
+    },
+    "facing=up,waterlogged=false": {
+      "model": "dungeonblocks:block/chiseled_sandstone_barred_window_block",
+      "y": 90
+    },
+    "facing=up,waterlogged=true": {
+      "model": "dungeonblocks:block/chiseled_sandstone_barred_window_block",
+      "y": 90
+    },
+    "facing=west,waterlogged=false": {
+      "model": "dungeonblocks:block/chiseled_sandstone_barred_window_block",
+      "y": 270
+    },
+    "facing=west,waterlogged=true": {
+      "model": "dungeonblocks:block/chiseled_sandstone_barred_window_block",
+      "y": 270
+    }
+  }
+}

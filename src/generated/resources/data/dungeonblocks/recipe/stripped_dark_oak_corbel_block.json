@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:stripped_dark_oak_log"
+  },
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:stripped_dark_oak_corbel_block"
+  }
+}

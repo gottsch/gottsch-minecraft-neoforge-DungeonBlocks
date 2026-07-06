@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "hanging=false,lit=false": {
+      "model": "dungeonblocks:block/dungeon_lantern"
+    },
+    "hanging=true,lit=false": {
+      "model": "dungeonblocks:block/dungeon_lantern_hanging"
+    },
+    "hanging=false,lit=true": {
+      "model": "dungeonblocks:block/dungeon_lantern_lit"
+    },
+    "hanging=true,lit=true": {
+      "model": "dungeonblocks:block/dungeon_lantern_hanging_lit"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "dungeonblocks:block/quarter_facade_outer_block_base",
+  "textures": {
+    "0": "minecraft:block/obsidian"
+  }
+}

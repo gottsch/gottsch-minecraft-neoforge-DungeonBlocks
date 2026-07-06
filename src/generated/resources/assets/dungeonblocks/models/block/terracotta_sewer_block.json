@@ -1,0 +1,7 @@
+{
+  "parent": "dungeonblocks:block/template_sewer_block",
+  "textures": {
+    "0": "minecraft:block/terracotta",
+    "1": "minecraft:block/terracotta"
+  }
+}

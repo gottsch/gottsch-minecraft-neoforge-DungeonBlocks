@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "dungeonblocks:block/stone_greek_block",
+      "y": 90
+    },
+    "facing=east": {
+      "model": "dungeonblocks:block/stone_greek_block",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "dungeonblocks:block/stone_greek_block"
+    },
+    "facing=south": {
+      "model": "dungeonblocks:block/stone_greek_block",
+      "y": 180
+    },
+    "facing=up": {
+      "model": "dungeonblocks:block/stone_greek_block",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "dungeonblocks:block/stone_greek_block",
+      "y": 270
+    }
+  }
+}

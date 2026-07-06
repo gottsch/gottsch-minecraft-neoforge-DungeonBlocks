@@ -1,0 +1,25 @@
+{
+  "values": [
+    "dungeonblocks:andesite_ledge_block",
+    "dungeonblocks:blackstone_ledge_block",
+    "dungeonblocks:bricks_ledge_block",
+    "dungeonblocks:cobblestone_ledge_block",
+    "dungeonblocks:cobbled_deepslate_ledge_block",
+    "dungeonblocks:deepslate_bricks_ledge_block",
+    "dungeonblocks:deepslate_ledge_block",
+    "dungeonblocks:diorite_ledge_block",
+    "dungeonblocks:granite_ledge_block",
+    "dungeonblocks:light_gray_concrete_ledge_block",
+    "dungeonblocks:mossy_cobblestone_ledge_block",
+    "dungeonblocks:mossy_stone_bricks_ledge_block",
+    "dungeonblocks:polished_andesite_ledge_block",
+    "dungeonblocks:polished_blackstone_ledge_block",
+    "dungeonblocks:polished_blackstone_bricks_ledge_block",
+    "dungeonblocks:polished_deepslate_ledge_block",
+    "dungeonblocks:polished_diorite_ledge_block",
+    "dungeonblocks:polished_granite_ledge_block",
+    "dungeonblocks:smooth_stone_ledge_block",
+    "dungeonblocks:stone_bricks_ledge_block",
+    "dungeonblocks:stone_ledge_block"
+  ]
+}

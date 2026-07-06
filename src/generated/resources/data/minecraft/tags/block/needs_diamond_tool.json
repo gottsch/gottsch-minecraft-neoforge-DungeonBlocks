@@ -1,0 +1,16 @@
+{
+  "values": [
+    "dungeonblocks:obsidian_facade_block",
+    "dungeonblocks:obsidian_quarter_facade_block",
+    "dungeonblocks:obsidian_fluted_block",
+    "dungeonblocks:obsidian_fluted_facade_block",
+    "dungeonblocks:obsidian_sill_block",
+    "dungeonblocks:obsidian_double_sill_block",
+    "dungeonblocks:obsidian_cornice_block",
+    "dungeonblocks:obsidian_crown_molding_block",
+    "dungeonblocks:obsidian_pillar_base_block",
+    "dungeonblocks:obsidian_pillar_block",
+    "dungeonblocks:obsidian_barred_window_block",
+    "dungeonblocks:obsidian_barred_window_facade_block"
+  ]
+}

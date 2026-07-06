@@ -1,0 +1,7 @@
+{
+  "parent": "dungeonblocks:block/rectangle_right",
+  "textures": {
+    "left": "dungeonblocks:block/mossy_left_large_brick",
+    "right": "dungeonblocks:block/mossy_right_large_brick"
+  }
+}

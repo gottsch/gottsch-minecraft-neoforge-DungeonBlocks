@@ -1,0 +1,6 @@
+{
+  "parent": "dungeonblocks:block/cornice_outer_block_base",
+  "textures": {
+    "0": "minecraft:block/deepslate"
+  }
+}

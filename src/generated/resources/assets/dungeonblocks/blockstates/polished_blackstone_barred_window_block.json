@@ -1,0 +1,234 @@
+{
+  "variants": {
+    "facing=down,shape=inner_left,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=down,shape=inner_left,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=down,shape=inner_right,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=down,shape=inner_right,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=down,shape=outer_left,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=down,shape=outer_left,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=down,shape=outer_right,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=down,shape=outer_right,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=down,shape=straight,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=down,shape=straight,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=east,shape=inner_left,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=east,shape=inner_left,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=east,shape=inner_right,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=east,shape=inner_right,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=east,shape=outer_left,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=east,shape=outer_left,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=east,shape=outer_right,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=east,shape=outer_right,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=east,shape=straight,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=east,shape=straight,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=north,shape=inner_left,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block"
+    },
+    "facing=north,shape=inner_left,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block"
+    },
+    "facing=north,shape=inner_right,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block"
+    },
+    "facing=north,shape=inner_right,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block"
+    },
+    "facing=north,shape=outer_left,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block"
+    },
+    "facing=north,shape=outer_left,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block"
+    },
+    "facing=north,shape=outer_right,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block"
+    },
+    "facing=north,shape=outer_right,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block"
+    },
+    "facing=north,shape=straight,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block"
+    },
+    "facing=north,shape=straight,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block"
+    },
+    "facing=south,shape=inner_left,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 180
+    },
+    "facing=south,shape=inner_left,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 180
+    },
+    "facing=south,shape=inner_right,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 180
+    },
+    "facing=south,shape=inner_right,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 180
+    },
+    "facing=south,shape=outer_left,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 180
+    },
+    "facing=south,shape=outer_left,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 180
+    },
+    "facing=south,shape=outer_right,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 180
+    },
+    "facing=south,shape=outer_right,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 180
+    },
+    "facing=south,shape=straight,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 180
+    },
+    "facing=south,shape=straight,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 180
+    },
+    "facing=up,shape=inner_left,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=up,shape=inner_left,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=up,shape=inner_right,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=up,shape=inner_right,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=up,shape=outer_left,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=up,shape=outer_left,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=up,shape=outer_right,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=up,shape=outer_right,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=up,shape=straight,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=up,shape=straight,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 90
+    },
+    "facing=west,shape=inner_left,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 270
+    },
+    "facing=west,shape=inner_left,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 270
+    },
+    "facing=west,shape=inner_right,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 270
+    },
+    "facing=west,shape=inner_right,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 270
+    },
+    "facing=west,shape=outer_left,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 270
+    },
+    "facing=west,shape=outer_left,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 270
+    },
+    "facing=west,shape=outer_right,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 270
+    },
+    "facing=west,shape=outer_right,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 270
+    },
+    "facing=west,shape=straight,waterlogged=false": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 270
+    },
+    "facing=west,shape=straight,waterlogged=true": {
+      "model": "dungeonblocks:block/polished_blackstone_barred_window_block",
+      "y": 270
+    }
+  }
+}
