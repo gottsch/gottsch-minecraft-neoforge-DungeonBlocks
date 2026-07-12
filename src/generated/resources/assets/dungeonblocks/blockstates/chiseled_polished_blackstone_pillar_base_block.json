@@ -1,7 +1,56 @@
 {
   "variants": {
-    "": {
+    "base=down,waterlogged=false": {
+      "model": "dungeonblocks:block/chiseled_polished_blackstone_pillar_base_block",
+      "x": 180
+    },
+    "base=down,waterlogged=true": {
+      "model": "dungeonblocks:block/chiseled_polished_blackstone_pillar_base_block",
+      "x": 180
+    },
+    "base=east,waterlogged=false": {
+      "model": "dungeonblocks:block/chiseled_polished_blackstone_pillar_base_block",
+      "x": 90,
+      "y": 90
+    },
+    "base=east,waterlogged=true": {
+      "model": "dungeonblocks:block/chiseled_polished_blackstone_pillar_base_block",
+      "x": 90,
+      "y": 90
+    },
+    "base=north,waterlogged=false": {
+      "model": "dungeonblocks:block/chiseled_polished_blackstone_pillar_base_block",
+      "x": 90
+    },
+    "base=north,waterlogged=true": {
+      "model": "dungeonblocks:block/chiseled_polished_blackstone_pillar_base_block",
+      "x": 90
+    },
+    "base=south,waterlogged=false": {
+      "model": "dungeonblocks:block/chiseled_polished_blackstone_pillar_base_block",
+      "x": 90,
+      "y": 180
+    },
+    "base=south,waterlogged=true": {
+      "model": "dungeonblocks:block/chiseled_polished_blackstone_pillar_base_block",
+      "x": 90,
+      "y": 180
+    },
+    "base=up,waterlogged=false": {
       "model": "dungeonblocks:block/chiseled_polished_blackstone_pillar_base_block"
+    },
+    "base=up,waterlogged=true": {
+      "model": "dungeonblocks:block/chiseled_polished_blackstone_pillar_base_block"
+    },
+    "base=west,waterlogged=false": {
+      "model": "dungeonblocks:block/chiseled_polished_blackstone_pillar_base_block",
+      "x": 90,
+      "y": 270
+    },
+    "base=west,waterlogged=true": {
+      "model": "dungeonblocks:block/chiseled_polished_blackstone_pillar_base_block",
+      "x": 90,
+      "y": 270
     }
   }
 }
