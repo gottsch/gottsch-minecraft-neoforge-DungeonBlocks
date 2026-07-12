@@ -94,7 +94,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
                         facadeBlock(b, "facade", maps.t2.get(material));
                     } else if (name.contains("pillar_base")) {
                         material = b.getId().getPath().split("_pillar_base")[0];
-                        simpleSingleTexture(b, modLoc("block/pillar_base_block_base"), (ResourceLocation)maps.t2.get(material));
+                        basedBlock(b, "pillar_base_block_base", (ResourceLocation)maps.t2.get(material));
                     } else if (name.contains("pillar_block")) {
                         material = b.getId().getPath().split("_pillar_block")[0];
                         basedBlock(b, "pillar_block_base", (ResourceLocation)maps.t2.get(material));
