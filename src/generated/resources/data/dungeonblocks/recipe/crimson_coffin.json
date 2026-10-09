@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:bone"
+    },
+    "p": {
+      "item": "minecraft:crimson_planks"
+    },
+    "s": {
+      "item": "minecraft:crimson_slab"
+    }
+  },
+  "pattern": [
+    "sss",
+    "pbp"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:crimson_coffin"
+  }
+}

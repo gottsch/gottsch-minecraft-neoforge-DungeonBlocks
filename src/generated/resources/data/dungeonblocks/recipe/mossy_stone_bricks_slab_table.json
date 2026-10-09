@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "x": {
+      "item": "minecraft:mossy_stone_brick_slab"
+    },
+    "y": {
+      "item": "minecraft:mossy_stone_bricks"
+    }
+  },
+  "pattern": [
+    "xxx",
+    "y y"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:mossy_stone_bricks_slab_table"
+  }
+}

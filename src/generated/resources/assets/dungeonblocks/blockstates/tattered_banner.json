@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "animated=false,facing=east,half=lower": {
+      "model": "dungeonblocks:block/tattered_banner"
+    },
+    "animated=false,facing=east,half=upper": {
+      "model": "dungeonblocks:block/tattered_banner"
+    },
+    "animated=false,facing=north,half=lower": {
+      "model": "dungeonblocks:block/tattered_banner"
+    },
+    "animated=false,facing=north,half=upper": {
+      "model": "dungeonblocks:block/tattered_banner"
+    },
+    "animated=false,facing=south,half=lower": {
+      "model": "dungeonblocks:block/tattered_banner"
+    },
+    "animated=false,facing=south,half=upper": {
+      "model": "dungeonblocks:block/tattered_banner"
+    },
+    "animated=false,facing=west,half=lower": {
+      "model": "dungeonblocks:block/tattered_banner"
+    },
+    "animated=false,facing=west,half=upper": {
+      "model": "dungeonblocks:block/tattered_banner"
+    },
+    "animated=true,facing=east,half=lower": {
+      "model": "dungeonblocks:block/tattered_banner"
+    },
+    "animated=true,facing=east,half=upper": {
+      "model": "dungeonblocks:block/tattered_banner"
+    },
+    "animated=true,facing=north,half=lower": {
+      "model": "dungeonblocks:block/tattered_banner"
+    },
+    "animated=true,facing=north,half=upper": {
+      "model": "dungeonblocks:block/tattered_banner"
+    },
+    "animated=true,facing=south,half=lower": {
+      "model": "dungeonblocks:block/tattered_banner"
+    },
+    "animated=true,facing=south,half=upper": {
+      "model": "dungeonblocks:block/tattered_banner"
+    },
+    "animated=true,facing=west,half=lower": {
+      "model": "dungeonblocks:block/tattered_banner"
+    },
+    "animated=true,facing=west,half=upper": {
+      "model": "dungeonblocks:block/tattered_banner"
+    }
+  }
+}

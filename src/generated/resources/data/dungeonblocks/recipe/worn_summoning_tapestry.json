@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "dungeonblocks:summoning_tapestry"
+    },
+    {
+      "item": "minecraft:coarse_dirt"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:worn_summoning_tapestry"
+  }
+}

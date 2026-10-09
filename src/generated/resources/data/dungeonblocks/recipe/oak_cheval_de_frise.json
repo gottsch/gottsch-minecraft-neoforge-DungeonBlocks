@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "l": {
+      "item": "minecraft:oak_log"
+    },
+    "s": {
+      "item": "dungeonblocks:sharpened_oak_log"
+    }
+  },
+  "pattern": [
+    "sls"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:oak_cheval_de_frise"
+  }
+}

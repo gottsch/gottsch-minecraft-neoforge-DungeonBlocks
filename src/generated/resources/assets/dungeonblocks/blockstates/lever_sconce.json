@@ -1,0 +1,50 @@
+{
+  "variants": {
+    "facing=down,powered=false": {
+      "model": "dungeonblocks:block/torch_sconce_block",
+      "y": 90
+    },
+    "facing=down,powered=true": {
+      "model": "dungeonblocks:block/lever_sconce_pulled",
+      "y": 90
+    },
+    "facing=east,powered=false": {
+      "model": "dungeonblocks:block/torch_sconce_block",
+      "y": 90
+    },
+    "facing=east,powered=true": {
+      "model": "dungeonblocks:block/lever_sconce_pulled",
+      "y": 90
+    },
+    "facing=north,powered=false": {
+      "model": "dungeonblocks:block/torch_sconce_block"
+    },
+    "facing=north,powered=true": {
+      "model": "dungeonblocks:block/lever_sconce_pulled"
+    },
+    "facing=south,powered=false": {
+      "model": "dungeonblocks:block/torch_sconce_block",
+      "y": 180
+    },
+    "facing=south,powered=true": {
+      "model": "dungeonblocks:block/lever_sconce_pulled",
+      "y": 180
+    },
+    "facing=up,powered=false": {
+      "model": "dungeonblocks:block/torch_sconce_block",
+      "y": 90
+    },
+    "facing=up,powered=true": {
+      "model": "dungeonblocks:block/lever_sconce_pulled",
+      "y": 90
+    },
+    "facing=west,powered=false": {
+      "model": "dungeonblocks:block/torch_sconce_block",
+      "y": 270
+    },
+    "facing=west,powered=true": {
+      "model": "dungeonblocks:block/lever_sconce_pulled",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:iron_bars"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "iii",
+    "ibi",
+    "iii"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:iron_maiden"
+  }
+}

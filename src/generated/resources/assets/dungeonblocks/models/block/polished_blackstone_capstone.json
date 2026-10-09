@@ -1,0 +1,11 @@
+{
+  "parent": "dungeonblocks:block/block_no_ao",
+  "flip_v": true,
+  "loader": "neoforge:obj",
+  "model": "dungeonblocks:models/block/pyramid.obj",
+  "textures": {
+    "base": "minecraft:block/polished_blackstone",
+    "facet": "minecraft:block/polished_blackstone",
+    "particle": "minecraft:block/polished_blackstone"
+  }
+}

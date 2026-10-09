@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "axis=x,bottom=false": {
+      "model": "dungeonblocks:block/portcullis"
+    },
+    "axis=x,bottom=true": {
+      "model": "dungeonblocks:block/portcullis_bottom"
+    },
+    "axis=z,bottom=false": {
+      "model": "dungeonblocks:block/portcullis",
+      "y": 90
+    },
+    "axis=z,bottom=true": {
+      "model": "dungeonblocks:block/portcullis_bottom",
+      "y": 90
+    }
+  }
+}

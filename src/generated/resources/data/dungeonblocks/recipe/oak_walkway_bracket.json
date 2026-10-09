@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "s": {
+      "item": "minecraft:stripped_oak_log"
+    }
+  },
+  "pattern": [
+    "ss",
+    "s "
+  ],
+  "result": {
+    "count": 4,
+    "id": "dungeonblocks:oak_walkway_bracket"
+  }
+}

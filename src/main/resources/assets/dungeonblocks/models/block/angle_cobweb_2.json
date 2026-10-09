@@ -1,0 +1,19 @@
+{
+    "ambientocclusion": false,
+    "textures": {
+        "particle": "dungeonblocks:block/corner_cobweb",
+        "1": "dungeonblocks:block/corner_cobweb"
+    },
+    "render_type": "cutout",
+    "elements": [
+        {
+            "name": "strand",
+            "from": [7.5, 0, 0],
+            "to": [7.5, 16, 16],
+            "faces": {
+                "east": {"uv": [0, 0, 16, 16], "texture": "#1"},
+                "west": {"uv": [16, 0, 0, 16], "texture": "#1"}
+            }
+        }
+    ]
+}

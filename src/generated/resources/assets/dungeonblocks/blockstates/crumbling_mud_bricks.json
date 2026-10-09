@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "shaking=false": {
+      "model": "dungeonblocks:block/crumbling_mud_bricks"
+    },
+    "shaking=true": {
+      "model": "dungeonblocks:block/crumbling_mud_bricks_shaking"
+    }
+  }
+}

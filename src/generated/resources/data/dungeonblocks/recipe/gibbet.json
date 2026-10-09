@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:iron_bars"
+    },
+    "x": {
+      "item": "minecraft:bone_block"
+    }
+  },
+  "pattern": [
+    "bbb",
+    "bxb",
+    "bbb"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:gibbet"
+  }
+}

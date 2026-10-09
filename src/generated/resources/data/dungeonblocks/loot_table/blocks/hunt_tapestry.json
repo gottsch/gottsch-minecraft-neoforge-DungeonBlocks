@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "dungeonblocks:hunt_tapestry",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "column": "0",
+                "row": "0"
+              }
+            }
+          ],
+          "name": "dungeonblocks:hunt_tapestry"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "dungeonblocks:blocks/hunt_tapestry"
+}

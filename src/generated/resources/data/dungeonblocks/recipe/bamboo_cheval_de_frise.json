@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "l": {
+      "item": "minecraft:bamboo_block"
+    },
+    "s": {
+      "item": "dungeonblocks:sharpened_bamboo_block"
+    }
+  },
+  "pattern": [
+    "sls"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:bamboo_cheval_de_frise"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "dungeonblocks:block/spruce_cheval_de_frise"
+    },
+    "axis=z": {
+      "model": "dungeonblocks:block/spruce_cheval_de_frise",
+      "y": 90
+    }
+  }
+}

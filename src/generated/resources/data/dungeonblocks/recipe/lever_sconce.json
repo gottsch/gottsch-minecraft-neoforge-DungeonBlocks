@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "dungeonblocks:torch_sconce_block"
+    },
+    {
+      "item": "minecraft:lever"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:lever_sconce"
+  }
+}

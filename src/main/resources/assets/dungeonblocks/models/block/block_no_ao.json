@@ -1,0 +1,37 @@
+{
+    "__comment": "Vanilla block/block, plus ambientocclusion:false, and deliberately WITHOUT a parent. BlockModel.hasAmbientOcclusion() reads the value from the ROOT of the parent chain - 'return this.parent != null ? this.parent.hasAmbientOcclusion() : this.hasAmbientOcclusion' - so a model that declares ambientocclusion:false while parented to block/block is silently ignored, because block/block does not declare it and therefore defaults to true. Vanilla never sets ambientocclusion on a parented model: all 131 vanilla block models that declare it are parentless. Any model in this mod that needs AO off must root here instead of at block/block. The display block below is copied verbatim from vanilla block/block so item rendering is unchanged.",
+    "ambientocclusion": false,
+    "gui_light": "side",
+    "display": {
+        "gui": {
+            "rotation": [ 30, 225, 0 ],
+            "translation": [ 0, 0, 0],
+            "scale":[ 0.625, 0.625, 0.625 ]
+        },
+        "ground": {
+            "rotation": [ 0, 0, 0 ],
+            "translation": [ 0, 3, 0],
+            "scale":[ 0.25, 0.25, 0.25 ]
+        },
+        "fixed": {
+            "rotation": [ 0, 0, 0 ],
+            "translation": [ 0, 0, 0],
+            "scale":[ 0.5, 0.5, 0.5 ]
+        },
+        "thirdperson_righthand": {
+            "rotation": [ 75, 45, 0 ],
+            "translation": [ 0, 2.5, 0],
+            "scale": [ 0.375, 0.375, 0.375 ]
+        },
+        "firstperson_righthand": {
+            "rotation": [ 0, 45, 0 ],
+            "translation": [ 0, 0, 0 ],
+            "scale": [ 0.40, 0.40, 0.40 ]
+        },
+        "firstperson_lefthand": {
+            "rotation": [ 0, 225, 0 ],
+            "translation": [ 0, 0, 0 ],
+            "scale": [ 0.40, 0.40, 0.40 ]
+        }
+    }
+}

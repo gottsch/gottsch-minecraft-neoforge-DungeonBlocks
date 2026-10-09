@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "criteria": {
+      "conditions": {
+        "items": [
+          {
+            "items": "minecraft:dark_oak_planks"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dungeonblocks:dark_oak_coffin"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "criteria"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dungeonblocks:dark_oak_coffin"
+    ]
+  }
+}

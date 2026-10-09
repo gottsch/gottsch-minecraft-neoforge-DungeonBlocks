@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "shaking=false": {
+      "model": "dungeonblocks:block/crumbling_mossy_stone_bricks"
+    },
+    "shaking=true": {
+      "model": "dungeonblocks:block/crumbling_mossy_stone_bricks_shaking"
+    }
+  }
+}

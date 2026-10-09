@@ -1,0 +1,44 @@
+{
+  "parent": "minecraft:block/block",
+  "ambientocclusion": false,
+  "elements": [
+    {
+      "faces": {
+        "north": {
+          "texture": "#cloth",
+          "uv": [
+            0.0,
+            10.666667,
+            4.0,
+            16.0
+          ]
+        },
+        "south": {
+          "texture": "#cloth",
+          "uv": [
+            4.0,
+            10.666667,
+            0.0,
+            16.0
+          ]
+        }
+      },
+      "from": [
+        0,
+        0,
+        15
+      ],
+      "to": [
+        16,
+        16,
+        15
+      ]
+    }
+  ],
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cloth": "dungeonblocks:block/dragon_tapestry",
+    "particle": "dungeonblocks:block/dragon_tapestry",
+    "rod": "minecraft:block/dark_oak_log"
+  }
+}

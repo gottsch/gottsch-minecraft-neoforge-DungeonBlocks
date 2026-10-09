@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=east,open=false,part=foot": {
+      "model": "dungeonblocks:block/deepslate_sarcophagus_foot_body",
+      "y": 90
+    },
+    "facing=east,open=false,part=head": {
+      "model": "dungeonblocks:block/deepslate_sarcophagus_head_body",
+      "y": 90
+    },
+    "facing=east,open=true,part=foot": {
+      "model": "dungeonblocks:block/deepslate_sarcophagus_foot_body",
+      "y": 90
+    },
+    "facing=east,open=true,part=head": {
+      "model": "dungeonblocks:block/deepslate_sarcophagus_head_body",
+      "y": 90
+    },
+    "facing=north,open=false,part=foot": {
+      "model": "dungeonblocks:block/deepslate_sarcophagus_foot_body"
+    },
+    "facing=north,open=false,part=head": {
+      "model": "dungeonblocks:block/deepslate_sarcophagus_head_body"
+    },
+    "facing=north,open=true,part=foot": {
+      "model": "dungeonblocks:block/deepslate_sarcophagus_foot_body"
+    },
+    "facing=north,open=true,part=head": {
+      "model": "dungeonblocks:block/deepslate_sarcophagus_head_body"
+    },
+    "facing=south,open=false,part=foot": {
+      "model": "dungeonblocks:block/deepslate_sarcophagus_foot_body",
+      "y": 180
+    },
+    "facing=south,open=false,part=head": {
+      "model": "dungeonblocks:block/deepslate_sarcophagus_head_body",
+      "y": 180
+    },
+    "facing=south,open=true,part=foot": {
+      "model": "dungeonblocks:block/deepslate_sarcophagus_foot_body",
+      "y": 180
+    },
+    "facing=south,open=true,part=head": {
+      "model": "dungeonblocks:block/deepslate_sarcophagus_head_body",
+      "y": 180
+    },
+    "facing=west,open=false,part=foot": {
+      "model": "dungeonblocks:block/deepslate_sarcophagus_foot_body",
+      "y": 270
+    },
+    "facing=west,open=false,part=head": {
+      "model": "dungeonblocks:block/deepslate_sarcophagus_head_body",
+      "y": 270
+    },
+    "facing=west,open=true,part=foot": {
+      "model": "dungeonblocks:block/deepslate_sarcophagus_foot_body",
+      "y": 270
+    },
+    "facing=west,open=true,part=head": {
+      "model": "dungeonblocks:block/deepslate_sarcophagus_head_body",
+      "y": 270
+    }
+  }
+}

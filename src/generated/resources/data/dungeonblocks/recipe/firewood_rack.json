@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:iron_bars"
+    },
+    "l": {
+      "tag": "minecraft:logs_that_burn"
+    }
+  },
+  "pattern": [
+    "b b",
+    "lll",
+    "b b"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:firewood_rack"
+  }
+}

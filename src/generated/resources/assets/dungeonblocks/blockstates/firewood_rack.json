@@ -1,0 +1,154 @@
+{
+  "variants": {
+    "facing=east,firewood=0,waterlogged=false": {
+      "model": "dungeonblocks:block/firewood_rack_0",
+      "y": 90
+    },
+    "facing=east,firewood=0,waterlogged=true": {
+      "model": "dungeonblocks:block/firewood_rack_0",
+      "y": 90
+    },
+    "facing=east,firewood=1,waterlogged=false": {
+      "model": "dungeonblocks:block/firewood_rack_1",
+      "y": 90
+    },
+    "facing=east,firewood=1,waterlogged=true": {
+      "model": "dungeonblocks:block/firewood_rack_1",
+      "y": 90
+    },
+    "facing=east,firewood=2,waterlogged=false": {
+      "model": "dungeonblocks:block/firewood_rack_2",
+      "y": 90
+    },
+    "facing=east,firewood=2,waterlogged=true": {
+      "model": "dungeonblocks:block/firewood_rack_2",
+      "y": 90
+    },
+    "facing=east,firewood=3,waterlogged=false": {
+      "model": "dungeonblocks:block/firewood_rack_3",
+      "y": 90
+    },
+    "facing=east,firewood=3,waterlogged=true": {
+      "model": "dungeonblocks:block/firewood_rack_3",
+      "y": 90
+    },
+    "facing=east,firewood=4,waterlogged=false": {
+      "model": "dungeonblocks:block/firewood_rack_4",
+      "y": 90
+    },
+    "facing=east,firewood=4,waterlogged=true": {
+      "model": "dungeonblocks:block/firewood_rack_4",
+      "y": 90
+    },
+    "facing=north,firewood=0,waterlogged=false": {
+      "model": "dungeonblocks:block/firewood_rack_0"
+    },
+    "facing=north,firewood=0,waterlogged=true": {
+      "model": "dungeonblocks:block/firewood_rack_0"
+    },
+    "facing=north,firewood=1,waterlogged=false": {
+      "model": "dungeonblocks:block/firewood_rack_1"
+    },
+    "facing=north,firewood=1,waterlogged=true": {
+      "model": "dungeonblocks:block/firewood_rack_1"
+    },
+    "facing=north,firewood=2,waterlogged=false": {
+      "model": "dungeonblocks:block/firewood_rack_2"
+    },
+    "facing=north,firewood=2,waterlogged=true": {
+      "model": "dungeonblocks:block/firewood_rack_2"
+    },
+    "facing=north,firewood=3,waterlogged=false": {
+      "model": "dungeonblocks:block/firewood_rack_3"
+    },
+    "facing=north,firewood=3,waterlogged=true": {
+      "model": "dungeonblocks:block/firewood_rack_3"
+    },
+    "facing=north,firewood=4,waterlogged=false": {
+      "model": "dungeonblocks:block/firewood_rack_4"
+    },
+    "facing=north,firewood=4,waterlogged=true": {
+      "model": "dungeonblocks:block/firewood_rack_4"
+    },
+    "facing=south,firewood=0,waterlogged=false": {
+      "model": "dungeonblocks:block/firewood_rack_0",
+      "y": 180
+    },
+    "facing=south,firewood=0,waterlogged=true": {
+      "model": "dungeonblocks:block/firewood_rack_0",
+      "y": 180
+    },
+    "facing=south,firewood=1,waterlogged=false": {
+      "model": "dungeonblocks:block/firewood_rack_1",
+      "y": 180
+    },
+    "facing=south,firewood=1,waterlogged=true": {
+      "model": "dungeonblocks:block/firewood_rack_1",
+      "y": 180
+    },
+    "facing=south,firewood=2,waterlogged=false": {
+      "model": "dungeonblocks:block/firewood_rack_2",
+      "y": 180
+    },
+    "facing=south,firewood=2,waterlogged=true": {
+      "model": "dungeonblocks:block/firewood_rack_2",
+      "y": 180
+    },
+    "facing=south,firewood=3,waterlogged=false": {
+      "model": "dungeonblocks:block/firewood_rack_3",
+      "y": 180
+    },
+    "facing=south,firewood=3,waterlogged=true": {
+      "model": "dungeonblocks:block/firewood_rack_3",
+      "y": 180
+    },
+    "facing=south,firewood=4,waterlogged=false": {
+      "model": "dungeonblocks:block/firewood_rack_4",
+      "y": 180
+    },
+    "facing=south,firewood=4,waterlogged=true": {
+      "model": "dungeonblocks:block/firewood_rack_4",
+      "y": 180
+    },
+    "facing=west,firewood=0,waterlogged=false": {
+      "model": "dungeonblocks:block/firewood_rack_0",
+      "y": 270
+    },
+    "facing=west,firewood=0,waterlogged=true": {
+      "model": "dungeonblocks:block/firewood_rack_0",
+      "y": 270
+    },
+    "facing=west,firewood=1,waterlogged=false": {
+      "model": "dungeonblocks:block/firewood_rack_1",
+      "y": 270
+    },
+    "facing=west,firewood=1,waterlogged=true": {
+      "model": "dungeonblocks:block/firewood_rack_1",
+      "y": 270
+    },
+    "facing=west,firewood=2,waterlogged=false": {
+      "model": "dungeonblocks:block/firewood_rack_2",
+      "y": 270
+    },
+    "facing=west,firewood=2,waterlogged=true": {
+      "model": "dungeonblocks:block/firewood_rack_2",
+      "y": 270
+    },
+    "facing=west,firewood=3,waterlogged=false": {
+      "model": "dungeonblocks:block/firewood_rack_3",
+      "y": 270
+    },
+    "facing=west,firewood=3,waterlogged=true": {
+      "model": "dungeonblocks:block/firewood_rack_3",
+      "y": 270
+    },
+    "facing=west,firewood=4,waterlogged=false": {
+      "model": "dungeonblocks:block/firewood_rack_4",
+      "y": 270
+    },
+    "facing=west,firewood=4,waterlogged=true": {
+      "model": "dungeonblocks:block/firewood_rack_4",
+      "y": 270
+    }
+  }
+}

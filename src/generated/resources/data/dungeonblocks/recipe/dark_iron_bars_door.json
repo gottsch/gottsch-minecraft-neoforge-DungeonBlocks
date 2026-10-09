@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "redstone",
+  "ingredients": [
+    {
+      "item": "minecraft:iron_door"
+    },
+    {
+      "item": "dungeonblocks:dark_iron_bars"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:dark_iron_bars_door"
+  }
+}

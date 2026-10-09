@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "minecraft:tuff"
+    },
+    {
+      "item": "minecraft:bone"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:tuff_catacomb_niche"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "criteria": {
+      "conditions": {
+        "items": [
+          {
+            "items": "dungeonblocks:portcullis"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "dungeonblocks:portcullis_winch"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "criteria"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "dungeonblocks:portcullis_winch"
+    ]
+  }
+}

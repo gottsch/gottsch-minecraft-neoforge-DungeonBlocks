@@ -1,0 +1,690 @@
+{
+  "parent": "block/block",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "log": "minecraft:block/dark_oak_log",
+    "skeleton": "minecraft:entity/skeleton/skeleton",
+    "wood": "minecraft:block/dark_oak_planks",
+    "particle": "minecraft:block/dark_oak_planks"
+  },
+  "elements": [
+    {
+      "name": "post",
+      "from": [
+        0,
+        0,
+        9
+      ],
+      "to": [
+        2,
+        16,
+        11
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.0,
+            0.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#log"
+        },
+        "east": {
+          "uv": [
+            5.0,
+            0.0,
+            7.0,
+            16.0
+          ],
+          "texture": "#log"
+        },
+        "south": {
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            16.0
+          ],
+          "texture": "#log"
+        },
+        "west": {
+          "uv": [
+            9.0,
+            0.0,
+            11.0,
+            16.0
+          ],
+          "texture": "#log",
+          "cullface": "west"
+        },
+        "down": {
+          "uv": [
+            0.0,
+            5.0,
+            2.0,
+            7.0
+          ],
+          "texture": "#log",
+          "cullface": "down"
+        }
+      }
+    },
+    {
+      "name": "foot",
+      "from": [
+        0,
+        0,
+        6
+      ],
+      "to": [
+        3,
+        2,
+        9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            13.0,
+            14.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#log"
+        },
+        "east": {
+          "uv": [
+            7.0,
+            14.0,
+            10.0,
+            16.0
+          ],
+          "texture": "#log"
+        },
+        "south": {
+          "uv": [
+            0.0,
+            14.0,
+            3.0,
+            16.0
+          ],
+          "texture": "#log"
+        },
+        "west": {
+          "uv": [
+            6.0,
+            14.0,
+            9.0,
+            16.0
+          ],
+          "texture": "#log",
+          "cullface": "west"
+        },
+        "up": {
+          "uv": [
+            0.0,
+            6.0,
+            3.0,
+            9.0
+          ],
+          "texture": "#log"
+        },
+        "down": {
+          "uv": [
+            0.0,
+            7.0,
+            3.0,
+            10.0
+          ],
+          "texture": "#log",
+          "cullface": "down"
+        }
+      }
+    },
+    {
+      "name": "foot",
+      "from": [
+        0,
+        0,
+        11
+      ],
+      "to": [
+        3,
+        2,
+        14
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            13.0,
+            14.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#log"
+        },
+        "east": {
+          "uv": [
+            2.0,
+            14.0,
+            5.0,
+            16.0
+          ],
+          "texture": "#log"
+        },
+        "south": {
+          "uv": [
+            0.0,
+            14.0,
+            3.0,
+            16.0
+          ],
+          "texture": "#log"
+        },
+        "west": {
+          "uv": [
+            11.0,
+            14.0,
+            14.0,
+            16.0
+          ],
+          "texture": "#log",
+          "cullface": "west"
+        },
+        "up": {
+          "uv": [
+            0.0,
+            11.0,
+            3.0,
+            14.0
+          ],
+          "texture": "#log"
+        },
+        "down": {
+          "uv": [
+            0.0,
+            2.0,
+            3.0,
+            5.0
+          ],
+          "texture": "#log",
+          "cullface": "down"
+        }
+      }
+    },
+    {
+      "name": "post",
+      "from": [
+        14,
+        0,
+        9
+      ],
+      "to": [
+        16,
+        16,
+        11
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            16.0
+          ],
+          "texture": "#log"
+        },
+        "east": {
+          "uv": [
+            5.0,
+            0.0,
+            7.0,
+            16.0
+          ],
+          "texture": "#log",
+          "cullface": "east"
+        },
+        "south": {
+          "uv": [
+            14.0,
+            0.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#log"
+        },
+        "west": {
+          "uv": [
+            9.0,
+            0.0,
+            11.0,
+            16.0
+          ],
+          "texture": "#log"
+        },
+        "down": {
+          "uv": [
+            14.0,
+            5.0,
+            16.0,
+            7.0
+          ],
+          "texture": "#log",
+          "cullface": "down"
+        }
+      }
+    },
+    {
+      "name": "foot",
+      "from": [
+        13,
+        0,
+        6
+      ],
+      "to": [
+        16,
+        2,
+        9
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            14.0,
+            3.0,
+            16.0
+          ],
+          "texture": "#log"
+        },
+        "east": {
+          "uv": [
+            7.0,
+            14.0,
+            10.0,
+            16.0
+          ],
+          "texture": "#log",
+          "cullface": "east"
+        },
+        "south": {
+          "uv": [
+            13.0,
+            14.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#log"
+        },
+        "west": {
+          "uv": [
+            6.0,
+            14.0,
+            9.0,
+            16.0
+          ],
+          "texture": "#log"
+        },
+        "up": {
+          "uv": [
+            13.0,
+            6.0,
+            16.0,
+            9.0
+          ],
+          "texture": "#log"
+        },
+        "down": {
+          "uv": [
+            13.0,
+            7.0,
+            16.0,
+            10.0
+          ],
+          "texture": "#log",
+          "cullface": "down"
+        }
+      }
+    },
+    {
+      "name": "foot",
+      "from": [
+        13,
+        0,
+        11
+      ],
+      "to": [
+        16,
+        2,
+        14
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            14.0,
+            3.0,
+            16.0
+          ],
+          "texture": "#log"
+        },
+        "east": {
+          "uv": [
+            2.0,
+            14.0,
+            5.0,
+            16.0
+          ],
+          "texture": "#log",
+          "cullface": "east"
+        },
+        "south": {
+          "uv": [
+            13.0,
+            14.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#log"
+        },
+        "west": {
+          "uv": [
+            11.0,
+            14.0,
+            14.0,
+            16.0
+          ],
+          "texture": "#log"
+        },
+        "up": {
+          "uv": [
+            13.0,
+            11.0,
+            16.0,
+            14.0
+          ],
+          "texture": "#log"
+        },
+        "down": {
+          "uv": [
+            13.0,
+            2.0,
+            16.0,
+            5.0
+          ],
+          "texture": "#log",
+          "cullface": "down"
+        }
+      }
+    },
+    {
+      "name": "leg",
+      "from": [
+        5,
+        0,
+        12
+      ],
+      "to": [
+        7,
+        12,
+        14
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.5,
+            9.0,
+            1.0,
+            15.0
+          ],
+          "texture": "#skeleton"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            9.0,
+            0.5,
+            15.0
+          ],
+          "texture": "#skeleton"
+        },
+        "south": {
+          "uv": [
+            1.5,
+            9.0,
+            2.0,
+            15.0
+          ],
+          "texture": "#skeleton"
+        },
+        "west": {
+          "uv": [
+            1.0,
+            9.0,
+            1.5,
+            15.0
+          ],
+          "texture": "#skeleton"
+        },
+        "up": {
+          "uv": [
+            0.5,
+            8.0,
+            1.0,
+            9.0
+          ],
+          "texture": "#skeleton"
+        },
+        "down": {
+          "uv": [
+            1.0,
+            8.0,
+            1.5,
+            9.0
+          ],
+          "texture": "#skeleton",
+          "cullface": "down"
+        }
+      }
+    },
+    {
+      "name": "leg",
+      "from": [
+        9,
+        0,
+        12
+      ],
+      "to": [
+        11,
+        12,
+        14
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.5,
+            9.0,
+            1.0,
+            15.0
+          ],
+          "texture": "#skeleton"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            9.0,
+            0.5,
+            15.0
+          ],
+          "texture": "#skeleton"
+        },
+        "south": {
+          "uv": [
+            1.5,
+            9.0,
+            2.0,
+            15.0
+          ],
+          "texture": "#skeleton"
+        },
+        "west": {
+          "uv": [
+            1.0,
+            9.0,
+            1.5,
+            15.0
+          ],
+          "texture": "#skeleton"
+        },
+        "up": {
+          "uv": [
+            0.5,
+            8.0,
+            1.0,
+            9.0
+          ],
+          "texture": "#skeleton"
+        },
+        "down": {
+          "uv": [
+            1.0,
+            8.0,
+            1.5,
+            9.0
+          ],
+          "texture": "#skeleton",
+          "cullface": "down"
+        }
+      }
+    },
+    {
+      "name": "body",
+      "from": [
+        4,
+        12,
+        11
+      ],
+      "to": [
+        12,
+        16,
+        15
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            5.0,
+            14.0,
+            7.0,
+            16.0
+          ],
+          "texture": "#skeleton"
+        },
+        "east": {
+          "uv": [
+            4.0,
+            14.0,
+            5.0,
+            16.0
+          ],
+          "texture": "#skeleton"
+        },
+        "south": {
+          "uv": [
+            8.0,
+            14.0,
+            10.0,
+            16.0
+          ],
+          "texture": "#skeleton"
+        },
+        "west": {
+          "uv": [
+            7.0,
+            14.0,
+            8.0,
+            16.0
+          ],
+          "texture": "#skeleton"
+        },
+        "down": {
+          "uv": [
+            7.0,
+            8.0,
+            9.0,
+            10.0
+          ],
+          "texture": "#skeleton"
+        }
+      }
+    },
+    {
+      "name": "spine",
+      "from": [
+        7,
+        13,
+        12.5
+      ],
+      "to": [
+        9,
+        16,
+        14.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.75,
+            13.5,
+            9.25,
+            15.0
+          ],
+          "texture": "#skeleton"
+        },
+        "east": {
+          "uv": [
+            8.75,
+            13.5,
+            9.25,
+            15.0
+          ],
+          "texture": "#skeleton"
+        },
+        "south": {
+          "uv": [
+            8.75,
+            13.5,
+            9.25,
+            15.0
+          ],
+          "texture": "#skeleton"
+        },
+        "west": {
+          "uv": [
+            8.75,
+            13.5,
+            9.25,
+            15.0
+          ],
+          "texture": "#skeleton"
+        },
+        "up": {
+          "uv": [
+            8.75,
+            13.5,
+            9.25,
+            15.0
+          ],
+          "texture": "#skeleton",
+          "cullface": "up"
+        },
+        "down": {
+          "uv": [
+            8.75,
+            13.5,
+            9.25,
+            15.0
+          ],
+          "texture": "#skeleton"
+        }
+      }
+    }
+  ]
+}

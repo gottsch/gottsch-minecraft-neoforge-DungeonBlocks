@@ -1,0 +1,12 @@
+{
+  "parent": "dungeonblocks:block/block_no_ao",
+  "flip_v": true,
+  "loader": "neoforge:obj",
+  "model": "dungeonblocks:models/block/coffin_foot_lid.obj",
+  "textures": {
+    "lining": "minecraft:block/red_wool",
+    "particle": "minecraft:block/dark_oak_planks",
+    "trim": "dungeonblocks:block/dark_iron",
+    "wood": "minecraft:block/dark_oak_planks"
+  }
+}

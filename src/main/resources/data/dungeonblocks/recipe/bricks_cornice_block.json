@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:bricks"
+  },
+  "result": {
+    "id": "dungeonblocks:bricks_cornice_block",
+    "count": 2
+  }
+}

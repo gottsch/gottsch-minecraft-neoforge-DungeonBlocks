@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:iron_bars"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "bbb",
+    "i i"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:weapon_rack"
+  }
+}

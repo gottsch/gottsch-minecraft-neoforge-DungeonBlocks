@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "minecraft:stripped_spruce_log"
+    },
+    {
+      "item": "minecraft:flint"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:sharpened_spruce_log"
+  }
+}

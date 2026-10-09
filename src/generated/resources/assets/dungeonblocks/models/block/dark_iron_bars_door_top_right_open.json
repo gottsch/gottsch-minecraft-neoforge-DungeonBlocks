@@ -1,0 +1,9 @@
+{
+  "parent": "dungeonblocks:block/template_edged_door_top_right_open",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "bottom": "dungeonblocks:block/dark_iron_bars_door_bottom",
+    "edge": "dungeonblocks:block/dark_iron_bars_door_edge",
+    "top": "dungeonblocks:block/dark_iron_bars_door_top"
+  }
+}

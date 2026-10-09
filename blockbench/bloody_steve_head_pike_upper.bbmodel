@@ -1,0 +1,420 @@
+{
+ "meta": {
+  "format_version": "4.9",
+  "model_format": "java_block",
+  "box_uv": false
+ },
+ "name": "bloody_steve_head_pike_upper",
+ "parent": "",
+ "ambientocclusion": true,
+ "front_gui_light": false,
+ "visible_box": [
+  1,
+  1,
+  0
+ ],
+ "variable_placeholders": "",
+ "variable_placeholder_buttons": [],
+ "unhandled_root_fields": {},
+ "resolution": {
+  "width": 16,
+  "height": 16
+ },
+ "elements": [
+  {
+   "name": "pole",
+   "box_uv": false,
+   "rescale": false,
+   "locked": false,
+   "render_order": "default",
+   "from": [
+    7,
+    0,
+    7
+   ],
+   "to": [
+    9,
+    8,
+    9
+   ],
+   "autouv": 0,
+   "color": 0,
+   "origin": [
+    8.0,
+    4.0,
+    8.0
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      7.0,
+      8.0,
+      9.0,
+      16.0
+     ],
+     "texture": 0
+    },
+    "east": {
+     "uv": [
+      7.0,
+      8.0,
+      9.0,
+      16.0
+     ],
+     "texture": 0
+    },
+    "south": {
+     "uv": [
+      7.0,
+      8.0,
+      9.0,
+      16.0
+     ],
+     "texture": 0
+    },
+    "west": {
+     "uv": [
+      7.0,
+      8.0,
+      9.0,
+      16.0
+     ],
+     "texture": 0
+    }
+   },
+   "type": "cube",
+   "uuid": "5e8c5b07-bef9-5d28-9058-c55ba48b69fa"
+  },
+  {
+   "name": "head",
+   "box_uv": false,
+   "rescale": false,
+   "locked": false,
+   "render_order": "default",
+   "from": [
+    4,
+    7,
+    4
+   ],
+   "to": [
+    12,
+    15,
+    12
+   ],
+   "autouv": 0,
+   "color": 0,
+   "origin": [
+    8.0,
+    11.0,
+    8.0
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      8,
+      8,
+      16,
+      16
+     ],
+     "texture": 1
+    },
+    "east": {
+     "uv": [
+      0,
+      8,
+      8,
+      16
+     ],
+     "texture": 1
+    },
+    "south": {
+     "uv": [
+      24,
+      8,
+      32,
+      16
+     ],
+     "texture": 1
+    },
+    "west": {
+     "uv": [
+      16,
+      8,
+      24,
+      16
+     ],
+     "texture": 1
+    },
+    "up": {
+     "uv": [
+      16,
+      8,
+      8,
+      0
+     ],
+     "texture": 1
+    },
+    "down": {
+     "uv": [
+      16,
+      0,
+      24,
+      8
+     ],
+     "texture": 1
+    }
+   },
+   "type": "cube",
+   "uuid": "91c9ce8b-a093-5898-aaff-ca8a3829dbdf"
+  },
+  {
+   "name": "point",
+   "box_uv": false,
+   "rescale": false,
+   "locked": false,
+   "render_order": "default",
+   "from": [
+    7.25,
+    15,
+    7.25
+   ],
+   "to": [
+    8.75,
+    16.5,
+    8.75
+   ],
+   "autouv": 0,
+   "color": 0,
+   "origin": [
+    8.0,
+    15.75,
+    8.0
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      7.25,
+      0,
+      8.75,
+      1.5
+     ],
+     "texture": 2
+    },
+    "east": {
+     "uv": [
+      7.25,
+      0,
+      8.75,
+      1.5
+     ],
+     "texture": 2
+    },
+    "south": {
+     "uv": [
+      7.25,
+      0,
+      8.75,
+      1.5
+     ],
+     "texture": 2
+    },
+    "west": {
+     "uv": [
+      7.25,
+      0,
+      8.75,
+      1.5
+     ],
+     "texture": 2
+    },
+    "up": {
+     "uv": [
+      7.25,
+      7.25,
+      8.75,
+      8.75
+     ],
+     "texture": 2
+    }
+   },
+   "type": "cube",
+   "uuid": "a477d4f6-0320-5194-ab8c-464f17af0ebb"
+  },
+  {
+   "name": "tip",
+   "box_uv": false,
+   "rescale": false,
+   "locked": false,
+   "render_order": "default",
+   "from": [
+    7.625,
+    16.5,
+    7.625
+   ],
+   "to": [
+    8.375,
+    17.5,
+    8.375
+   ],
+   "autouv": 0,
+   "color": 0,
+   "origin": [
+    8.0,
+    17.0,
+    8.0
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      7.625,
+      0,
+      8.375,
+      1
+     ],
+     "texture": 2
+    },
+    "east": {
+     "uv": [
+      7.625,
+      0,
+      8.375,
+      1
+     ],
+     "texture": 2
+    },
+    "south": {
+     "uv": [
+      7.625,
+      0,
+      8.375,
+      1
+     ],
+     "texture": 2
+    },
+    "west": {
+     "uv": [
+      7.625,
+      0,
+      8.375,
+      1
+     ],
+     "texture": 2
+    },
+    "up": {
+     "uv": [
+      7.625,
+      7.625,
+      8.375,
+      8.375
+     ],
+     "texture": 2
+    }
+   },
+   "type": "cube",
+   "uuid": "5dab0bd5-9b78-56bc-aa12-69562ff34d58"
+  }
+ ],
+ "outliner": [
+  {
+   "name": "pike",
+   "origin": [
+    8,
+    8,
+    8
+   ],
+   "color": 0,
+   "uuid": "e2ef7449-beea-5b49-abb1-e960f8b32319",
+   "export": true,
+   "mirror_uv": false,
+   "isOpen": true,
+   "locked": false,
+   "visibility": true,
+   "autouv": 0,
+   "children": [
+    "5e8c5b07-bef9-5d28-9058-c55ba48b69fa",
+    "91c9ce8b-a093-5898-aaff-ca8a3829dbdf",
+    "a477d4f6-0320-5194-ab8c-464f17af0ebb",
+    "5dab0bd5-9b78-56bc-aa12-69562ff34d58"
+   ]
+  }
+ ],
+ "textures": [
+  {
+   "path": "",
+   "name": "pole",
+   "folder": "block",
+   "namespace": "minecraft",
+   "id": "0",
+   "width": 16,
+   "height": 16,
+   "uv_width": 16,
+   "uv_height": 16,
+   "particle": true,
+   "render_mode": "default",
+   "render_sides": "auto",
+   "visible": true,
+   "internal": true,
+   "saved": false,
+   "uuid": "732b7932-325b-534b-868c-b4cbd7278955",
+   "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAzUlEQVQ4y3WTvQ7CMAyEMyIYkWBBMLJVQmz0GRh5/0cJuqpnnc/JEKV27M+/bevz3F/3U/++rx3fOMvlUGTc0Kntcjv2RsDv89gUdHBZAQEmAAYQZgA64S4AUBnBHQIoYL5tfgQUBwGmUiQA+9D4oWRNmQDXB8DTZmrU01CnMgRop5muOhHsbzFGdl477DC/A6D1KsBhaYn2jAPg6fs0vPYE0AY6IGUlMn0aFLpdqdbJSmuQ5sTRuHzUetIilbHtEf1fULsCmG3kaImQ2R/uu3B4Iv1XaQAAAABJRU5ErkJggg=="
+  },
+  {
+   "path": "",
+   "name": "head",
+   "folder": "block",
+   "namespace": "dungeonblocks",
+   "id": "1",
+   "width": 32,
+   "height": 16,
+   "uv_width": 32,
+   "uv_height": 16,
+   "particle": false,
+   "render_mode": "default",
+   "render_sides": "auto",
+   "visible": true,
+   "internal": true,
+   "saved": false,
+   "uuid": "29f5d380-ba2c-5600-8f9c-34eebeded618",
+   "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAQCAYAAAB3AH1ZAAACWUlEQVR4nLVUMWtTURT+bprE1+SahNihk7iWQnWROEglgzrYumihioKbDg6Cg47+AScnJx1EhDhZQeoSKIKIgxhEV0eHKom+tsl7kch3Xs71JmoTiX7Q3nfvOfd83znnnhiMwPz+vT2uQTaNdtSFfhPczzXF/Ec8/hqa3ezpUQKUcPkLiaZkX59No/opRs0m9qWCxcftNg7kAtnzm3jXTQRPLMBKxrHbk9yHEur6N0iN4xT2S88MNcua/e5aMWzzv/+JgGUp/yBInlTmJ/wKjFuN1CgHEq2VjQuqgX1Rw9n672FiAYRmyrL/rjW+sOGHOApmnDH0x27GBkKsIznpGBoSrIRTrswM3Ili7MlmZK/kLHl9NjkjfBGE3tGR9aulvyHkeZBtix+/6eNaQAcl10v8a4U7v6gmue3bWREVybvDP1YK+vli2SqepRPHnlOpWZAg7O+vHDuCzPob3Dx3Bt3tb9jpxGi1mri78cqJgZ0eqIifuYomGI8C7gQdIAJSdKAarn7Wm2Fbzq4dP4pisYR9F084coJnlxcr4kNf3tH7BPcaUyusoAjdp/hP1HituFqtCDGVkmjl9kPcezHvMn/0+pCc0UYf+vKOBmVCRTvtYlKM31ptA9FvAeRRrJUTQz6Xk7Mbp6pCWLt+HquHgff3n8n56qWSnNF2IUp6yzu8y3gygoEZaIEKAzqOnDZzq1xyc1Q6eVAChfEWWk8bmDm9gM0nDRSXFvD8ZQOVz4nfRj7C4lYWpjqHXv2DrIV8Ru4wRnP9rbxwfelcfXASVLg5W7C7D/J/xg9mPFcpW5MEaQAAAABJRU5ErkJggg=="
+  },
+  {
+   "path": "",
+   "name": "tip",
+   "folder": "block",
+   "namespace": "dungeonblocks",
+   "id": "2",
+   "width": 16,
+   "height": 16,
+   "uv_width": 16,
+   "uv_height": 16,
+   "particle": false,
+   "render_mode": "default",
+   "render_sides": "auto",
+   "visible": true,
+   "internal": true,
+   "saved": false,
+   "uuid": "2fde26f7-2d0f-5aec-95a6-d7ee3e492343",
+   "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAIAAACQkWg2AAAA20lEQVQ4jWVRMQ7EMAijVVBZKuVD/f9julSKVCF5ucE9l8sxJECMDWQ5jsPM3N3MIsLMeu/2tczkmZkAzKwRHRFE8xSUpiSAxisiKmKCXtdFB8BKBaLFRJ9hZpIuM929CSeFKVRNRJzn2QCMMTgG35Zl2bat1mTmGOOZwd0rGgAAZVTm7vd9m9lasxGx7ztXXIfpvUcE8yuFpqYrhdZNrsYG6oq4E7Ko1Z+Pk0j1OYZ+WoCngCKCVu6J6/lpNaaaf+irwM3WN9VL0N3fGWon004lO8+gWGrMVCjtAyjww9ft0a5NAAAAAElFTkSuQmCC"
+  }
+ ]
+}

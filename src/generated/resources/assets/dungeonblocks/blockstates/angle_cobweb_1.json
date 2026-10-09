@@ -1,0 +1,200 @@
+{
+  "variants": {
+    "facing=down,half=bottom,rotation=0": {
+      "model": "dungeonblocks:block/angle_cobweb_1_floor",
+      "x": 90
+    },
+    "facing=down,half=bottom,rotation=1": {
+      "model": "dungeonblocks:block/angle_cobweb_1_floor",
+      "x": 90,
+      "y": 90
+    },
+    "facing=down,half=bottom,rotation=2": {
+      "model": "dungeonblocks:block/angle_cobweb_1_floor",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,half=bottom,rotation=3": {
+      "model": "dungeonblocks:block/angle_cobweb_1_floor",
+      "x": 90,
+      "y": 270
+    },
+    "facing=down,half=top,rotation=0": {
+      "model": "dungeonblocks:block/angle_cobweb_1",
+      "x": 90
+    },
+    "facing=down,half=top,rotation=1": {
+      "model": "dungeonblocks:block/angle_cobweb_1",
+      "x": 90,
+      "y": 90
+    },
+    "facing=down,half=top,rotation=2": {
+      "model": "dungeonblocks:block/angle_cobweb_1",
+      "x": 90,
+      "y": 180
+    },
+    "facing=down,half=top,rotation=3": {
+      "model": "dungeonblocks:block/angle_cobweb_1",
+      "x": 90,
+      "y": 270
+    },
+    "facing=east,half=bottom,rotation=0": {
+      "model": "dungeonblocks:block/angle_cobweb_1_floor",
+      "y": 90
+    },
+    "facing=east,half=bottom,rotation=1": {
+      "model": "dungeonblocks:block/angle_cobweb_1_floor",
+      "y": 90
+    },
+    "facing=east,half=bottom,rotation=2": {
+      "model": "dungeonblocks:block/angle_cobweb_1_floor",
+      "y": 90
+    },
+    "facing=east,half=bottom,rotation=3": {
+      "model": "dungeonblocks:block/angle_cobweb_1_floor",
+      "y": 90
+    },
+    "facing=east,half=top,rotation=0": {
+      "model": "dungeonblocks:block/angle_cobweb_1",
+      "y": 90
+    },
+    "facing=east,half=top,rotation=1": {
+      "model": "dungeonblocks:block/angle_cobweb_1",
+      "y": 90
+    },
+    "facing=east,half=top,rotation=2": {
+      "model": "dungeonblocks:block/angle_cobweb_1",
+      "y": 90
+    },
+    "facing=east,half=top,rotation=3": {
+      "model": "dungeonblocks:block/angle_cobweb_1",
+      "y": 90
+    },
+    "facing=north,half=bottom,rotation=0": {
+      "model": "dungeonblocks:block/angle_cobweb_1_floor"
+    },
+    "facing=north,half=bottom,rotation=1": {
+      "model": "dungeonblocks:block/angle_cobweb_1_floor"
+    },
+    "facing=north,half=bottom,rotation=2": {
+      "model": "dungeonblocks:block/angle_cobweb_1_floor"
+    },
+    "facing=north,half=bottom,rotation=3": {
+      "model": "dungeonblocks:block/angle_cobweb_1_floor"
+    },
+    "facing=north,half=top,rotation=0": {
+      "model": "dungeonblocks:block/angle_cobweb_1"
+    },
+    "facing=north,half=top,rotation=1": {
+      "model": "dungeonblocks:block/angle_cobweb_1"
+    },
+    "facing=north,half=top,rotation=2": {
+      "model": "dungeonblocks:block/angle_cobweb_1"
+    },
+    "facing=north,half=top,rotation=3": {
+      "model": "dungeonblocks:block/angle_cobweb_1"
+    },
+    "facing=south,half=bottom,rotation=0": {
+      "model": "dungeonblocks:block/angle_cobweb_1_floor",
+      "y": 180
+    },
+    "facing=south,half=bottom,rotation=1": {
+      "model": "dungeonblocks:block/angle_cobweb_1_floor",
+      "y": 180
+    },
+    "facing=south,half=bottom,rotation=2": {
+      "model": "dungeonblocks:block/angle_cobweb_1_floor",
+      "y": 180
+    },
+    "facing=south,half=bottom,rotation=3": {
+      "model": "dungeonblocks:block/angle_cobweb_1_floor",
+      "y": 180
+    },
+    "facing=south,half=top,rotation=0": {
+      "model": "dungeonblocks:block/angle_cobweb_1",
+      "y": 180
+    },
+    "facing=south,half=top,rotation=1": {
+      "model": "dungeonblocks:block/angle_cobweb_1",
+      "y": 180
+    },
+    "facing=south,half=top,rotation=2": {
+      "model": "dungeonblocks:block/angle_cobweb_1",
+      "y": 180
+    },
+    "facing=south,half=top,rotation=3": {
+      "model": "dungeonblocks:block/angle_cobweb_1",
+      "y": 180
+    },
+    "facing=up,half=bottom,rotation=0": {
+      "model": "dungeonblocks:block/angle_cobweb_1_floor",
+      "x": -90
+    },
+    "facing=up,half=bottom,rotation=1": {
+      "model": "dungeonblocks:block/angle_cobweb_1_floor",
+      "x": -90,
+      "y": 90
+    },
+    "facing=up,half=bottom,rotation=2": {
+      "model": "dungeonblocks:block/angle_cobweb_1_floor",
+      "x": -90,
+      "y": 180
+    },
+    "facing=up,half=bottom,rotation=3": {
+      "model": "dungeonblocks:block/angle_cobweb_1_floor",
+      "x": -90,
+      "y": 270
+    },
+    "facing=up,half=top,rotation=0": {
+      "model": "dungeonblocks:block/angle_cobweb_1",
+      "x": -90
+    },
+    "facing=up,half=top,rotation=1": {
+      "model": "dungeonblocks:block/angle_cobweb_1",
+      "x": -90,
+      "y": 90
+    },
+    "facing=up,half=top,rotation=2": {
+      "model": "dungeonblocks:block/angle_cobweb_1",
+      "x": -90,
+      "y": 180
+    },
+    "facing=up,half=top,rotation=3": {
+      "model": "dungeonblocks:block/angle_cobweb_1",
+      "x": -90,
+      "y": 270
+    },
+    "facing=west,half=bottom,rotation=0": {
+      "model": "dungeonblocks:block/angle_cobweb_1_floor",
+      "y": 270
+    },
+    "facing=west,half=bottom,rotation=1": {
+      "model": "dungeonblocks:block/angle_cobweb_1_floor",
+      "y": 270
+    },
+    "facing=west,half=bottom,rotation=2": {
+      "model": "dungeonblocks:block/angle_cobweb_1_floor",
+      "y": 270
+    },
+    "facing=west,half=bottom,rotation=3": {
+      "model": "dungeonblocks:block/angle_cobweb_1_floor",
+      "y": 270
+    },
+    "facing=west,half=top,rotation=0": {
+      "model": "dungeonblocks:block/angle_cobweb_1",
+      "y": 270
+    },
+    "facing=west,half=top,rotation=1": {
+      "model": "dungeonblocks:block/angle_cobweb_1",
+      "y": 270
+    },
+    "facing=west,half=top,rotation=2": {
+      "model": "dungeonblocks:block/angle_cobweb_1",
+      "y": 270
+    },
+    "facing=west,half=top,rotation=3": {
+      "model": "dungeonblocks:block/angle_cobweb_1",
+      "y": 270
+    }
+  }
+}

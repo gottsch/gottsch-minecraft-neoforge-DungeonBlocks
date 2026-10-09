@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "minecraft:cracked_stone_bricks"
+    },
+    {
+      "item": "minecraft:bone"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:cracked_stone_brick_catacomb_niche"
+  }
+}

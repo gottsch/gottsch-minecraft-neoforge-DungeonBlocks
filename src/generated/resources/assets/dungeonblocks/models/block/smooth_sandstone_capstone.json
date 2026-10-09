@@ -1,0 +1,11 @@
+{
+  "parent": "dungeonblocks:block/block_no_ao",
+  "flip_v": true,
+  "loader": "neoforge:obj",
+  "model": "dungeonblocks:models/block/pyramid.obj",
+  "textures": {
+    "base": "minecraft:block/sandstone_top",
+    "facet": "minecraft:block/sandstone_top",
+    "particle": "minecraft:block/sandstone_top"
+  }
+}

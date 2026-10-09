@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "dungeonblocks:item/mud_brick_hidden_door"
+  }
+}

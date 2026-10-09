@@ -1,0 +1,88 @@
+{
+  "parent": "minecraft:block/block",
+  "ambientocclusion": false,
+  "elements": [
+    {
+      "faces": {
+        "north": {
+          "texture": "#cloth",
+          "uv": [
+            4.0,
+            0.0,
+            8.0,
+            5.3333335
+          ]
+        },
+        "south": {
+          "texture": "#cloth",
+          "uv": [
+            8.0,
+            0.0,
+            4.0,
+            5.3333335
+          ]
+        }
+      },
+      "from": [
+        0,
+        0,
+        15
+      ],
+      "to": [
+        16,
+        16,
+        15
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#rod"
+        },
+        "east": {
+          "texture": "#rod"
+        },
+        "north": {
+          "texture": "#rod"
+        },
+        "south": {
+          "texture": "#rod"
+        },
+        "up": {
+          "texture": "#rod",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            2.0
+          ]
+        },
+        "west": {
+          "texture": "#rod",
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            2.0
+          ]
+        }
+      },
+      "from": [
+        0,
+        14,
+        14
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ]
+    }
+  ],
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cloth": "dungeonblocks:block/necromancer_tapestry",
+    "particle": "dungeonblocks:block/necromancer_tapestry",
+    "rod": "minecraft:block/dark_oak_log"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "lit=false,waterlogged=false": {
+      "model": "dungeonblocks:block/chandelier"
+    },
+    "lit=false,waterlogged=true": {
+      "model": "dungeonblocks:block/chandelier"
+    },
+    "lit=true,waterlogged=false": {
+      "model": "dungeonblocks:block/chandelier_lit"
+    },
+    "lit=true,waterlogged=true": {
+      "model": "dungeonblocks:block/chandelier_lit"
+    }
+  }
+}

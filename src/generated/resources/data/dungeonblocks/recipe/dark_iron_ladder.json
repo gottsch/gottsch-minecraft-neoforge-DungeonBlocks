@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "c": {
+      "item": "minecraft:coal"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "i i",
+    "ici",
+    "i i"
+  ],
+  "result": {
+    "count": 8,
+    "id": "dungeonblocks:dark_iron_ladder"
+  }
+}

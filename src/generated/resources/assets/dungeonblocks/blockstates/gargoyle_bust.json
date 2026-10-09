@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "dungeonblocks:block/gargoyle_bust",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "dungeonblocks:block/gargoyle_bust"
+    },
+    "facing=south": {
+      "model": "dungeonblocks:block/gargoyle_bust",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "dungeonblocks:block/gargoyle_bust",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "building",
+  "ingredients": [
+    {
+      "item": "minecraft:deepslate_bricks"
+    },
+    {
+      "item": "minecraft:bone"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:deepslate_brick_catacomb_niche"
+  }
+}

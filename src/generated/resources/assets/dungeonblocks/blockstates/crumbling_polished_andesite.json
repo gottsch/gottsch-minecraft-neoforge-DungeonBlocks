@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "shaking=false": {
+      "model": "dungeonblocks:block/crumbling_polished_andesite"
+    },
+    "shaking=true": {
+      "model": "dungeonblocks:block/crumbling_polished_andesite_shaking"
+    }
+  }
+}

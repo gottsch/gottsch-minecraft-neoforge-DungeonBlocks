@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:mossy_stone_bricks"
+  },
+  "result": {
+    "id": "dungeonblocks:mossy_stone_bricks_quarter_facade_block",
+    "count": 4
+  }
+}

@@ -1,0 +1,348 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_upper_closed"
+      },
+      "when": {
+        "facing": "north",
+        "half": "upper",
+        "open": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_spikes_upper_closed"
+      },
+      "when": {
+        "facing": "north",
+        "half": "upper",
+        "open": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_upper_open"
+      },
+      "when": {
+        "facing": "north",
+        "half": "upper",
+        "open": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_spikes_upper_open"
+      },
+      "when": {
+        "facing": "north",
+        "half": "upper",
+        "open": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_lower_closed"
+      },
+      "when": {
+        "facing": "north",
+        "half": "lower",
+        "open": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_spikes_lower_closed"
+      },
+      "when": {
+        "facing": "north",
+        "half": "lower",
+        "open": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_lower_open"
+      },
+      "when": {
+        "facing": "north",
+        "half": "lower",
+        "open": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_spikes_lower_open"
+      },
+      "when": {
+        "facing": "north",
+        "half": "lower",
+        "open": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_upper_closed",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "half": "upper",
+        "open": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_spikes_upper_closed",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "half": "upper",
+        "open": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_upper_open",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "half": "upper",
+        "open": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_spikes_upper_open",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "half": "upper",
+        "open": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_lower_closed",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "half": "lower",
+        "open": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_spikes_lower_closed",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "half": "lower",
+        "open": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_lower_open",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "half": "lower",
+        "open": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_spikes_lower_open",
+        "y": 90
+      },
+      "when": {
+        "facing": "east",
+        "half": "lower",
+        "open": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_upper_closed",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "half": "upper",
+        "open": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_spikes_upper_closed",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "half": "upper",
+        "open": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_upper_open",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "half": "upper",
+        "open": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_spikes_upper_open",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "half": "upper",
+        "open": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_lower_closed",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "half": "lower",
+        "open": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_spikes_lower_closed",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "half": "lower",
+        "open": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_lower_open",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "half": "lower",
+        "open": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_spikes_lower_open",
+        "y": 180
+      },
+      "when": {
+        "facing": "south",
+        "half": "lower",
+        "open": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_upper_closed",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "half": "upper",
+        "open": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_spikes_upper_closed",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "half": "upper",
+        "open": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_upper_open",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "half": "upper",
+        "open": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_spikes_upper_open",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "half": "upper",
+        "open": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_lower_closed",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "half": "lower",
+        "open": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_spikes_lower_closed",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "half": "lower",
+        "open": "false"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_lower_open",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "half": "lower",
+        "open": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "dungeonblocks:block/iron_maiden_spikes_lower_open",
+        "y": 270
+      },
+      "when": {
+        "facing": "west",
+        "half": "lower",
+        "open": "true"
+      }
+    }
+  ]
+}

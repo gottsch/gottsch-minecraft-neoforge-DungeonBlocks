@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "dungeonblocks:block/perched_gargoyle",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "dungeonblocks:block/perched_gargoyle"
+    },
+    "facing=south": {
+      "model": "dungeonblocks:block/perched_gargoyle",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "dungeonblocks:block/perched_gargoyle",
+      "y": 270
+    }
+  }
+}

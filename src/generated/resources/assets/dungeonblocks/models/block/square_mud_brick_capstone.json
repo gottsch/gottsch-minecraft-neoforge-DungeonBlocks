@@ -1,0 +1,11 @@
+{
+  "parent": "dungeonblocks:block/block_no_ao",
+  "flip_v": true,
+  "loader": "neoforge:obj",
+  "model": "dungeonblocks:models/block/pyramid.obj",
+  "textures": {
+    "base": "dungeonblocks:block/square_mud_brick",
+    "facet": "dungeonblocks:block/square_mud_brick",
+    "particle": "dungeonblocks:block/square_mud_brick"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "s": {
+      "item": "minecraft:stripped_jungle_log"
+    }
+  },
+  "pattern": [
+    "ss",
+    "s "
+  ],
+  "result": {
+    "count": 4,
+    "id": "dungeonblocks:jungle_walkway_bracket"
+  }
+}

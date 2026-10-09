@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:cobblestone"
+  },
+  "result": {
+    "id": "dungeonblocks:cobblestone_fluted_facade_block",
+    "count": 2
+  }
+}

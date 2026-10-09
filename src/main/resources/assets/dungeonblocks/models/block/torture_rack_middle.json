@@ -1,0 +1,217 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "iron": "dungeonblocks:block/dark_iron",
+    "log": "minecraft:block/dark_oak_log",
+    "rope": "minecraft:block/hay_block_side",
+    "skeleton": "minecraft:entity/skeleton/skeleton",
+    "wood": "minecraft:block/dark_oak_planks",
+    "particle": "minecraft:block/dark_oak_planks"
+  },
+  "elements": [
+    {
+      "name": "rail",
+      "from": [
+        1,
+        7,
+        0
+      ],
+      "to": [
+        3,
+        10,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            13.0,
+            6.0,
+            15.0,
+            9.0
+          ],
+          "texture": "#wood",
+          "cullface": "north"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            6.0,
+            16.0,
+            9.0
+          ],
+          "texture": "#wood"
+        },
+        "south": {
+          "uv": [
+            1.0,
+            6.0,
+            3.0,
+            9.0
+          ],
+          "texture": "#wood",
+          "cullface": "south"
+        },
+        "west": {
+          "uv": [
+            0.0,
+            6.0,
+            16.0,
+            9.0
+          ],
+          "texture": "#wood"
+        },
+        "up": {
+          "uv": [
+            1.0,
+            0.0,
+            3.0,
+            16.0
+          ],
+          "texture": "#wood"
+        },
+        "down": {
+          "uv": [
+            1.0,
+            0.0,
+            3.0,
+            16.0
+          ],
+          "texture": "#wood"
+        }
+      }
+    },
+    {
+      "name": "rail",
+      "from": [
+        13,
+        7,
+        0
+      ],
+      "to": [
+        15,
+        10,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.0,
+            6.0,
+            3.0,
+            9.0
+          ],
+          "texture": "#wood",
+          "cullface": "north"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            6.0,
+            16.0,
+            9.0
+          ],
+          "texture": "#wood"
+        },
+        "south": {
+          "uv": [
+            13.0,
+            6.0,
+            15.0,
+            9.0
+          ],
+          "texture": "#wood",
+          "cullface": "south"
+        },
+        "west": {
+          "uv": [
+            0.0,
+            6.0,
+            16.0,
+            9.0
+          ],
+          "texture": "#wood"
+        },
+        "up": {
+          "uv": [
+            13.0,
+            0.0,
+            15.0,
+            16.0
+          ],
+          "texture": "#wood"
+        },
+        "down": {
+          "uv": [
+            13.0,
+            0.0,
+            15.0,
+            16.0
+          ],
+          "texture": "#wood"
+        }
+      }
+    },
+    {
+      "name": "bed",
+      "from": [
+        3,
+        9,
+        0
+      ],
+      "to": [
+        13,
+        10,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            3.0,
+            6.0,
+            13.0,
+            7.0
+          ],
+          "texture": "#wood",
+          "cullface": "north"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            6.0,
+            16.0,
+            7.0
+          ],
+          "texture": "#wood"
+        },
+        "south": {
+          "uv": [
+            3.0,
+            6.0,
+            13.0,
+            7.0
+          ],
+          "texture": "#wood",
+          "cullface": "south"
+        },
+        "west": {
+          "uv": [
+            0.0,
+            6.0,
+            16.0,
+            7.0
+          ],
+          "texture": "#wood"
+        },
+        "up": {
+          "uv": [
+            3.0,
+            0.0,
+            13.0,
+            16.0
+          ],
+          "texture": "#wood"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:iron_bars"
+    },
+    "c": {
+      "item": "minecraft:coal"
+    }
+  },
+  "pattern": [
+    "bbb",
+    "bcb",
+    "bbb"
+  ],
+  "result": {
+    "count": 8,
+    "id": "dungeonblocks:dark_iron_bars"
+  }
+}

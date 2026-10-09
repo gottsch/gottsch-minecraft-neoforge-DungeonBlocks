@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "l": {
+      "item": "minecraft:spruce_log"
+    },
+    "s": {
+      "item": "dungeonblocks:sharpened_spruce_log"
+    }
+  },
+  "pattern": [
+    "sls"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:spruce_cheval_de_frise"
+  }
+}

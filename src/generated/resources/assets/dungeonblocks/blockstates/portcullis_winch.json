@@ -1,0 +1,32 @@
+{
+  "variants": {
+    "axis=x,powered=false,raising=false": {
+      "model": "dungeonblocks:block/portcullis_winch"
+    },
+    "axis=x,powered=false,raising=true": {
+      "model": "dungeonblocks:block/portcullis_winch"
+    },
+    "axis=x,powered=true,raising=false": {
+      "model": "dungeonblocks:block/portcullis_winch"
+    },
+    "axis=x,powered=true,raising=true": {
+      "model": "dungeonblocks:block/portcullis_winch"
+    },
+    "axis=z,powered=false,raising=false": {
+      "model": "dungeonblocks:block/portcullis_winch",
+      "y": 90
+    },
+    "axis=z,powered=false,raising=true": {
+      "model": "dungeonblocks:block/portcullis_winch",
+      "y": 90
+    },
+    "axis=z,powered=true,raising=false": {
+      "model": "dungeonblocks:block/portcullis_winch",
+      "y": 90
+    },
+    "axis=z,powered=true,raising=true": {
+      "model": "dungeonblocks:block/portcullis_winch",
+      "y": 90
+    }
+  }
+}

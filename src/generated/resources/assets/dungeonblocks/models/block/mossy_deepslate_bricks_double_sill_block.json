@@ -1,0 +1,10 @@
+{
+  "parent": "dungeonblocks:block/block_no_ao",
+  "flip_v": true,
+  "loader": "neoforge:obj",
+  "model": "dungeonblocks:models/block/double_sill.obj",
+  "textures": {
+    "particle": "dungeonblocks:block/mossy_deepslate_bricks",
+    "stone": "dungeonblocks:block/mossy_deepslate_bricks"
+  }
+}

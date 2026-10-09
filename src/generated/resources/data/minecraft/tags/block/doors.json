@@ -1,0 +1,13 @@
+{
+  "values": [
+    "dungeonblocks:iron_bars_door",
+    "dungeonblocks:dark_iron_bars_door",
+    "dungeonblocks:tarnished_dark_iron_bars_door",
+    "dungeonblocks:stone_brick_hidden_door",
+    "dungeonblocks:mossy_stone_brick_hidden_door",
+    "dungeonblocks:cracked_stone_brick_hidden_door",
+    "dungeonblocks:brick_hidden_door",
+    "dungeonblocks:deepslate_brick_hidden_door",
+    "dungeonblocks:mud_brick_hidden_door"
+  ]
+}

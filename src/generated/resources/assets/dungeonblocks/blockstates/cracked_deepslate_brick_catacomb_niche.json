@@ -1,0 +1,79 @@
+{
+  "variants": {
+    "facing=east,remains=bones": {
+      "model": "dungeonblocks:block/cracked_deepslate_brick_catacomb_niche_bones",
+      "y": 90
+    },
+    "facing=east,remains=empty": {
+      "model": "dungeonblocks:block/cracked_deepslate_brick_catacomb_niche_empty",
+      "y": 90
+    },
+    "facing=east,remains=skull": {
+      "model": "dungeonblocks:block/cracked_deepslate_brick_catacomb_niche_skull",
+      "y": 90
+    },
+    "facing=east,remains=skull_and_bones": {
+      "model": "dungeonblocks:block/cracked_deepslate_brick_catacomb_niche_skull_and_bones",
+      "y": 90
+    },
+    "facing=east,remains=skulls": {
+      "model": "dungeonblocks:block/cracked_deepslate_brick_catacomb_niche_skulls",
+      "y": 90
+    },
+    "facing=north,remains=bones": {
+      "model": "dungeonblocks:block/cracked_deepslate_brick_catacomb_niche_bones"
+    },
+    "facing=north,remains=empty": {
+      "model": "dungeonblocks:block/cracked_deepslate_brick_catacomb_niche_empty"
+    },
+    "facing=north,remains=skull": {
+      "model": "dungeonblocks:block/cracked_deepslate_brick_catacomb_niche_skull"
+    },
+    "facing=north,remains=skull_and_bones": {
+      "model": "dungeonblocks:block/cracked_deepslate_brick_catacomb_niche_skull_and_bones"
+    },
+    "facing=north,remains=skulls": {
+      "model": "dungeonblocks:block/cracked_deepslate_brick_catacomb_niche_skulls"
+    },
+    "facing=south,remains=bones": {
+      "model": "dungeonblocks:block/cracked_deepslate_brick_catacomb_niche_bones",
+      "y": 180
+    },
+    "facing=south,remains=empty": {
+      "model": "dungeonblocks:block/cracked_deepslate_brick_catacomb_niche_empty",
+      "y": 180
+    },
+    "facing=south,remains=skull": {
+      "model": "dungeonblocks:block/cracked_deepslate_brick_catacomb_niche_skull",
+      "y": 180
+    },
+    "facing=south,remains=skull_and_bones": {
+      "model": "dungeonblocks:block/cracked_deepslate_brick_catacomb_niche_skull_and_bones",
+      "y": 180
+    },
+    "facing=south,remains=skulls": {
+      "model": "dungeonblocks:block/cracked_deepslate_brick_catacomb_niche_skulls",
+      "y": 180
+    },
+    "facing=west,remains=bones": {
+      "model": "dungeonblocks:block/cracked_deepslate_brick_catacomb_niche_bones",
+      "y": 270
+    },
+    "facing=west,remains=empty": {
+      "model": "dungeonblocks:block/cracked_deepslate_brick_catacomb_niche_empty",
+      "y": 270
+    },
+    "facing=west,remains=skull": {
+      "model": "dungeonblocks:block/cracked_deepslate_brick_catacomb_niche_skull",
+      "y": 270
+    },
+    "facing=west,remains=skull_and_bones": {
+      "model": "dungeonblocks:block/cracked_deepslate_brick_catacomb_niche_skull_and_bones",
+      "y": 270
+    },
+    "facing=west,remains=skulls": {
+      "model": "dungeonblocks:block/cracked_deepslate_brick_catacomb_niche_skulls",
+      "y": 270
+    }
+  }
+}

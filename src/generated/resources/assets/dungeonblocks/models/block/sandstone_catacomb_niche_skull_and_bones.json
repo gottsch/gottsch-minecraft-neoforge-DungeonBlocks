@@ -1,0 +1,7 @@
+{
+  "parent": "dungeonblocks:block/template_catacomb_niche_skull_and_bones",
+  "textures": {
+    "particle": "minecraft:block/sandstone",
+    "stone": "minecraft:block/sandstone"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "dungeonblocks:block/template_catacomb_niche_skulls",
+  "textures": {
+    "particle": "minecraft:block/cracked_stone_bricks",
+    "stone": "minecraft:block/cracked_stone_bricks"
+  }
+}

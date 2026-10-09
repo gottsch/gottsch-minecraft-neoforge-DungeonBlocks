@@ -1,0 +1,72 @@
+{
+  "variants": {
+    "chips=1": [
+      {
+        "model": "dungeonblocks:block/rubble_scatter_1"
+      },
+      {
+        "model": "dungeonblocks:block/rubble_scatter_1",
+        "y": 90
+      },
+      {
+        "model": "dungeonblocks:block/rubble_scatter_1",
+        "y": 180
+      },
+      {
+        "model": "dungeonblocks:block/rubble_scatter_1",
+        "y": 270
+      }
+    ],
+    "chips=2": [
+      {
+        "model": "dungeonblocks:block/rubble_scatter_2"
+      },
+      {
+        "model": "dungeonblocks:block/rubble_scatter_2",
+        "y": 90
+      },
+      {
+        "model": "dungeonblocks:block/rubble_scatter_2",
+        "y": 180
+      },
+      {
+        "model": "dungeonblocks:block/rubble_scatter_2",
+        "y": 270
+      }
+    ],
+    "chips=3": [
+      {
+        "model": "dungeonblocks:block/rubble_scatter_3"
+      },
+      {
+        "model": "dungeonblocks:block/rubble_scatter_3",
+        "y": 90
+      },
+      {
+        "model": "dungeonblocks:block/rubble_scatter_3",
+        "y": 180
+      },
+      {
+        "model": "dungeonblocks:block/rubble_scatter_3",
+        "y": 270
+      }
+    ],
+    "chips=4": [
+      {
+        "model": "dungeonblocks:block/rubble_scatter_4"
+      },
+      {
+        "model": "dungeonblocks:block/rubble_scatter_4",
+        "y": 90
+      },
+      {
+        "model": "dungeonblocks:block/rubble_scatter_4",
+        "y": 180
+      },
+      {
+        "model": "dungeonblocks:block/rubble_scatter_4",
+        "y": 270
+      }
+    ]
+  }
+}

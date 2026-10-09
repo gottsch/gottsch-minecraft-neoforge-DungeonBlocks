@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "s": {
+      "item": "minecraft:stripped_spruce_log"
+    }
+  },
+  "pattern": [
+    "ss",
+    "s "
+  ],
+  "result": {
+    "count": 4,
+    "id": "dungeonblocks:spruce_walkway_bracket"
+  }
+}

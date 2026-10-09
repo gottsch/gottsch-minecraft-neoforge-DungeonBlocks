@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:bone_block"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "b",
+    "s",
+    "s"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:skull_pike"
+  }
+}

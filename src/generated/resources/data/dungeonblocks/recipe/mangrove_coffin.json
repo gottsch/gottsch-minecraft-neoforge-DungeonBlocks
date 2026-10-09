@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:bone"
+    },
+    "p": {
+      "item": "minecraft:mangrove_planks"
+    },
+    "s": {
+      "item": "minecraft:mangrove_slab"
+    }
+  },
+  "pattern": [
+    "sss",
+    "pbp"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:mangrove_coffin"
+  }
+}

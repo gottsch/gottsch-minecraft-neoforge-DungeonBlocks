@@ -1,0 +1,30 @@
+{
+  "variants": {
+    "facing=down": {
+      "model": "dungeonblocks:block/sharpened_warped_stem",
+      "x": 180
+    },
+    "facing=east": {
+      "model": "dungeonblocks:block/sharpened_warped_stem",
+      "x": 90,
+      "y": 90
+    },
+    "facing=north": {
+      "model": "dungeonblocks:block/sharpened_warped_stem",
+      "x": 90
+    },
+    "facing=south": {
+      "model": "dungeonblocks:block/sharpened_warped_stem",
+      "x": 90,
+      "y": 180
+    },
+    "facing=up": {
+      "model": "dungeonblocks:block/sharpened_warped_stem"
+    },
+    "facing=west": {
+      "model": "dungeonblocks:block/sharpened_warped_stem",
+      "x": 90,
+      "y": 270
+    }
+  }
+}
