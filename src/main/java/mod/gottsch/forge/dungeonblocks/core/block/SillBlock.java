@@ -34,31 +34,32 @@ import net.minecraft.world.phys.shapes.VoxelShape;
  */
 public class SillBlock extends WaterloggedNonCubeFacingBlock {
 	
-	// Voxels are like the bounding boxes (AABBs) NF= North Facing, SF = South Facing, etc
-	private static final VoxelShape MAIN_PART = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D);
-	private static final VoxelShape NF_TOP_PART = Block.box(0.0D, 12.0D, 8.0D, 16.0D, 16.0D, 16.0D);	
-	private static final VoxelShape EF_TOP_PART = Block.box(0.0D, 12.0D, 0.0D, 8.0D, 16.0D, 16.0D);
-	private static final VoxelShape SF_TOP_PART = Block.box(0.0D, 12.0D, 0.0D, 16.0D, 16.0D, 8.0D);
-	private static final VoxelShape WF_TOP_PART = Block.box(8.0D, 12.0D, 0.0D, 16.0D, 16.0D, 16.0D);
+	// The model (tools/gen_obj_models.py, sill): a 12px body on the whole footprint, full height at
+	// the back half, and a gentle slope between. These shapes - the body and the back - are what it
+	// hides of its neighbours. NF = North Facing (the slope to the north).
+	private static final VoxelShape BODY = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D);
+
+	private static final VoxelShape NORTH_FACING_AABB = Shapes.or(BODY, Block.box(0.0D, 12.0D, 8.0D, 16.0D, 16.0D, 16.0D));
+	private static final VoxelShape EAST_FACING_AABB = Shapes.or(BODY, Block.box(0.0D, 12.0D, 0.0D, 8.0D, 16.0D, 16.0D));
+	private static final VoxelShape SOUTH_FACING_AABB = Shapes.or(BODY, Block.box(0.0D, 12.0D, 0.0D, 16.0D, 16.0D, 8.0D));
+	private static final VoxelShape WEST_FACING_AABB = Shapes.or(BODY, Block.box(8.0D, 12.0D, 0.0D, 16.0D, 16.0D, 16.0D));
 	
-	private static final VoxelShape NORTH_FACING_AABB = Shapes.or(MAIN_PART, NF_TOP_PART);
-	private static final VoxelShape EAST_FACING_AABB = Shapes.or(MAIN_PART, EF_TOP_PART);
-	private static final VoxelShape SOUTH_FACING_AABB = Shapes.or(MAIN_PART, SF_TOP_PART);
-	private static final VoxelShape WEST_FACING_AABB = Shapes.or(MAIN_PART, WF_TOP_PART);
-	
-	/**
-	 * 
-	 * @param properties
-	 */
 	public SillBlock(Properties properties) {
 		super(properties);
 	}
 
-	/**
-	 * 
-	 */
+	/** A full cube to hit, stand on and select: simpler than the slope to handle, and to build with. */
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
+		return Shapes.block();
+	}
+
+	/**
+	 * What it hides of its neighbours stays the stepped shape: as a full cube it would hide the face
+	 * of a block in front of the slope, and leave a hole to see through above it.
+	 */
+	@Override
+	public VoxelShape getOcclusionShape(BlockState state, BlockGetter getter, BlockPos pos) {
 		Direction direction = state.getValue(FACING);
 
 		switch (direction) {

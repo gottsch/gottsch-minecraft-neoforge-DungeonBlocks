@@ -81,14 +81,11 @@ public class SconceBlock extends AbstractSconceBlock {
 	private static final VoxelShape WEST_FACING_SHAPE = Block
 			.box(9.0D, 2.0D, 2.0D, 16, 15.0D, 14.0D);
 
-	/**
-	 * 
-	 * @param properties
-	 */
 	public SconceBlock(Properties properties) {
 
 		super(properties);
-		this.registerDefaultState(this.stateDefinition.any()
+		// defaultBlockState(), not stateDefinition.any() -- see AbstractSconceBlock
+		this.registerDefaultState(this.defaultBlockState()
 						.setValue(LIT, Boolean.valueOf(false))
 				.setValue(CANDLES, Integer.valueOf(0)));
 
@@ -130,21 +127,10 @@ public class SconceBlock extends AbstractSconceBlock {
 		}
 	}
 
-	// THIS DOESN'T WORK
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
-
-		BlockState blockstate = context.getLevel().getBlockState(context.getClickedPos());
-			FluidState fluidstate = context.getLevel().getFluidState(context.getClickedPos());
-			boolean flag = fluidstate.getType() == Fluids.WATER;
-			return super.getStateForPlacement(context).setValue(WATERLOGGED, Boolean.valueOf(flag));
+		return super.getStateForPlacement(context).setValue(WATERLOGGED, Waterlogging.placedInWater(context));
 	}
 
-	/**
-	 * Called periodically clientside on blocks near the player to show effects
-	 * (like furnace fire particles). Note that this method is unrelated to
-	 * {randomTick} and {needsRandomTick}, and will always be
-	 * called regardless of whether the block can receive random update ticks
-	 */
 	@Override
 	public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource rand) {
 		
@@ -240,9 +226,6 @@ public class SconceBlock extends AbstractSconceBlock {
 		}
 	}
 
-	/**
-	 * 
-	 */
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
 		Direction direction = state.getValue(FACING);

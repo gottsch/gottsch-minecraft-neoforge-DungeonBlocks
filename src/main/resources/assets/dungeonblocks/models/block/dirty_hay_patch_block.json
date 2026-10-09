@@ -1,5 +1,6 @@
 {
 	"parent": "block/thin_block",
+	"render_type": "minecraft:cutout",
 	"textures": {
 		"1": "dungeonblocks:block/dirty_hay",
 		"particle": "dungeonblocks:block/dirty_hay"

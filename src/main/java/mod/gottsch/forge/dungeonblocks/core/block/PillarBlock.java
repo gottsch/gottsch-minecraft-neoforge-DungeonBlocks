@@ -42,9 +42,6 @@ public class PillarBlock extends WaterloggedNonCubeBasedBlock {
 		super(properties);
 	}
 
-	/**
-	 * 
-	 */
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
 		Direction direction = state.getValue(BASE);

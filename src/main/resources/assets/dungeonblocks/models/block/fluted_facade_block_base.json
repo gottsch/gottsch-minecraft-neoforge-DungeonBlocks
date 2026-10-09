@@ -1,5 +1,7 @@
 {
-    "parent": "block/block",
+    "parent": "dungeonblocks:block/block_no_ao",
+    "__comment_ao": "AO off, same reason as sill_block_base: the two FluteBorder elements reach the block's side boundaries (x=0 and x=16), so the vertices along those edges sample the neighbouring block. Against a full block - which is exactly how a facade run is built - ambient occlusion reads those vertices as fully occluded and shades the flutes' front faces almost black.",
+    "ambientocclusion": false,
     "textures": {
     "particle": "#0"
     },
@@ -11,10 +13,10 @@
             "faces": {
                 "north": { "texture": "#0", "uv": [ 0.0, 0.0, 16.0, 16.0 ] },
                 "east": { "texture": "#0", "uv": [ 0.0, 0.0, 8.0, 16.0 ] },
-                "south": { "texture": "#0", "uv": [ 0.0, 0.0, 16.0, 16.0 ] },
+                "south": { "texture": "#0", "uv": [ 0.0, 0.0, 16.0, 16.0 ], "cullface": "south" },
                 "west": { "texture": "#0", "uv": [ 0.0, 0.0, 8.0, 16.0 ] },
-                "up": { "texture": "#0", "uv": [ 0.0, 0.0, 16.0, 8.0 ] },
-                "down": { "texture": "#0", "uv": [ 0.0, 0.0, 16.0, 8.0 ] }
+                "up": { "texture": "#0", "uv": [ 0.0, 0.0, 16.0, 8.0 ], "cullface": "up" },
+                "down": { "texture": "#0", "uv": [ 0.0, 0.0, 16.0, 8.0 ], "cullface": "down" }
             }
         },
         {
@@ -23,7 +25,7 @@
             "to": [ 16.0, 15.999, 12.0 ], 
             "faces": {
                 "north": { "texture": "#0", "uv": [ 0.0, 0.0, 8.0, 16.0 ] },
-                "east": { "texture": "#0", "uv": [ 0.0, 0.0, 4.0, 16.0 ] },
+                "east": { "texture": "#0", "uv": [ 0.0, 0.0, 4.0, 16.0 ], "cullface": "east" },
                 "south": { "texture": "#0", "uv": [ 0.0, 0.0, 8.0, 16.0 ] },
                 "west": { "texture": "#0", "uv": [ 0.0, 0.0, 4.0, 16.0 ] },
                 "up": { "texture": "#0", "uv": [ 0.0, 0.0, 8.0, 4.0 ] },
@@ -38,7 +40,7 @@
                 "north": { "texture": "#0", "uv": [ 0.0, 0.0, 4.0, 16.0 ] },
                 "east": { "texture": "#0", "uv": [ 0.0, 0.0, 4.0, 16.0 ] },
                 "south": { "texture": "#0", "uv": [ 0.0, 0.0, 4.0, 16.0 ] },
-                "west": { "texture": "#0", "uv": [ 0.0, 0.0, 4.0, 16.0 ] },
+                "west": { "texture": "#0", "uv": [ 0.0, 0.0, 4.0, 16.0 ], "cullface": "west" },
                 "up": { "texture": "#0", "uv": [ 0.0, 0.0, 4.0, 4.0 ] },
                 "down": { "texture": "#0", "uv": [ 0.0, 0.0, 4.0, 4.0 ] }
             }

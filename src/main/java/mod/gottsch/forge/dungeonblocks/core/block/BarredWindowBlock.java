@@ -46,13 +46,6 @@ public class BarredWindowBlock extends WaterloggedNonCubeFacingBlock {
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
         return AABB;
-        //        Direction direction = state.getValue(FACING);
-
-//        return switch (direction) {
-//            case NORTH, SOUTH -> NORTH_SOUTH_AABB;
-//            case EAST, WEST -> EAST_WEST_AABB;
-//            default -> NORTH_SOUTH_AABB;
-//        };
     }
 
     @Override

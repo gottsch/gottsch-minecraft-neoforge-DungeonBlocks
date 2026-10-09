@@ -25,8 +25,6 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -50,12 +48,9 @@ public class ValveWheelBlock extends WaterloggedNonCubeFacingBlock {
 
    @Override
    public BlockState getStateForPlacement(BlockPlaceContext context) {
-      BlockPos blockPos = context.getClickedPos();
-      FluidState fluidState = context.getLevel().getFluidState(blockPos);
-
       BlockState blockState = this.defaultBlockState().setValue(FACING,
               context.getNearestLookingDirection().getOpposite());
-      blockState.setValue(WATERLOGGED, Boolean.valueOf(fluidState.getType() == Fluids.WATER));
+      blockState = blockState.setValue(WATERLOGGED, Waterlogging.placedInWater(context));
 
       return blockState;
    }

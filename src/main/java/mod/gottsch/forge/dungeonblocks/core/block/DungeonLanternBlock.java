@@ -42,7 +42,10 @@ public class DungeonLanternBlock extends LanternBlock {
 
     public DungeonLanternBlock(Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(LIT, Boolean.valueOf(false)));
+        // defaultBlockState(), not stateDefinition.any(): any() is the FIRST state, which has every
+        // boolean true -- hanging and waterlogged included -- and would overwrite the correct default
+        // LanternBlock has already registered.
+        this.registerDefaultState(this.defaultBlockState().setValue(LIT, Boolean.valueOf(false)));
     }
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {

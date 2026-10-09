@@ -1,5 +1,7 @@
 {
-	"parent": "block/block",
+	"parent": "dungeonblocks:block/block_no_ao",
+	"__comment_ao": "AO off for the same reason as facade_block_base - the faces reach the block boundaries - and so that an inner corner matches the straight pieces it joins rather than being the one shaded segment in a run.",
+	"ambientocclusion": false,
 	"credit": "Made with Blockbench",
 	"textures": {
         "particle": "#0"
@@ -11,12 +13,12 @@
 			"to": [16, 16, 8],
 			"color": 2,
 			"faces": {
-				"north": {"uv": [0, 0, 8, 16], "texture": "#0"},
-				"east": {"uv": [0, 0, 8, 16], "texture": "#0"},
+				"north": {"uv": [0, 0, 8, 16], "texture": "#0", "cullface": "north"},
+				"east": {"uv": [8, 0, 16, 16], "texture": "#0", "cullface": "east"},
 				"south": {"uv": [0, 0, 8, 16], "texture": "#0"},
 				"west": {"uv": [0, 0, 8, 16], "texture": "#0"},
-				"up": {"uv": [0, 0, 8, 8], "texture": "#0"},
-				"down": {"uv": [0, 0, 8, 8], "texture": "#0"}
+				"up": {"uv": [8, 0, 16, 8], "texture": "#0", "cullface": "up"},
+				"down": {"uv": [8, 8, 16, 16], "texture": "#0", "cullface": "down"}
 			}
 		},
 		{
@@ -26,11 +28,11 @@
 			"color": 1,
 			"faces": {
 				"north": {"uv": [0, 0, 16, 16], "texture": "#0"},
-				"east": {"uv": [0, 0, 8, 16], "texture": "#0"},
-				"south": {"uv": [0, 0, 16, 16], "texture": "#0"},
-				"west": {"uv": [0, 0, 8, 16], "texture": "#0"},
-				"up": {"uv": [0, 0, 16, 8], "texture": "#0"},
-				"down": {"uv": [0, 0, 16, 8], "texture": "#0"}
+				"east": {"uv": [0, 0, 8, 16], "texture": "#0", "cullface": "east"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#0", "cullface": "south"},
+				"west": {"uv": [0, 0, 8, 16], "texture": "#0", "cullface": "west"},
+				"up": {"uv": [0, 8, 16, 16], "texture": "#0", "cullface": "up"},
+				"down": {"uv": [0, 0, 16, 8], "texture": "#0", "cullface": "down"}
 			}
 		}
 	]

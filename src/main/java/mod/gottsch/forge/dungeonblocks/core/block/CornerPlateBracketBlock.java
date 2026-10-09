@@ -63,9 +63,6 @@ public class CornerPlateBracketBlock extends WaterloggedFacingHalfBlock {
             Block.box(14D, 2, 0D, 16, 16, 16),
             Block.box(0, 2, 0, 16, 16, 2));
 
-    /**
-     * @param properties
-     */
     public CornerPlateBracketBlock(Properties properties) {
         super(properties);
     }

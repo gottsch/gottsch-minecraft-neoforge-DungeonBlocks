@@ -2,8 +2,7 @@
   "variants": {
     "facing=down,shape=inner_left": {
       "model": "dungeonblocks:block/chiseled_stone_bricks_facade_block_inner",
-      "uvlock": true,
-      "y": 270
+      "uvlock": true
     },
     "facing=down,shape=inner_right": {
       "model": "dungeonblocks:block/chiseled_stone_bricks_facade_block_inner",
@@ -12,8 +11,7 @@
     },
     "facing=down,shape=outer_left": {
       "model": "dungeonblocks:block/chiseled_stone_bricks_facade_block_outer",
-      "uvlock": true,
-      "y": 270
+      "uvlock": true
     },
     "facing=down,shape=outer_right": {
       "model": "dungeonblocks:block/chiseled_stone_bricks_facade_block_outer",
@@ -28,7 +26,7 @@
     "facing=east,shape=inner_left": {
       "model": "dungeonblocks:block/chiseled_stone_bricks_facade_block_inner",
       "uvlock": true,
-      "y": 90
+      "y": 180
     },
     "facing=east,shape=inner_right": {
       "model": "dungeonblocks:block/chiseled_stone_bricks_facade_block_inner",
@@ -38,7 +36,7 @@
     "facing=east,shape=outer_left": {
       "model": "dungeonblocks:block/chiseled_stone_bricks_facade_block_outer",
       "uvlock": true,
-      "y": 90
+      "y": 180
     },
     "facing=east,shape=outer_right": {
       "model": "dungeonblocks:block/chiseled_stone_bricks_facade_block_outer",
@@ -61,12 +59,12 @@
     },
     "facing=north,shape=outer_left": {
       "model": "dungeonblocks:block/chiseled_stone_bricks_facade_block_outer",
-      "uvlock": true
+      "uvlock": true,
+      "y": 90
     },
     "facing=north,shape=outer_right": {
       "model": "dungeonblocks:block/chiseled_stone_bricks_facade_block_outer",
-      "uvlock": true,
-      "y": 90
+      "uvlock": true
     },
     "facing=north,shape=straight": {
       "model": "dungeonblocks:block/chiseled_stone_bricks_facade_block",
@@ -75,12 +73,12 @@
     "facing=south,shape=inner_left": {
       "model": "dungeonblocks:block/chiseled_stone_bricks_facade_block_inner",
       "uvlock": true,
-      "y": 180
+      "y": 270
     },
     "facing=south,shape=inner_right": {
       "model": "dungeonblocks:block/chiseled_stone_bricks_facade_block_inner",
       "uvlock": true,
-      "y": 270
+      "y": 180
     },
     "facing=south,shape=outer_left": {
       "model": "dungeonblocks:block/chiseled_stone_bricks_facade_block_outer",
@@ -99,8 +97,7 @@
     },
     "facing=up,shape=inner_left": {
       "model": "dungeonblocks:block/chiseled_stone_bricks_facade_block_inner",
-      "uvlock": true,
-      "y": 270
+      "uvlock": true
     },
     "facing=up,shape=inner_right": {
       "model": "dungeonblocks:block/chiseled_stone_bricks_facade_block_inner",
@@ -109,8 +106,7 @@
     },
     "facing=up,shape=outer_left": {
       "model": "dungeonblocks:block/chiseled_stone_bricks_facade_block_outer",
-      "uvlock": true,
-      "y": 270
+      "uvlock": true
     },
     "facing=up,shape=outer_right": {
       "model": "dungeonblocks:block/chiseled_stone_bricks_facade_block_outer",
@@ -124,8 +120,7 @@
     },
     "facing=west,shape=inner_left": {
       "model": "dungeonblocks:block/chiseled_stone_bricks_facade_block_inner",
-      "uvlock": true,
-      "y": 270
+      "uvlock": true
     },
     "facing=west,shape=inner_right": {
       "model": "dungeonblocks:block/chiseled_stone_bricks_facade_block_inner",
@@ -134,8 +129,7 @@
     },
     "facing=west,shape=outer_left": {
       "model": "dungeonblocks:block/chiseled_stone_bricks_facade_block_outer",
-      "uvlock": true,
-      "y": 270
+      "uvlock": true
     },
     "facing=west,shape=outer_right": {
       "model": "dungeonblocks:block/chiseled_stone_bricks_facade_block_outer",

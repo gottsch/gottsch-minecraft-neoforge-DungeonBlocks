@@ -26,8 +26,6 @@ public class DataGenerators {
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
         if (event.includeServer()) {
-            // dup of ModBlockTagGenerator
-//            generator.addProvider(true, new ModBlockTagsProvider(packOutput, lookupProvider, event.getExistingFileHelper()));
             generator.addProvider(true, new Recipes(packOutput, lookupProvider));
             generator.addProvider(true, ModLootTableProvider.create(packOutput, lookupProvider));
             ModBlockTagGenerator blockTagGenerator = generator.addProvider(event.includeServer(),
@@ -38,9 +36,5 @@ public class DataGenerators {
             generator.addProvider(true, new ItemModelsProvider(packOutput, event.getExistingFileHelper()));
             generator.addProvider(true, new LanguageGen(packOutput, "en_us"));
         }
-//        generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput));
-
-
-//        generator.addProvider(event.includeServer(), new ModItemTagGenerator(packOutput, lookupProvider, blockTagGenerator.contentsGetter(), existingFileHelper));
     }
 }

@@ -25,8 +25,6 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.NotNull;
@@ -45,16 +43,10 @@ public class PlateBracketBlock extends WaterloggedNonCubeFacingBlock {
     private static final VoxelShape WEST_SHAPE = Block.box(14D, 0D, 0D, 16, 16D, 16D);
 
 
-    /**
-     * @param properties
-     */
     public PlateBracketBlock(Properties properties) {
         super(properties);
     }
 
-    /**
-     *
-     */
     @Override
     public @NotNull VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
         Direction direction = state.getValue(FACING);
@@ -71,12 +63,9 @@ public class PlateBracketBlock extends WaterloggedNonCubeFacingBlock {
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
-        BlockPos blockPos = context.getClickedPos();
-        FluidState fluidState = context.getLevel().getFluidState(blockPos);
-
         BlockState blockState = this.defaultBlockState().setValue(FACING,
                 context.getNearestLookingDirection().getOpposite());
-        blockState.setValue(WATERLOGGED, Boolean.valueOf(fluidState.getType() == Fluids.WATER));
+        blockState = blockState.setValue(WATERLOGGED, Waterlogging.placedInWater(context));
 
         return blockState;
     }

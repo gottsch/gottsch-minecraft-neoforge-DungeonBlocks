@@ -20,7 +20,6 @@
 package mod.gottsch.forge.dungeonblocks.core.config;
 
 import mod.gottsch.forge.dungeonblocks.DungeonBlocks;
-import mod.gottsch.neo.gottschcore.config.AbstractConfig;
 import net.neoforged.neoforge.common.ModConfigSpec;
 
 /**
@@ -28,7 +27,7 @@ import net.neoforged.neoforge.common.ModConfigSpec;
  * @author Mark Gottschling on Jan 5, 2020
  *
  */
-public class DungeonBlocksConfig extends AbstractConfig {
+public class DungeonBlocksConfig {
 	protected static final ModConfigSpec.Builder COMMON_BUILDER = new ModConfigSpec.Builder();
 	protected static final ModConfigSpec.Builder CLIENT_BUILDER = new ModConfigSpec.Builder();
 
@@ -36,15 +35,33 @@ public class DungeonBlocksConfig extends AbstractConfig {
 	public static ModConfigSpec CLIENT_CONFIG;
 
 	public static DungeonBlocksConfig instance = new DungeonBlocksConfig();
-	
-	static {
-		COMMON_CONFIG = COMMON_BUILDER.build();
-	}
 
 	/**
-	 * 
-	 * @param mod
+	 * Purely visual settings, so they live in the CLIENT spec: a player who wants still banners gets
+	 * them without anything having to agree with the server about it.
 	 */
+	public static final class Visuals {
+		public final ModConfigSpec.BooleanValue animateBanners;
+
+		Visuals(ModConfigSpec.Builder builder) {
+			builder.comment("Visual settings. These affect only your own client.").push("visuals");
+			animateBanners = builder
+					.comment("Master switch for Dungeon Banner cloth movement. Each banner also has its own",
+							"animated blockstate, toggled in-world with an empty hand; this setting can turn",
+							"all of them off, but cannot animate a banner that was deliberately stilled.")
+					.define("animateBanners", true);
+			builder.pop();
+		}
+	}
+
+	public static Visuals VISUALS;
+
+	static {
+		COMMON_CONFIG = COMMON_BUILDER.build();
+		VISUALS = new Visuals(CLIENT_BUILDER);
+		CLIENT_CONFIG = CLIENT_BUILDER.build();
+	}
+
 	public DungeonBlocksConfig() {
 	}
 }
