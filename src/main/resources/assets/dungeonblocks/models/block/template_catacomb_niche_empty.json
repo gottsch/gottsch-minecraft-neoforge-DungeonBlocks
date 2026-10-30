@@ -1,0 +1,301 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "bone": "dungeonblocks:block/skeleton_bottom",
+    "skull": "dungeonblocks:block/skeleton_head",
+    "stone": "minecraft:block/stone_bricks",
+    "particle": "minecraft:block/stone_bricks"
+  },
+  "elements": [
+    {
+      "name": "sill",
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        2,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            14.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#stone",
+          "cullface": "north"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            14.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#stone",
+          "cullface": "east"
+        },
+        "south": {
+          "uv": [
+            0.0,
+            14.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#stone",
+          "cullface": "south"
+        },
+        "west": {
+          "uv": [
+            0.0,
+            14.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#stone",
+          "cullface": "west"
+        },
+        "up": {
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#stone"
+        },
+        "down": {
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#stone",
+          "cullface": "down"
+        }
+      }
+    },
+    {
+      "name": "lintel",
+      "from": [
+        0,
+        14,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            2.0
+          ],
+          "texture": "#stone",
+          "cullface": "north"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            2.0
+          ],
+          "texture": "#stone",
+          "cullface": "east"
+        },
+        "south": {
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            2.0
+          ],
+          "texture": "#stone",
+          "cullface": "south"
+        },
+        "west": {
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            2.0
+          ],
+          "texture": "#stone",
+          "cullface": "west"
+        },
+        "up": {
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#stone",
+          "cullface": "up"
+        },
+        "down": {
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#stone"
+        }
+      }
+    },
+    {
+      "name": "jamb_west",
+      "from": [
+        0,
+        2,
+        0
+      ],
+      "to": [
+        2,
+        14,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            14.0,
+            2.0,
+            16.0,
+            14.0
+          ],
+          "texture": "#stone",
+          "cullface": "north"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            2.0,
+            16.0,
+            14.0
+          ],
+          "texture": "#stone"
+        },
+        "south": {
+          "uv": [
+            0.0,
+            2.0,
+            2.0,
+            14.0
+          ],
+          "texture": "#stone",
+          "cullface": "south"
+        },
+        "west": {
+          "uv": [
+            0.0,
+            2.0,
+            16.0,
+            14.0
+          ],
+          "texture": "#stone",
+          "cullface": "west"
+        }
+      }
+    },
+    {
+      "name": "jamb_east",
+      "from": [
+        14,
+        2,
+        0
+      ],
+      "to": [
+        16,
+        14,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            2.0,
+            2.0,
+            14.0
+          ],
+          "texture": "#stone",
+          "cullface": "north"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            2.0,
+            16.0,
+            14.0
+          ],
+          "texture": "#stone",
+          "cullface": "east"
+        },
+        "south": {
+          "uv": [
+            14.0,
+            2.0,
+            16.0,
+            14.0
+          ],
+          "texture": "#stone",
+          "cullface": "south"
+        },
+        "west": {
+          "uv": [
+            0.0,
+            2.0,
+            16.0,
+            14.0
+          ],
+          "texture": "#stone"
+        }
+      }
+    },
+    {
+      "name": "back",
+      "from": [
+        2,
+        2,
+        12
+      ],
+      "to": [
+        14,
+        14,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2.0,
+            2.0,
+            14.0,
+            14.0
+          ],
+          "texture": "#stone"
+        },
+        "south": {
+          "uv": [
+            2.0,
+            2.0,
+            14.0,
+            14.0
+          ],
+          "texture": "#stone",
+          "cullface": "south"
+        }
+      }
+    }
+  ]
+}

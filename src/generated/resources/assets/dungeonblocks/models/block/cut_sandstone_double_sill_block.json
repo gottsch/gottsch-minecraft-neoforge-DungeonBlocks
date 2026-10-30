@@ -1,6 +1,10 @@
 {
-  "parent": "dungeonblocks:block/double_sill_block_base",
+  "parent": "dungeonblocks:block/block_no_ao",
+  "flip_v": true,
+  "loader": "neoforge:obj",
+  "model": "dungeonblocks:models/block/double_sill.obj",
   "textures": {
-    "0": "minecraft:block/cut_sandstone"
+    "particle": "minecraft:block/cut_sandstone",
+    "stone": "minecraft:block/cut_sandstone"
   }
 }

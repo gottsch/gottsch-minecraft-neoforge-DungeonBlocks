@@ -31,7 +31,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.Fluids;
 
 /**
  * 
@@ -42,19 +41,12 @@ public class WaterloggedNonCubeFacingBlock extends FacingBlock implements Simple
 
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
 	
-	/**
-	 * 
-	 * @param properties
-	 */
 	public WaterloggedNonCubeFacingBlock(Block.Properties properties) {
 		super(properties);
 		this.registerDefaultState(this.stateDefinition.any()
 				.setValue(WATERLOGGED, Boolean.valueOf(false)));
 	}
 	
-	/**
-	 * 
-	 */
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		super.createBlockStateDefinition(builder);
@@ -68,27 +60,22 @@ public class WaterloggedNonCubeFacingBlock extends FacingBlock implements Simple
 	 */
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
-		BlockPos blockPos = context.getClickedPos();
-		FluidState fluidState = context.getLevel().getFluidState(blockPos);
-
 		BlockState blockState = this.defaultBlockState().setValue(FACING,
 				context.getHorizontalDirection().getOpposite());
-		blockState.setValue(WATERLOGGED, Boolean.valueOf(fluidState.getType() == Fluids.WATER));
+		blockState = blockState.setValue(WATERLOGGED, Waterlogging.placedInWater(context));
 
 		return blockState;
 	}
 	
 	@Override
 	public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor levelAccessor, BlockPos pos, BlockPos p_56930_) {
-		if (state.getValue(WATERLOGGED)) {
-			levelAccessor.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(levelAccessor));
-		}
+		Waterlogging.tickWater(state, levelAccessor, pos);
 		return super.updateShape(state, direction, newState, levelAccessor, pos, p_56930_);
 	}
 	
 	@Override
 	public FluidState getFluidState(BlockState blockState) {
-		return blockState.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(blockState);
+		return Waterlogging.fluid(blockState, super.getFluidState(blockState));
 	}
 	
 	@Override

@@ -1,0 +1,124 @@
+{
+  "variants": {
+    "bones=1,facing=east,waterlogged=false": {
+      "model": "dungeonblocks:block/bone_pile_1",
+      "y": 90
+    },
+    "bones=1,facing=east,waterlogged=true": {
+      "model": "dungeonblocks:block/bone_pile_1",
+      "y": 90
+    },
+    "bones=1,facing=north,waterlogged=false": {
+      "model": "dungeonblocks:block/bone_pile_1"
+    },
+    "bones=1,facing=north,waterlogged=true": {
+      "model": "dungeonblocks:block/bone_pile_1"
+    },
+    "bones=1,facing=south,waterlogged=false": {
+      "model": "dungeonblocks:block/bone_pile_1",
+      "y": 180
+    },
+    "bones=1,facing=south,waterlogged=true": {
+      "model": "dungeonblocks:block/bone_pile_1",
+      "y": 180
+    },
+    "bones=1,facing=west,waterlogged=false": {
+      "model": "dungeonblocks:block/bone_pile_1",
+      "y": 270
+    },
+    "bones=1,facing=west,waterlogged=true": {
+      "model": "dungeonblocks:block/bone_pile_1",
+      "y": 270
+    },
+    "bones=2,facing=east,waterlogged=false": {
+      "model": "dungeonblocks:block/bone_pile_2",
+      "y": 90
+    },
+    "bones=2,facing=east,waterlogged=true": {
+      "model": "dungeonblocks:block/bone_pile_2",
+      "y": 90
+    },
+    "bones=2,facing=north,waterlogged=false": {
+      "model": "dungeonblocks:block/bone_pile_2"
+    },
+    "bones=2,facing=north,waterlogged=true": {
+      "model": "dungeonblocks:block/bone_pile_2"
+    },
+    "bones=2,facing=south,waterlogged=false": {
+      "model": "dungeonblocks:block/bone_pile_2",
+      "y": 180
+    },
+    "bones=2,facing=south,waterlogged=true": {
+      "model": "dungeonblocks:block/bone_pile_2",
+      "y": 180
+    },
+    "bones=2,facing=west,waterlogged=false": {
+      "model": "dungeonblocks:block/bone_pile_2",
+      "y": 270
+    },
+    "bones=2,facing=west,waterlogged=true": {
+      "model": "dungeonblocks:block/bone_pile_2",
+      "y": 270
+    },
+    "bones=3,facing=east,waterlogged=false": {
+      "model": "dungeonblocks:block/bone_pile_3",
+      "y": 90
+    },
+    "bones=3,facing=east,waterlogged=true": {
+      "model": "dungeonblocks:block/bone_pile_3",
+      "y": 90
+    },
+    "bones=3,facing=north,waterlogged=false": {
+      "model": "dungeonblocks:block/bone_pile_3"
+    },
+    "bones=3,facing=north,waterlogged=true": {
+      "model": "dungeonblocks:block/bone_pile_3"
+    },
+    "bones=3,facing=south,waterlogged=false": {
+      "model": "dungeonblocks:block/bone_pile_3",
+      "y": 180
+    },
+    "bones=3,facing=south,waterlogged=true": {
+      "model": "dungeonblocks:block/bone_pile_3",
+      "y": 180
+    },
+    "bones=3,facing=west,waterlogged=false": {
+      "model": "dungeonblocks:block/bone_pile_3",
+      "y": 270
+    },
+    "bones=3,facing=west,waterlogged=true": {
+      "model": "dungeonblocks:block/bone_pile_3",
+      "y": 270
+    },
+    "bones=4,facing=east,waterlogged=false": {
+      "model": "dungeonblocks:block/bone_pile_4",
+      "y": 90
+    },
+    "bones=4,facing=east,waterlogged=true": {
+      "model": "dungeonblocks:block/bone_pile_4",
+      "y": 90
+    },
+    "bones=4,facing=north,waterlogged=false": {
+      "model": "dungeonblocks:block/bone_pile_4"
+    },
+    "bones=4,facing=north,waterlogged=true": {
+      "model": "dungeonblocks:block/bone_pile_4"
+    },
+    "bones=4,facing=south,waterlogged=false": {
+      "model": "dungeonblocks:block/bone_pile_4",
+      "y": 180
+    },
+    "bones=4,facing=south,waterlogged=true": {
+      "model": "dungeonblocks:block/bone_pile_4",
+      "y": 180
+    },
+    "bones=4,facing=west,waterlogged=false": {
+      "model": "dungeonblocks:block/bone_pile_4",
+      "y": 270
+    },
+    "bones=4,facing=west,waterlogged=true": {
+      "model": "dungeonblocks:block/bone_pile_4",
+      "y": 270
+    }
+  }
+}

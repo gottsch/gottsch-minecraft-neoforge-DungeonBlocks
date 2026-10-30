@@ -19,6 +19,8 @@
  */
 package mod.gottsch.forge.dungeonblocks.core.block;
 
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
@@ -78,5 +80,12 @@ public class WeatheringCopperDoorBlock extends DoorBlock implements ModWeatherin
 
    private void playSound(@Nullable Entity entity, Level level, BlockPos pos, boolean p_251628_) {
       level.playSound(entity, pos, p_251628_ ? BlockSetType.IRON.doorOpen() : BlockSetType.IRON.doorClose(), SoundSource.BLOCKS, 1.0F, level.getRandom().nextFloat() * 0.1F + 0.9F);
+   }
+
+   /** The other half follows when this one becomes a different copper door: see {@link CopperDoorHalves}. */
+   @Override
+   public BlockState updateShape(BlockState state, Direction direction, BlockState neighbor, LevelAccessor level, BlockPos pos, BlockPos neighborPos) {
+      BlockState follow = CopperDoorHalves.follow(state, direction, neighbor);
+      return follow != null ? follow : super.updateShape(state, direction, neighbor, level, pos, neighborPos);
    }
 }

@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/iron_bars_side_alt",
+  "render_type": "minecraft:cutout_mipped",
+  "textures": {
+    "bars": "dungeonblocks:block/dark_iron_bars",
+    "edge": "dungeonblocks:block/dark_iron_bars",
+    "particle": "dungeonblocks:block/dark_iron_bars"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "dungeonblocks:block/dungeon_door_middle_right",
+  "textures": {
+    "middle": "dungeonblocks:block/dungeon_crimson_door_middle"
+  }
+}

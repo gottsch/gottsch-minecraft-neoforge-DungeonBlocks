@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "f": {
+      "item": "minecraft:dark_oak_fence"
+    },
+    "l": {
+      "item": "minecraft:dark_oak_log"
+    },
+    "p": {
+      "item": "minecraft:dark_oak_planks"
+    },
+    "t": {
+      "item": "minecraft:string"
+    }
+  },
+  "pattern": [
+    "ltl",
+    "ppp",
+    "f f"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:torture_rack"
+  }
+}

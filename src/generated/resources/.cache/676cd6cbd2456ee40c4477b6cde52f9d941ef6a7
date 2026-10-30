@@ -1,6 +1,11 @@
-// 1.21.1	2026-07-06T08:37:31.8472185	Tags for minecraft:block mod id dungeonblocks
-bbd3b6443fb41a9aca43d3377b1513f2d3589811 data/dungeonblocks/tags/block/corbels.json
-a21c8b45da3392cfb38ffac36f9d213ec0c6cc05 data/dungeonblocks/tags/block/ledges.json
-a3ab12ac695bceb4e3e80d949d073235717ef091 data/minecraft/tags/block/mineable/pickaxe.json
-e3fbaf2a8c4dec1ddef13cdbbeec023698792d42 data/minecraft/tags/block/needs_diamond_tool.json
-e6b4d9282597259f5e49b025bc39bb850de33248 data/minecraft/tags/block/needs_stone_tool.json
+// 1.21.1	2026-10-09T06:40:17.5741356	Tags for minecraft:block mod id dungeonblocks
+5299b724844dd9899f6958049e9d8adba4cbf88d data/dungeonblocks/tags/block/corbels.json
+27739081a5d31ce3cce51e9b5737aa729cd9def0 data/dungeonblocks/tags/block/ledges.json
+59b54af66e4acb320b461257c638c041a8a16599 data/minecraft/tags/block/climbable.json
+bc67eb789be0e58be78b1e764a71e7cefe034eed data/minecraft/tags/block/doors.json
+597ab54ad6f3350269162ab5a4ecad4e50104be4 data/minecraft/tags/block/mineable/axe.json
+1d6398e8e2ebf0cbf04dad704f27bb6e1efac1cb data/minecraft/tags/block/mineable/pickaxe.json
+1db34afb187befe5ce0693d625239969c6e76aca data/minecraft/tags/block/needs_diamond_tool.json
+8f79020192d89a6178754d6e6d2fc8cb1bb2cc59 data/minecraft/tags/block/needs_stone_tool.json
+f9156fc109f4a4977a7f8d31a02ee99ceac79ef6 data/minecraft/tags/block/slabs.json
+fa22e5a9425be7a3a28bebb6c54bf66b14c9e1f5 data/minecraft/tags/block/sword_efficient.json

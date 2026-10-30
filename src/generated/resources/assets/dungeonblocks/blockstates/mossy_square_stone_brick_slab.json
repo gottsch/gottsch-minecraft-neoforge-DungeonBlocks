@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "dungeonblocks:block/mossy_square_stone_brick_slab"
+    },
+    "type=double": {
+      "model": "dungeonblocks:block/mossy_square_stone_brick"
+    },
+    "type=top": {
+      "model": "dungeonblocks:block/mossy_square_stone_brick_slab_top"
+    }
+  }
+}

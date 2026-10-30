@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "s": {
+      "item": "minecraft:polished_andesite"
+    }
+  },
+  "pattern": [
+    "sss",
+    " s ",
+    "sss"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:pedestal"
+  }
+}

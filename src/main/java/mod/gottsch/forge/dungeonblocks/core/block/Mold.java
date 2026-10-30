@@ -22,7 +22,6 @@ package mod.gottsch.forge.dungeonblocks.core.block;
 import mod.gottsch.forge.dungeonblocks.DungeonBlocks;
 import mod.gottsch.forge.dungeonblocks.core.item.ModItems;
 import mod.gottsch.forge.dungeonblocks.core.particle.ModParticles;
-import mod.gottsch.neo.gottschcore.random.RandomHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.util.RandomSource;
@@ -64,7 +63,6 @@ public class Mold extends GlowLichenBlock {
         double xPos = (x + 0.5D);
         double yPos = y - 0.1D;
         double zPos = (z + 0.5D);
-        // initial velocities
         double velocityX = 0;
         double velocityY = -0.1; //0
         double velocityZ = 0;

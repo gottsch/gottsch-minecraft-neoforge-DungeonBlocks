@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:obsidian"
+  },
+  "result": {
+    "id": "dungeonblocks:obsidian_pillar_base_block",
+    "count": 1
+  }
+}

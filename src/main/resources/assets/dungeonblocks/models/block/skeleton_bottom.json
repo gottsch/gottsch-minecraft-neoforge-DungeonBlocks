@@ -1,5 +1,7 @@
 {
 	"parent": "dungeonblocks:block/block_parent",
+	"__comment_ao": "AO off, same reason as sill_block_base: the leftArm element is tilted -22.5 degrees and the torso sits flush against the block behind it, and ambient occlusion shades faces like that almost black.",
+	"ambientocclusion": false,
 	"textures": {
 		"0": "dungeonblocks:block/skeleton_bottom"
 	},

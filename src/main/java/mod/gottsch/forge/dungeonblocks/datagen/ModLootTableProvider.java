@@ -20,6 +20,7 @@
 package mod.gottsch.forge.dungeonblocks.datagen;
 
 import mod.gottsch.forge.dungeonblocks.datagen.loot.ModBlockLootTables;
+import mod.gottsch.forge.dungeonblocks.datagen.loot.ModEntityLootTables;
 
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -33,7 +34,8 @@ import java.util.concurrent.CompletableFuture;
 public class ModLootTableProvider {
     public static LootTableProvider create(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
         return new LootTableProvider(output, Set.of(), List.of(
-                new LootTableProvider.SubProviderEntry(ModBlockLootTables::new, LootContextParamSets.BLOCK)
+                new LootTableProvider.SubProviderEntry(ModBlockLootTables::new, LootContextParamSets.BLOCK),
+                new LootTableProvider.SubProviderEntry(ModEntityLootTables::new, LootContextParamSets.ENTITY)
         ), registries);
     }
 }

@@ -101,33 +101,15 @@ SewerBlock extends NonCubeFacingBlock {
             TOP_RIGHT_SHAPE, // 4
             BOTTOM_RIGHT_SHAPE}; //5
 
-    /**
-     *
-     * @param properties
-     */
     public SewerBlock(Properties properties) {
         super(properties);
     }
 
-    /**
-     *
-     */
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         super.createBlockStateDefinition(builder);
         builder.add(SHAPE);
     }
-
-//    @Override
-//    public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
-//        Direction direction = state.getValue(FACING);
-//
-//        return switch (direction) {
-//            case NORTH, SOUTH -> NORTH_SOUTH_SHAPE;
-//            case EAST, WEST -> EAST_WEST_SHAPE;
-//            default -> AABB;
-//        };
-//    }
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
@@ -173,7 +155,6 @@ SewerBlock extends NonCubeFacingBlock {
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         BlockState blockState = super.getStateForPlacement(context);
-        // custom method to get block state
         BlockState placementBlockState = getBlockStateForPlacement(context.getLevel(), blockState, context.getClickedPos());
 
         return placementBlockState;
@@ -182,30 +163,14 @@ SewerBlock extends NonCubeFacingBlock {
     @Override
     public BlockState updateShape(BlockState blockState, Direction direction, BlockState blockState2, LevelAccessor level, BlockPos blockPos, BlockPos blockPos2) {
         BlockState placementBlockState = super.updateShape(blockState, direction, blockState2, level, blockPos, blockPos2);
-        // custom method to get block state
-        placementBlockState = getBlockStateForPlacement((Level)level, placementBlockState, blockPos);
+        placementBlockState = getBlockStateForPlacement(level, placementBlockState, blockPos);
         return placementBlockState;
     }
 
-    /**
-     *
-     * @param level
-     * @param blockState
-     * @param blockPos
-     * @return
-     */
-    public BlockState getBlockStateForPlacement(Level level, BlockState blockState, BlockPos blockPos) {
+    public BlockState getBlockStateForPlacement(LevelAccessor level, BlockState blockState, BlockPos blockPos) {
         Direction direction = blockState.getValue(FACING);
         BlockState newState = blockState;
 
-        // test the direction the block is facing
-//        newState = switch (direction) {
-//            case SOUTH -> getStateForSouthDirection(level, blockPos, blockState);
-//            case NORTH -> getStateForNorthDirection(level, blockPos, blockState);
-//            case EAST -> getStateForEastDirection(level, blockPos, blockState);
-//            case WEST -> getStateForWestDirection(level, blockPos, blockState);
-//            default -> blockState.setValue(SHAPE, FacadeShape.STRAIGHT);
-//        };
         newState = getStateForSouthDirection(level, blockPos, blockState);
         return newState;
     }
@@ -219,7 +184,7 @@ SewerBlock extends NonCubeFacingBlock {
      * @param blockState
      * @return
      */
-    BlockState getStateForSouthDirection(Level level, BlockPos blockPos, BlockState blockState) {
+    BlockState getStateForSouthDirection(LevelAccessor level, BlockPos blockPos, BlockState blockState) {
         BlockState neighborState;
         Block neighborBlock;
         Direction neighborFacing;
@@ -228,7 +193,6 @@ SewerBlock extends NonCubeFacingBlock {
         Block neighborBlock2;
         Direction neighborFacing2;
 
-        // default value
         blockState = blockState.setValue(SHAPE, SewerShape.STRAIGHT);
 
         neighborState = level.getBlockState(blockPos.south());

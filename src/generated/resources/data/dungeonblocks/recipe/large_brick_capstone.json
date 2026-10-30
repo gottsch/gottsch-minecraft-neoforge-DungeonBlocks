@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "dungeonblocks:large_bricks"
+  },
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:large_brick_capstone"
+  }
+}

@@ -18,6 +18,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 @EventBusSubscriber(modid = DungeonBlocks.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ModParticles {
     public static final DeferredHolder<ParticleType<?>, SimpleParticleType> BLACK_SPORE_PARTICLE = Registration.PARTICLES.register("black_spore", () -> new SimpleParticleType(false));
+    public static final DeferredHolder<ParticleType<?>, SimpleParticleType> POT_DUST_PARTICLE = Registration.PARTICLES.register("pot_dust", () -> new SimpleParticleType(false));
 
     public static void register(IEventBus bus) {
         Registration.registerParticles(bus);
@@ -27,5 +28,6 @@ public class ModParticles {
     @SubscribeEvent
     public static void registerFactories(RegisterParticleProvidersEvent event) {
         event.registerSpriteSet(BLACK_SPORE_PARTICLE.get(), BlackSporeParticle.Provider::new);
+        event.registerSpriteSet(POT_DUST_PARTICLE.get(), PotDustParticle.Provider::new);
     }
 }

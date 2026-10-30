@@ -1,7 +1,7 @@
 /*
  * This file is part of  DungeonBlocks.
  * Copyright (c) 2021 Mark Gottschling (gottsch)
- * 
+ *
  * All rights reserved.
  *
  * DungeonBlocks is free software: you can redistribute it and/or modify
@@ -19,6 +19,9 @@
  */
 package mod.gottsch.forge.dungeonblocks.core.block;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import mod.gottsch.forge.dungeonblocks.core.state.properties.FacadeShape;
 import mod.gottsch.neo.gottschcore.block.IFacingBlock;
 import net.minecraft.core.BlockPos;
@@ -30,88 +33,143 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.phys.shapes.CollisionContext;
-
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 /**
- * @author Mark Gottschling on Mar 24, 2020
+ * Shared behaviour for the facade family - blocks that run along a wall and fold
+ * around its corners (facade, fluted facade, quarter facade, cornice, crown
+ * molding, ledge).
  *
+ * <p>LEFT and RIGHT in {@link FacadeShape} are <b>relative to FACING</b>, the way
+ * vanilla {@code StairsShape} defines them: RIGHT is the clockwise side of the
+ * block's facing direction, LEFT the counter-clockwise side. That is what lets a
+ * single rule cover all four horizontal facings, and what makes a rotated
+ * structure placement come out right without touching SHAPE at all.
+ *
+ * @author Mark Gottschling on Mar 24, 2020
  */
 public interface IFacadeShapeBlock extends IFacingBlock {
 	public static final EnumProperty<FacadeShape> SHAPE = EnumProperty.create("shape", FacadeShape.class);
 
+	/** offsets of the straight / inner / outer runs in a table built by {@link #buildShapeTable} */
+	static final int STRAIGHT_OFFSET = 0;
+	static final int INNER_OFFSET = 4;
+	static final int OUTER_OFFSET = 8;
+
 	public boolean isBlockInstanceOf(Block block);
 
 	/**
-	 * Returns the VoxelShape (ie bounding box) of the block in the correct position.
-	 * NOTE if shape != STRAIGHT, then facing index can only == North || South
+	 * The number of clockwise quarter-turns that carry the canonical north-facing
+	 * geometry onto the geometry for {@code facing}. Equals the model's y-rotation
+	 * divided by 90, which is what keeps collision and rendering in step.
 	 */
-	default public int getBlockShapeIndex(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
-		int facingIndex = 0;
-		int shapeIndex = 0;
-
-		Direction direction = state.getValue(FACING);
-		FacadeShape shape = state.getValue(SHAPE);
-
-		facingIndex = switch (direction) {
-		case NORTH -> Direction.NORTH.get2DDataValue();
-		case SOUTH ->  Direction.SOUTH.get2DDataValue();
-		case EAST -> Direction.EAST.get2DDataValue();
-		case WEST -> Direction.WEST.get2DDataValue();
-		default -> Direction.NORTH.get2DDataValue();
-		};
-
-		// TODO make consts for all the indexes or an enum with int values
-		shapeIndex = switch (shape) {
-		case STRAIGHT -> facingIndex;
-		case INNER_LEFT -> {
-			int i = 4;
-			if (facingIndex == 0) i = 4;
-			else if (facingIndex == 2)	i = 5;
-			yield i;
-		}
-		case INNER_RIGHT -> {
-			int i = 6;
-			if (facingIndex == 0) i = 6;
-			else if (facingIndex == 2) i = 7;
-			yield i;
-		}
-		case OUTER_LEFT -> {
-			int i = 9;
-			if (facingIndex == 0) i = 9;
-			else if (facingIndex == 2) i = 8;
-			yield i;
-		}
-		case OUTER_RIGHT -> {
-			int i = 11;
-			if (facingIndex == 0) i = 11;
-			else if (facingIndex == 2) i = 10;
-			yield i;
-		}
-		default -> 0;
-		};
-		return shapeIndex;
+	static int rotationSteps(Direction facing) {
+		// FACING is a full 6-way property; a vertical facing has no 2D value, so treat it as north
+		return facing.getAxis().isVertical() ? 0 : facing.getOpposite().get2DDataValue();
 	}
 
 	/**
-	 * 
-	 * @param level
-	 * @param blockState
-	 * @param blockPos
-	 * @return
+	 * Rotates a shape a quarter-turn clockwise about the block's vertical centre
+	 * line, the same direction a blockstate {@code "y"} rotation turns a model.
 	 */
-	default public BlockState getBlockStateForPlacement(Level level, BlockState blockState, BlockPos blockPos) {
-		Direction direction = blockState.getValue(FACING);
-		BlockState newState = blockState;
-		
-		// test the direction the block is facing
-		newState = switch (direction) {
-		case SOUTH -> getStateForSouthDirection(level, blockPos, blockState);
-		case NORTH -> getStateForNorthDirection(level, blockPos, blockState);
-		case EAST -> getStateForEastDirection(level, blockPos, blockState);
-		case WEST -> getStateForWestDirection(level, blockPos, blockState);
-		default -> blockState.setValue(SHAPE, FacadeShape.STRAIGHT);
+	static VoxelShape rotateY90(VoxelShape shape) {
+		List<VoxelShape> boxes = new ArrayList<>();
+		shape.forAllBoxes((x1, y1, z1, x2, y2, z2) -> boxes.add(Shapes.box(1.0D - z2, y1, x1, 1.0D - z1, y2, x2)));
+		return boxes.stream().reduce(Shapes.empty(), Shapes::or).optimize();
+	}
+
+	/**
+	 * Builds the 12-entry shape table a facade block indexes with
+	 * {@link #getBlockShapeIndex}, by turning three canonical shapes through all
+	 * four facings. Every canonical shape is authored for a <b>north-facing</b>
+	 * block - the orientation its model is drawn in at y-rotation 0 - so the table
+	 * cannot drift out of step with the models the way a hand-written one can.
+	 *
+	 * @param straight a straight piece
+	 * @param inner    an inner corner turning to the block's right (clockwise) side
+	 * @param outer    an outer corner turning to the block's right (clockwise) side
+	 */
+	static VoxelShape[] buildShapeTable(VoxelShape straight, VoxelShape inner, VoxelShape outer) {
+		VoxelShape[] shapes = new VoxelShape[12];
+		VoxelShape rotatedStraight = straight;
+		VoxelShape rotatedInner = inner;
+		VoxelShape rotatedOuter = outer;
+		for (int steps = 0; steps < 4; steps++) {
+			shapes[STRAIGHT_OFFSET + steps] = rotatedStraight;
+			shapes[INNER_OFFSET + steps] = rotatedInner;
+			shapes[OUTER_OFFSET + steps] = rotatedOuter;
+			rotatedStraight = rotateY90(rotatedStraight);
+			rotatedInner = rotateY90(rotatedInner);
+			rotatedOuter = rotateY90(rotatedOuter);
+		}
+		return shapes;
+	}
+
+	/**
+	 * Returns the index into the block's shape table for the given state. A LEFT
+	 * corner is the RIGHT corner turned one more quarter-turn clockwise - the same
+	 * extra 90 degrees the blockstate gives the model.
+	 */
+	default public int getBlockShapeIndex(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
+		int steps = rotationSteps(state.getValue(FACING));
+
+		return switch (state.getValue(SHAPE)) {
+		case STRAIGHT -> STRAIGHT_OFFSET + steps;
+		case INNER_RIGHT -> INNER_OFFSET + steps;
+		case INNER_LEFT -> INNER_OFFSET + (steps + 1) % 4;
+		case OUTER_RIGHT -> OUTER_OFFSET + steps;
+		case OUTER_LEFT -> OUTER_OFFSET + (steps + 1) % 4;
 		};
-		return newState;
+	}
+
+	/**
+	 * Picks the corner shape for a block from its neighbours. Works off the block's
+	 * own facing, so all four horizontal facings are handled by the one rule.
+	 *
+	 * <p>Takes a {@link LevelAccessor}, not a {@code Level}, because {@code updateShape} is handed
+	 * one and during <strong>worldgen</strong> it is a {@code WorldGenRegion}, which is not a
+	 * {@code Level}. Casting instead of widening threw {@code ClassCastException} from inside
+	 * vanilla's {@code Block.updateFromNeighbourShapes}, surfacing as a "Feature placement"
+	 * ReportedException that killed chunk generation for any structure placing these blocks.
+	 * Nothing here needs more than block reads, which {@code LevelAccessor} already provides.</p>
+	 */
+	default public BlockState getBlockStateForPlacement(LevelAccessor level, BlockState blockState, BlockPos blockPos) {
+		Direction facing = blockState.getValue(FACING);
+		if (facing.getAxis().isVertical()) {
+			return blockState.setValue(SHAPE, FacadeShape.STRAIGHT);
+		}
+
+		Direction clockwise = facing.getClockWise();
+		Direction counterClockwise = facing.getCounterClockWise();
+
+		/*
+		 * inner test - the run continues in front of this block and turns away there,
+		 * so this block has to fill both arms of the corner.
+		 */
+		BlockState frontState = level.getBlockState(blockPos.relative(facing));
+		if (isBlockInstanceOf(frontState.getBlock())) {
+			Direction frontFacing = frontState.getValue(FACING);
+			if (frontFacing == counterClockwise && !isSameBasic(level, blockPos.relative(clockwise), blockState)) {
+				blockState = blockState.setValue(SHAPE, FacadeShape.INNER_RIGHT);
+			} else if (frontFacing == clockwise && !isSameBasic(level, blockPos.relative(counterClockwise), blockState)) {
+				blockState = blockState.setValue(SHAPE, FacadeShape.INNER_LEFT);
+			}
+			return blockState;
+		}
+
+		// outer test - the run turns away behind this block, leaving only the corner nub
+		BlockState backState = level.getBlockState(blockPos.relative(facing.getOpposite()));
+		if (isBlockInstanceOf(backState.getBlock())) {
+			Direction backFacing = backState.getValue(FACING);
+			if (backFacing == counterClockwise && !isSameBasic(level, blockPos.relative(counterClockwise), blockState)) {
+				blockState = blockState.setValue(SHAPE, FacadeShape.OUTER_RIGHT);
+			} else if (backFacing == clockwise && !isSameBasic(level, blockPos.relative(clockwise), blockState)) {
+				blockState = blockState.setValue(SHAPE, FacadeShape.OUTER_LEFT);
+			}
+		}
+
+		return blockState;
 	}
 
 	/**
@@ -125,150 +183,5 @@ public interface IFacadeShapeBlock extends IFacingBlock {
 		 * Checks if a block is an instance of this class
 		 */
 		return isBlockInstanceOf(block) && state.getValue(FACING) == stateIn.getValue(FACING);
-	}
-
-	default BlockState getStateForSouthDirection(Level level, BlockPos blockPos, BlockState blockState) {
-		BlockState neighborState;
-		Block neighborBlock;
-		Direction neighborFacing;
-
-		neighborState = level.getBlockState(blockPos.south());
-		neighborBlock = neighborState.getBlock();
-
-		// inner test
-		if (isBlockInstanceOf(neighborBlock)) {
-			neighborFacing = neighborState.getValue(FACING);
-			if (neighborFacing == Direction.WEST && !isSameBasic(level, blockPos.east(), blockState)) {
-				blockState = blockState.setValue(SHAPE, FacadeShape.INNER_RIGHT);
-			} else if (neighborFacing == Direction.EAST && !isSameBasic(level, blockPos.west(), blockState)) {
-				blockState = blockState.setValue(SHAPE, FacadeShape.INNER_LEFT);
-			}
-			return blockState;
-		}
-
-		// outer test
-		neighborState = level.getBlockState(blockPos.north());
-		neighborBlock = neighborState.getBlock();
-
-		if (isBlockInstanceOf(neighborBlock)) {
-			neighborFacing = neighborState.getValue(FACING);
-			if (neighborFacing == Direction.WEST && !isSameBasic(level, blockPos.west(), blockState)) {
-				blockState = blockState.setValue(SHAPE, FacadeShape.OUTER_LEFT);
-			} else if (neighborFacing == Direction.EAST && !isSameBasic(level, blockPos.east(), blockState)) {
-				blockState = blockState.setValue(SHAPE, FacadeShape.OUTER_RIGHT);
-			}
-		}
-
-		return blockState;
-	}
-
-	default public BlockState getStateForNorthDirection(Level level, BlockPos blockPos, BlockState blockState) {
-		BlockState neighborState;
-		Block neighborBlock;
-		Direction neighborFacing;
-
-		neighborState = level.getBlockState(blockPos.north());
-		neighborBlock = neighborState.getBlock();
-
-		// inner test
-		if (isBlockInstanceOf(neighborBlock)) {
-			neighborFacing = neighborState.getValue(FACING);
-			if (neighborFacing == Direction.WEST && !isSameBasic(level, blockPos.east(), blockState)) {
-				blockState = blockState.setValue(SHAPE, FacadeShape.INNER_RIGHT);
-			} else if (neighborFacing == Direction.EAST && !isSameBasic(level, blockPos.west(), blockState)) {
-				blockState = blockState.setValue(SHAPE, FacadeShape.INNER_LEFT);
-			}
-			return blockState;
-		}
-
-		// outer test
-		neighborState = level.getBlockState(blockPos.south());
-		neighborBlock = neighborState.getBlock();
-
-		if (isBlockInstanceOf(neighborBlock)) {
-			neighborFacing = neighborState.getValue(FACING);
-			if (neighborFacing == Direction.WEST && !isSameBasic(level, blockPos.west(), blockState)) {
-				blockState = blockState.setValue(SHAPE, FacadeShape.OUTER_LEFT);
-			} else if (neighborFacing == Direction.EAST && !isSameBasic(level, blockPos.east(), blockState)) {
-				blockState = blockState.setValue(SHAPE, FacadeShape.OUTER_RIGHT);
-			}
-		}
-		return blockState;
-	}
-
-	default public BlockState getStateForEastDirection(Level level, BlockPos blockPos, BlockState blockState) {
-		BlockState neighborState;
-		Block neighborBlock;
-		Direction neighborFacing;
-
-		neighborState = level.getBlockState(blockPos.east());
-		neighborBlock = neighborState.getBlock();
-
-		// inner test
-		if (isBlockInstanceOf(neighborBlock)) {
-			neighborFacing = neighborState.getValue(FACING);
-			if (neighborFacing == Direction.NORTH && !isSameBasic(level, blockPos.south(), blockState)) {
-				blockState = blockState.setValue(FACING, Direction.NORTH);
-				blockState = blockState.setValue(SHAPE, FacadeShape.INNER_LEFT);
-			} else if (neighborFacing == Direction.SOUTH && !isSameBasic(level, blockPos.north(), blockState)) {
-				blockState = blockState.setValue(FACING, Direction.SOUTH);
-				blockState = blockState.setValue(SHAPE, FacadeShape.INNER_LEFT);
-			}
-			return blockState;
-		}
-
-		// outer test
-		neighborState = level.getBlockState(blockPos.west());
-		neighborBlock = neighborState.getBlock();
-
-		if (isBlockInstanceOf(neighborBlock)) {
-			neighborFacing = neighborState.getValue(FACING);
-			if (neighborFacing == Direction.NORTH && !isSameBasic(level, blockPos.north(), blockState)) {
-				blockState = blockState.setValue(FACING, Direction.NORTH);
-				blockState = blockState.setValue(SHAPE, FacadeShape.OUTER_RIGHT);
-			} else if (neighborFacing == Direction.SOUTH && !isSameBasic(level, blockPos.south(), blockState)) {
-				blockState = blockState.setValue(FACING, Direction.SOUTH);
-				blockState = blockState.setValue(SHAPE, FacadeShape.OUTER_RIGHT);
-			}
-		}
-		return blockState;
-	}
-
-	default public BlockState getStateForWestDirection(Level level, BlockPos blockPos, BlockState blockState) {
-		BlockState neighborState;
-		Block neighborBlock;
-		Direction neighborFacing;
-
-		neighborState = level.getBlockState(blockPos.west());
-		neighborBlock = neighborState.getBlock();
-
-		// inner test
-		if (isBlockInstanceOf(neighborBlock)) {
-			neighborFacing = neighborState.getValue(FACING);
-			if (neighborFacing == Direction.NORTH && !isSameBasic(level, blockPos.south(), blockState)) {
-				blockState = blockState.setValue(FACING, Direction.NORTH);
-				blockState = blockState.setValue(SHAPE, FacadeShape.INNER_RIGHT);
-			} else if (neighborFacing == Direction.SOUTH && !isSameBasic(level, blockPos.north(), blockState)) {
-				blockState = blockState.setValue(FACING, Direction.SOUTH);
-				blockState = blockState.setValue(SHAPE, FacadeShape.INNER_RIGHT);
-			}
-			return blockState;
-		}
-
-		// outer test
-		neighborState = level.getBlockState(blockPos.east());
-		neighborBlock = neighborState.getBlock();
-
-		if (isBlockInstanceOf(neighborBlock)) {
-			neighborFacing = neighborState.getValue(FACING);
-			if (neighborFacing == Direction.NORTH && !isSameBasic(level, blockPos.north(), blockState)) {
-				blockState = blockState.setValue(FACING, Direction.NORTH);
-				blockState = blockState.setValue(SHAPE, FacadeShape.OUTER_LEFT);
-			} else if (neighborFacing == Direction.SOUTH && !isSameBasic(level, blockPos.south(), blockState)) {
-				blockState = blockState.setValue(FACING, Direction.SOUTH);
-				blockState = blockState.setValue(SHAPE, FacadeShape.OUTER_LEFT);
-			}
-		}
-		return blockState;
 	}
 }

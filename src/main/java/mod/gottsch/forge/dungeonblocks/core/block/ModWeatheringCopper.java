@@ -26,51 +26,56 @@ import java.util.Optional;
 import java.util.function.Supplier;
 
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ChangeOverTimeBlock;
+import net.minecraft.world.level.block.WeatheringCopper.WeatherState;
 import net.minecraft.world.level.block.state.BlockState;
 
 /**
  * @author by Mark Gottschling on 5/12/2025
  */
 public interface ModWeatheringCopper extends ChangeOverTimeBlock<net.minecraft.world.level.block.WeatheringCopper.WeatherState> {
+    /**
+     * Each weathering block to its next age, for every {@link CopperFamily}. Built from the families
+     * rather than listed, so no family can be left out of the chain (plate brackets and valve wheels
+     * once were, and never aged). Waxed blocks are in no chain: they never age.
+     */
     Supplier<BiMap<Block, Block>> NEXT_BY_BLOCK = Suppliers.memoize(() -> {
-        return ImmutableBiMap.<Block, Block>builder()
-                .put(ModBlocks.COPPER_GRATE.get(), ModBlocks.EXPOSED_COPPER_GRATE.get())
-                .put(ModBlocks.EXPOSED_COPPER_GRATE.get(), ModBlocks.WEATHERED_COPPER_GRATE.get())
-                .put(ModBlocks.WEATHERED_COPPER_GRATE.get(), ModBlocks.OXIDIZED_COPPER_GRATE.get())
-
-                .put(ModBlocks.COPPER_TRAPDOOR.get(), ModBlocks.EXPOSED_COPPER_TRAPDOOR.get())
-                .put(ModBlocks.EXPOSED_COPPER_TRAPDOOR.get(), ModBlocks.WEATHERED_COPPER_TRAPDOOR.get())
-                .put(ModBlocks.WEATHERED_COPPER_TRAPDOOR.get(), ModBlocks.OXIDIZED_COPPER_TRAPDOOR.get())
-
-                .put(ModBlocks.COPPER_DOOR.get(), ModBlocks.EXPOSED_COPPER_DOOR.get())
-                .put(ModBlocks.EXPOSED_COPPER_DOOR.get(), ModBlocks.WEATHERED_COPPER_DOOR.get())
-                .put(ModBlocks.WEATHERED_COPPER_DOOR.get(), ModBlocks.OXIDIZED_COPPER_DOOR.get())
-
-                .put(ModBlocks.COPPER_HEAVY_GRATE.get(), ModBlocks.EXPOSED_COPPER_HEAVY_GRATE.get())
-                .put(ModBlocks.EXPOSED_COPPER_HEAVY_GRATE.get(), ModBlocks.WEATHERED_COPPER_HEAVY_GRATE.get())
-                .put(ModBlocks.WEATHERED_COPPER_HEAVY_GRATE.get(), ModBlocks.OXIDIZED_COPPER_HEAVY_GRATE.get())
-
-                .put(ModBlocks.COPPER_HEAVY_TRAPDOOR.get(), ModBlocks.EXPOSED_COPPER_HEAVY_TRAPDOOR.get())
-                .put(ModBlocks.EXPOSED_COPPER_HEAVY_TRAPDOOR.get(), ModBlocks.WEATHERED_COPPER_HEAVY_TRAPDOOR.get())
-                .put(ModBlocks.WEATHERED_COPPER_HEAVY_TRAPDOOR.get(), ModBlocks.OXIDIZED_COPPER_HEAVY_TRAPDOOR.get())
-
-                // TODO PLATE BRACKET
-
-                .put(ModBlocks.COPPER_ANGLE_PLATE_BRACKET.get(), ModBlocks.EXPOSED_COPPER_ANGLE_PLATE_BRACKET.get())
-                .put(ModBlocks.EXPOSED_COPPER_ANGLE_PLATE_BRACKET.get(), ModBlocks.WEATHERED_COPPER_ANGLE_PLATE_BRACKET.get())
-                .put(ModBlocks.WEATHERED_COPPER_ANGLE_PLATE_BRACKET.get(), ModBlocks.OXIDIZED_COPPER_ANGLE_PLATE_BRACKET.get())
-
-                .put(ModBlocks.COPPER_CORNER_PLATE_BRACKET.get(), ModBlocks.EXPOSED_COPPER_CORNER_PLATE_BRACKET.get())
-                .put(ModBlocks.EXPOSED_COPPER_CORNER_PLATE_BRACKET.get(), ModBlocks.WEATHERED_COPPER_CORNER_PLATE_BRACKET.get())
-                .put(ModBlocks.WEATHERED_COPPER_CORNER_PLATE_BRACKET.get(), ModBlocks.OXIDIZED_COPPER_CORNER_PLATE_BRACKET.get())
-
-                .build();
+        ImmutableBiMap.Builder<Block, Block> next = ImmutableBiMap.builder();
+        WeatherState[] ages = WeatherState.values();
+        for (CopperFamily family : CopperFamily.ALL) {
+            for (int i = 0; i + 1 < ages.length; i++) {
+                next.put(family.get(ages[i]).get(), family.get(ages[i + 1]).get());
+            }
+        }
+        return next.build();
     });
     Supplier<BiMap<Block, Block>> PREVIOUS_BY_BLOCK = Suppliers.memoize(() -> {
         return NEXT_BY_BLOCK.get().inverse();
     });
+
+    /**
+     * Each weathering block to its waxed twin, for every {@link CopperFamily}: what a honeycomb
+     * turns a block into, and (inverted) what an axe's wax-off turns it back to.
+     */
+    Supplier<BiMap<Block, Block>> WAXED_BY_BLOCK = Suppliers.memoize(() -> {
+        ImmutableBiMap.Builder<Block, Block> waxed = ImmutableBiMap.builder();
+        for (CopperFamily family : CopperFamily.ALL) {
+            for (WeatherState age : WeatherState.values()) {
+                waxed.put(family.get(age).get(), family.waxed(age).get());
+            }
+        }
+        return waxed.build();
+    });
+
+    /** The waxed twin of a weathering copper state, if it has one. */
+    static Optional<BlockState> getWaxed(BlockState state) {
+        return Optional.ofNullable(WAXED_BY_BLOCK.get().get(state.getBlock())).map(b -> b.withPropertiesOf(state));
+    }
+
+    /** The weathering block a waxed copper state was waxed from, if it is one. */
+    static Optional<BlockState> getUnwaxed(BlockState state) {
+        return Optional.ofNullable(WAXED_BY_BLOCK.get().inverse().get(state.getBlock())).map(b -> b.withPropertiesOf(state));
+    }
 
     static Optional<Block> getPrevious(Block p_154891_) {
         return Optional.ofNullable(PREVIOUS_BY_BLOCK.get().get(p_154891_));

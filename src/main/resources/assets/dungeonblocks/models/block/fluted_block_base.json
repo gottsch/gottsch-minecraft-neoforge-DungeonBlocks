@@ -1,6 +1,8 @@
 {
     "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
-	"parent": "block/block",    
+	"parent": "block/block",
+    "__comment_ao": "AO off, same reason as fluted_facade_block_base: all four FluteBorder elements sit in the block's corners and reach both side boundaries (x=0/16 and z=0/16), so their vertices sample the neighbouring blocks. Against full blocks ambient occlusion reads those vertices as fully occluded and shades the flutes almost black.",
+    "ambientocclusion": false,
     "textures": {
     "particle": "#0"
     },

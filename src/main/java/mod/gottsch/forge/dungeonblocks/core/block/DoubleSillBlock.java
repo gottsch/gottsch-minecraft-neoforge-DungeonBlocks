@@ -25,6 +25,7 @@ import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 /**
@@ -33,23 +34,28 @@ import net.minecraft.world.phys.shapes.VoxelShape;
  */
 public class DoubleSillBlock extends WaterloggedNonCubeFacingBlock {
 	
-	// Voxels are like the bounding boxes (AABBs) NF= North Facing, SF = South Facing, etc
+	// The model (tools/gen_obj_models.py, double_sill): 12px walls on the whole footprint and a low
+	// gable to a ridge at the top centre. What it hides of its neighbours is the 12px body; the ridge
+	// runs across the facing.
 	private static final VoxelShape NORTH_SOUTH_AABB = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D);
-	private static final VoxelShape EAST_WEST_AABB = Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D);
+	private static final VoxelShape EAST_WEST_AABB = NORTH_SOUTH_AABB;
 	
-	/**
-	 * 
-	 * @param properties
-	 */
 	public DoubleSillBlock(Properties properties) {
 		super(properties);
 	}
 
-	/**
-	 * 
-	 */
+	/** A full cube to hit, stand on and select: simpler than the gable to handle, and to build with. */
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
+		return Shapes.block();
+	}
+
+	/**
+	 * What it hides of its neighbours stays the stepped shape: as a full cube it would hide the faces
+	 * of blocks beside the gable, and leave holes to see through above its walls.
+	 */
+	@Override
+	public VoxelShape getOcclusionShape(BlockState state, BlockGetter getter, BlockPos pos) {
 		Direction direction = state.getValue(FACING);
 
 		return switch (direction) {

@@ -15,7 +15,6 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -36,21 +35,18 @@ public class WaterloggedCubeBlock extends Block implements SimpleWaterloggedBloc
 
    @Nullable
    public BlockState getStateForPlacement(BlockPlaceContext context) {
-      FluidState fluidstate = context.getLevel().getFluidState(context.getClickedPos());
-      return (BlockState)super.getStateForPlacement(context).setValue(WATERLOGGED, fluidstate.is(Fluids.WATER));
+      return (BlockState)super.getStateForPlacement(context).setValue(WATERLOGGED, Waterlogging.placedInWater(context));
    }
 
    public BlockState updateShape(BlockState state, Direction direction, BlockState newState, LevelAccessor levelAccessor, BlockPos pos, BlockPos pos1) {
-      if ((Boolean)state.getValue(WATERLOGGED)) {
-         levelAccessor.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(levelAccessor));
-      }
+      Waterlogging.tickWater(state, levelAccessor, pos);
 
       return super.updateShape(state, direction, newState, levelAccessor, pos, pos1);
    }
 
    @Override
    public FluidState getFluidState(BlockState blockState) {
-      return blockState.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(blockState);
+      return Waterlogging.fluid(blockState, super.getFluidState(blockState));
    }
 
    protected void createBlockStateDefinition(Builder<Block, BlockState> builder) {

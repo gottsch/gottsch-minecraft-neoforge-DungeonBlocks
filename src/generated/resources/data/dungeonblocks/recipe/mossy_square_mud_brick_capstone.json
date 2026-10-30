@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "dungeonblocks:mossy_square_mud_brick"
+  },
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:mossy_square_mud_brick_capstone"
+  }
+}

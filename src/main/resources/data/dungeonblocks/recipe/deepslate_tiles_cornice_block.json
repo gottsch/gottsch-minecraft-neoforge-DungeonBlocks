@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:deepslate_tiles"
+  },
+  "result": {
+    "id": "dungeonblocks:deepslate_tiles_cornice_block",
+    "count": 2
+  }
+}

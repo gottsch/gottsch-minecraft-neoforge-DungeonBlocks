@@ -19,6 +19,8 @@
  */
 package mod.gottsch.forge.dungeonblocks;
 
+import mod.gottsch.forge.dungeonblocks.core.blockentity.ModBlockEntityTypes;
+import mod.gottsch.forge.dungeonblocks.core.entity.ModEntityTypes;
 import mod.gottsch.forge.dungeonblocks.core.item.ModCreativeModeTabs;
 import mod.gottsch.forge.dungeonblocks.core.particle.ModParticles;
 import net.neoforged.bus.api.IEventBus;
@@ -39,21 +41,22 @@ import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
  */
 @Mod(value = DungeonBlocks.MOD_ID)
 public class DungeonBlocks {
-	// logger
 	public static final Logger LOGGER = LogManager.getLogger(DungeonBlocks.class.getSimpleName());
 
-	// constants
 	public static final String MOD_ID = "dungeonblocks";
 	public static DungeonBlocks instance;
 
 	public DungeonBlocks(IEventBus modEventBus, ModContainer modContainer) {
 		DungeonBlocks.instance = this;
 		modContainer.registerConfig(ModConfig.Type.COMMON, DungeonBlocksConfig.COMMON_CONFIG);
+		modContainer.registerConfig(ModConfig.Type.CLIENT, DungeonBlocksConfig.CLIENT_CONFIG);
 
 		// register the deferred registries
 		ModBlocks.register(modEventBus);
 		ModItems.register(modEventBus);
 		ModParticles.register(modEventBus);
+		ModEntityTypes.register(modEventBus);
+		ModBlockEntityTypes.register(modEventBus);
 
 		ModCreativeModeTabs.TABS.register(modEventBus);
 

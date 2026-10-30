@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "l": {
+      "item": "minecraft:crimson_stem"
+    },
+    "s": {
+      "item": "dungeonblocks:sharpened_crimson_stem"
+    }
+  },
+  "pattern": [
+    "sls"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:crimson_cheval_de_frise"
+  }
+}

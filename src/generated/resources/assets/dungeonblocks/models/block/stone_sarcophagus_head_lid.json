@@ -1,0 +1,9 @@
+{
+  "parent": "dungeonblocks:block/template_sarcophagus_head_lid",
+  "textures": {
+    "effigy": "minecraft:block/polished_andesite",
+    "lid": "minecraft:block/smooth_stone",
+    "particle": "minecraft:block/smooth_stone",
+    "side": "minecraft:block/chiseled_stone_bricks"
+  }
+}

@@ -31,13 +31,4 @@ public class CommonSetup {
     
     public static void init(FMLCommonSetupEvent event) {
     }
-    
-//	@SubscribeEvent
-//	public static void registemItemsToTab(BuildContents event) {
-//		if (event.getTab() == ModCreativeModeTabs.MOD_TAB) {
-//			ModBlocks.MAP.forEach((block, item) -> {
-//				event.accept(item.get(), TabVisibility.PARENT_AND_SEARCH_TABS);
-//			});
-//		}
-//	}
 }

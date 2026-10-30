@@ -1,0 +1,6 @@
+{
+  "parent": "dungeonblocks:block/dungeon_door_middle_left",
+  "textures": {
+    "middle": "dungeonblocks:block/dungeon_dark_oak_door_top"
+  }
+}

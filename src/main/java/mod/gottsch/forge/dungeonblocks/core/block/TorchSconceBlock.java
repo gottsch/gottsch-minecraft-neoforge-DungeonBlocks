@@ -38,10 +38,6 @@ import net.minecraft.world.phys.shapes.VoxelShape;
  *
  */
 public class TorchSconceBlock extends NonCubeFacingBlock {
-	// TODO remove waterlogged and look at torch code to pop if submerged
-	// OR make another model without torch, no light, that this turns into if waterlogged
-
-	// TODO update sizes
 	private static final VoxelShape NORTH_FACING_SHAPE = Block
 			.box(5, 3, 8, 11, 13, 16);
 	private static final VoxelShape EAST_FACING_SHAPE = Block
@@ -51,10 +47,6 @@ public class TorchSconceBlock extends NonCubeFacingBlock {
 	private static final VoxelShape WEST_FACING_SHAPE = Block
 			.box(8, 3, 5, 16, 13, 11);
 
-	/**
-	 *
-	 * @param properties
-	 */
 	public TorchSconceBlock(Properties properties) {
 		super(properties);
 	}
@@ -71,21 +63,14 @@ public class TorchSconceBlock extends NonCubeFacingBlock {
 		return blockstate.isFaceSturdy(level, blockpos, direction);
 	}
 
-	/**
-	 *
-	 * @param state
-	 * @param level
-	 * @param pos
-	 * @param rand
-	 */
 	@Override
 	public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource rand) {
 		Direction direction = state.getValue(FACING);
 		double d0 = (double) pos.getX() + 0.5D;
 		double d1 = (double) pos.getY() + 0.5D;
 		double d2 = (double) pos.getZ() + 0.5D;
-		double d3 = 0.40D; // y offset
-		double d4 = 0.05D; // horizontal offset middle
+		double d3 = flameHeight(state); // y offset
+		double d4 = flameInset(state); // horizontal offset middle
 
 		if (direction.getAxis().isHorizontal()) {
 			Direction directionFacing = direction.getOpposite();
@@ -102,9 +87,16 @@ public class TorchSconceBlock extends NonCubeFacingBlock {
 		}
 	}
 
-	/**
-	 * 
-	 */
+	/** How far above the block's centre the torch's flame burns. */
+	protected double flameHeight(BlockState state) {
+		return 0.40D;
+	}
+
+	/** How far from the block's centre toward the wall the torch's flame burns. */
+	protected double flameInset(BlockState state) {
+		return 0.05D;
+	}
+
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
 		Direction direction = state.getValue(FACING);

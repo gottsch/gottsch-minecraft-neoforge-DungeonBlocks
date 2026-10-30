@@ -1,0 +1,12 @@
+{
+  "parent": "dungeonblocks:block/block_no_ao",
+  "flip_v": true,
+  "loader": "neoforge:obj",
+  "model": "dungeonblocks:models/block/cheval_de_frise.obj",
+  "textures": {
+    "bark": "minecraft:block/spruce_log",
+    "end": "minecraft:block/spruce_log_top",
+    "particle": "minecraft:block/spruce_log",
+    "tip": "minecraft:block/stripped_spruce_log"
+  }
+}

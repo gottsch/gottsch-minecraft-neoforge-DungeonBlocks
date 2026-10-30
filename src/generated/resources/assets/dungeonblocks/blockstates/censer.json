@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "lit=false,waterlogged=false": {
+      "model": "dungeonblocks:block/chain_fixture_censer"
+    },
+    "lit=false,waterlogged=true": {
+      "model": "dungeonblocks:block/chain_fixture_censer"
+    },
+    "lit=true,waterlogged=false": {
+      "model": "dungeonblocks:block/chain_fixture_censer_lit"
+    },
+    "lit=true,waterlogged=true": {
+      "model": "dungeonblocks:block/chain_fixture_censer_lit"
+    }
+  }
+}

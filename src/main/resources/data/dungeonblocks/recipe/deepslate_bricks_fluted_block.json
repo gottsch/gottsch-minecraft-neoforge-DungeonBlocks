@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:deepslate_bricks"
+  },
+  "result": {
+    "id": "dungeonblocks:deepslate_bricks_fluted_block",
+    "count": 1
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "s": {
+      "item": "minecraft:stripped_crimson_stem"
+    }
+  },
+  "pattern": [
+    "ss",
+    "s "
+  ],
+  "result": {
+    "count": 4,
+    "id": "dungeonblocks:crimson_walkway_bracket"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "r": {
+      "item": "minecraft:redstone"
+    },
+    "s": {
+      "item": "minecraft:cracked_stone_bricks"
+    }
+  },
+  "pattern": [
+    "ss",
+    "sr",
+    "ss"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:cracked_stone_brick_hidden_door"
+  }
+}

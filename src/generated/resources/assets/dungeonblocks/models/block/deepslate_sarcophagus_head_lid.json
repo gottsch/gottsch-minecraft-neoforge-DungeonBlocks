@@ -1,0 +1,9 @@
+{
+  "parent": "dungeonblocks:block/template_sarcophagus_head_lid",
+  "textures": {
+    "effigy": "minecraft:block/deepslate_tiles",
+    "lid": "minecraft:block/polished_deepslate",
+    "particle": "minecraft:block/polished_deepslate",
+    "side": "minecraft:block/chiseled_deepslate"
+  }
+}

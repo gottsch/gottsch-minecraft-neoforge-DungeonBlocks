@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "r": {
+      "item": "minecraft:redstone"
+    },
+    "s": {
+      "item": "minecraft:mud_bricks"
+    }
+  },
+  "pattern": [
+    "ss",
+    "sr",
+    "ss"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:mud_brick_hidden_door"
+  }
+}

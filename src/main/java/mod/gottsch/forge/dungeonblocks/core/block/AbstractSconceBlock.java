@@ -57,7 +57,9 @@ public abstract class AbstractSconceBlock extends WaterloggedNonCubeFacingBlock 
     public AbstractSconceBlock(Properties properties) {
 
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(LIT, Boolean.valueOf(false)));
+        // defaultBlockState(), not stateDefinition.any(): any() is the FIRST state, which has every
+        // boolean true, and would undo the waterlogged=false the parent has already registered.
+        this.registerDefaultState(this.defaultBlockState().setValue(LIT, Boolean.valueOf(false)));
 
     }
 

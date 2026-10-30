@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "dungeonblocks:block/mossy_polished_basalt_top",
+    "side": "dungeonblocks:block/mossy_polished_basalt_side"
+  }
+}

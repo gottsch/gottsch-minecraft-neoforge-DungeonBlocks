@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "dungeonblocks:square_brick"
+  },
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:square_brick_capstone"
+  }
+}

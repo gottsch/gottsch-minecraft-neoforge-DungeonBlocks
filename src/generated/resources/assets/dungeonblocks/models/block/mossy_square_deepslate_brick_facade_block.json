@@ -1,0 +1,6 @@
+{
+  "parent": "dungeonblocks:block/facade_block_base",
+  "textures": {
+    "0": "dungeonblocks:block/mossy_square_deepslate_brick"
+  }
+}

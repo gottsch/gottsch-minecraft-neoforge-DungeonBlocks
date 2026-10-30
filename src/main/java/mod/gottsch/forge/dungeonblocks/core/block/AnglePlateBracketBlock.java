@@ -48,9 +48,6 @@ public class AnglePlateBracketBlock extends WaterloggedFacingHalfBlock {
     private static final VoxelShape BOTTOM_SOUTH_SHAPE = Shapes.or(BOTTOM_SHAPE, Block.box(0D, 2, 0D, 16D, 16, 2));
     private static final VoxelShape BOTTOM_WEST_SHAPE = Shapes.or(BOTTOM_SHAPE, Block.box(14D, 2, 0D, 16, 16, 16));
 
-    /**
-     * @param properties
-     */
     public AnglePlateBracketBlock(Properties properties) {
         super(properties);
     }

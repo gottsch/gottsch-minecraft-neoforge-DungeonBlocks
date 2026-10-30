@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "f": {
+      "item": "minecraft:rotten_flesh"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "f",
+    "s",
+    "s"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:zombie_head_pike"
+  }
+}

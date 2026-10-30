@@ -40,17 +40,10 @@ import net.minecraft.world.level.material.Fluids;
  */
 public class NonCubeFacingBlock extends FacingBlock {
 
-	/**
-	 *
-	 * @param properties
-	 */
 	public NonCubeFacingBlock(Properties properties) {
 		super(properties);
 	}
 	
-	/**
-	 * 
-	 */
 	@Override
 	protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 		super.createBlockStateDefinition(builder);

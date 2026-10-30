@@ -1,0 +1,11 @@
+{
+  "parent": "dungeonblocks:block/block_no_ao",
+  "flip_v": true,
+  "loader": "neoforge:obj",
+  "model": "dungeonblocks:models/block/spikes.obj",
+  "textures": {
+    "particle": "minecraft:block/iron_block",
+    "plate": "minecraft:block/iron_block",
+    "spike": "minecraft:block/iron_block"
+  }
+}

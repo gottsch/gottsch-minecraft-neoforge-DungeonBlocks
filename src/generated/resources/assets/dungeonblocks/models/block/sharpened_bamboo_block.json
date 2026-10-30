@@ -1,0 +1,11 @@
+{
+  "parent": "dungeonblocks:block/block_no_ao",
+  "flip_v": true,
+  "loader": "neoforge:obj",
+  "model": "dungeonblocks:models/block/pyramid.obj",
+  "textures": {
+    "base": "minecraft:block/stripped_bamboo_block_top",
+    "facet": "minecraft:block/stripped_bamboo_block",
+    "particle": "minecraft:block/stripped_bamboo_block"
+  }
+}

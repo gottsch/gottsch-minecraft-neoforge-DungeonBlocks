@@ -1,0 +1,30 @@
+{
+    "__comment": "angle_cobweb_1, flipped to gather at the FLOOR. Identical geometry: both elements already span the full cell height, so the only thing putting the web at the ceiling is the texture. The strand's uv has its v coordinates swapped, which mirrors it vertically. Doing it in uv rather than as a model rotation is deliberate -- blockstates only rotate about x and y, and an x:180 flip would also move the sheet to the opposite face of the cell, changing which wall it belongs to. The web sheet is NOT flipped: cobweb.png is a dense full-cell web with no top/bottom bias.",
+    "ambientocclusion": false,
+    "textures": {
+        "particle": "dungeonblocks:block/cobweb",
+        "0": "dungeonblocks:block/cobweb",
+        "1": "dungeonblocks:block/corner_cobweb"
+    },
+    "render_type": "cutout",
+    "elements": [
+        {
+            "name": "web",
+            "from": [0, 0, 15.9],
+            "to": [16, 16, 15.9],
+            "faces": {
+                "north": {"uv": [0, 0, 16, 16], "texture": "#0"},
+                "south": {"uv": [16, 0, 0, 16], "texture": "#0"}
+            }
+        },
+        {
+            "name": "strand",
+            "from": [7.5, 0, 0],
+            "to": [7.5, 16, 16],
+            "faces": {
+                "east": {"uv": [0, 16, 16, 0], "texture": "#1"},
+                "west": {"uv": [16, 16, 0, 0], "texture": "#1"}
+            }
+        }
+    ]
+}

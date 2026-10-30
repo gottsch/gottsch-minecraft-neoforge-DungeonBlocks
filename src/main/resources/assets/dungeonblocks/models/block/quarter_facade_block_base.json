@@ -1,5 +1,7 @@
 {
-	"parent": "block/block",
+	"parent": "dungeonblocks:block/block_no_ao",
+	"__comment_ao": "AO off for the same reason as facade_block_base: the front face spans the block's full width and height, so recessed against full blocks ambient occlusion shades it almost black.",
+	"ambientocclusion": false,
     "textures": {
         "particle": "#0"
     },
@@ -7,12 +9,12 @@
         {   "from": [ 0, 0, 12 ],
             "to": [ 16, 16, 16 ],
             "faces": {
-                "down":  { "uv": [ 0, 0, 12, 4], "texture": "#0"},
-                "up":    { "uv": [ 0, 0, 12, 4], "texture": "#0" },
+                "down":  { "uv": [ 0, 0, 12, 4], "texture": "#0", "cullface": "down"},
+                "up":    { "uv": [ 0, 0, 12, 4], "texture": "#0", "cullface": "up" },
                 "north": { "uv": [ 0, 0, 16, 16 ], "texture": "#0"},
-                "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#0"},
-                "west":  { "uv": [ 0, 0, 4, 16], "texture": "#0"},
-                "east":  { "uv": [ 0, 0, 4, 16], "texture": "#0"}
+                "south": { "uv": [ 0, 0, 16, 16 ], "texture": "#0", "cullface": "south"},
+                "west":  { "uv": [ 0, 0, 4, 16], "texture": "#0", "cullface": "west"},
+                "east":  { "uv": [ 0, 0, 4, 16], "texture": "#0", "cullface": "east"}
             }
         }
     ]

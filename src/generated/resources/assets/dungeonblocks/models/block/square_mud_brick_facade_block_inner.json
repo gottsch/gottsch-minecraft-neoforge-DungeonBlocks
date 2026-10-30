@@ -1,0 +1,6 @@
+{
+  "parent": "dungeonblocks:block/facade_inner_block_base",
+  "textures": {
+    "0": "dungeonblocks:block/square_mud_brick"
+  }
+}

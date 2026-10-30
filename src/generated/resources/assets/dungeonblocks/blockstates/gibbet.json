@@ -1,0 +1,49 @@
+{
+  "variants": {
+    "facing=east,part=bottom": {
+      "model": "dungeonblocks:block/gibbet_bottom",
+      "y": 90
+    },
+    "facing=east,part=middle": {
+      "model": "dungeonblocks:block/gibbet_middle",
+      "y": 90
+    },
+    "facing=east,part=top": {
+      "model": "dungeonblocks:block/gibbet_top",
+      "y": 90
+    },
+    "facing=north,part=bottom": {
+      "model": "dungeonblocks:block/gibbet_bottom"
+    },
+    "facing=north,part=middle": {
+      "model": "dungeonblocks:block/gibbet_middle"
+    },
+    "facing=north,part=top": {
+      "model": "dungeonblocks:block/gibbet_top"
+    },
+    "facing=south,part=bottom": {
+      "model": "dungeonblocks:block/gibbet_bottom",
+      "y": 180
+    },
+    "facing=south,part=middle": {
+      "model": "dungeonblocks:block/gibbet_middle",
+      "y": 180
+    },
+    "facing=south,part=top": {
+      "model": "dungeonblocks:block/gibbet_top",
+      "y": 180
+    },
+    "facing=west,part=bottom": {
+      "model": "dungeonblocks:block/gibbet_bottom",
+      "y": 270
+    },
+    "facing=west,part=middle": {
+      "model": "dungeonblocks:block/gibbet_middle",
+      "y": 270
+    },
+    "facing=west,part=top": {
+      "model": "dungeonblocks:block/gibbet_top",
+      "y": 270
+    }
+  }
+}

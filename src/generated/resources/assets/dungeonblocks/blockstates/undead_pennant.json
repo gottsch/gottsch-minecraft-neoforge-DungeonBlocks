@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "animated=false,facing=east": {
+      "model": "dungeonblocks:block/undead_pennant"
+    },
+    "animated=false,facing=north": {
+      "model": "dungeonblocks:block/undead_pennant"
+    },
+    "animated=false,facing=south": {
+      "model": "dungeonblocks:block/undead_pennant"
+    },
+    "animated=false,facing=west": {
+      "model": "dungeonblocks:block/undead_pennant"
+    },
+    "animated=true,facing=east": {
+      "model": "dungeonblocks:block/undead_pennant"
+    },
+    "animated=true,facing=north": {
+      "model": "dungeonblocks:block/undead_pennant"
+    },
+    "animated=true,facing=south": {
+      "model": "dungeonblocks:block/undead_pennant"
+    },
+    "animated=true,facing=west": {
+      "model": "dungeonblocks:block/undead_pennant"
+    }
+  }
+}

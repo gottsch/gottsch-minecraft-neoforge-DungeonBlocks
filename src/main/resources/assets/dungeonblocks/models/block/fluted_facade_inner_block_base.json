@@ -1,6 +1,8 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "block/block",
+	"parent": "dungeonblocks:block/block_no_ao",
+	"__comment_ao": "AO off for the same reason as fluted_facade_block_base - the FluteBorder elements reach x=0 and z=0 - and so that an inner corner matches the straight pieces it joins rather than being the one shaded segment in a run.",
+	"ambientocclusion": false,
 	"textures": {
 		"particle": "#0"
 	},
@@ -11,11 +13,11 @@
 			"to": [16, 16, 16],
 			"faces": {
 				"north": {"uv": [0, 0, 14, 16], "texture": "#0"},
-				"east": {"uv": [0, 0, 6, 16], "texture": "#0"},
-				"south": {"uv": [2, 0, 16, 16], "texture": "#0"},
+				"east": {"uv": [0, 0, 6, 16], "texture": "#0", "cullface": "east"},
+				"south": {"uv": [2, 0, 16, 16], "texture": "#0", "cullface": "south"},
 				"west": {"uv": [10, 0, 16, 16], "texture": "#0"},
-				"up": {"uv": [2, 10, 16, 16], "texture": "#0"},
-				"down": {"uv": [0, 0, 14, 6], "texture": "#0"}
+				"up": {"uv": [2, 10, 16, 16], "texture": "#0", "cullface": "up"},
+				"down": {"uv": [2, 0, 16, 6], "texture": "#0", "cullface": "down"}
 			}
 		},
 		{
@@ -24,11 +26,11 @@
 			"to": [16, 16, 10],
 			"faces": {
 				"north": {"uv": [0, 0, 6, 16], "texture": "#0"},
-				"east": {"uv": [6, 0, 14, 16], "texture": "#0"},
+				"east": {"uv": [6, 0, 14, 16], "texture": "#0", "cullface": "east"},
 				"south": {"uv": [0, 0, 16, 16], "texture": "#0"},
 				"west": {"uv": [2, 0, 10, 16], "texture": "#0"},
-				"up": {"uv": [10, 2, 16, 10], "texture": "#0"},
-				"down": {"uv": [10, 6, 16, 14], "texture": "#0"}
+				"up": {"uv": [10, 2, 16, 10], "texture": "#0", "cullface": "up"},
+				"down": {"uv": [10, 6, 16, 14], "texture": "#0", "cullface": "down"}
 			}
 		},
 		{
@@ -36,7 +38,7 @@
 			"from": [8, 0.001, 0],
 			"to": [12, 15.999, 4],
 			"faces": {
-				"north": {"uv": [4, 0, 8, 15.998], "texture": "#0"},
+				"north": {"uv": [4, 0, 8, 15.998], "texture": "#0", "cullface": "north"},
 				"east": {"uv": [12, 0, 16, 15.998], "texture": "#0"},
 				"south": {"uv": [0, 0, 8, 16], "texture": "#0"},
 				"west": {"uv": [0, 0, 4, 15.998], "texture": "#0"},
@@ -52,7 +54,7 @@
 				"north": {"uv": [12, 0, 16, 15.998], "texture": "#0"},
 				"east": {"uv": [0, 0, 4, 16], "texture": "#0"},
 				"south": {"uv": [0, 0, 4, 15.998], "texture": "#0"},
-				"west": {"uv": [7, 0, 11, 15.998], "texture": "#0"},
+				"west": {"uv": [7, 0, 11, 15.998], "texture": "#0", "cullface": "west"},
 				"up": {"uv": [0, 8, 4, 12], "texture": "#0"},
 				"down": {"uv": [0, 4, 4, 8], "texture": "#0"}
 			}

@@ -1,0 +1,106 @@
+{
+  "parent": "minecraft:block/block",
+  "ambientocclusion": false,
+  "elements": [
+    {
+      "faces": {
+        "north": {
+          "texture": "#cloth",
+          "uv": [
+            12.0,
+            0.0,
+            16.0,
+            5.3333335
+          ]
+        },
+        "south": {
+          "texture": "#cloth",
+          "uv": [
+            16.0,
+            0.0,
+            12.0,
+            5.3333335
+          ]
+        }
+      },
+      "from": [
+        0,
+        0,
+        15
+      ],
+      "to": [
+        16,
+        16,
+        15
+      ]
+    },
+    {
+      "faces": {
+        "down": {
+          "texture": "#rod",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            2.0
+          ]
+        },
+        "east": {
+          "texture": "#rod"
+        },
+        "north": {
+          "texture": "#rod",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            2.0
+          ]
+        },
+        "south": {
+          "texture": "#rod",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            2.0
+          ]
+        },
+        "up": {
+          "texture": "#rod",
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            2.0
+          ]
+        },
+        "west": {
+          "texture": "#rod",
+          "uv": [
+            0.0,
+            0.0,
+            2.0,
+            2.0
+          ]
+        }
+      },
+      "from": [
+        -1,
+        14,
+        14
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ]
+    }
+  ],
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "cloth": "dungeonblocks:block/worn_dragon_tapestry",
+    "particle": "dungeonblocks:block/worn_dragon_tapestry",
+    "rod": "minecraft:block/dark_oak_log"
+  }
+}

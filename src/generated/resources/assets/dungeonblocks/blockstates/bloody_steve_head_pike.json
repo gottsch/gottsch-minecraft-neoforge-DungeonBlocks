@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "facing=east,half=lower": {
+      "model": "dungeonblocks:block/skull_pike_lower",
+      "y": 90
+    },
+    "facing=east,half=upper": {
+      "model": "dungeonblocks:block/bloody_steve_head_pike_upper",
+      "y": 90
+    },
+    "facing=north,half=lower": {
+      "model": "dungeonblocks:block/skull_pike_lower"
+    },
+    "facing=north,half=upper": {
+      "model": "dungeonblocks:block/bloody_steve_head_pike_upper"
+    },
+    "facing=south,half=lower": {
+      "model": "dungeonblocks:block/skull_pike_lower",
+      "y": 180
+    },
+    "facing=south,half=upper": {
+      "model": "dungeonblocks:block/bloody_steve_head_pike_upper",
+      "y": 180
+    },
+    "facing=west,half=lower": {
+      "model": "dungeonblocks:block/skull_pike_lower",
+      "y": 270
+    },
+    "facing=west,half=upper": {
+      "model": "dungeonblocks:block/bloody_steve_head_pike_upper",
+      "y": 270
+    }
+  }
+}

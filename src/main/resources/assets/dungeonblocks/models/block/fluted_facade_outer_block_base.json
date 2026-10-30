@@ -1,6 +1,8 @@
 {
 	"credit": "Made with Blockbench",
-	"parent": "block/block",
+	"parent": "dungeonblocks:block/block_no_ao",
+	"__comment_ao": "AO off for the same reason as fluted_facade_block_base - the corner element reaches x=16 and z=16 - and so that an outer corner matches the straight pieces it joins rather than being the one shaded segment in a run.",
+	"ambientocclusion": false,
 	"textures": {
 		"particle": "#0"
 	},
@@ -11,11 +13,11 @@
 			"to": [16, 16, 16],
 			"faces": {
 				"north": {"uv": [0, 0, 6, 16], "texture": "#0"},
-				"east": {"uv": [0, 0, 6, 16], "texture": "#0"},
-				"south": {"uv": [10, 0, 16, 16], "texture": "#0"},
+				"east": {"uv": [0, 0, 6, 16], "texture": "#0", "cullface": "east"},
+				"south": {"uv": [10, 0, 16, 16], "texture": "#0", "cullface": "south"},
 				"west": {"uv": [10, 0, 16, 16], "texture": "#0"},
-				"up": {"uv": [10, 10, 16, 16], "texture": "#0"},
-				"down": {"uv": [10, 0, 16, 6], "texture": "#0"}
+				"up": {"uv": [10, 10, 16, 16], "texture": "#0", "cullface": "up"},
+				"down": {"uv": [10, 0, 16, 6], "texture": "#0", "cullface": "down"}
 			}
 		}
 	]

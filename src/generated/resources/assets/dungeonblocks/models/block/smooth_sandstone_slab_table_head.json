@@ -1,0 +1,6 @@
+{
+  "parent": "dungeonblocks:block/slab_table",
+  "textures": {
+    "all": "minecraft:block/sandstone_top"
+  }
+}

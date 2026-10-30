@@ -1,0 +1,7 @@
+{
+  "parent": "dungeonblocks:block/template_catacomb_niche_empty",
+  "textures": {
+    "particle": "minecraft:block/mossy_stone_bricks",
+    "stone": "minecraft:block/mossy_stone_bricks"
+  }
+}

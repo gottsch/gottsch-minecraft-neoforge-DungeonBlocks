@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "c": {
+      "item": "minecraft:chiseled_deepslate"
+    },
+    "s": {
+      "item": "minecraft:polished_deepslate_slab"
+    }
+  },
+  "pattern": [
+    "sss",
+    "ccc"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:deepslate_sarcophagus"
+  }
+}

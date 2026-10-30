@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:sandstone"
+  },
+  "result": {
+    "id": "dungeonblocks:smooth_sandstone_crown_molding_block",
+    "count": 2
+  }
+}

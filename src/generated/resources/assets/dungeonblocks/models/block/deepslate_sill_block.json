@@ -1,6 +1,10 @@
 {
-  "parent": "dungeonblocks:block/sill_block_base",
+  "parent": "dungeonblocks:block/block_no_ao",
+  "flip_v": true,
+  "loader": "neoforge:obj",
+  "model": "dungeonblocks:models/block/sill.obj",
   "textures": {
-    "0": "minecraft:block/deepslate"
+    "particle": "minecraft:block/deepslate",
+    "stone": "minecraft:block/deepslate"
   }
 }

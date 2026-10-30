@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "dungeonblocks:block/square_mud_brick",
+    "side": "dungeonblocks:block/square_mud_brick",
+    "top": "dungeonblocks:block/square_mud_brick"
+  }
+}

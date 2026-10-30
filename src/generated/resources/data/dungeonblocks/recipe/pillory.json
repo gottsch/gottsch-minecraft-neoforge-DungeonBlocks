@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "l": {
+      "item": "minecraft:dark_oak_log"
+    },
+    "s": {
+      "item": "minecraft:dark_oak_slab"
+    }
+  },
+  "pattern": [
+    "lsl",
+    "l l",
+    "l l"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:pillory"
+  }
+}

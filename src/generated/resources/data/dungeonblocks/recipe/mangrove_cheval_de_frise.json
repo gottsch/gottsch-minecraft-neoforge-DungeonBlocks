@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "l": {
+      "item": "minecraft:mangrove_log"
+    },
+    "s": {
+      "item": "dungeonblocks:sharpened_mangrove_log"
+    }
+  },
+  "pattern": [
+    "sls"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:mangrove_cheval_de_frise"
+  }
+}

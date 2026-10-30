@@ -1,0 +1,12 @@
+{
+  "parent": "dungeonblocks:block/block_no_ao",
+  "flip_v": true,
+  "loader": "neoforge:obj",
+  "model": "dungeonblocks:models/block/cheval_de_frise.obj",
+  "textures": {
+    "bark": "minecraft:block/bamboo_block",
+    "end": "minecraft:block/bamboo_block_top",
+    "particle": "minecraft:block/bamboo_block",
+    "tip": "minecraft:block/stripped_bamboo_block"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "x": {
+      "item": "minecraft:smooth_sandstone_slab"
+    },
+    "y": {
+      "item": "minecraft:smooth_sandstone"
+    }
+  },
+  "pattern": [
+    "xxx",
+    "y y"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:smooth_sandstone_slab_table"
+  }
+}

@@ -37,16 +37,10 @@ public class CorbelBlock extends WaterloggedNonCubeFacingBlock {
             Block.box(2, 12, 4, 14, 15, 12),
             Block.box(1, 15, 3, 15, 16, 13));
 
-    /**
-     * @param properties
-     */
     public CorbelBlock(Properties properties) {
         super(properties);
     }
 
-    /**
-     *
-     */
     @Override
     public @NotNull VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
         Direction direction = state.getValue(FACING);

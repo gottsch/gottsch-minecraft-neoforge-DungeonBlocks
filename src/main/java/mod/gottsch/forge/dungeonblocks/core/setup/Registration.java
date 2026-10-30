@@ -18,13 +18,13 @@
 package mod.gottsch.forge.dungeonblocks.core.setup;
 
 import mod.gottsch.forge.dungeonblocks.DungeonBlocks;
-import mod.gottsch.forge.dungeonblocks.core.block.BarredWindows;
-import mod.gottsch.forge.dungeonblocks.core.block.CorbelBlocks;
-import mod.gottsch.forge.dungeonblocks.core.block.LedgeBlocks;
+import mod.gottsch.forge.dungeonblocks.core.block.ModBlocks;
 import net.minecraft.core.particles.ParticleType;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -40,15 +40,11 @@ public class Registration {
 	public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(BuiltInRegistries.BLOCK, DungeonBlocks.MOD_ID);
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(BuiltInRegistries.ITEM, DungeonBlocks.MOD_ID);
 	public static final DeferredRegister<ParticleType<?>> PARTICLES = DeferredRegister.create(BuiltInRegistries.PARTICLE_TYPE, DungeonBlocks.MOD_ID);
+	public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(BuiltInRegistries.ENTITY_TYPE, DungeonBlocks.MOD_ID);
+	public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, DungeonBlocks.MOD_ID);
 
-	/**
-	 *
-	 */
 	public static void registerBlocks(IEventBus bus) {
-		BarredWindows.register();
-		//KeystoneBlocks.register();
-		LedgeBlocks.register();
-		CorbelBlocks.register();
+		ModBlocks.registerTrimDecor();
 
 		BLOCKS.register(bus);
 	}
@@ -62,5 +58,13 @@ public class Registration {
 
 	public static void registerParticles(IEventBus bus) {
 		PARTICLES.register(bus);
+	}
+
+	public static void registerEntityTypes(IEventBus bus) {
+		ENTITY_TYPES.register(bus);
+	}
+
+	public static void registerBlockEntityTypes(IEventBus bus) {
+		BLOCK_ENTITY_TYPES.register(bus);
 	}
 }

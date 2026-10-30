@@ -18,3 +18,8 @@ gradle.log
 !/models/
 !*.md
 *.classpath
+
+# generators and Blockbench sources, copied from the Forge 1.20.1 repo
+!/tools/
+!/blockbench/
+__pycache__/

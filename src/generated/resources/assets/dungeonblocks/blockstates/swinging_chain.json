@@ -1,0 +1,88 @@
+{
+  "variants": {
+    "fixture=censer,lit=false,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=censer,lit=false,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=censer,lit=true,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=censer,lit=true,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=dungeon_lantern,lit=false,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=dungeon_lantern,lit=false,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=dungeon_lantern,lit=true,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=dungeon_lantern,lit=true,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=lantern,lit=false,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=lantern,lit=false,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=lantern,lit=true,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=lantern,lit=true,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=manacles,lit=false,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=manacles,lit=false,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=manacles,lit=true,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=manacles,lit=true,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=meat_hook,lit=false,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=meat_hook,lit=false,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=meat_hook,lit=true,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=meat_hook,lit=true,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=none,lit=false,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=none,lit=false,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=none,lit=true,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=none,lit=true,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=soul_lantern,lit=false,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=soul_lantern,lit=false,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=soul_lantern,lit=true,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=soul_lantern,lit=true,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "parent": "dungeonblocks:block/block_no_ao",
+  "flip_v": true,
+  "loader": "neoforge:obj",
+  "model": "dungeonblocks:models/block/portcullis_winch.obj",
+  "textures": {
+    "chain_band": "dungeonblocks:block/dark_iron",
+    "drum": "minecraft:block/stripped_spruce_log",
+    "drum_end": "minecraft:block/stripped_spruce_log_top",
+    "iron": "dungeonblocks:block/dark_iron",
+    "particle": "dungeonblocks:block/dark_iron"
+  }
+}

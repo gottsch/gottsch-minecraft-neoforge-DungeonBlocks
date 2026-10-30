@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "l": {
+      "item": "minecraft:warped_stem"
+    },
+    "s": {
+      "item": "dungeonblocks:sharpened_warped_stem"
+    }
+  },
+  "pattern": [
+    "sls"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:warped_cheval_de_frise"
+  }
+}
