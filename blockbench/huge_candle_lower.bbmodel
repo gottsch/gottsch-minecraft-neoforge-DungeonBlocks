@@ -1,0 +1,155 @@
+{
+ "meta": {
+  "format_version": "4.9",
+  "model_format": "java_block",
+  "box_uv": false
+ },
+ "name": "huge_candle_lower",
+ "parent": "",
+ "ambientocclusion": true,
+ "front_gui_light": false,
+ "visible_box": [
+  1,
+  1,
+  0
+ ],
+ "variable_placeholders": "",
+ "variable_placeholder_buttons": [],
+ "unhandled_root_fields": {},
+ "resolution": {
+  "width": 16,
+  "height": 16
+ },
+ "elements": [
+  {
+   "name": "candle",
+   "box_uv": false,
+   "rescale": false,
+   "locked": false,
+   "render_order": "default",
+   "from": [
+    4.0,
+    0,
+    4.0
+   ],
+   "to": [
+    12.0,
+    16,
+    12.0
+   ],
+   "autouv": 0,
+   "color": 0,
+   "origin": [
+    8.0,
+    8.0,
+    8.0
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      8,
+      0,
+      16,
+      16
+     ],
+     "texture": 0
+    },
+    "east": {
+     "uv": [
+      8,
+      0,
+      16,
+      16
+     ],
+     "texture": 0
+    },
+    "south": {
+     "uv": [
+      8,
+      0,
+      16,
+      16
+     ],
+     "texture": 0
+    },
+    "west": {
+     "uv": [
+      8,
+      0,
+      16,
+      16
+     ],
+     "texture": 0
+    }
+   },
+   "type": "cube",
+   "uuid": "df6b10a8-0456-54b6-8c22-c05b9db66d5c"
+  }
+ ],
+ "outliner": [
+  {
+   "name": "candle",
+   "origin": [
+    8,
+    8,
+    8
+   ],
+   "color": 0,
+   "uuid": "e3c9b6ed-8dd1-5230-9735-e44713001279",
+   "export": true,
+   "mirror_uv": false,
+   "isOpen": true,
+   "locked": false,
+   "visibility": true,
+   "autouv": 0,
+   "children": [
+    "df6b10a8-0456-54b6-8c22-c05b9db66d5c"
+   ]
+  }
+ ],
+ "textures": [
+  {
+   "path": "",
+   "name": "wax",
+   "folder": "block",
+   "namespace": "dungeonblocks",
+   "id": "0",
+   "width": 16,
+   "height": 16,
+   "uv_width": 16,
+   "uv_height": 16,
+   "particle": true,
+   "render_mode": "default",
+   "render_sides": "auto",
+   "visible": true,
+   "internal": true,
+   "saved": false,
+   "uuid": "c5335024-4646-576b-919c-81dfda344c34",
+   "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA1UlEQVR4nLWTvQoCMRCENyFge8Vx2mrjI/jAPoS9nY2dhRZaWPiDhZ34A5FZHVgj5wXFgSPZkPk2u5e4eJpF+aDreqpjqAq57Y86bidz6Qz6jziel5Irmm3sc4yH1U5cq6cZy25bP8aOJdSdBJsIgdFCEYfNeKQLqAlUygKxORVhgc2ACCOQdZY1EMjbptBEOuu0ZsxtHGxdgNkYJ2LTXup+/lJNIg26LIbaZGuycy+ZoiGde/lR/u+AUBVvnaewFpoArJf3JQV91UTelywAM9rM9lHdAXBXhuB5Bkl2AAAAAElFTkSuQmCC"
+  },
+  {
+   "path": "",
+   "name": "top",
+   "folder": "block",
+   "namespace": "dungeonblocks",
+   "id": "1",
+   "width": 16,
+   "height": 16,
+   "uv_width": 16,
+   "uv_height": 16,
+   "particle": false,
+   "render_mode": "default",
+   "render_sides": "auto",
+   "visible": true,
+   "internal": true,
+   "saved": false,
+   "uuid": "f5d54543-4fae-5850-a647-ddd6bd3f1231",
+   "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZUlEQVR4nGP8//3qfwY8gJFTmxGZr6hg8v/+gzNwMRYQ8f/nPeya2ZXwmY0wAAT+vPrAgAxYxAQYsAFk20GACZlz5dhlMCYFMDFQCFiQOTpWuuQbwILDz0QZwEhEaI+CUcCABwAAb5oWZwjTmHAAAAAASUVORK5CYII="
+  }
+ ]
+}

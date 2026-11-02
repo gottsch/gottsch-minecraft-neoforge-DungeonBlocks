@@ -145,9 +145,9 @@ FAMILIES = [
     ("pillory", "Torture"), ("iron_maiden", "Torture"), ("gibbet", "Torture"),
     ("left_large", "Large Brick"), ("right_large", "Large Brick"), ("polished_basalt", "Stone and brick"),
     ("brazier", "Fire and light"), ("sconce", "Fire and light"), ("lantern", "Fire and light"),
-    ("chandelier", "Fire and light"), ("censer", "Hanging"), ("manacles", "Hanging"), ("meat_hook", "Hanging"),
+    ("chandelier", "Fire and light"), ("candle", "Fire and light"), ("censer", "Hanging"), ("manacles", "Hanging"), ("meat_hook", "Hanging"),
     ("swinging_chain", "Hanging"), ("cobweb", "Clutter"), ("hay_patch", "Clutter"), ("roots_", "Clutter"),
-    ("lichen", "Clutter"), ("mold", "Clutter"), ("bone_pile", "Clutter"), ("rubble_scatter", "Clutter"),
+    ("lichen", "Clutter"), ("mold", "Clutter"), ("bone_pile", "Clutter"), ("skull_pile", "Clutter"), ("rubble_scatter", "Clutter"),
 ]
 
 
@@ -257,7 +257,7 @@ def main():
     for pid in ("pot", "squat_clay_pot", "thin_clay_pot", "stone_pot", "squat_stone_pot", "thin_stone_pot",
                 "red_pot", "squat_red_pot", "thin_red_pot", "blue_pot", "squat_blue_pot", "thin_blue_pot",
                 "big_red_potion", "big_yellow_potion", "big_blue_potion", "big_green_potion",
-                "red_flask", "yellow_flask", "blue_flask", "green_flask"):
+                "red_flask", "yellow_flask", "blue_flask", "green_flask", "wooden_bucket"):
         ents.append((pid, "{}"))
     for v in ("old_binder", "crimson_magic_book", "golden_skull_tome", "occult_bible", "ominous_manuscript",
               "tall_leather_tome"):
