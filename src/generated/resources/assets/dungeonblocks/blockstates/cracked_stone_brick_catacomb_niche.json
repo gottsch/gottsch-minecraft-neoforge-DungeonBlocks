@@ -16,6 +16,10 @@
       "model": "dungeonblocks:block/cracked_stone_brick_catacomb_niche_skull_and_bones",
       "y": 90
     },
+    "facing=east,remains=skull_heap": {
+      "model": "dungeonblocks:block/cracked_stone_brick_catacomb_niche_skull_heap",
+      "y": 90
+    },
     "facing=east,remains=skulls": {
       "model": "dungeonblocks:block/cracked_stone_brick_catacomb_niche_skulls",
       "y": 90
@@ -31,6 +35,9 @@
     },
     "facing=north,remains=skull_and_bones": {
       "model": "dungeonblocks:block/cracked_stone_brick_catacomb_niche_skull_and_bones"
+    },
+    "facing=north,remains=skull_heap": {
+      "model": "dungeonblocks:block/cracked_stone_brick_catacomb_niche_skull_heap"
     },
     "facing=north,remains=skulls": {
       "model": "dungeonblocks:block/cracked_stone_brick_catacomb_niche_skulls"
@@ -51,6 +58,10 @@
       "model": "dungeonblocks:block/cracked_stone_brick_catacomb_niche_skull_and_bones",
       "y": 180
     },
+    "facing=south,remains=skull_heap": {
+      "model": "dungeonblocks:block/cracked_stone_brick_catacomb_niche_skull_heap",
+      "y": 180
+    },
     "facing=south,remains=skulls": {
       "model": "dungeonblocks:block/cracked_stone_brick_catacomb_niche_skulls",
       "y": 180
@@ -69,6 +80,10 @@
     },
     "facing=west,remains=skull_and_bones": {
       "model": "dungeonblocks:block/cracked_stone_brick_catacomb_niche_skull_and_bones",
+      "y": 270
+    },
+    "facing=west,remains=skull_heap": {
+      "model": "dungeonblocks:block/cracked_stone_brick_catacomb_niche_skull_heap",
       "y": 270
     },
     "facing=west,remains=skulls": {

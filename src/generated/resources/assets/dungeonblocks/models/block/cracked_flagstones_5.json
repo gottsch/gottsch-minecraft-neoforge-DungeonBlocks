@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "dungeonblocks:block/cracked_flagstones_5"
+  }
+}

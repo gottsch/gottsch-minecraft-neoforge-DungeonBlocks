@@ -1,0 +1,12 @@
+{
+  "parent": "dungeonblocks:block/block_no_ao",
+  "flip_v": true,
+  "loader": "neoforge:obj",
+  "model": "dungeonblocks:models/block/gargoyle_statue_lower.obj",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "particle": "dungeonblocks:block/deepslate_gargoyle_statue",
+    "plinth": "minecraft:block/polished_deepslate",
+    "stone": "dungeonblocks:block/deepslate_gargoyle_statue"
+  }
+}

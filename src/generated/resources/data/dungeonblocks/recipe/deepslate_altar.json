@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "c": {
+      "item": "minecraft:chiseled_deepslate"
+    },
+    "p": {
+      "item": "minecraft:polished_deepslate"
+    },
+    "s": {
+      "item": "minecraft:polished_deepslate_slab"
+    }
+  },
+  "pattern": [
+    "sss",
+    "pcp"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:deepslate_altar"
+  }
+}

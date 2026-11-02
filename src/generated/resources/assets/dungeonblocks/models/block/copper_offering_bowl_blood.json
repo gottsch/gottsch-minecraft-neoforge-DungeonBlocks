@@ -1,0 +1,8 @@
+{
+  "parent": "dungeonblocks:block/template_offering_bowl_blood",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "particle": "minecraft:block/oxidized_copper",
+    "stone": "minecraft:block/oxidized_copper"
+  }
+}

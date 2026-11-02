@@ -1,0 +1,63 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "dungeonblocks:large_candle",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "size": "small"
+                  }
+                }
+              ],
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "dungeonblocks:large_candle",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "size": "medium"
+                  }
+                }
+              ],
+              "count": 2.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "add": false,
+              "conditions": [
+                {
+                  "block": "dungeonblocks:large_candle",
+                  "condition": "minecraft:block_state_property",
+                  "properties": {
+                    "size": "large"
+                  }
+                }
+              ],
+              "count": 3.0,
+              "function": "minecraft:set_count"
+            },
+            {
+              "function": "minecraft:explosion_decay"
+            }
+          ],
+          "name": "dungeonblocks:large_candle"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "dungeonblocks:blocks/large_candle"
+}

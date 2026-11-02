@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "half=lower,lit=false": {
+      "model": "dungeonblocks:block/huge_candle_lower"
+    },
+    "half=lower,lit=true": {
+      "model": "dungeonblocks:block/huge_candle_lower_lit"
+    },
+    "half=upper,lit=false": {
+      "model": "dungeonblocks:block/huge_candle_upper"
+    },
+    "half=upper,lit=true": {
+      "model": "dungeonblocks:block/huge_candle_upper_lit"
+    }
+  }
+}

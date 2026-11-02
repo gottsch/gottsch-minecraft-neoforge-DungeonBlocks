@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "contents=blood": {
+      "model": "dungeonblocks:block/copper_offering_bowl_blood"
+    },
+    "contents=empty": {
+      "model": "dungeonblocks:block/copper_offering_bowl_empty"
+    },
+    "contents=soul_fire": {
+      "model": "dungeonblocks:block/copper_offering_bowl_soul_fire"
+    }
+  }
+}
