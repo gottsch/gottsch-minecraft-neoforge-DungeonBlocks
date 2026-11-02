@@ -180,6 +180,15 @@ public class ModEntityTypes {
 					.updateInterval(1)
 					.build("green_flask"));
 
+	// A wooden bucket of water: the pots' physics, but it never breaks - a knock tips and spills it.
+	// Hitbox is the 12x10 rim's long side by its 10px height.
+	public static final DeferredHolder<EntityType<?>, EntityType<PotEntity>> WOODEN_BUCKET = Registration.ENTITY_TYPES.register("wooden_bucket",
+			() -> EntityType.Builder.<PotEntity>of(BucketEntity::new, MobCategory.MISC)
+					.sized(0.75F, 0.625F)
+					.clientTrackingRange(10)
+					.updateInterval(1)
+					.build("wooden_bucket"));
+
 	/**
 	 * Factory that stamps a material onto every pot of a type. Going through the {@code EntityType}
 	 * factory rather than a lookup table means a pot is built with its material however it comes into

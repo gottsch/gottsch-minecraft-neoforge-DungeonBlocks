@@ -76,7 +76,7 @@ public class CatacombNicheBlock extends HorizontalDirectionalBlock {
 
     /** What lies in the recess, each a group in the Blockbench project. */
     public enum Remains implements StringRepresentable {
-        EMPTY(1), SKULL(2), BONES(2), SKULL_AND_BONES(3), SKULLS(2);
+        EMPTY(1), SKULL(2), BONES(2), SKULL_AND_BONES(3), SKULLS(2), SKULL_HEAP(2);
 
         /** How often a placed niche takes this, out of the sum over all of them. */
         private final int weight;

@@ -227,6 +227,31 @@ public class Recipes extends RecipeProvider {
 			// sarcophagi: a lid of slabs over a chest of the carved block
 			sarcophagus(recipe, ModBlocks.STONE_SARCOPHAGUS, Blocks.SMOOTH_STONE_SLAB, Blocks.CHISELED_STONE_BRICKS);
 			sarcophagus(recipe, ModBlocks.DEEPSLATE_SARCOPHAGUS, Blocks.POLISHED_DEEPSLATE_SLAB, Blocks.CHISELED_DEEPSLATE);
+			// the offering bowl: three copper ingots in a bowl's shape, as vanilla's bowl is planks
+			ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.COPPER_OFFERING_BOWL.get())
+					.pattern("c c")
+					.pattern(" c ")
+					.define('c', Items.COPPER_INGOT)
+					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(Items.COPPER_INGOT))
+					.save(recipe);
+			// the ritual circles: their polished stone chalked with bone meal, one tile each
+			for (Map.Entry<DeferredHolder<Block, Block>, Block> circle : Map.of(ModBlocks.DEEPSLATE_RITUAL_CIRCLE, Blocks.POLISHED_DEEPSLATE,
+					ModBlocks.BLACKSTONE_RITUAL_CIRCLE, Blocks.POLISHED_BLACKSTONE).entrySet()) {
+				ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, circle.getKey().get())
+						.requires(circle.getValue())
+						.requires(Items.BONE_MEAL)
+						.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(circle.getValue()))
+						.save(recipe);
+			}
+			// the altar: a slab top on polished deepslate, a carved block in the middle of its front
+			ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DEEPSLATE_ALTAR.get())
+					.pattern("sss")
+					.pattern("pcp")
+					.define('s', Blocks.POLISHED_DEEPSLATE_SLAB)
+					.define('p', Blocks.POLISHED_DEEPSLATE)
+					.define('c', Blocks.CHISELED_DEEPSLATE)
+					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.CHISELED_DEEPSLATE))
+					.save(recipe);
 
 			// iron maiden: an iron case around iron bars
 			ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.IRON_MAIDEN.get())
@@ -344,6 +369,12 @@ public class Recipes extends RecipeProvider {
 					.requires(Items.BONE, 4)
 					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(Items.BONE))
 					.save(recipe);
+			// skull pile: a bone block for the skulls, as on the skull pike, and bones
+			ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, ModBlocks.SKULL_PILE.get())
+					.requires(Blocks.BONE_BLOCK)
+					.requires(Items.BONE, 3)
+					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.BONE_BLOCK))
+					.save(recipe);
 
 			// chandelier: a row of candles on a row of iron, hung from a chain
 			ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.CHANDELIER.get())
@@ -355,6 +386,42 @@ public class Recipes extends RecipeProvider {
 					.define('i', Items.IRON_INGOT)
 					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.CHAIN))
 					.save(recipe);
+
+			// large candles, of vanilla's plain candles (their wax): two make a Large Candle, three of
+			// those a cluster, and two stacked a Huge Candle
+			ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, ModBlocks.LARGE_CANDLE.get())
+					.requires(Items.CANDLE, 2)
+					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(Items.CANDLE))
+					.save(recipe);
+			ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, ModBlocks.CANDLE_CLUSTER.get())
+					.requires(ModBlocks.LARGE_CANDLE.get(), 3)
+					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.LARGE_CANDLE.get()))
+					.save(recipe);
+			ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.HUGE_CANDLE.get())
+					.pattern("c")
+					.pattern("c")
+					.define('c', ModBlocks.LARGE_CANDLE.get())
+					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.LARGE_CANDLE.get()))
+					.save(recipe);
+
+			// flagstones: stone bricks, cut to slabs of floor
+			SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.STONE_BRICKS), RecipeCategory.BUILDING_BLOCKS, ModBlocks.FLAGSTONES.get())
+					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.STONE_BRICKS))
+					.save(recipe);
+			// their weathered twins as vanilla makes its stone bricks': cracked in a furnace,
+			// mossy with a vine or a moss block
+			SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModBlocks.FLAGSTONES.get()), RecipeCategory.BUILDING_BLOCKS,
+							ModBlocks.CRACKED_FLAGSTONES.get(), 0.1F, 200)
+					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.FLAGSTONES.get()))
+					.save(recipe);
+			for (Block moss : List.of(Blocks.VINE, Blocks.MOSS_BLOCK)) {
+				ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.MOSSY_FLAGSTONES.get())
+						.requires(ModBlocks.FLAGSTONES.get())
+						.requires(moss)
+						.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(moss))
+						.save(recipe, ResourceLocation.fromNamespaceAndPath(DungeonBlocks.MOD_ID, "mossy_flagstones_from_"
+								+ BuiltInRegistries.BLOCK.getKey(moss).getPath()));
+			}
 
 			// gargoyles: the perched one and the bust are carved in a stonecutter; the statue stands
 			// on a smooth stone plinth, a block of chiseled stone bricks for its body
@@ -371,6 +438,22 @@ public class Recipes extends RecipeProvider {
 					.define('c', Blocks.CHISELED_STONE_BRICKS)
 					.define('s', Blocks.SMOOTH_STONE)
 					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.CHISELED_STONE_BRICKS))
+					.save(recipe);
+			// the deepslate ones the same way: cut from cobbled deepslate, as vanilla's deepslate
+			// pieces are; the statue of chiseled deepslate on a polished deepslate plinth
+			SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.COBBLED_DEEPSLATE), RecipeCategory.DECORATIONS, ModBlocks.PERCHED_DEEPSLATE_GARGOYLE.get())
+					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.COBBLED_DEEPSLATE))
+					.save(recipe);
+			SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.COBBLED_DEEPSLATE), RecipeCategory.DECORATIONS, ModBlocks.DEEPSLATE_GARGOYLE_BUST.get())
+					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.COBBLED_DEEPSLATE))
+					.save(recipe);
+			ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.DEEPSLATE_GARGOYLE_STATUE.get())
+					.pattern("c")
+					.pattern("c")
+					.pattern("s")
+					.define('c', Blocks.CHISELED_DEEPSLATE)
+					.define('s', Blocks.POLISHED_DEEPSLATE)
+					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.CHISELED_DEEPSLATE))
 					.save(recipe);
 
 			// the secret passage: a torch sconce with a lever in it; a door of the wall's own stone,
@@ -389,13 +472,16 @@ public class Recipes extends RecipeProvider {
 							.define('r', Items.REDSTONE)
 							.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(source.get()))
 							.save(recipe));
-			ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.PEDESTAL.get())
-					.pattern("sss")
-					.pattern(" s ")
-					.pattern("sss")
-					.define('s', Blocks.POLISHED_ANDESITE)
-					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.POLISHED_ANDESITE))
-					.save(recipe);
+			for (Map.Entry<DeferredHolder<Block, Block>, Block> pedestal : Map.of(ModBlocks.PEDESTAL, Blocks.POLISHED_ANDESITE,
+					ModBlocks.BLACKSTONE_PEDESTAL, Blocks.POLISHED_BLACKSTONE).entrySet()) {
+				ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, pedestal.getKey().get())
+						.pattern("sss")
+						.pattern(" s ")
+						.pattern("sss")
+						.define('s', pedestal.getValue())
+						.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(pedestal.getValue()))
+						.save(recipe);
+			}
 
 			// tapestries: wool woven on a rod of sticks, a dye for the scene; a pristine one aged with
 			// coarse dirt

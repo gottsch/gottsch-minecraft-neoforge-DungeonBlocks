@@ -112,6 +112,8 @@ public class PotRenderer extends EntityRenderer<PotEntity> {
 		poseStack.scale(-1.0F, -1.0F, 1.0F);
 		poseStack.translate(0.0D, -1.501D, 0.0D);
 
+		// most pot models ignore this; the bucket hides its water once it is on its side
+		this.model.setupAnim(entity, 0.0F, 0.0F, entity.tickCount + partialTicks, entityYaw, 0.0F);
 		RenderType renderType = this.model.renderType(this.getTextureLocation(entity));
 		VertexConsumer vertexConsumer = buffer.getBuffer(renderType);
 		this.model.renderToBuffer(poseStack, vertexConsumer, packedLight, OverlayTexture.NO_OVERLAY,

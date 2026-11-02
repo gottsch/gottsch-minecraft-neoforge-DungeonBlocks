@@ -75,7 +75,7 @@ public class ModBlockEntityTypes {
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<PedestalBlockEntity>> PEDESTAL =
 			Registration.BLOCK_ENTITY_TYPES.register("pedestal",
 					() -> BlockEntityType.Builder
-							.of(PedestalBlockEntity::new, ModBlocks.PEDESTAL.get())
+							.of(PedestalBlockEntity::new, ModBlocks.PEDESTAL.get(), ModBlocks.BLACKSTONE_PEDESTAL.get())
 							.build(null));
 
 	public static void register(IEventBus bus) {

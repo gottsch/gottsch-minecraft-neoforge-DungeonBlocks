@@ -20,6 +20,8 @@
 package mod.gottsch.forge.dungeonblocks.datagen.loot;
 
 import mod.gottsch.forge.dungeonblocks.core.block.TallPropBlock;
+import mod.gottsch.forge.dungeonblocks.core.block.HugeCandleBlock;
+import mod.gottsch.forge.dungeonblocks.core.block.LargeCandleBlock;
 import mod.gottsch.forge.dungeonblocks.core.block.DungeonBannerBlock;
 import mod.gottsch.forge.dungeonblocks.core.block.GibbetBlock;
 import mod.gottsch.forge.dungeonblocks.core.block.TortureRackBlock;
@@ -43,6 +45,7 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
@@ -75,6 +78,12 @@ public class ModBlockLootTables extends BlockLootSubProvider {
             } else if (b instanceof IronMaidenBlock) {
                 // two halves, one item, the same shape as a door: the lower half carries the drop
                 add(b, createSinglePropConditionTable(b, IronMaidenBlock.HALF, DoubleBlockHalf.LOWER));
+            } else if (b instanceof LargeCandleBlock) {
+                // one for each Large Candle that went into its size
+                add(b, createLargeCandleDrops(b));
+            } else if (b instanceof HugeCandleBlock) {
+                // two halves, one item, as the tall props: the lower half carries the drop
+                add(b, createSinglePropConditionTable(b, HugeCandleBlock.HALF, DoubleBlockHalf.LOWER));
             } else if (b instanceof TallPropBlock) {
                 // two halves, one item, as the iron maiden: the lower half carries the drop
                 add(b, createSinglePropConditionTable(b, TallPropBlock.HALF, DoubleBlockHalf.LOWER));
@@ -128,6 +137,18 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                         n -> SetItemCountFunction.setCount(ConstantValue.exactly(n))
                                 .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
                                         .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(stages, n)))))));
+    }
+
+    /** The Large Candle, as many as its SIZE took: createStagedDrops, for its enum. */
+    private LootTable.Builder createLargeCandleDrops(Block block) {
+        LootPoolSingletonContainer.Builder<?> item = LootItem.lootTableItem(block);
+        for (LargeCandleBlock.Size size : LargeCandleBlock.Size.values()) {
+            item.apply(SetItemCountFunction.setCount(ConstantValue.exactly(size.candles))
+                    .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                            .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(LargeCandleBlock.SIZE, size))));
+        }
+        return LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F))
+                .add(applyExplosionDecay(block, item)));
     }
 
     @Override

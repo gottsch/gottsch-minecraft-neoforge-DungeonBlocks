@@ -66,6 +66,9 @@ import javax.annotation.Nullable;
  * from blockbench/bone_pile.bbmodel, one per stage.
  *
  * <p>Loose bones give underfoot: the collision box is lower than the heap, so you wade through it.
+ *
+ * <p>The skull pile is this block with its own models (blockbench/skull_pile.bbmodel) and the
+ * heights of a heap of skulls; it is heaped with bones the same way.
  */
 public class BonePileBlock extends HorizontalDirectionalBlock implements SimpleWaterloggedBlock {
 	public static final MapCodec<BonePileBlock> CODEC = simpleCodec(BonePileBlock::new);
@@ -85,8 +88,18 @@ public class BonePileBlock extends HorizontalDirectionalBlock implements SimpleW
     private static final VoxelShape[] FOOTING = {Block.box(0, 0, 0, 16, 1, 16), Block.box(0, 0, 0, 16, 3, 16),
             Block.box(0, 0, 0, 16, 4, 16), Block.box(0, 0, 0, 16, 6, 16)};
 
+    private final VoxelShape[] shapes;
+    private final VoxelShape[] footing;
+
     public BonePileBlock(Properties properties) {
+        this(properties, SHAPES, FOOTING);
+    }
+
+    /** A pile of other heights: `shapes` and `footing` give one box per stage, 1 to FULL. */
+    public BonePileBlock(Properties properties, VoxelShape[] shapes, VoxelShape[] footing) {
         super(properties);
+        this.shapes = shapes;
+        this.footing = footing;
         // WATERLOGGED set explicitly: stateDefinition.any() would leave it true
         registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH)
                 .setValue(BONES, FULL).setValue(WATERLOGGED, false));
@@ -121,12 +134,12 @@ public class BonePileBlock extends HorizontalDirectionalBlock implements SimpleW
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return SHAPES[state.getValue(BONES) - 1];
+        return shapes[state.getValue(BONES) - 1];
     }
 
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return FOOTING[state.getValue(BONES) - 1];
+        return footing[state.getValue(BONES) - 1];
     }
 
     /** Placed as a few bones, to be heaped a bone at a time. */

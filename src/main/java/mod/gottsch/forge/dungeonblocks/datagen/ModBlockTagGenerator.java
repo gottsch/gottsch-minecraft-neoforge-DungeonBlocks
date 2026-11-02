@@ -147,6 +147,7 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         // Dungeon furniture matches nothing in stone_blocks either. The sarcophagi copy stone bricks
         // (any pickaxe, like the mod's other stone); the iron pieces are pickaxe-only like iron bars.
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.STONE_SARCOPHAGUS.get(), ModBlocks.DEEPSLATE_SARCOPHAGUS.get(),
+                ModBlocks.DEEPSLATE_ALTAR.get(), ModBlocks.COPPER_OFFERING_BOWL.get(),
                 ModBlocks.IRON_MAIDEN.get(), ModBlocks.GIBBET.get());
 
         // The pillory and the rack are dark oak, and match nothing in stone_blocks: an axe, no tier
@@ -165,15 +166,19 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         ModBlocks.COFFINS.forEach(b -> this.tag(BlockTags.MINEABLE_WITH_AXE).add(b.get()));
         this.tag(BlockTags.MINEABLE_WITH_AXE).add(ModBlocks.SKULL_PIKE.get(), ModBlocks.ZOMBIE_HEAD_PIKE.get(),
                 ModBlocks.BLOODY_STEVE_HEAD_PIKE.get());
-        // The gargoyles copy stone, requiresCorrectToolForDrops included, and match nothing in
-        // stone_blocks: any pickaxe, as vanilla stone.
-        for (DeferredHolder<Block, Block> b : List.of(ModBlocks.PERCHED_GARGOYLE, ModBlocks.GARGOYLE_BUST, ModBlocks.GARGOYLE_STATUE)) {
+        // The copper offering bowl is copper: a stone pickaxe or better, as vanilla's copper.
+        this.tag(BlockTags.NEEDS_STONE_TOOL).add(ModBlocks.COPPER_OFFERING_BOWL.get());
+        // The gargoyles copy stone (or polished deepslate), requiresCorrectToolForDrops included,
+        // and match nothing in stone_blocks: any pickaxe, as vanilla stone and deepslate.
+        for (DeferredHolder<Block, Block> b : List.of(ModBlocks.PERCHED_GARGOYLE, ModBlocks.GARGOYLE_BUST, ModBlocks.GARGOYLE_STATUE,
+                ModBlocks.PERCHED_DEEPSLATE_GARGOYLE, ModBlocks.DEEPSLATE_GARGOYLE_BUST, ModBlocks.DEEPSLATE_GARGOYLE_STATUE)) {
             this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(b.get());
         }
         // The lever sconce is the torch sconce's twin: pickaxe, no tier. The hidden doors are doors
         // (DOORS, as vanilla tags the iron door); the stone pass above makes them pickaxe. The
         // pedestal copies polished andesite, requiresCorrectToolForDrops included: any pickaxe.
-        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.LEVER_SCONCE.get(), ModBlocks.PEDESTAL.get());
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.LEVER_SCONCE.get(), ModBlocks.PEDESTAL.get(),
+                ModBlocks.BLACKSTONE_PEDESTAL.get());
         ModBlocks.HIDDEN_DOORS.keySet().forEach(b -> this.tag(BlockTags.DOORS).add(b.get()));
         // Tapestries are cloth, and drop to anything: an axe only takes them down faster, as vanilla's
         // banners are tagged.
@@ -182,8 +187,12 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.RUBBLE_SCATTER.get());
         // The bone pile, the chandelier and the chain fixtures drop to anything; a pickaxe only
         // takes them down faster.
-        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.BONE_PILE.get(), ModBlocks.CHANDELIER.get(),
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.BONE_PILE.get(), ModBlocks.SKULL_PILE.get(), ModBlocks.CHANDELIER.get(),
                 ModBlocks.MANACLES.get(), ModBlocks.MEAT_HOOK.get(), ModBlocks.CENSER.get());
+        // The large candles are lit by vanilla's flint and steel and fire charge, which light only
+        // what is in #candles (CandlePropBlock). Like vanilla's candles they need no tool.
+        this.tag(BlockTags.CANDLES).add(ModBlocks.LARGE_CANDLE.get(), ModBlocks.HUGE_CANDLE.get(),
+                ModBlocks.CANDLE_CLUSTER.get());
         // "bubbling_cauldron" matches nothing in stone_blocks, and it copies vanilla cauldron's
         // requiresCorrectToolForDrops: untagged it could never drop. Pickaxe, no tier, as vanilla's.
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.BUBBLING_CAULDRON.get());

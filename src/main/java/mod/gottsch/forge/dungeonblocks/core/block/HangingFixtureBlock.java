@@ -77,9 +77,16 @@ public class HangingFixtureBlock extends Block implements SimpleWaterloggedBlock
         return state.canSurvive(context.getLevel(), context.getClickedPos()) ? state : null;
     }
 
-    /** It hangs from whatever can hold a hanging lantern: a sturdy ceiling, or a chain. */
+    /**
+     * It hangs from whatever can hold a hanging lantern: a sturdy ceiling, or a chain. It also hangs
+     * from a wall ring, on a wall or a ceiling, which has no center support on its underside.
+     */
     @Override
     public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+        BlockState above = level.getBlockState(pos.above());
+        if (above.getBlock() instanceof WallRingBlock) {
+            return above.getValue(WallRingBlock.FACING) != Direction.UP;
+        }
         return Block.canSupportCenter(level, pos.above(), Direction.DOWN);
     }
 
