@@ -187,12 +187,15 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.RUBBLE_SCATTER.get());
         // The bone pile, the chandelier and the chain fixtures drop to anything; a pickaxe only
         // takes them down faster.
-        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.BONE_PILE.get(), ModBlocks.SKULL_PILE.get(), ModBlocks.CHANDELIER.get(),
-                ModBlocks.MANACLES.get(), ModBlocks.MEAT_HOOK.get(), ModBlocks.CENSER.get());
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.BONE_PILE.get(), ModBlocks.SKULL_PILE.get(), ModBlocks.CHANDELIER.get(), ModBlocks.BONE_CHANDELIER.get(), ModBlocks.MEDIUM_BONE_CHANDELIER.get(), ModBlocks.SKULL_CANDLE.get(), ModBlocks.BLACK_SKULL_CANDLE.get(),
+                ModBlocks.MANACLES.get(), ModBlocks.MEAT_HOOK.get(), ModBlocks.CENSER.get(), ModBlocks.SOUL_VENT.get(),
+                ModBlocks.FIRE_BASKET.get());
+        // The chain anchor is a block of iron plate, and needs a pickaxe to drop.
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.CHAIN_ANCHOR.get());
         // The large candles are lit by vanilla's flint and steel and fire charge, which light only
         // what is in #candles (CandlePropBlock). Like vanilla's candles they need no tool.
         this.tag(BlockTags.CANDLES).add(ModBlocks.LARGE_CANDLE.get(), ModBlocks.HUGE_CANDLE.get(),
-                ModBlocks.CANDLE_CLUSTER.get());
+                ModBlocks.CANDLE_CLUSTER.get(), ModBlocks.SKULL_CANDLE.get(), ModBlocks.BLACK_SKULL_CANDLE.get());
         // "bubbling_cauldron" matches nothing in stone_blocks, and it copies vanilla cauldron's
         // requiresCorrectToolForDrops: untagged it could never drop. Pickaxe, no tier, as vanilla's.
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ModBlocks.BUBBLING_CAULDRON.get());

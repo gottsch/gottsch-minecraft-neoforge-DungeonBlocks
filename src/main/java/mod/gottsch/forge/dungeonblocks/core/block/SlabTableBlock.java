@@ -55,9 +55,10 @@ import javax.annotation.Nullable;
  * {@code part=foot} / {@code part=head}, which is already familiar to anyone writing structure NBT
  * or {@code /setblock}. {@link #FACING} points from the FOOT toward the HEAD.
  *
- * <p>Both halves share one geometry - the model is symmetric about the block centre in both
- * horizontal axes - so the halves differ only in which texture their model resolves. The model is
- * authored facing NORTH and the blockstate supplies the y-rotation for the other three facings.
+ * <p>Both halves share one geometry, a refectory table's: a thin top, a leg and foot at the table's
+ * far end, and a stretcher running to the other half. The model is authored as the FOOT facing NORTH,
+ * its leg to the south; the blockstate supplies the y-rotation for the other three facings, and turns
+ * the HEAD a further half circle, so that its leg is at the other end of the table.
  *
  * @author Mark Gottschling on Jul 26, 2026
  */
@@ -71,10 +72,17 @@ public class SlabTableBlock extends HorizontalDirectionalBlock {
 
     public static final EnumProperty<BedPart> PART = BlockStateProperties.BED_PART;
 
-    // authored facing NORTH: the pair runs along z, so the trestle leg is elongated across it on x
-    private static final VoxelShape TOP = Block.box(0D, 8D, 0D, 16D, 16D, 16D);
-    private static final VoxelShape SHAPE_Z = Shapes.or(TOP, Block.box(2D, 0D, 5D, 14D, 8D, 11D));
-    private static final VoxelShape SHAPE_X = Shapes.or(TOP, Block.box(5D, 0D, 2D, 11D, 8D, 14D));
+    private static final VoxelShape TOP = Block.box(0D, 12D, 0D, 16D, 16D, 16D);
+    // by the side of the block the leg is on, the end of the table. The stretcher is left out, as
+    // something to catch on: the pieces are symmetric across the table, so only the z range turns.
+    private static final VoxelShape SHAPE_SOUTH = Shapes.or(TOP,
+            Block.box(2D, 2D, 11D, 14D, 12D, 14D), Block.box(1D, 0D, 10D, 15D, 2D, 15D));
+    private static final VoxelShape SHAPE_NORTH = Shapes.or(TOP,
+            Block.box(2D, 2D, 2D, 14D, 12D, 5D), Block.box(1D, 0D, 1D, 15D, 2D, 6D));
+    private static final VoxelShape SHAPE_EAST = Shapes.or(TOP,
+            Block.box(11D, 2D, 2D, 14D, 12D, 14D), Block.box(10D, 0D, 1D, 15D, 2D, 15D));
+    private static final VoxelShape SHAPE_WEST = Shapes.or(TOP,
+            Block.box(2D, 2D, 2D, 5D, 12D, 14D), Block.box(1D, 0D, 1D, 6D, 2D, 15D));
 
     public SlabTableBlock(BlockBehaviour.Properties properties) {
         super(properties);
@@ -89,7 +97,13 @@ public class SlabTableBlock extends HorizontalDirectionalBlock {
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return state.getValue(FACING).getAxis() == Direction.Axis.Z ? SHAPE_Z : SHAPE_X;
+        Direction end = state.getValue(PART) == BedPart.HEAD ? state.getValue(FACING) : state.getValue(FACING).getOpposite();
+        return switch (end) {
+            case NORTH -> SHAPE_NORTH;
+            case EAST -> SHAPE_EAST;
+            case WEST -> SHAPE_WEST;
+            default -> SHAPE_SOUTH;
+        };
     }
 
     /**

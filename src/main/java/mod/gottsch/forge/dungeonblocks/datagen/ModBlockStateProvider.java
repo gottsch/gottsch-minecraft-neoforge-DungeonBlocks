@@ -27,7 +27,9 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
+import java.util.ArrayList;
 import java.util.EnumMap;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -190,9 +192,15 @@ public class ModBlockStateProvider extends BlockStateProvider {
         brazierBlock(ModBlocks.BRAZIER);
 
         simpleBlock(ModBlocks.SQUARE_STONE_BRICK.get());
-        patternTiles(ModBlocks.FLAGSTONES);
-        patternTiles(ModBlocks.CRACKED_FLAGSTONES);
-        patternTiles(ModBlocks.MOSSY_FLAGSTONES);
+        stackedPatternTiles(ModBlocks.FLAGSTONES);
+        stackedPatternTiles(ModBlocks.CRACKED_FLAGSTONES);
+        stackedPatternTiles(ModBlocks.MOSSY_FLAGSTONES);
+        patternTiles(ModBlocks.FAN_COBBLES);
+        patternTiles(ModBlocks.MOSSY_FAN_COBBLES);
+        patternTiles(ModBlocks.SANDSTONE_ASHLAR);
+        patternTiles(ModBlocks.DRIFTED_SANDSTONE_ASHLAR);
+        stackedPatternTiles(ModBlocks.GRAVE_SLAB_PAVEMENT);
+        stackedPatternTiles(ModBlocks.KNUCKLEBONE_PAVING);
         // the circles are chalked on the top only: their sides and bottom are their plain stone
         Map.of(ModBlocks.DEEPSLATE_RITUAL_CIRCLE, mcLoc("block/polished_deepslate"),
                 ModBlocks.BLACKSTONE_RITUAL_CIRCLE, mcLoc("block/polished_blackstone")).forEach((block, stone) -> {
@@ -230,6 +238,28 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(ModBlocks.MOSSY_CHISELED_DEEPSLATE_BRICKS.get());
         // the eleven decorative types for these three come off the ModMaterials.STONE loop above;
         // only the full block and the stairs are generated here
+        simpleBlock(ModBlocks.OSSUARY_BRICKS.get());
+        simpleBlock(ModBlocks.MOSSY_OSSUARY_BRICKS.get());
+        simpleBlock(ModBlocks.CRACKED_OSSUARY_BRICKS.get());
+        stairsBlock(ModBlocks.OSSUARY_BRICK_STAIRS.get(), modLoc("block/ossuary_bricks"));
+        stairsBlock(ModBlocks.MOSSY_OSSUARY_BRICK_STAIRS.get(), modLoc("block/mossy_ossuary_bricks"));
+        stairsBlock(ModBlocks.HEWN_TUFA_STAIRS.get(), modLoc("block/hewn_tufa"));
+        simpleBlock(ModBlocks.SQUARE_OSSUARY_BRICK.get());
+        largeBrickPair(ModBlocks.LEFT_LARGE_OSSUARY_BRICK, ModBlocks.RIGHT_LARGE_OSSUARY_BRICK);
+        // four variants with matching edges, so its pick marks don't repeat block by block
+        simpleBlock(ModBlocks.HEWN_TUFA.get(),
+                new ConfiguredModel(cubeAll(ModBlocks.HEWN_TUFA.get())),
+                new ConfiguredModel(models().cubeAll("hewn_tufa_1", modLoc("block/hewn_tufa_1"))),
+                new ConfiguredModel(models().cubeAll("hewn_tufa_2", modLoc("block/hewn_tufa_2"))),
+                new ConfiguredModel(models().cubeAll("hewn_tufa_3", modLoc("block/hewn_tufa_3"))));
+        simpleBlock(ModBlocks.MOSSY_HEWN_TUFA.get(),
+                new ConfiguredModel(cubeAll(ModBlocks.MOSSY_HEWN_TUFA.get())),
+                new ConfiguredModel(models().cubeAll("mossy_hewn_tufa_1", modLoc("block/mossy_hewn_tufa_1"))),
+                new ConfiguredModel(models().cubeAll("mossy_hewn_tufa_2", modLoc("block/mossy_hewn_tufa_2"))),
+                new ConfiguredModel(models().cubeAll("mossy_hewn_tufa_3", modLoc("block/mossy_hewn_tufa_3"))));
+        wallPattern(ModBlocks.PACKED_SKULLS, modLoc("block/hewn_tufa"));
+        wallPattern(ModBlocks.JUMBLED_FEMURS, modLoc("block/hewn_tufa"));
+        wallPattern(ModBlocks.CRUMBLING_BONE_WALL, modLoc("block/hewn_tufa"));
         simpleBlock(ModBlocks.MOSSY_DEEPSLATE_BRICKS.get());
         simpleBlock(ModBlocks.MOSSY_DEEPSLATE_TILES.get());
         simpleBlock(ModBlocks.MOSSY_COBBLED_DEEPSLATE.get());
@@ -241,6 +271,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
         stairsBlock(ModBlocks.MOSSY_POLISHED_ANDESITE_BRICK_STAIRS.get(), modLoc("block/mossy_polished_andesite_bricks"));
 
         simpleBlock(ModBlocks.MOSSY_BRICKS.get());
+        simpleBlock(ModBlocks.CRACKED_BRICKS.get());
+        simpleBlock(ModBlocks.HERRINGBONE_BRICKS.get());
+        simpleBlock(ModBlocks.MOSSY_HERRINGBONE_BRICKS.get());
         stairsBlock(ModBlocks.MOSSY_BRICK_STAIRS.get(), modLoc("block/mossy_bricks"));
 
         simpleBlock(ModBlocks.LARGE_BRICKS.get());
@@ -262,11 +295,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
         swingingChainBlock(ModBlocks.SWINGING_CHAIN);
         ModBlocks.BANNERS.forEach(this::dungeonBannerBlock);
 
-        // slab tables. The two textures are the FOOT half and the HEAD half, in that order - pass
-        // different ones to get a table that reads differently at each end.
+        // slab tables. The two textures are a large brick's left and right, one brick along the table;
+        // a plain stone passes the same texture for both.
         slabTableBlock(ModBlocks.STONE_SLAB_TABLE, mcLoc("block/stone"), mcLoc("block/stone"));
-        slabTableBlock(ModBlocks.STONE_BRICKS_SLAB_TABLE, mcLoc("block/stone_bricks"), mcLoc("block/stone_bricks"));
-        slabTableBlock(ModBlocks.MOSSY_STONE_BRICKS_SLAB_TABLE, mcLoc("block/mossy_stone_bricks"), mcLoc("block/mossy_stone_bricks"));
+        slabTableBlock(ModBlocks.STONE_BRICKS_SLAB_TABLE, modLoc("block/left_large_stone_brick"), modLoc("block/right_large_stone_brick"));
+        slabTableBlock(ModBlocks.MOSSY_STONE_BRICKS_SLAB_TABLE, modLoc("block/mossy_left_large_stone_brick"), modLoc("block/mossy_right_large_stone_brick"));
+        slabTableBlock(ModBlocks.OSSUARY_BRICKS_SLAB_TABLE, modLoc("block/left_large_ossuary_brick"), modLoc("block/right_large_ossuary_brick"));
         slabTableBlock(ModBlocks.SMOOTH_STONE_SLAB_TABLE, mcLoc("block/smooth_stone"), mcLoc("block/smooth_stone"));
         // smooth sandstone has no texture of its own — vanilla draws it with sandstone_top,
         // the same override ModMaterials.STONE carries for it
@@ -529,10 +563,31 @@ public class ModBlockStateProvider extends BlockStateProvider {
             Map<CatacombNicheBlock.Remains, ModelFile> niches = new EnumMap<>(CatacombNicheBlock.Remains.class);
             for (CatacombNicheBlock.Remains remains : CatacombNicheBlock.Remains.values()) {
                 String suffix = "_" + remains.getSerializedName();
-                niches.put(remains, models().withExistingParent(block.getId().getPath() + suffix,
-                        modLoc("block/template_catacomb_niche" + suffix)).texture("stone", texture).texture("particle", texture));
+                BlockModelBuilder niche = models().withExistingParent(block.getId().getPath() + suffix,
+                        modLoc("block/template_catacomb_niche" + suffix)).texture("stone", texture).texture("particle", texture);
+                // the lamp's flame has gaps
+                niches.put(remains, remains == CatacombNicheBlock.Remains.SOUL_LAMP ? niche.renderType("cutout") : niche);
             }
             horizontalBlock(block.get(), state -> niches.get(state.getValue(CatacombNicheBlock.REMAINS)));
+        });
+
+        // wall shelves: a child of the Blockbench template for each CONTENTS and each half of the brick
+        ModBlocks.SHELVES.forEach(shelf -> {
+            Map<String, ModelFile> shelves = new HashMap<>();
+            for (ShelfBlock.Contents contents : ShelfBlock.Contents.values()) {
+                String suffix = "_" + contents.getSerializedName();
+                for (DeferredHolder<Block, Block> brick : List.of(shelf.left(), shelf.right())) {
+                    ResourceLocation texture = modLoc("block/" + brick.getId().getPath());
+                    String half = brick == shelf.left() ? "_left" : "_right";
+                    shelves.put(suffix + half, models().withExistingParent(shelf.block().getId().getPath() + suffix + half,
+                            modLoc("block/template_shelf" + suffix)).texture("brick", texture).texture("particle", texture));
+                }
+            }
+            getVariantBuilder(shelf.block().get()).forAllStates(state -> ConfiguredModel.builder()
+                    .modelFile(shelves.get("_" + state.getValue(ShelfBlock.CONTENTS).getSerializedName()
+                            + (state.getValue(ShelfBlock.LEFT) ? "_left" : "_right")))
+                    .rotationY(((int) state.getValue(ShelfBlock.FACING).toYRot() + 180) % 360)
+                    .build());
         });
 
         // skull pike: one model per half
@@ -614,6 +669,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
         ModelFile censerLit = models().getExistingFile(modLoc("block/chain_fixture_censer_lit"));
         getVariantBuilder(ModBlocks.CENSER.get()).forAllStates(state -> ConfiguredModel.builder()
                 .modelFile(state.getValue(CenserBlock.LIT) ? censerLit : censer).build());
+        // the fire basket: one model per brazier FIRE state
+        getVariantBuilder(ModBlocks.FIRE_BASKET.get()).forAllStatesExcept(state -> ConfiguredModel.builder()
+                .modelFile(models().getExistingFile(modLoc("block/fire_basket" + switch (state.getValue(FireBasketBlock.FIRE)) {
+                    case NONE -> "";
+                    case EMBERS -> "_embers";
+                    case LIT -> "_lit";
+                    case SOUL -> "_soul";
+                }))).build(), FireBasketBlock.WATERLOGGED);
 
         // bubbling cauldron: vanilla's full cauldron, its brew a greyscale boil tinted per colour
         // (ClientSetup), so every colour is the one model
@@ -664,6 +727,43 @@ public class ModBlockStateProvider extends BlockStateProvider {
         horizontalBlock(ModBlocks.SKULL_PILE.get(), state -> models().getExistingFile(
                 modLoc("block/skull_pile_" + state.getValue(BonePileBlock.BONES))));
 
+        getVariantBuilder(ModBlocks.BONE_CHANDELIER.get()).forAllStates(state -> ConfiguredModel.builder()
+                .modelFile(models().getExistingFile(modLoc(state.getValue(ChandelierBlock.LIT)
+                        ? "block/bone_chandelier_lit" : "block/bone_chandelier"))).build());
+        getVariantBuilder(ModBlocks.MEDIUM_BONE_CHANDELIER.get()).forAllStates(state -> ConfiguredModel.builder()
+                .modelFile(models().getExistingFile(modLoc(state.getValue(ChandelierBlock.LIT)
+                        ? "block/medium_bone_chandelier_lit" : "block/medium_bone_chandelier"))).build());
+        // stained glass windows: a 2px panel per PART, running along X; turned for a Z window. The
+        // back face is mirrored, so a broken pane's hole lines up from both sides. The broken middle
+        // has two variants, picked by position.
+        for (DeferredHolder<Block, Block> window : List.of(ModBlocks.STAINED_GLASS_WINDOW, ModBlocks.BROKEN_STAINED_GLASS_WINDOW)) {
+            String name = window.getId().getPath();
+            Map<StainedGlassWindowBlock.Part, List<ModelFile>> parts = new EnumMap<>(StainedGlassWindowBlock.Part.class);
+            for (StainedGlassWindowBlock.Part part : StainedGlassWindowBlock.Part.values()) {
+                List<String> textures = new ArrayList<>(List.of(name + "_" + part.getSerializedName()));
+                if (window == ModBlocks.BROKEN_STAINED_GLASS_WINDOW && part == StainedGlassWindowBlock.Part.MIDDLE) {
+                    textures.add(name + "_middle_1");
+                }
+                parts.put(part, textures.stream().map(texture -> (ModelFile) glassWindow(texture)).toList());
+            }
+            getVariantBuilder(window.get()).forAllStatesExcept(state -> {
+                int rotation = state.getValue(StainedGlassWindowBlock.AXIS) == Direction.Axis.Z ? 90 : 0;
+                List<ModelFile> models = parts.get(state.getValue(StainedGlassWindowBlock.PART));
+                ConfiguredModel.Builder<?> builder = ConfiguredModel.builder().modelFile(models.get(0)).rotationY(rotation);
+                for (ModelFile model : models.subList(1, models.size())) {
+                    builder = builder.nextModel().modelFile(model).rotationY(rotation);
+                }
+                return builder.build();
+            }, StainedGlassWindowBlock.WATERLOGGED);
+        }
+
+        // soul vent: hand-written lit and unlit models; the lit one's fire and bed glow
+        // one plate for every state: FACING and MIRRORED only carry the chain offsets' frame
+        simpleBlock(ModBlocks.CHAIN_ANCHOR.get());
+        getVariantBuilder(ModBlocks.SOUL_VENT.get()).forAllStatesExcept(state -> ConfiguredModel.builder()
+                .modelFile(models().getExistingFile(modLoc(state.getValue(SoulVentBlock.LIT)
+                        ? "block/soul_vent" : "block/soul_vent_unlit"))).build(), SoulVentBlock.WATERLOGGED);
+
         // chandelier: lit and unlit differ only in the candles' wicks
         getVariantBuilder(ModBlocks.CHANDELIER.get()).forAllStates(state -> ConfiguredModel.builder()
                 .modelFile(models().getExistingFile(modLoc(state.getValue(ChandelierBlock.LIT)
@@ -678,6 +778,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
         getVariantBuilder(ModBlocks.CANDLE_CLUSTER.get()).forAllStatesExcept(state -> ConfiguredModel.builder()
                 .modelFile(candle(state, "candle_cluster")[0].model)
                 .rotationY(yaw(state.getValue(CandleClusterBlock.FACING))).build(), CandlePropBlock.WATERLOGGED);
+        // skull candles: on the floor or on a wall bracket, turned to the way the skull looks
+        for (DeferredHolder<Block, Block> block : List.of(ModBlocks.SKULL_CANDLE, ModBlocks.BLACK_SKULL_CANDLE)) {
+            getVariantBuilder(block.get()).forAllStatesExcept(state -> ConfiguredModel.builder()
+                    .modelFile(candle(state, block.getId().getPath() + (state.getValue(SkullCandleBlock.WALL) ? "_wall" : "_floor"))[0].model)
+                    .rotationY(yaw(state.getValue(SkullCandleBlock.FACING))).build(), CandlePropBlock.WATERLOGGED);
+        }
     }
 
     private ConfiguredModel[] candle(BlockState state, String model) {
@@ -685,13 +791,89 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 modLoc("block/" + model + (state.getValue(CandlePropBlock.LIT) ? "_lit" : "")))).build();
     }
 
-    /** A PatternTileBlock: a cube per TILE, textured <name>_<tile>. */
+    /**
+     * A PatternTileBlock: a cube per TILE, textured <name>_<tile>; a FacingPatternTileBlock's turned
+     * to its FACING, the texture with it.
+     */
     private void patternTiles(DeferredHolder<Block, Block> block) {
         String name = block.getId().getPath();
         getVariantBuilder(block.get()).forAllStates(state -> {
             String tile = name + "_" + state.getValue(PatternTileBlock.TILE);
-            return ConfiguredModel.builder().modelFile(models().cubeAll(tile, modLoc("block/" + tile))).build();
+            ConfiguredModel.Builder<?> model = ConfiguredModel.builder().modelFile(models().cubeAll(tile, modLoc("block/" + tile)));
+            if (state.hasProperty(FacingPatternTileBlock.FACING)) {
+                model.rotationY(yaw(state.getValue(FacingPatternTileBlock.FACING)));
+            }
+            return model.build();
         });
+    }
+
+    /**
+     * A StackedPatternTileBlock: a cube per TILE and LAYER, TILE's slice on top and bottom. The sides
+     * take their slices as {@link #wallPattern} does, from TILE's col and row as x and z.
+     */
+    private void stackedPatternTiles(DeferredHolder<Block, Block> block) {
+        String name = block.getId().getPath();
+        int span = PatternTileBlock.SPAN;
+        getVariantBuilder(block.get()).forAllStates(state -> {
+            int tile = state.getValue(PatternTileBlock.TILE);
+            int layer = state.getValue(StackedPatternTileBlock.LAYER);
+            int x = tile % span;
+            int z = tile / span;
+            int row = span - 1 - layer;
+            ResourceLocation ends = modLoc("block/" + name + "_" + tile);
+            ResourceLocation north = modLoc("block/" + name + "_" + (Math.floorMod(-x, span) + span * row));
+            ResourceLocation south = modLoc("block/" + name + "_" + (x + span * row));
+            ResourceLocation east = modLoc("block/" + name + "_" + (Math.floorMod(-z, span) + span * row));
+            ResourceLocation west = modLoc("block/" + name + "_" + (z + span * row));
+            return ConfiguredModel.builder().modelFile(models()
+                    .cube(name + "_" + tile + "_" + layer, ends, ends, north, south, east, west)
+                    .texture("particle", ends)).build();
+        });
+    }
+
+    /**
+     * A WallPatternBlock: a cube per position mod 3, each side face textured with the slice
+     * <name>_<col + 3 * row> it shows from that side, since a face's texture runs along +x from the
+     * south and -x from the north, +z from the west and -z from the east.
+     */
+    private void wallPattern(DeferredHolder<Block, Block> block, ResourceLocation ends) {
+        String name = block.getId().getPath();
+        int span = WallPatternBlock.SPAN;
+        getVariantBuilder(block.get()).forAllStates(state -> {
+            int x = state.getValue(WallPatternBlock.X);
+            int y = state.getValue(WallPatternBlock.Y);
+            int z = state.getValue(WallPatternBlock.Z);
+            int row = span - 1 - y;
+            // a crumbling wall has a second set of slices for while it shakes
+            String stem = state.hasProperty(CrumblingBoneWallBlock.SHAKING) && state.getValue(CrumblingBoneWallBlock.SHAKING)
+                    ? name + "_shaking" : name;
+            ResourceLocation north = modLoc("block/" + stem + "_" + (Math.floorMod(-x, span) + span * row));
+            ResourceLocation south = modLoc("block/" + stem + "_" + (x + span * row));
+            ResourceLocation east = modLoc("block/" + stem + "_" + (Math.floorMod(-z, span) + span * row));
+            ResourceLocation west = modLoc("block/" + stem + "_" + (z + span * row));
+            return ConfiguredModel.builder().modelFile(models()
+                    .cube(stem + "_" + x + "_" + y + "_" + z, ends, ends, north, south, east, west)
+                    .texture("particle", south)).build();
+        });
+    }
+
+    /**
+     * A stained glass window panel, 2px thick, running along X. The edges are the frame's lead
+     * column and the texture's end rows, and are culled against the next panel of the window.
+     */
+    private BlockModelBuilder glassWindow(String texture) {
+        BlockModelBuilder model = models().withExistingParent(texture, mcLoc("block/block"))
+                .renderType("minecraft:translucent")
+                .texture("glass", modLoc("block/" + texture)).texture("particle", modLoc("block/" + texture));
+        model.element().from(0, 0, 7).to(16, 16, 9)
+                .face(Direction.NORTH).uvs(0, 0, 16, 16).texture("#glass").end()
+                .face(Direction.SOUTH).uvs(16, 0, 0, 16).texture("#glass").end()
+                .face(Direction.EAST).uvs(0, 0, 1, 16).texture("#glass").cullface(Direction.EAST).end()
+                .face(Direction.WEST).uvs(0, 0, 1, 16).texture("#glass").cullface(Direction.WEST).end()
+                .face(Direction.UP).uvs(0, 0, 16, 1).texture("#glass").cullface(Direction.UP).end()
+                .face(Direction.DOWN).uvs(0, 15, 16, 16).texture("#glass").cullface(Direction.DOWN).end()
+                .end();
+        return model;
     }
 
     /** A TallPropBlock: a model per half, turned to its FACING. */
@@ -1079,22 +1261,25 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     /**
-     * A bed-like two-block table. Both halves share the {@code block/slab_table} geometry - it is
-     * symmetric in both horizontal axes, so the HEAD needs no separate rotation - and differ only in
-     * the texture their child model resolves.
+     * A bed-like two-block table. Both halves share one geometry (tools/gen_slab_table_models.py) and
+     * are turned end for end: the template has its leg at the block's far side, which on the HEAD is
+     * the opposite way. They differ in how the top is textured, so that it reads as one brick.
      *
-     * <p>The template is authored facing NORTH while {@link Direction#toYRot()} puts SOUTH at 0, so
-     * the +180 offset is what makes facing=north come out unrotated.
+     * <p>The template is authored as the FOOT facing NORTH while {@link Direction#toYRot()} puts SOUTH
+     * at 0, so the +180 offset is what makes facing=north come out unrotated.
      */
-    public void slabTableBlock(DeferredHolder<Block, Block> block, ResourceLocation footTexture, ResourceLocation headTexture) {
+    public void slabTableBlock(DeferredHolder<Block, Block> block, ResourceLocation left, ResourceLocation right) {
         String name = block.getId().getPath();
-        ModelFile foot = slabTableHalf(name + "_foot", footTexture);
-        ModelFile head = slabTableHalf(name + "_head", headTexture);
+        ModelFile foot = slabTableHalf(name + "_foot", "block/slab_table", left, right);
+        ModelFile head = slabTableHalf(name + "_head", "block/slab_table_head", left, right);
 
-        getVariantBuilder(block.get()).forAllStates(state -> ConfiguredModel.builder()
-                .modelFile(state.getValue(SlabTableBlock.PART) == BedPart.FOOT ? foot : head)
-                .rotationY(((int) state.getValue(SlabTableBlock.FACING).toYRot() + 180) % 360)
-                .build());
+        getVariantBuilder(block.get()).forAllStates(state -> {
+            boolean isFoot = state.getValue(SlabTableBlock.PART) == BedPart.FOOT;
+            return ConfiguredModel.builder()
+                    .modelFile(isFoot ? foot : head)
+                    .rotationY(((int) state.getValue(SlabTableBlock.FACING).toYRot() + (isFoot ? 180 : 0)) % 360)
+                    .build();
+        });
     }
 
     /** The blockstate and models of one decorative block, by its type. */
@@ -1132,8 +1317,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         return modLoc("block/" + age.id("dark_iron"));
     }
 
-    private ModelFile slabTableHalf(String name, ResourceLocation texture) {
-        return models().withExistingParent(name, modLoc("block/slab_table")).texture("all", texture);
+    private ModelFile slabTableHalf(String name, String template, ResourceLocation left, ResourceLocation right) {
+        return models().withExistingParent(name, modLoc(template)).texture("left", left).texture("right", right);
     }
 
     public ModelFile rectangleLeft(String name, ResourceLocation texture, ResourceLocation texture2) {

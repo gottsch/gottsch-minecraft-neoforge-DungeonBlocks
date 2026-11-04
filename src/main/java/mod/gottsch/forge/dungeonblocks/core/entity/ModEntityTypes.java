@@ -189,6 +189,14 @@ public class ModEntityTypes {
 					.updateInterval(1)
 					.build("wooden_bucket"));
 
+	// A lidded urn: the pots' physics and shatter, plus ash when it breaks. 8px wide, 12px tall.
+	public static final DeferredHolder<EntityType<?>, EntityType<PotEntity>> CINERARY_URN = Registration.ENTITY_TYPES.register("cinerary_urn",
+			() -> EntityType.Builder.<PotEntity>of(CineraryUrnEntity::new, MobCategory.MISC)
+					.sized(0.5F, 0.75F)
+					.clientTrackingRange(10)
+					.updateInterval(1)
+					.build("cinerary_urn"));
+
 	/**
 	 * Factory that stamps a material onto every pot of a type. Going through the {@code EntityType}
 	 * factory rather than a lookup table means a pot is built with its material however it comes into

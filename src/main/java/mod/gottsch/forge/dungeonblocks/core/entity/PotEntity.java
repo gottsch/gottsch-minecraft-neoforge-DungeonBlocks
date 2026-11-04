@@ -349,15 +349,20 @@ public class PotEntity extends Entity {
 					SoundSource.BLOCKS, 1.0F, 0.9F + this.random.nextFloat() * 0.2F);
 
 			if (level instanceof ServerLevel serverLevel) {
-				// a scaled-down POOF — see PotDustParticle. The low speed here is deliberate:
-				// the particle adds its own +/-0.05 jitter on top.
-				serverLevel.sendParticles(ModParticles.POT_DUST_PARTICLE.get(),
-						this.getX(), this.getY() + this.getBbHeight() * 0.5D, this.getZ(),
-						10, 0.15D, 0.15D, 0.15D, 0.02D);
+				this.spawnBreakParticles(serverLevel);
 			}
 		}
 
 		this.discard();
+	}
+
+	/** The cloud this prop leaves as it breaks. Server side only. */
+	protected void spawnBreakParticles(ServerLevel level) {
+		// a scaled-down POOF — see PotDustParticle. The low speed here is deliberate:
+		// the particle adds its own +/-0.05 jitter on top.
+		level.sendParticles(ModParticles.POT_DUST_PARTICLE.get(),
+				this.getX(), this.getY() + this.getBbHeight() * 0.5D, this.getZ(),
+				10, 0.15D, 0.15D, 0.15D, 0.02D);
 	}
 
 	/**

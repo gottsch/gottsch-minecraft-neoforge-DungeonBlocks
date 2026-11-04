@@ -106,9 +106,15 @@ public class ItemModelsProvider extends ItemModelProvider {
 
 		blockItemParent(ModBlocks.MAP.get(ModBlocks.SQUARE_STONE_BRICK));
 		// the pattern's middle tile, which crosses no edge of the sheet
-		withExistingParent(ModBlocks.MAP.get(ModBlocks.FLAGSTONES), modLoc("block/flagstones_4"));
-		withExistingParent(ModBlocks.MAP.get(ModBlocks.CRACKED_FLAGSTONES), modLoc("block/cracked_flagstones_4"));
-		withExistingParent(ModBlocks.MAP.get(ModBlocks.MOSSY_FLAGSTONES), modLoc("block/mossy_flagstones_4"));
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.FLAGSTONES), modLoc("block/flagstones_4_1"));
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.CRACKED_FLAGSTONES), modLoc("block/cracked_flagstones_4_1"));
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.MOSSY_FLAGSTONES), modLoc("block/mossy_flagstones_4_1"));
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.FAN_COBBLES), modLoc("block/fan_cobbles_4"));
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.MOSSY_FAN_COBBLES), modLoc("block/mossy_fan_cobbles_4"));
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.SANDSTONE_ASHLAR), modLoc("block/sandstone_ashlar_4"));
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.DRIFTED_SANDSTONE_ASHLAR), modLoc("block/drifted_sandstone_ashlar_4"));
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.GRAVE_SLAB_PAVEMENT), modLoc("block/grave_slab_pavement_4_1"));
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.KNUCKLEBONE_PAVING), modLoc("block/knucklebone_paving_4_1"));
 		// the circle's centre, the sun
 		withExistingParent(ModBlocks.MAP.get(ModBlocks.DEEPSLATE_RITUAL_CIRCLE), modLoc("block/deepslate_ritual_circle_4"));
 		withExistingParent(ModBlocks.MAP.get(ModBlocks.BLACKSTONE_RITUAL_CIRCLE), modLoc("block/blackstone_ritual_circle_4"));
@@ -141,6 +147,20 @@ public class ItemModelsProvider extends ItemModelProvider {
 		blockItemParent(ModBlocks.MAP.get(ModBlocks.MOSSY_RIGHT_LARGE_DEEPSLATE_BRICK));
 		blockItemParent(ModBlocks.MAP.get(ModBlocks.CHISELED_DEEPSLATE_BRICKS));
 		blockItemParent(ModBlocks.MAP.get(ModBlocks.MOSSY_CHISELED_DEEPSLATE_BRICKS));
+		blockItemParent(ModBlocks.MAP.get(ModBlocks.OSSUARY_BRICKS));
+		blockItemParent(ModBlocks.MAP.get(ModBlocks.MOSSY_OSSUARY_BRICKS));
+		blockItemParent(ModBlocks.MAP.get(ModBlocks.CRACKED_OSSUARY_BRICKS));
+		blockItemParent(ModBlocks.MAP.get(ModBlocks.OSSUARY_BRICK_STAIRS));
+		blockItemParent(ModBlocks.MAP.get(ModBlocks.MOSSY_OSSUARY_BRICK_STAIRS));
+		blockItemParent(ModBlocks.MAP.get(ModBlocks.HEWN_TUFA_STAIRS));
+		blockItemParent(ModBlocks.MAP.get(ModBlocks.SQUARE_OSSUARY_BRICK));
+		blockItemParent(ModBlocks.MAP.get(ModBlocks.LEFT_LARGE_OSSUARY_BRICK));
+		blockItemParent(ModBlocks.MAP.get(ModBlocks.RIGHT_LARGE_OSSUARY_BRICK));
+		blockItemParent(ModBlocks.MAP.get(ModBlocks.HEWN_TUFA));
+		blockItemParent(ModBlocks.MAP.get(ModBlocks.MOSSY_HEWN_TUFA));
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.PACKED_SKULLS), modLoc("block/packed_skulls_1_1_1"));
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.JUMBLED_FEMURS), modLoc("block/jumbled_femurs_1_1_1"));
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.CRUMBLING_BONE_WALL), modLoc("block/crumbling_bone_wall_1_1_1"));
 		blockItemParent(ModBlocks.MAP.get(ModBlocks.MOSSY_DEEPSLATE_BRICKS));
 		blockItemParent(ModBlocks.MAP.get(ModBlocks.MOSSY_DEEPSLATE_TILES));
 		blockItemParent(ModBlocks.MAP.get(ModBlocks.MOSSY_COBBLED_DEEPSLATE));
@@ -151,6 +171,9 @@ public class ItemModelsProvider extends ItemModelProvider {
 		blockItemParent(ModBlocks.MAP.get(ModBlocks.MOSSY_POLISHED_ANDESITE_BRICKS));
 		blockItemParent(ModBlocks.MAP.get(ModBlocks.MOSSY_POLISHED_ANDESITE_BRICK_STAIRS));
 		blockItemParent(ModBlocks.MAP.get(ModBlocks.MOSSY_BRICKS));
+		blockItemParent(ModBlocks.MAP.get(ModBlocks.CRACKED_BRICKS));
+		blockItemParent(ModBlocks.MAP.get(ModBlocks.HERRINGBONE_BRICKS));
+		blockItemParent(ModBlocks.MAP.get(ModBlocks.MOSSY_HERRINGBONE_BRICKS));
 		blockItemParent(ModBlocks.MAP.get(ModBlocks.MOSSY_BRICK_STAIRS));
 		blockItemParent(ModBlocks.MAP.get(ModBlocks.LARGE_BRICKS));
 		blockItemParent(ModBlocks.MAP.get(ModBlocks.MOSSY_LARGE_BRICKS));
@@ -221,10 +244,24 @@ public class ItemModelsProvider extends ItemModelProvider {
 		withExistingParent(ModBlocks.MAP.get(ModBlocks.BONE_PILE), modLoc("block/bone_pile_4"));
 		withExistingParent(ModBlocks.MAP.get(ModBlocks.SKULL_PILE), modLoc("block/skull_pile_4"));
 		withExistingParent(ModBlocks.MAP.get(ModBlocks.CHANDELIER), modLoc("block/chandelier"));
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.BONE_CHANDELIER), modLoc("block/bone_chandelier"));
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.MEDIUM_BONE_CHANDELIER), modLoc("block/medium_bone_chandelier_item"));
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.SOUL_VENT), modLoc("block/soul_vent"));
+		blockItemParent(ModBlocks.MAP.get(ModBlocks.CHAIN_ANCHOR));
+		// the giant chain's own item model, two interlocked links, is hand-written in models/item
+		// flat, as vanilla's glass panes are: a window one block tall
+		for (var window : List.of(ModBlocks.STAINED_GLASS_WINDOW, ModBlocks.BROKEN_STAINED_GLASS_WINDOW)) {
+			withExistingParent(window.getId().getPath(), mcLoc("item/generated"))
+					.texture("layer0", modLoc("block/" + window.getId().getPath() + "_single"));
+		}
+		ModBlocks.SHELVES.forEach(shelf -> withExistingParent(shelf.block().getId().getPath(),
+				modLoc("block/" + shelf.block().getId().getPath() + "_empty_left")));
 		// the largest size, though a placed one starts small; the huge candle whole, shrunk to fit
 		withExistingParent(ModBlocks.MAP.get(ModBlocks.LARGE_CANDLE), modLoc("block/large_candle_large"));
 		withExistingParent(ModBlocks.MAP.get(ModBlocks.HUGE_CANDLE), modLoc("block/huge_candle_item"));
 		withExistingParent(ModBlocks.MAP.get(ModBlocks.CANDLE_CLUSTER), modLoc("block/candle_cluster"));
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.SKULL_CANDLE), modLoc("block/skull_candle_floor"));
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.BLACK_SKULL_CANDLE), modLoc("block/black_skull_candle_floor"));
 		blockItemParent(ModBlocks.MAP.get(ModBlocks.PERCHED_GARGOYLE));
 		// the lever sconce shows as the torch sconce it pretends to be
 		withExistingParent(ModBlocks.MAP.get(ModBlocks.LEVER_SCONCE), modLoc("block/torch_sconce_block"));
@@ -250,6 +287,7 @@ public class ItemModelsProvider extends ItemModelProvider {
 		withExistingParent(ModBlocks.MAP.get(ModBlocks.MANACLES), modLoc("block/chain_fixture_manacles"));
 		basicItem(ModBlocks.MAP.get(ModBlocks.MEAT_HOOK), modLoc("item/meat_hook"));
 		withExistingParent(ModBlocks.MAP.get(ModBlocks.CENSER), modLoc("block/chain_fixture_censer"));
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.FIRE_BASKET), modLoc("block/fire_basket"));
 		// vanilla's cauldron icon with the default green brew baked in (tools/gen_bubbling_cauldron_item.py)
 		basicItem(ModBlocks.MAP.get(ModBlocks.BUBBLING_CAULDRON), modLoc("item/bubbling_cauldron"));
 
@@ -270,11 +308,12 @@ public class ItemModelsProvider extends ItemModelProvider {
 		ModBlocks.BANNERS.forEach(banner ->
 				basicItem(ModBlocks.MAP.get(banner), modLoc("block/" + banner.getId().getPath())));
 
-		slabTableItem(ModBlocks.STONE_SLAB_TABLE);
-		slabTableItem(ModBlocks.STONE_BRICKS_SLAB_TABLE);
-		slabTableItem(ModBlocks.MOSSY_STONE_BRICKS_SLAB_TABLE);
-		slabTableItem(ModBlocks.SMOOTH_STONE_SLAB_TABLE);
-		slabTableItem(ModBlocks.SMOOTH_SANDSTONE_SLAB_TABLE);
+		slabTableItem(ModBlocks.STONE_SLAB_TABLE, mcLoc("block/stone"), mcLoc("block/stone"));
+		slabTableItem(ModBlocks.STONE_BRICKS_SLAB_TABLE, modLoc("block/left_large_stone_brick"), modLoc("block/right_large_stone_brick"));
+		slabTableItem(ModBlocks.MOSSY_STONE_BRICKS_SLAB_TABLE, modLoc("block/mossy_left_large_stone_brick"), modLoc("block/mossy_right_large_stone_brick"));
+		slabTableItem(ModBlocks.OSSUARY_BRICKS_SLAB_TABLE, modLoc("block/left_large_ossuary_brick"), modLoc("block/right_large_ossuary_brick"));
+		slabTableItem(ModBlocks.SMOOTH_STONE_SLAB_TABLE, mcLoc("block/smooth_stone"), mcLoc("block/smooth_stone"));
+		slabTableItem(ModBlocks.SMOOTH_SANDSTONE_SLAB_TABLE, mcLoc("block/sandstone_top"), mcLoc("block/sandstone_top"));
 
 		// pot props render as real 3D geometry in the inventory, not as sprites — see PotItemRenderer
 		potItem(ModItems.POT);
@@ -298,6 +337,7 @@ public class ItemModelsProvider extends ItemModelProvider {
 		potItem(ModItems.BIG_GREEN_POTION);
 		potItem(ModItems.GREEN_FLASK);
 		potItem(ModItems.WOODEN_BUCKET);
+		potItem(ModItems.CINERARY_URN);
 		// a tome's item is the icon its cover was taken from, as it is
 		ModItems.TOMES.values().forEach(tome -> basicItem(tome.get()));
 		// and a scroll's, likewise
@@ -345,9 +385,10 @@ public class ItemModelsProvider extends ItemModelProvider {
 	 * The slab table has no model under its own name — only "_foot" and "_head" halves — so the item
 	 * shows the foot, which is the half that lands where the player clicks.
 	 */
-	public ItemModelBuilder slabTableItem(DeferredHolder<Block, Block> block) {
-		String name = block.getId().getPath();
-		return withExistingParent(name, modLoc("block/" + name + "_foot"));
+	/** The whole table, both halves, not the one block the item's own model could show. */
+	public ItemModelBuilder slabTableItem(DeferredHolder<Block, Block> block, ResourceLocation left, ResourceLocation right) {
+		return withExistingParent(block.getId().getPath(), modLoc("block/slab_table_item"))
+				.texture("left", left).texture("right", right);
 	}
 
 	/** An item parented to its block's own model, block/<id>. */

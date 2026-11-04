@@ -18,6 +18,7 @@ import mod.gottsch.forge.dungeonblocks.core.blockentity.client.SwingingChainRend
 import mod.gottsch.forge.dungeonblocks.core.blockentity.client.WeaponRackRenderer;
 import mod.gottsch.forge.dungeonblocks.core.entity.ModEntityTypes;
 import mod.gottsch.forge.dungeonblocks.core.entity.client.BigRedPotionModel;
+import mod.gottsch.forge.dungeonblocks.core.entity.client.CineraryUrnModel;
 import mod.gottsch.forge.dungeonblocks.core.entity.client.PotItemRenderer;
 import mod.gottsch.forge.dungeonblocks.core.entity.client.PotModel;
 import mod.gottsch.forge.dungeonblocks.core.entity.client.PotRenderer;
@@ -33,6 +34,7 @@ import mod.gottsch.forge.dungeonblocks.core.entity.client.ScrollModel;
 import mod.gottsch.forge.dungeonblocks.core.entity.client.ScrollRenderer;
 import mod.gottsch.forge.dungeonblocks.core.entity.client.TomeModel;
 import mod.gottsch.forge.dungeonblocks.core.entity.client.TomeRenderer;
+import mod.gottsch.forge.dungeonblocks.core.block.ChainSize;
 import mod.gottsch.forge.dungeonblocks.core.state.properties.ChainFixture;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.resources.ResourceLocation;
@@ -109,7 +111,10 @@ public class ClientSetup {
                     PotVariant.entityTexture("green_flask"), 0.8125F, 0.4375F, 0.5F),
             // 10px tall, 12px across the long side it tips onto
             new PotVariant(ModEntityTypes.WOODEN_BUCKET, WoodenBucketModel.LAYER_LOCATION, WoodenBucketModel::new,
-                    PotVariant.entityTexture("wooden_bucket"), 0.625F, 0.75F));
+                    PotVariant.entityTexture("wooden_bucket"), 0.625F, 0.75F),
+            // 12px tall, 8px across the shoulder
+            new PotVariant(ModEntityTypes.CINERARY_URN, CineraryUrnModel.LAYER_LOCATION, CineraryUrnModel::new,
+                    PotVariant.entityTexture("cinerary_urn"), 0.75F, 0.5F));
 
     /**
      * Register the {@link IBlockColor} handlers.
@@ -146,6 +151,7 @@ public class ClientSetup {
         event.registerLayerDefinition(BigRedPotionModel.LAYER_LOCATION, BigRedPotionModel::createBodyLayer);
         event.registerLayerDefinition(RedFlaskModel.LAYER_LOCATION, RedFlaskModel::createBodyLayer);
         event.registerLayerDefinition(WoodenBucketModel.LAYER_LOCATION, WoodenBucketModel::createBodyLayer);
+        event.registerLayerDefinition(CineraryUrnModel.LAYER_LOCATION, CineraryUrnModel::createBodyLayer);
         event.registerLayerDefinition(ScrollModel.LAYER_LOCATION, ScrollModel::createBodyLayer);
         for (TomeVariant.Shape shape : TomeVariant.Shape.values()) {
             event.registerLayerDefinition(TomeModel.layer(shape), () -> TomeModel.createBodyLayer(shape));
@@ -201,6 +207,10 @@ public class ClientSetup {
                     event.register(ModelResourceLocation.standalone(ResourceLocation.fromNamespaceAndPath(DungeonBlocks.MOD_ID, "block/" + model)));
                 }
             }
+        }
+        // each chain size's link, which ChainRenderer draws along every chain
+        for (ChainSize size : ChainSize.values()) {
+            event.register(ModelResourceLocation.standalone(size.getLinkModel()));
         }
     }
 

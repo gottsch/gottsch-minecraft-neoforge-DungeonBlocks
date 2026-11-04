@@ -85,6 +85,15 @@ public class LanguageGen extends LanguageProvider {
         add(ModBlocks.MOLD.get(), "Mold");
         add(ModBlocks.LICHEN.get(), "Lichen");
         add(ModItems.SKELETON.get(), "Skeleton");
+        add(ModItems.GIANT_CHAIN.get(), "Giant Chain");
+        add(ModItems.MEDIUM_CHAIN.get(), "Medium Chain");
+        String chain = "message." + DungeonBlocks.MOD_ID + ".chain.";
+        add(chain + "started", "Chain fixed. Use it on a second anchor to hang it");
+        add(chain + "let_go", "Chain let go");
+        add(chain + "lost", "The first anchor is gone or already has a chain");
+        add(chain + "too_far", "Too far: a chain reaches 32 blocks");
+        add(chain + "already_chained", "This anchor already has a chain running from it");
+        add(chain + "already_joined", "These anchors are already chained together");
 
         add(ModBlocks.ROOTS.get(), "Roots");
         add(ModBlocks.ROOTS_BODY.get(), "Roots");
@@ -150,6 +159,9 @@ public class LanguageGen extends LanguageProvider {
         add("entity." + DungeonBlocks.MOD_ID + ".green_flask", "Green Flask");
         add(ModItems.WOODEN_BUCKET.get(), "Wooden Bucket");
         add("entity." + DungeonBlocks.MOD_ID + ".wooden_bucket", "Wooden Bucket");
+
+        add(ModItems.CINERARY_URN.get(), "Cinerary Urn");
+        add("entity." + DungeonBlocks.MOD_ID + ".cinerary_urn", "Cinerary Urn");
 
         add("entity." + DungeonBlocks.MOD_ID + ".pot_shard", "Pot Shard");
 
