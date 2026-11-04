@@ -22,7 +22,8 @@ CONVERSION RULES
   gets is set in JOBS below - and per material in datagen, for the sarcophagus.
 - UVs are converted from each texture's own UV size to Minecraft's 0-16 space, so a non-16
   texture such as the 64x32 skeleton mob texture maps correctly.
-- An element textured only with `chain` gets "shade": false, as vanilla's chain model has.
+- An element textured only with `chain` or `fire` gets "shade": false, as vanilla's chain and
+  campfire models have.
 - Any unrotated face lying flush on a block boundary gets the matching cullface. A flush face
   without one renders black against a solid neighbour.
 - An element may rotate on ONE axis, by a multiple of 22.5 degrees up to 45: the JSON format's
@@ -126,6 +127,9 @@ BONES = {"skull": "dungeonblocks:block/skeleton_head", "bone": "dungeonblocks:bl
 for remains in ("empty", "skull", "bones", "skull_and_bones", "skulls", "skull_heap"):
     JOBS.append(("catacomb_niche", f"template_catacomb_niche_{remains}", {"stone": "minecraft:block/stone_bricks", **BONES},
                  {"wall": (0, 0, 0), **({} if remains == "empty" else {f"remains_{remains}": (0, 0, 0)})}))
+JOBS.append(("catacomb_niche_soul_lamp", "template_catacomb_niche_soul_lamp",
+             {"stone": "minecraft:block/stone_bricks", "soil": "minecraft:block/soul_soil", "flame": "minecraft:block/soul_fire_0"},
+             {"wall": (0, 0, 0), "lamp": (0, 0, 0)}))
 # one model per fill stage: bone_pile_N is groups pile_1..pile_N
 for n in range(1, 5):
     JOBS.append(("bone_pile", f"bone_pile_{n}", BONES, {f"pile_{i}": (0, 0, 0) for i in range(1, n + 1)}))
@@ -153,6 +157,23 @@ for lit, candle in (("", "candle"), ("_lit", "candle_lit")):
     JOBS.append(("chandelier", f"chandelier{lit}",
                  {"iron": "dungeonblocks:block/dark_iron", "candle": f"minecraft:block/{candle}", "chain": "minecraft:block/chain"},
                  {"frame": (0, 0, 0), "candles": (0, 0, 0)}))
+    JOBS.append(("bone_chandelier", f"bone_chandelier{lit}",
+                 {**BONES, "candle": f"minecraft:block/{candle}", "chain": "minecraft:block/chain"},
+                 {"frame": (0, 0, 0), "candles": (0, 0, 0)}))
+    JOBS.append(("medium_bone_chandelier", f"medium_bone_chandelier{lit}",
+                 {**BONES, "candle": f"minecraft:block/{candle}", "chain": "minecraft:block/chain"},
+                 {"frame": (0, 0, 0), "candles": (0, 0, 0)}))
+    # skull candles: plain and black wax, on the floor and on a wall bracket
+    for name, wax in (("skull_candle", "candle"), ("black_skull_candle", "black_candle")):
+        for place in ("floor", "wall"):
+            JOBS.append(("skull_candle", f"{name}_{place}{lit}",
+                         {"skull": BONES["skull"], "candle": f"minecraft:block/{wax}{lit}",
+                          "wax": f"minecraft:block/{wax}", "iron": "dungeonblocks:block/dark_iron"}, {place: (0, 0, 0)}))
+# the wall shelf: a template per ShelfBlock CONTENTS, the board and that group, the board alone for
+# `empty`. Datagen makes one child of each per brick half, filling `brick`.
+for contents in ("empty", "bones", "skulls", "skull_and_bones"):
+    JOBS.append(("shelf", f"template_shelf_{contents}", {"brick": "minecraft:block/stone_bricks", **BONES},
+                 {"board": (0, 0, 0), **({} if contents == "empty" else {f"contents_{contents}": (0, 0, 0)})}))
 # the large candles: a model per size (and per half, for the huge one), lit and unlit, which differ
 # only in the wax textures - the flame's glow on the wax near the wick
 for lit in ("", "_lit"):
@@ -176,6 +197,17 @@ for lit, ember in (("", "coal_block"), ("_lit", "magma")):
     JOBS.append(("chain_fixture_censer", f"chain_fixture_censer{lit}",
                  {"metal": "dungeonblocks:block/dark_iron", "chain": "minecraft:block/chain",
                   "ember": f"minecraft:block/{ember}"}, {"fixture": (0, 0, 0)}))
+# the fire basket, one model per FIRE state; SwingingChainRenderer draws the unlit, lit and soul ones.
+# The logs glow with the campfire's own lit textures; embers are the glowing logs with no flames.
+for state, log, fire in (("", "campfire_log", None), ("_embers", "campfire_log_lit", None),
+                         ("_lit", "campfire_log_lit", "fire_0"), ("_soul", "soul_campfire_log_lit", "soul_fire_0")):
+    # every texture the project names needs a value, drawn or not
+    textures = {"iron": "dungeonblocks:block/dark_iron", "log": f"minecraft:block/{log}",
+                "fire": f"minecraft:block/{fire or 'fire_0'}"}
+    groups = {"cage": (0, 0, 0), "fuel": (0, 0, 0)}
+    if fire:
+        groups["flames"] = (0, 0, 0)
+    JOBS.append(("fire_basket", f"fire_basket{state}", textures, groups))
 
 # torture devices, each empty and with a skeleton in it ("occupied_"). The pillory's top board
 # (board_upper) lifts 3px when open. The rack has three tension notches: crank_<n> and ropes_<n>
@@ -219,9 +251,14 @@ STACKS.append(("template_altar_item", {"body": "minecraft:block/polished_deepsla
     ("altar_left", {"altar": (16, 0, 0)}), ("altar_middle", {"altar": (0, 0, 0)}),
     ("altar_right", {"altar": (-16, 0, 0)})], two_block_display(0.3)))
 
+# the medium bone chandelier's item: the unlit model, which overhangs its block about half a block
+# on every side, shrunk to fit the slot
+STACKS.append(("medium_bone_chandelier_item", {**BONES, "candle": "minecraft:block/candle", "chain": "minecraft:block/chain"},
+               [("medium_bone_chandelier", {"frame": (0, 0, 0), "candles": (0, 0, 0)})], two_block_display(0.4)))
+
 # models whose textures have see-through pixels: the skeleton's ribs, the chain's links. Without
 # cutout those pixels draw black.
-CUTOUT = ("gibbet", "chandelier", "chain_fixture_", "occupied_")
+CUTOUT = ("gibbet", "chandelier", "bone_chandelier", "medium_bone_chandelier", "skull_candle", "black_skull_candle", "chain_fixture_", "occupied_", "fire_basket")
 
 BOUNDARY = {"north": (2, 0, "from"), "south": (2, 16, "to"), "west": (0, 0, "from"),
             "east": (0, 16, "to"), "down": (1, 0, "from"), "up": (1, 16, "to")}
@@ -270,7 +307,9 @@ def convert(project, groups, textures):
                 out["faces"][name] = f
             # vanilla's chain model draws its crossed planes unshaded; shaded, they come out grey
             # instead of the chain's blue - the gibbet's chain beside a real one looked dark iron
-            if out["faces"] and all(f["texture"] == "#chain" for f in out["faces"].values()):
+            # (and so does the campfire its fire planes: a flame is not lit from one side)
+            if out["faces"] and (all(f["texture"] == "#chain" for f in out["faces"].values())
+                                 or all(f["texture"] == "#fire" for f in out["faces"].values())):
                 out["shade"] = False
             elements.append(out)
     keys = sorted({t["name"] for t in tex})

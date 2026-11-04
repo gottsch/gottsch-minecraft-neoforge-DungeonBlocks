@@ -1,0 +1,884 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "bone": "dungeonblocks:block/skeleton_bottom",
+    "brick": "minecraft:block/stone_bricks",
+    "skull": "dungeonblocks:block/skeleton_head",
+    "particle": "minecraft:block/stone_bricks"
+  },
+  "elements": [
+    {
+      "name": "board",
+      "from": [
+        0,
+        4,
+        6
+      ],
+      "to": [
+        16,
+        8,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            12.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#brick"
+        },
+        "east": {
+          "uv": [
+            6.0,
+            12.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#brick",
+          "cullface": "east"
+        },
+        "west": {
+          "uv": [
+            0.0,
+            12.0,
+            10.0,
+            16.0
+          ],
+          "texture": "#brick",
+          "cullface": "west"
+        },
+        "up": {
+          "uv": [
+            0.0,
+            6.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#brick"
+        },
+        "down": {
+          "uv": [
+            0.0,
+            6.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#brick"
+        }
+      }
+    },
+    {
+      "name": "corbel_upper",
+      "from": [
+        5,
+        2,
+        10
+      ],
+      "to": [
+        11,
+        4,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            5.0,
+            8.0,
+            11.0,
+            10.0
+          ],
+          "texture": "#brick"
+        },
+        "east": {
+          "uv": [
+            10.0,
+            8.0,
+            16.0,
+            10.0
+          ],
+          "texture": "#brick"
+        },
+        "west": {
+          "uv": [
+            0.0,
+            8.0,
+            6.0,
+            10.0
+          ],
+          "texture": "#brick"
+        },
+        "down": {
+          "uv": [
+            5.0,
+            6.0,
+            11.0,
+            12.0
+          ],
+          "texture": "#brick"
+        }
+      }
+    },
+    {
+      "name": "corbel_lower",
+      "from": [
+        5,
+        0,
+        13
+      ],
+      "to": [
+        11,
+        2,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            5.0,
+            10.0,
+            11.0,
+            12.0
+          ],
+          "texture": "#brick"
+        },
+        "east": {
+          "uv": [
+            13.0,
+            10.0,
+            16.0,
+            12.0
+          ],
+          "texture": "#brick"
+        },
+        "west": {
+          "uv": [
+            0.0,
+            10.0,
+            3.0,
+            12.0
+          ],
+          "texture": "#brick"
+        },
+        "down": {
+          "uv": [
+            5.0,
+            9.0,
+            11.0,
+            12.0
+          ],
+          "texture": "#brick",
+          "cullface": "down"
+        }
+      }
+    },
+    {
+      "name": "skull",
+      "from": [
+        2,
+        8,
+        8
+      ],
+      "to": [
+        8,
+        14,
+        14
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            0.0,
+            8.0,
+            8.0
+          ],
+          "texture": "#skull"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            8.0,
+            8.0,
+            16.0
+          ],
+          "texture": "#skull"
+        },
+        "south": {
+          "uv": [
+            8.0,
+            8.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#skull"
+        },
+        "west": {
+          "uv": [
+            0.0,
+            8.0,
+            8.0,
+            16.0
+          ],
+          "texture": "#skull"
+        },
+        "up": {
+          "uv": [
+            8.0,
+            0.0,
+            16.0,
+            8.0
+          ],
+          "texture": "#skull"
+        },
+        "down": {
+          "uv": [
+            8.0,
+            0.0,
+            16.0,
+            8.0
+          ],
+          "texture": "#skull"
+        }
+      }
+    },
+    {
+      "name": "femur_0",
+      "from": [
+        9.25,
+        8,
+        7.5
+      ],
+      "to": [
+        10.75,
+        9.5,
+        14.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            13.0,
+            7.0,
+            16.0,
+            10.0
+          ],
+          "texture": "#bone"
+        },
+        "east": {
+          "uv": [
+            4.5,
+            13.0,
+            11.5,
+            16.0
+          ],
+          "texture": "#bone"
+        },
+        "south": {
+          "uv": [
+            13.0,
+            7.0,
+            16.0,
+            10.0
+          ],
+          "texture": "#bone"
+        },
+        "west": {
+          "uv": [
+            4.5,
+            13.0,
+            11.5,
+            16.0
+          ],
+          "texture": "#bone"
+        },
+        "up": {
+          "uv": [
+            4.5,
+            13.0,
+            11.5,
+            16.0
+          ],
+          "texture": "#bone",
+          "rotation": 90
+        },
+        "down": {
+          "uv": [
+            4.5,
+            13.0,
+            11.5,
+            16.0
+          ],
+          "texture": "#bone",
+          "rotation": 90
+        }
+      }
+    },
+    {
+      "name": "femur_0_knuckle_0",
+      "from": [
+        9,
+        8,
+        6.5
+      ],
+      "to": [
+        11,
+        10,
+        8.0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            13.0,
+            7.0,
+            16.0,
+            10.0
+          ],
+          "texture": "#bone"
+        },
+        "east": {
+          "uv": [
+            7.25,
+            13.0,
+            8.75,
+            16.0
+          ],
+          "texture": "#bone"
+        },
+        "south": {
+          "uv": [
+            13.0,
+            7.0,
+            16.0,
+            10.0
+          ],
+          "texture": "#bone"
+        },
+        "west": {
+          "uv": [
+            7.25,
+            13.0,
+            8.75,
+            16.0
+          ],
+          "texture": "#bone"
+        },
+        "up": {
+          "uv": [
+            7.25,
+            13.0,
+            8.75,
+            16.0
+          ],
+          "texture": "#bone",
+          "rotation": 90
+        },
+        "down": {
+          "uv": [
+            7.25,
+            13.0,
+            8.75,
+            16.0
+          ],
+          "texture": "#bone",
+          "rotation": 90
+        }
+      }
+    },
+    {
+      "name": "femur_0_knuckle_1",
+      "from": [
+        9,
+        8,
+        14.0
+      ],
+      "to": [
+        11,
+        10,
+        15.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            13.0,
+            7.0,
+            16.0,
+            10.0
+          ],
+          "texture": "#bone"
+        },
+        "east": {
+          "uv": [
+            7.25,
+            13.0,
+            8.75,
+            16.0
+          ],
+          "texture": "#bone"
+        },
+        "south": {
+          "uv": [
+            13.0,
+            7.0,
+            16.0,
+            10.0
+          ],
+          "texture": "#bone"
+        },
+        "west": {
+          "uv": [
+            7.25,
+            13.0,
+            8.75,
+            16.0
+          ],
+          "texture": "#bone"
+        },
+        "up": {
+          "uv": [
+            7.25,
+            13.0,
+            8.75,
+            16.0
+          ],
+          "texture": "#bone",
+          "rotation": 90
+        },
+        "down": {
+          "uv": [
+            7.25,
+            13.0,
+            8.75,
+            16.0
+          ],
+          "texture": "#bone",
+          "rotation": 90
+        }
+      }
+    },
+    {
+      "name": "femur_1",
+      "from": [
+        12.25,
+        8,
+        7.5
+      ],
+      "to": [
+        13.75,
+        9.5,
+        14.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            13.0,
+            7.0,
+            16.0,
+            10.0
+          ],
+          "texture": "#bone"
+        },
+        "east": {
+          "uv": [
+            4.5,
+            13.0,
+            11.5,
+            16.0
+          ],
+          "texture": "#bone"
+        },
+        "south": {
+          "uv": [
+            13.0,
+            7.0,
+            16.0,
+            10.0
+          ],
+          "texture": "#bone"
+        },
+        "west": {
+          "uv": [
+            4.5,
+            13.0,
+            11.5,
+            16.0
+          ],
+          "texture": "#bone"
+        },
+        "up": {
+          "uv": [
+            4.5,
+            13.0,
+            11.5,
+            16.0
+          ],
+          "texture": "#bone",
+          "rotation": 90
+        },
+        "down": {
+          "uv": [
+            4.5,
+            13.0,
+            11.5,
+            16.0
+          ],
+          "texture": "#bone",
+          "rotation": 90
+        }
+      }
+    },
+    {
+      "name": "femur_1_knuckle_0",
+      "from": [
+        12,
+        8,
+        6.5
+      ],
+      "to": [
+        14,
+        10,
+        8.0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            13.0,
+            7.0,
+            16.0,
+            10.0
+          ],
+          "texture": "#bone"
+        },
+        "east": {
+          "uv": [
+            7.25,
+            13.0,
+            8.75,
+            16.0
+          ],
+          "texture": "#bone"
+        },
+        "south": {
+          "uv": [
+            13.0,
+            7.0,
+            16.0,
+            10.0
+          ],
+          "texture": "#bone"
+        },
+        "west": {
+          "uv": [
+            7.25,
+            13.0,
+            8.75,
+            16.0
+          ],
+          "texture": "#bone"
+        },
+        "up": {
+          "uv": [
+            7.25,
+            13.0,
+            8.75,
+            16.0
+          ],
+          "texture": "#bone",
+          "rotation": 90
+        },
+        "down": {
+          "uv": [
+            7.25,
+            13.0,
+            8.75,
+            16.0
+          ],
+          "texture": "#bone",
+          "rotation": 90
+        }
+      }
+    },
+    {
+      "name": "femur_1_knuckle_1",
+      "from": [
+        12,
+        8,
+        14.0
+      ],
+      "to": [
+        14,
+        10,
+        15.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            13.0,
+            7.0,
+            16.0,
+            10.0
+          ],
+          "texture": "#bone"
+        },
+        "east": {
+          "uv": [
+            7.25,
+            13.0,
+            8.75,
+            16.0
+          ],
+          "texture": "#bone"
+        },
+        "south": {
+          "uv": [
+            13.0,
+            7.0,
+            16.0,
+            10.0
+          ],
+          "texture": "#bone"
+        },
+        "west": {
+          "uv": [
+            7.25,
+            13.0,
+            8.75,
+            16.0
+          ],
+          "texture": "#bone"
+        },
+        "up": {
+          "uv": [
+            7.25,
+            13.0,
+            8.75,
+            16.0
+          ],
+          "texture": "#bone",
+          "rotation": 90
+        },
+        "down": {
+          "uv": [
+            7.25,
+            13.0,
+            8.75,
+            16.0
+          ],
+          "texture": "#bone",
+          "rotation": 90
+        }
+      }
+    },
+    {
+      "name": "femur_2",
+      "from": [
+        10.75,
+        10,
+        7.5
+      ],
+      "to": [
+        12.25,
+        11.5,
+        14.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            13.0,
+            7.0,
+            16.0,
+            10.0
+          ],
+          "texture": "#bone"
+        },
+        "east": {
+          "uv": [
+            4.5,
+            13.0,
+            11.5,
+            16.0
+          ],
+          "texture": "#bone"
+        },
+        "south": {
+          "uv": [
+            13.0,
+            7.0,
+            16.0,
+            10.0
+          ],
+          "texture": "#bone"
+        },
+        "west": {
+          "uv": [
+            4.5,
+            13.0,
+            11.5,
+            16.0
+          ],
+          "texture": "#bone"
+        },
+        "up": {
+          "uv": [
+            4.5,
+            13.0,
+            11.5,
+            16.0
+          ],
+          "texture": "#bone",
+          "rotation": 90
+        },
+        "down": {
+          "uv": [
+            4.5,
+            13.0,
+            11.5,
+            16.0
+          ],
+          "texture": "#bone",
+          "rotation": 90
+        }
+      }
+    },
+    {
+      "name": "femur_2_knuckle_0",
+      "from": [
+        10.5,
+        10,
+        6.5
+      ],
+      "to": [
+        12.5,
+        12,
+        8.0
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            13.0,
+            7.0,
+            16.0,
+            10.0
+          ],
+          "texture": "#bone"
+        },
+        "east": {
+          "uv": [
+            7.25,
+            13.0,
+            8.75,
+            16.0
+          ],
+          "texture": "#bone"
+        },
+        "south": {
+          "uv": [
+            13.0,
+            7.0,
+            16.0,
+            10.0
+          ],
+          "texture": "#bone"
+        },
+        "west": {
+          "uv": [
+            7.25,
+            13.0,
+            8.75,
+            16.0
+          ],
+          "texture": "#bone"
+        },
+        "up": {
+          "uv": [
+            7.25,
+            13.0,
+            8.75,
+            16.0
+          ],
+          "texture": "#bone",
+          "rotation": 90
+        },
+        "down": {
+          "uv": [
+            7.25,
+            13.0,
+            8.75,
+            16.0
+          ],
+          "texture": "#bone",
+          "rotation": 90
+        }
+      }
+    },
+    {
+      "name": "femur_2_knuckle_1",
+      "from": [
+        10.5,
+        10,
+        14.0
+      ],
+      "to": [
+        12.5,
+        12,
+        15.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            13.0,
+            7.0,
+            16.0,
+            10.0
+          ],
+          "texture": "#bone"
+        },
+        "east": {
+          "uv": [
+            7.25,
+            13.0,
+            8.75,
+            16.0
+          ],
+          "texture": "#bone"
+        },
+        "south": {
+          "uv": [
+            13.0,
+            7.0,
+            16.0,
+            10.0
+          ],
+          "texture": "#bone"
+        },
+        "west": {
+          "uv": [
+            7.25,
+            13.0,
+            8.75,
+            16.0
+          ],
+          "texture": "#bone"
+        },
+        "up": {
+          "uv": [
+            7.25,
+            13.0,
+            8.75,
+            16.0
+          ],
+          "texture": "#bone",
+          "rotation": 90
+        },
+        "down": {
+          "uv": [
+            7.25,
+            13.0,
+            8.75,
+            16.0
+          ],
+          "texture": "#bone",
+          "rotation": 90
+        }
+      }
+    }
+  ]
+}
