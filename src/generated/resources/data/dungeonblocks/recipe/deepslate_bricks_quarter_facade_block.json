@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:deepslate_bricks"
+  },
+  "result": {
+    "count": 4,
+    "id": "dungeonblocks:deepslate_bricks_quarter_facade_block"
+  }
+}

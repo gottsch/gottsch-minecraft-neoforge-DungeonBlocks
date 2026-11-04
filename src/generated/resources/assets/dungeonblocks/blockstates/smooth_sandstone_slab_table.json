@@ -6,21 +6,21 @@
     },
     "facing=east,part=head": {
       "model": "dungeonblocks:block/smooth_sandstone_slab_table_head",
-      "y": 90
+      "y": 270
     },
     "facing=north,part=foot": {
       "model": "dungeonblocks:block/smooth_sandstone_slab_table_foot"
     },
     "facing=north,part=head": {
-      "model": "dungeonblocks:block/smooth_sandstone_slab_table_head"
+      "model": "dungeonblocks:block/smooth_sandstone_slab_table_head",
+      "y": 180
     },
     "facing=south,part=foot": {
       "model": "dungeonblocks:block/smooth_sandstone_slab_table_foot",
       "y": 180
     },
     "facing=south,part=head": {
-      "model": "dungeonblocks:block/smooth_sandstone_slab_table_head",
-      "y": 180
+      "model": "dungeonblocks:block/smooth_sandstone_slab_table_head"
     },
     "facing=west,part=foot": {
       "model": "dungeonblocks:block/smooth_sandstone_slab_table_foot",
@@ -28,7 +28,7 @@
     },
     "facing=west,part=head": {
       "model": "dungeonblocks:block/smooth_sandstone_slab_table_head",
-      "y": 270
+      "y": 90
     }
   }
 }

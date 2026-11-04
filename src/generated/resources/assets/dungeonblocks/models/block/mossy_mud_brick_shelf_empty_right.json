@@ -1,0 +1,7 @@
+{
+  "parent": "dungeonblocks:block/template_shelf_empty",
+  "textures": {
+    "brick": "dungeonblocks:block/mossy_right_large_mud_brick",
+    "particle": "dungeonblocks:block/mossy_right_large_mud_brick"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "minecraft:cracked_deepslate_tiles"
+  },
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:cracked_deepslate_tiles_arrow_slit_block"
+  }
+}

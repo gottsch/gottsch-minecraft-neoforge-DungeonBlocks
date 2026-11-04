@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "dungeonblocks:brazier_block"
+    },
+    "c": {
+      "item": "minecraft:chain"
+    }
+  },
+  "pattern": [
+    "c c",
+    " c ",
+    " b "
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:fire_basket"
+  }
+}

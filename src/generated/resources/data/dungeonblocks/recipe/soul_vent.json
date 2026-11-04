@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "dungeonblocks:dark_iron_grate"
+    },
+    {
+      "item": "minecraft:soul_campfire"
+    }
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:soul_vent"
+  }
+}

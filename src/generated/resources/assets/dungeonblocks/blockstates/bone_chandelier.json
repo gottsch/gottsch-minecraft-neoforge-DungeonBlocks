@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "lit=false,waterlogged=false": {
+      "model": "dungeonblocks:block/bone_chandelier"
+    },
+    "lit=false,waterlogged=true": {
+      "model": "dungeonblocks:block/bone_chandelier"
+    },
+    "lit=true,waterlogged=false": {
+      "model": "dungeonblocks:block/bone_chandelier_lit"
+    },
+    "lit=true,waterlogged=true": {
+      "model": "dungeonblocks:block/bone_chandelier_lit"
+    }
+  }
+}

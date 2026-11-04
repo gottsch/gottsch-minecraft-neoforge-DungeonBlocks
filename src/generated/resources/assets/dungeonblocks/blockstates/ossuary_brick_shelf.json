@@ -1,0 +1,372 @@
+{
+  "variants": {
+    "contents=bones,facing=down,left=false,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_bones_right",
+      "y": 90
+    },
+    "contents=bones,facing=down,left=false,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_bones_right",
+      "y": 90
+    },
+    "contents=bones,facing=down,left=true,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_bones_left",
+      "y": 90
+    },
+    "contents=bones,facing=down,left=true,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_bones_left",
+      "y": 90
+    },
+    "contents=bones,facing=east,left=false,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_bones_right",
+      "y": 90
+    },
+    "contents=bones,facing=east,left=false,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_bones_right",
+      "y": 90
+    },
+    "contents=bones,facing=east,left=true,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_bones_left",
+      "y": 90
+    },
+    "contents=bones,facing=east,left=true,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_bones_left",
+      "y": 90
+    },
+    "contents=bones,facing=north,left=false,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_bones_right"
+    },
+    "contents=bones,facing=north,left=false,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_bones_right"
+    },
+    "contents=bones,facing=north,left=true,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_bones_left"
+    },
+    "contents=bones,facing=north,left=true,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_bones_left"
+    },
+    "contents=bones,facing=south,left=false,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_bones_right",
+      "y": 180
+    },
+    "contents=bones,facing=south,left=false,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_bones_right",
+      "y": 180
+    },
+    "contents=bones,facing=south,left=true,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_bones_left",
+      "y": 180
+    },
+    "contents=bones,facing=south,left=true,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_bones_left",
+      "y": 180
+    },
+    "contents=bones,facing=up,left=false,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_bones_right",
+      "y": 90
+    },
+    "contents=bones,facing=up,left=false,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_bones_right",
+      "y": 90
+    },
+    "contents=bones,facing=up,left=true,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_bones_left",
+      "y": 90
+    },
+    "contents=bones,facing=up,left=true,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_bones_left",
+      "y": 90
+    },
+    "contents=bones,facing=west,left=false,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_bones_right",
+      "y": 270
+    },
+    "contents=bones,facing=west,left=false,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_bones_right",
+      "y": 270
+    },
+    "contents=bones,facing=west,left=true,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_bones_left",
+      "y": 270
+    },
+    "contents=bones,facing=west,left=true,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_bones_left",
+      "y": 270
+    },
+    "contents=empty,facing=down,left=false,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_empty_right",
+      "y": 90
+    },
+    "contents=empty,facing=down,left=false,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_empty_right",
+      "y": 90
+    },
+    "contents=empty,facing=down,left=true,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_empty_left",
+      "y": 90
+    },
+    "contents=empty,facing=down,left=true,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_empty_left",
+      "y": 90
+    },
+    "contents=empty,facing=east,left=false,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_empty_right",
+      "y": 90
+    },
+    "contents=empty,facing=east,left=false,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_empty_right",
+      "y": 90
+    },
+    "contents=empty,facing=east,left=true,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_empty_left",
+      "y": 90
+    },
+    "contents=empty,facing=east,left=true,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_empty_left",
+      "y": 90
+    },
+    "contents=empty,facing=north,left=false,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_empty_right"
+    },
+    "contents=empty,facing=north,left=false,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_empty_right"
+    },
+    "contents=empty,facing=north,left=true,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_empty_left"
+    },
+    "contents=empty,facing=north,left=true,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_empty_left"
+    },
+    "contents=empty,facing=south,left=false,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_empty_right",
+      "y": 180
+    },
+    "contents=empty,facing=south,left=false,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_empty_right",
+      "y": 180
+    },
+    "contents=empty,facing=south,left=true,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_empty_left",
+      "y": 180
+    },
+    "contents=empty,facing=south,left=true,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_empty_left",
+      "y": 180
+    },
+    "contents=empty,facing=up,left=false,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_empty_right",
+      "y": 90
+    },
+    "contents=empty,facing=up,left=false,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_empty_right",
+      "y": 90
+    },
+    "contents=empty,facing=up,left=true,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_empty_left",
+      "y": 90
+    },
+    "contents=empty,facing=up,left=true,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_empty_left",
+      "y": 90
+    },
+    "contents=empty,facing=west,left=false,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_empty_right",
+      "y": 270
+    },
+    "contents=empty,facing=west,left=false,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_empty_right",
+      "y": 270
+    },
+    "contents=empty,facing=west,left=true,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_empty_left",
+      "y": 270
+    },
+    "contents=empty,facing=west,left=true,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_empty_left",
+      "y": 270
+    },
+    "contents=skull_and_bones,facing=down,left=false,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skull_and_bones_right",
+      "y": 90
+    },
+    "contents=skull_and_bones,facing=down,left=false,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skull_and_bones_right",
+      "y": 90
+    },
+    "contents=skull_and_bones,facing=down,left=true,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skull_and_bones_left",
+      "y": 90
+    },
+    "contents=skull_and_bones,facing=down,left=true,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skull_and_bones_left",
+      "y": 90
+    },
+    "contents=skull_and_bones,facing=east,left=false,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skull_and_bones_right",
+      "y": 90
+    },
+    "contents=skull_and_bones,facing=east,left=false,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skull_and_bones_right",
+      "y": 90
+    },
+    "contents=skull_and_bones,facing=east,left=true,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skull_and_bones_left",
+      "y": 90
+    },
+    "contents=skull_and_bones,facing=east,left=true,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skull_and_bones_left",
+      "y": 90
+    },
+    "contents=skull_and_bones,facing=north,left=false,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skull_and_bones_right"
+    },
+    "contents=skull_and_bones,facing=north,left=false,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skull_and_bones_right"
+    },
+    "contents=skull_and_bones,facing=north,left=true,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skull_and_bones_left"
+    },
+    "contents=skull_and_bones,facing=north,left=true,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skull_and_bones_left"
+    },
+    "contents=skull_and_bones,facing=south,left=false,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skull_and_bones_right",
+      "y": 180
+    },
+    "contents=skull_and_bones,facing=south,left=false,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skull_and_bones_right",
+      "y": 180
+    },
+    "contents=skull_and_bones,facing=south,left=true,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skull_and_bones_left",
+      "y": 180
+    },
+    "contents=skull_and_bones,facing=south,left=true,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skull_and_bones_left",
+      "y": 180
+    },
+    "contents=skull_and_bones,facing=up,left=false,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skull_and_bones_right",
+      "y": 90
+    },
+    "contents=skull_and_bones,facing=up,left=false,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skull_and_bones_right",
+      "y": 90
+    },
+    "contents=skull_and_bones,facing=up,left=true,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skull_and_bones_left",
+      "y": 90
+    },
+    "contents=skull_and_bones,facing=up,left=true,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skull_and_bones_left",
+      "y": 90
+    },
+    "contents=skull_and_bones,facing=west,left=false,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skull_and_bones_right",
+      "y": 270
+    },
+    "contents=skull_and_bones,facing=west,left=false,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skull_and_bones_right",
+      "y": 270
+    },
+    "contents=skull_and_bones,facing=west,left=true,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skull_and_bones_left",
+      "y": 270
+    },
+    "contents=skull_and_bones,facing=west,left=true,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skull_and_bones_left",
+      "y": 270
+    },
+    "contents=skulls,facing=down,left=false,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skulls_right",
+      "y": 90
+    },
+    "contents=skulls,facing=down,left=false,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skulls_right",
+      "y": 90
+    },
+    "contents=skulls,facing=down,left=true,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skulls_left",
+      "y": 90
+    },
+    "contents=skulls,facing=down,left=true,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skulls_left",
+      "y": 90
+    },
+    "contents=skulls,facing=east,left=false,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skulls_right",
+      "y": 90
+    },
+    "contents=skulls,facing=east,left=false,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skulls_right",
+      "y": 90
+    },
+    "contents=skulls,facing=east,left=true,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skulls_left",
+      "y": 90
+    },
+    "contents=skulls,facing=east,left=true,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skulls_left",
+      "y": 90
+    },
+    "contents=skulls,facing=north,left=false,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skulls_right"
+    },
+    "contents=skulls,facing=north,left=false,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skulls_right"
+    },
+    "contents=skulls,facing=north,left=true,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skulls_left"
+    },
+    "contents=skulls,facing=north,left=true,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skulls_left"
+    },
+    "contents=skulls,facing=south,left=false,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skulls_right",
+      "y": 180
+    },
+    "contents=skulls,facing=south,left=false,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skulls_right",
+      "y": 180
+    },
+    "contents=skulls,facing=south,left=true,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skulls_left",
+      "y": 180
+    },
+    "contents=skulls,facing=south,left=true,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skulls_left",
+      "y": 180
+    },
+    "contents=skulls,facing=up,left=false,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skulls_right",
+      "y": 90
+    },
+    "contents=skulls,facing=up,left=false,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skulls_right",
+      "y": 90
+    },
+    "contents=skulls,facing=up,left=true,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skulls_left",
+      "y": 90
+    },
+    "contents=skulls,facing=up,left=true,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skulls_left",
+      "y": 90
+    },
+    "contents=skulls,facing=west,left=false,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skulls_right",
+      "y": 270
+    },
+    "contents=skulls,facing=west,left=false,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skulls_right",
+      "y": 270
+    },
+    "contents=skulls,facing=west,left=true,waterlogged=false": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skulls_left",
+      "y": 270
+    },
+    "contents=skulls,facing=west,left=true,waterlogged=true": {
+      "model": "dungeonblocks:block/ossuary_brick_shelf_skulls_left",
+      "y": 270
+    }
+  }
+}

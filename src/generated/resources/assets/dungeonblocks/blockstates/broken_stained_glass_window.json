@@ -1,0 +1,43 @@
+{
+  "variants": {
+    "axis=x,part=bottom": {
+      "model": "dungeonblocks:block/broken_stained_glass_window_bottom"
+    },
+    "axis=x,part=middle": [
+      {
+        "model": "dungeonblocks:block/broken_stained_glass_window_middle"
+      },
+      {
+        "model": "dungeonblocks:block/broken_stained_glass_window_middle_1"
+      }
+    ],
+    "axis=x,part=single": {
+      "model": "dungeonblocks:block/broken_stained_glass_window_single"
+    },
+    "axis=x,part=top": {
+      "model": "dungeonblocks:block/broken_stained_glass_window_top"
+    },
+    "axis=z,part=bottom": {
+      "model": "dungeonblocks:block/broken_stained_glass_window_bottom",
+      "y": 90
+    },
+    "axis=z,part=middle": [
+      {
+        "model": "dungeonblocks:block/broken_stained_glass_window_middle",
+        "y": 90
+      },
+      {
+        "model": "dungeonblocks:block/broken_stained_glass_window_middle_1",
+        "y": 90
+      }
+    ],
+    "axis=z,part=single": {
+      "model": "dungeonblocks:block/broken_stained_glass_window_single",
+      "y": 90
+    },
+    "axis=z,part=top": {
+      "model": "dungeonblocks:block/broken_stained_glass_window_top",
+      "y": 90
+    }
+  }
+}

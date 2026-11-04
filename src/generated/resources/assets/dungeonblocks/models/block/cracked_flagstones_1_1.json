@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "dungeonblocks:block/cracked_flagstones_1",
+    "east": "dungeonblocks:block/cracked_flagstones_3",
+    "north": "dungeonblocks:block/cracked_flagstones_5",
+    "particle": "dungeonblocks:block/cracked_flagstones_1",
+    "south": "dungeonblocks:block/cracked_flagstones_4",
+    "up": "dungeonblocks:block/cracked_flagstones_1",
+    "west": "dungeonblocks:block/cracked_flagstones_3"
+  }
+}

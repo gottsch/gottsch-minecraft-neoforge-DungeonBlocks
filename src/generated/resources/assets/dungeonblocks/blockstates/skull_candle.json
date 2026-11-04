@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=east,lit=false,wall=false": {
+      "model": "dungeonblocks:block/skull_candle_floor",
+      "y": 90
+    },
+    "facing=east,lit=false,wall=true": {
+      "model": "dungeonblocks:block/skull_candle_wall",
+      "y": 90
+    },
+    "facing=east,lit=true,wall=false": {
+      "model": "dungeonblocks:block/skull_candle_floor_lit",
+      "y": 90
+    },
+    "facing=east,lit=true,wall=true": {
+      "model": "dungeonblocks:block/skull_candle_wall_lit",
+      "y": 90
+    },
+    "facing=north,lit=false,wall=false": {
+      "model": "dungeonblocks:block/skull_candle_floor"
+    },
+    "facing=north,lit=false,wall=true": {
+      "model": "dungeonblocks:block/skull_candle_wall"
+    },
+    "facing=north,lit=true,wall=false": {
+      "model": "dungeonblocks:block/skull_candle_floor_lit"
+    },
+    "facing=north,lit=true,wall=true": {
+      "model": "dungeonblocks:block/skull_candle_wall_lit"
+    },
+    "facing=south,lit=false,wall=false": {
+      "model": "dungeonblocks:block/skull_candle_floor",
+      "y": 180
+    },
+    "facing=south,lit=false,wall=true": {
+      "model": "dungeonblocks:block/skull_candle_wall",
+      "y": 180
+    },
+    "facing=south,lit=true,wall=false": {
+      "model": "dungeonblocks:block/skull_candle_floor_lit",
+      "y": 180
+    },
+    "facing=south,lit=true,wall=true": {
+      "model": "dungeonblocks:block/skull_candle_wall_lit",
+      "y": 180
+    },
+    "facing=west,lit=false,wall=false": {
+      "model": "dungeonblocks:block/skull_candle_floor",
+      "y": 270
+    },
+    "facing=west,lit=false,wall=true": {
+      "model": "dungeonblocks:block/skull_candle_wall",
+      "y": 270
+    },
+    "facing=west,lit=true,wall=false": {
+      "model": "dungeonblocks:block/skull_candle_floor_lit",
+      "y": 270
+    },
+    "facing=west,lit=true,wall=true": {
+      "model": "dungeonblocks:block/skull_candle_wall_lit",
+      "y": 270
+    }
+  }
+}

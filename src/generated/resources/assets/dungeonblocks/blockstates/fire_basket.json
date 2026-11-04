@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "fire=embers": {
+      "model": "dungeonblocks:block/fire_basket_embers"
+    },
+    "fire=lit": {
+      "model": "dungeonblocks:block/fire_basket_lit"
+    },
+    "fire=none": {
+      "model": "dungeonblocks:block/fire_basket"
+    },
+    "fire=soul": {
+      "model": "dungeonblocks:block/fire_basket_soul"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "dungeonblocks:block/hewn_tufa",
+    "east": "dungeonblocks:block/crumbling_bone_wall_1",
+    "north": "dungeonblocks:block/crumbling_bone_wall_0",
+    "particle": "dungeonblocks:block/crumbling_bone_wall_0",
+    "south": "dungeonblocks:block/crumbling_bone_wall_0",
+    "up": "dungeonblocks:block/hewn_tufa",
+    "west": "dungeonblocks:block/crumbling_bone_wall_2"
+  }
+}
