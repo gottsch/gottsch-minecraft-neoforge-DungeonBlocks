@@ -5,6 +5,39 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.1.0] - 2026-10-30
+
+### Added
+
+- **Skull Pile** — the Bone Pile's grimmer twin: a heap of skulls with a few femurs wedged between them, for an ossuary floor or the corner of a catacomb. It builds up the same way, in four stages: placed as two skulls on the floor, then use a bone on it to heap it higher, up to six skulls nearly a block tall. Like the Bone Pile you wade through it rather than stand on top, and the skulls look the way you were facing when you placed it. Crafted from a bone block and three bones.
+- **Catacomb Niches can be packed with skulls** — a new choice of remains that fills the recess floor to lintel, an ossuary wall in a single block. Cycle to it with an empty hand like the others, and freshly placed niches now sometimes pick it on their own, so a wall of niches mixes it in. Niches already placed keep what they hold.
+- **Large Candles** — pillar candles of plain cream wax that stand on the floor, up to knee height, for lighting a crypt or a shrine. Place one and it starts small; use another Large Candle on it to make it medium, then large. Breaking it gives back each candle that went into it. Lit with flint and steel, a fire charge, a burning arrow or a torch in your hand, and put out with an empty hand or by water, exactly like vanilla candles. The bigger the candle, the more light it gives. Crafted from two vanilla candles.
+- **Huge Candle** — a candle a block and a half tall and half a block across, placed and broken as one piece. Light either half and the whole candle burns, at full light.
+- **Candle Cluster** — four candles of different heights burnt down unevenly in one block, for a group of candles without filling the floor. It is placed with its shortest candles toward you, so none hides behind a taller one. Crafted from three Large Candles. The candle textures are placeholder art.
+- **Flagstones** — a floor of big irregular paving stones whose joints run across block edges, so a floor of it reads as one laid surface rather than a grid of blocks. The pattern repeats every three blocks each way, and each block picks its part of it from where it is placed, so a floor laid by hand lines up on its own. Cut from stone bricks in a stonecutter. Placeholder art for now.
+- **Cracked Flagstones** and **Mossy Flagstones** — the same floor, worn: slabs split by cracks and corners chipped away, or moss grown along the joints in drifts. Every block of either shows its wear, so a dungeon floor weathered patchily, with plain and worn blocks mixed, still reads block by block. The stones sit exactly where they do on plain Flagstones, so the three mix freely in one floor without breaking the pattern. Cracked comes from smelting Flagstones; Mossy from Flagstones and a vine or a moss block. Placeholder art for now.
+- **Deepslate Gargoyles** — the Perched Gargoyle, Gargoyle Bust and Gargoyle Statue carved in dark deepslate on polished deepslate plinths, so the watchers in a deep crypt match the stone around them. The perched one and the bust are cut from cobbled deepslate in a stonecutter; the statue is two chiseled deepslate on a polished deepslate.
+- **Deepslate Altar** — a stone altar three blocks wide for a crypt chapel or a shrine: a plinth, a carved panel on its front and a slab top that overhangs all round, flat enough to stand candles on. Place it and all three parts go down at once, centred where you click and facing you; it needs the blocks either side to be clear. Break any part and the whole altar comes down as one item. Crafted from three polished deepslate slabs over polished deepslate either side of a chiseled deepslate. Placeholder model for now.
+- **Blackstone Pedestal** — the Pedestal in polished blackstone, for a shrine in the dark deep levels: it shows one item on its top and can open a door when the right one is set there, exactly like the stone one. Crafted the same way, from polished blackstone.
+- **Copper Offering Bowl** — a small old copper bowl, green with age, on a foot, for the top of an altar or the floor before it. Use it with an empty hand to change what it holds: empty, a pool of blood, or soul fire burning on soul soil, which gives off light and the odd blue flame. Soul fire won't burn under water, and pouring water in puts it out. Crafted from three copper ingots in a bowl's shape. Placeholder model for now.
+- **Deepslate Ritual Circle** and **Blackstone Ritual Circle** — a circle chalked on one big slab of polished deepslate or polished blackstone, three blocks across: rings, eight runes, a ring of dots and a sun at its centre. Lay the centre first, then the eight around it: each block placed beside the circle continues it, so a circle can go anywhere. Placed by a structure it stays where the builder drew it and turns with the building. Crafted from polished deepslate or polished blackstone and bone meal. Placeholder art for now.
+- **Wooden Bucket** — an oak tub bound with two dark iron hoops and full of standing water, a prop for a cell, a guardroom or a well. Like the pots it stands where you set it down and can be shoved about, but it never breaks: walk into it, hit it or drop it and it tips over, spilling its water with a splash, and lies there empty. Standing up it can also be empty: use it with an empty hand to tip the water out, fill it again from a water bucket, or scoop it out with an empty one. In creative an empty hand fills it as well. Hit one already on its side and you pick it up. Set it against a wall and it goes down on its side, already empty. Creative-only for now.
+
+### Changed
+
+- **Iron Bars Doors stand in line with the bars.** The Iron Bars Door, Dark Iron Bars Door and Tarnished Dark Iron Bars Door now sit in the middle of their block when shut, on the same line as the iron bars beside them, so a cell front of bars and a door reads as one wall, and the bars on both sides reach the shut door. Before, they hung at the edge of the block like a wooden door, a step out of line. Open, they still swing back against the side. Doors already placed in a world move to the middle of their block when you update; nothing else about them changes.
+
+### 🛠️ Fixed
+
+- **Manacles, Meat Hooks, Censers and Swinging Chains hang from a Wall Ring.** The ring has nothing solid on its underside, so they could not be placed beneath it, and one forced there fell off. They now hang from a ring on a wall or a ceiling; a ring standing on a floor still holds nothing.
+- **Mobs now treat the three- and four-tall Dungeon Doors as doors.** The pathfinder saw them as a wall, so no mob that opens or breaks doors would ever route through one, and an orc hunting you stopped at it. They now read as doors, open or shut, wooden or not, exactly as the two-tall ones do.
+
+### Porting notes (NeoForge 1.21.1)
+
+- Ported from the Forge 1.20.1 3.1.0 release by a three-way merge of the Forge 3.0.1 → 3.1.0 changes onto the NeoForge 3.0.1 port. Content and behaviour match Forge 3.1.0.
+- On 1.21.1 the new interactions are split across `useItemOn` / `useWithoutItem`, the candle blocks register map codecs, and the tall Dungeon Doors report their pathing through NeoForge's `getBlockPathType` with `PathType`.
+- Still requires GottschCore 2.7.0 or later; 3.1.0 needs nothing newer.
+
 ## [3.0.1] - 2026-10-09
 
 ### ⚠️ Breaking changes

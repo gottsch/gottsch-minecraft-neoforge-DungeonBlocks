@@ -1,0 +1,271 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "body": "minecraft:block/polished_deepslate",
+    "panel": "minecraft:block/chiseled_deepslate",
+    "top": "minecraft:block/polished_deepslate",
+    "particle": "minecraft:block/polished_deepslate"
+  },
+  "elements": [
+    {
+      "name": "plinth",
+      "from": [
+        0,
+        0,
+        1
+      ],
+      "to": [
+        15,
+        2,
+        15
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.0,
+            14.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#body"
+        },
+        "east": {
+          "uv": [
+            1.0,
+            14.0,
+            15.0,
+            16.0
+          ],
+          "texture": "#body"
+        },
+        "south": {
+          "uv": [
+            0.0,
+            14.0,
+            15.0,
+            16.0
+          ],
+          "texture": "#body"
+        },
+        "up": {
+          "uv": [
+            0.0,
+            1.0,
+            15.0,
+            15.0
+          ],
+          "texture": "#body"
+        },
+        "down": {
+          "uv": [
+            0.0,
+            1.0,
+            15.0,
+            15.0
+          ],
+          "texture": "#body",
+          "cullface": "down"
+        }
+      }
+    },
+    {
+      "name": "body",
+      "from": [
+        0,
+        2,
+        3
+      ],
+      "to": [
+        14,
+        12,
+        13
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2.0,
+            4.0,
+            16.0,
+            14.0
+          ],
+          "texture": "#body"
+        },
+        "east": {
+          "uv": [
+            3.0,
+            4.0,
+            13.0,
+            14.0
+          ],
+          "texture": "#body"
+        },
+        "south": {
+          "uv": [
+            0.0,
+            4.0,
+            14.0,
+            14.0
+          ],
+          "texture": "#body"
+        }
+      }
+    },
+    {
+      "name": "moulding",
+      "from": [
+        0,
+        12,
+        2
+      ],
+      "to": [
+        15,
+        13,
+        14
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            1.0,
+            3.0,
+            16.0,
+            4.0
+          ],
+          "texture": "#body"
+        },
+        "east": {
+          "uv": [
+            2.0,
+            3.0,
+            14.0,
+            4.0
+          ],
+          "texture": "#body"
+        },
+        "south": {
+          "uv": [
+            0.0,
+            3.0,
+            15.0,
+            4.0
+          ],
+          "texture": "#body"
+        },
+        "down": {
+          "uv": [
+            0.0,
+            2.0,
+            15.0,
+            14.0
+          ],
+          "texture": "#body"
+        }
+      }
+    },
+    {
+      "name": "top",
+      "from": [
+        0,
+        13,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            3.0
+          ],
+          "texture": "#top",
+          "cullface": "north"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            3.0
+          ],
+          "texture": "#top",
+          "cullface": "east"
+        },
+        "south": {
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            3.0
+          ],
+          "texture": "#top",
+          "cullface": "south"
+        },
+        "up": {
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#top",
+          "cullface": "up"
+        },
+        "down": {
+          "uv": [
+            0.0,
+            0.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#top"
+        }
+      }
+    },
+    {
+      "name": "pilaster",
+      "from": [
+        11,
+        2,
+        2
+      ],
+      "to": [
+        14,
+        12,
+        3
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            2.0,
+            4.0,
+            5.0,
+            14.0
+          ],
+          "texture": "#body"
+        },
+        "east": {
+          "uv": [
+            13.0,
+            4.0,
+            14.0,
+            14.0
+          ],
+          "texture": "#body"
+        },
+        "west": {
+          "uv": [
+            2.0,
+            4.0,
+            3.0,
+            14.0
+          ],
+          "texture": "#body"
+        }
+      }
+    }
+  ]
+}

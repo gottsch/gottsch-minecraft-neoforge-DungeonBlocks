@@ -1,0 +1,73 @@
+{
+  "variants": {
+    "facing=down,part=left": {
+      "model": "dungeonblocks:block/deepslate_altar_left",
+      "y": 90
+    },
+    "facing=down,part=middle": {
+      "model": "dungeonblocks:block/deepslate_altar_middle",
+      "y": 90
+    },
+    "facing=down,part=right": {
+      "model": "dungeonblocks:block/deepslate_altar_right",
+      "y": 90
+    },
+    "facing=east,part=left": {
+      "model": "dungeonblocks:block/deepslate_altar_left",
+      "y": 90
+    },
+    "facing=east,part=middle": {
+      "model": "dungeonblocks:block/deepslate_altar_middle",
+      "y": 90
+    },
+    "facing=east,part=right": {
+      "model": "dungeonblocks:block/deepslate_altar_right",
+      "y": 90
+    },
+    "facing=north,part=left": {
+      "model": "dungeonblocks:block/deepslate_altar_left"
+    },
+    "facing=north,part=middle": {
+      "model": "dungeonblocks:block/deepslate_altar_middle"
+    },
+    "facing=north,part=right": {
+      "model": "dungeonblocks:block/deepslate_altar_right"
+    },
+    "facing=south,part=left": {
+      "model": "dungeonblocks:block/deepslate_altar_left",
+      "y": 180
+    },
+    "facing=south,part=middle": {
+      "model": "dungeonblocks:block/deepslate_altar_middle",
+      "y": 180
+    },
+    "facing=south,part=right": {
+      "model": "dungeonblocks:block/deepslate_altar_right",
+      "y": 180
+    },
+    "facing=up,part=left": {
+      "model": "dungeonblocks:block/deepslate_altar_left",
+      "y": 90
+    },
+    "facing=up,part=middle": {
+      "model": "dungeonblocks:block/deepslate_altar_middle",
+      "y": 90
+    },
+    "facing=up,part=right": {
+      "model": "dungeonblocks:block/deepslate_altar_right",
+      "y": 90
+    },
+    "facing=west,part=left": {
+      "model": "dungeonblocks:block/deepslate_altar_left",
+      "y": 270
+    },
+    "facing=west,part=middle": {
+      "model": "dungeonblocks:block/deepslate_altar_middle",
+      "y": 270
+    },
+    "facing=west,part=right": {
+      "model": "dungeonblocks:block/deepslate_altar_right",
+      "y": 270
+    }
+  }
+}

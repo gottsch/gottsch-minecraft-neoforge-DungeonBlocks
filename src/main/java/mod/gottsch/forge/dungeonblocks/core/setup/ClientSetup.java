@@ -25,6 +25,7 @@ import mod.gottsch.forge.dungeonblocks.core.entity.client.PotShardModel;
 import mod.gottsch.forge.dungeonblocks.core.entity.client.PotShardRenderer;
 import mod.gottsch.forge.dungeonblocks.core.entity.client.PotVariant;
 import mod.gottsch.forge.dungeonblocks.core.entity.client.RedFlaskModel;
+import mod.gottsch.forge.dungeonblocks.core.entity.client.WoodenBucketModel;
 import mod.gottsch.forge.dungeonblocks.core.entity.client.SquatClayPotModel;
 import mod.gottsch.forge.dungeonblocks.core.entity.client.ThinClayPotModel;
 import mod.gottsch.forge.dungeonblocks.core.entity.TomeVariant;
@@ -105,7 +106,10 @@ public class ClientSetup {
             new PotVariant(ModEntityTypes.BIG_GREEN_POTION, BigRedPotionModel.LAYER_LOCATION, BigRedPotionModel::new,
                     PotVariant.entityTexture("big_green_potion"), 0.875F, 0.5F, 0.5F),
             new PotVariant(ModEntityTypes.GREEN_FLASK, RedFlaskModel.LAYER_LOCATION, RedFlaskModel::new,
-                    PotVariant.entityTexture("green_flask"), 0.8125F, 0.4375F, 0.5F));
+                    PotVariant.entityTexture("green_flask"), 0.8125F, 0.4375F, 0.5F),
+            // 10px tall, 12px across the long side it tips onto
+            new PotVariant(ModEntityTypes.WOODEN_BUCKET, WoodenBucketModel.LAYER_LOCATION, WoodenBucketModel::new,
+                    PotVariant.entityTexture("wooden_bucket"), 0.625F, 0.75F));
 
     /**
      * Register the {@link IBlockColor} handlers.
@@ -141,6 +145,7 @@ public class ClientSetup {
         event.registerLayerDefinition(ThinClayPotModel.LAYER_LOCATION, ThinClayPotModel::createBodyLayer);
         event.registerLayerDefinition(BigRedPotionModel.LAYER_LOCATION, BigRedPotionModel::createBodyLayer);
         event.registerLayerDefinition(RedFlaskModel.LAYER_LOCATION, RedFlaskModel::createBodyLayer);
+        event.registerLayerDefinition(WoodenBucketModel.LAYER_LOCATION, WoodenBucketModel::createBodyLayer);
         event.registerLayerDefinition(ScrollModel.LAYER_LOCATION, ScrollModel::createBodyLayer);
         for (TomeVariant.Shape shape : TomeVariant.Shape.values()) {
             event.registerLayerDefinition(TomeModel.layer(shape), () -> TomeModel.createBodyLayer(shape));

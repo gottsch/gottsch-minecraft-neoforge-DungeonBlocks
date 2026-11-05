@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "tile=0": {
+      "model": "dungeonblocks:block/cracked_flagstones_0"
+    },
+    "tile=1": {
+      "model": "dungeonblocks:block/cracked_flagstones_1"
+    },
+    "tile=2": {
+      "model": "dungeonblocks:block/cracked_flagstones_2"
+    },
+    "tile=3": {
+      "model": "dungeonblocks:block/cracked_flagstones_3"
+    },
+    "tile=4": {
+      "model": "dungeonblocks:block/cracked_flagstones_4"
+    },
+    "tile=5": {
+      "model": "dungeonblocks:block/cracked_flagstones_5"
+    },
+    "tile=6": {
+      "model": "dungeonblocks:block/cracked_flagstones_6"
+    },
+    "tile=7": {
+      "model": "dungeonblocks:block/cracked_flagstones_7"
+    },
+    "tile=8": {
+      "model": "dungeonblocks:block/cracked_flagstones_8"
+    }
+  }
+}

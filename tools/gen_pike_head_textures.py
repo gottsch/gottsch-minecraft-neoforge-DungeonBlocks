@@ -2,6 +2,8 @@
 Generates the textures for heads on pikes that are not simply a vanilla mob's own:
 
     block/bloody_steve_head     Steve's head, freshly cut off and driven onto a pike
+    block/blood_pool            a still surface of blood, for the offering bowl (and anything else
+                                that holds blood): this script's reds, so all the mod's blood matches
 
 The zombie head pike needs nothing from here: its model reads vanilla's zombie texture directly
 (added to the block atlas in assets/minecraft/atlases/blocks.json, as the gibbet's skeleton is), so
@@ -93,9 +95,26 @@ def bloody_steve_head():
     return head
 
 
+def blood_pool():
+    """A still surface of blood, 16x16: mostly BLOOD, mottled with DRIED where it has begun to
+    thicken, and a short diagonal sheen of FRESH top left - the one light catch that makes a flat red
+    read as wet rather than as red stone."""
+    rnd = random.Random(77)
+    pool = Image.new("RGBA", (16, 16), BLOOD)
+    for x in range(16):
+        for y in range(16):
+            if rnd.random() < 0.18:
+                pool.putpixel((x, y), DRIED)
+    for x, y in ((3, 5), (4, 4), (5, 3), (6, 3), (4, 5), (12, 10)):
+        pool.putpixel((x, y), FRESH)
+    return pool
+
+
 def main():
     bloody_steve_head().save(BLOCK + "bloody_steve_head.png")
     print("wrote block/bloody_steve_head.png")
+    blood_pool().save(BLOCK + "blood_pool.png")
+    print("wrote block/blood_pool.png")
 
 
 if __name__ == "__main__":

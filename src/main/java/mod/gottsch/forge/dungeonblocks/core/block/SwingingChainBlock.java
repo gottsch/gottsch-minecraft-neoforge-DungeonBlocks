@@ -154,8 +154,9 @@ public class SwingingChainBlock extends Block implements EntityBlock {
 	}
 
 	/**
-	 * A chain has to hang from something: another chain, or a solid face above it. Breaking a link
-	 * mid-run therefore drops everything below it rather than leaving chain floating in mid-air.
+	 * A chain has to hang from something: another chain, a wall ring (unless it stands on a floor),
+	 * or a solid face above it. Breaking a link mid-run therefore drops everything below it rather
+	 * than leaving chain floating in mid-air.
 	 */
 	@Override
 	public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
@@ -163,6 +164,8 @@ public class SwingingChainBlock extends Block implements EntityBlock {
 		BlockState supporting = level.getBlockState(above);
 		return supporting.is(this)
 				|| supporting.is(Blocks.CHAIN)
+				|| (supporting.getBlock() instanceof WallRingBlock
+						&& supporting.getValue(WallRingBlock.FACING) != Direction.UP)
 				|| supporting.isFaceSturdy(level, above, Direction.DOWN);
 	}
 

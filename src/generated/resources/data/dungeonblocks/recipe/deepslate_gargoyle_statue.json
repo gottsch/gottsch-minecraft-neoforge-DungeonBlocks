@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "c": {
+      "item": "minecraft:chiseled_deepslate"
+    },
+    "s": {
+      "item": "minecraft:polished_deepslate"
+    }
+  },
+  "pattern": [
+    "c",
+    "c",
+    "s"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:deepslate_gargoyle_statue"
+  }
+}

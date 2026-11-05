@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "lit=false,size=large": {
+      "model": "dungeonblocks:block/large_candle_large"
+    },
+    "lit=false,size=medium": {
+      "model": "dungeonblocks:block/large_candle_medium"
+    },
+    "lit=false,size=small": {
+      "model": "dungeonblocks:block/large_candle_small"
+    },
+    "lit=true,size=large": {
+      "model": "dungeonblocks:block/large_candle_large_lit"
+    },
+    "lit=true,size=medium": {
+      "model": "dungeonblocks:block/large_candle_medium_lit"
+    },
+    "lit=true,size=small": {
+      "model": "dungeonblocks:block/large_candle_small_lit"
+    }
+  }
+}

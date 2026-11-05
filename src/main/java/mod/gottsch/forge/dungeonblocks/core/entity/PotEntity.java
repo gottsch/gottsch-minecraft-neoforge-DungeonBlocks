@@ -184,7 +184,7 @@ public class PotEntity extends Entity {
 		if (this.onGround() && !Double.isNaN(this.fallStartY)) {
 			double fallDistance = this.fallStartY - this.getY();
 			this.fallStartY = Double.NaN;
-			if (fallDistance > FALL_BREAK_DISTANCE) {
+			if (fallDistance > FALL_BREAK_DISTANCE && this.isBreakable()) {
 				this.breakAndDrop(this.damageSources().fall());
 				return;
 			}
@@ -235,17 +235,35 @@ public class PotEntity extends Entity {
 
 		for (LivingEntity collider : colliders) {
 			double speed = collider.getDeltaMovement().horizontalDistance();
-			if (speed >= SHATTER_SPEED) {
+			if (speed >= SHATTER_SPEED && this.isBreakable()) {
 				// attribute the break to whoever ran into it, so the loot table sees a killer/player
 				this.breakAndDrop(collider instanceof Player player
 						? this.damageSources().playerAttack(player)
 						: this.damageSources().mobAttack(collider));
 				return true;
 			} else if (speed >= TUMBLE_SPEED && !this.isTumbled()) {
-				this.setTumbled(true);
+				this.tipOver();
 			}
 		}
 		return false;
+	}
+
+	/**
+	 * Whether a hard knock, a long fall or an attack shatters this prop. True for every pot and
+	 * potion; a prop that returns false is only ever tipped by a knock and never breaks on landing,
+	 * and decides for itself what an attack does by overriding {@link #hurt}.
+	 */
+	protected boolean isBreakable() {
+		return true;
+	}
+
+	/**
+	 * Knocks the prop onto its side during play. Server side only. Not called for a prop placed or
+	 * loaded already on its side - that goes through {@link #setTumbled} - so an override can add
+	 * what happens at the moment it tips, such as a bucket spilling.
+	 */
+	protected void tipOver() {
+		this.setTumbled(true);
 	}
 
 	/**
@@ -281,7 +299,7 @@ public class PotEntity extends Entity {
 
 	@Override
 	public boolean causeFallDamage(float distance, float multiplier, DamageSource source) {
-		if (distance >= FALL_BREAK_DISTANCE) {
+		if (distance >= FALL_BREAK_DISTANCE && this.isBreakable()) {
 			this.breakAndDrop(source);
 		}
 		return false;

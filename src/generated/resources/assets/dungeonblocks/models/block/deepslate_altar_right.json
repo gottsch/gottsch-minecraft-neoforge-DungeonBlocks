@@ -1,0 +1,9 @@
+{
+  "parent": "dungeonblocks:block/template_altar_right",
+  "textures": {
+    "body": "minecraft:block/polished_deepslate",
+    "panel": "minecraft:block/chiseled_deepslate",
+    "particle": "minecraft:block/polished_deepslate",
+    "top": "minecraft:block/polished_deepslate"
+  }
+}

@@ -190,6 +190,19 @@ public class ModBlockStateProvider extends BlockStateProvider {
         brazierBlock(ModBlocks.BRAZIER);
 
         simpleBlock(ModBlocks.SQUARE_STONE_BRICK.get());
+        patternTiles(ModBlocks.FLAGSTONES);
+        patternTiles(ModBlocks.CRACKED_FLAGSTONES);
+        patternTiles(ModBlocks.MOSSY_FLAGSTONES);
+        // the circles are chalked on the top only: their sides and bottom are their plain stone
+        Map.of(ModBlocks.DEEPSLATE_RITUAL_CIRCLE, mcLoc("block/polished_deepslate"),
+                ModBlocks.BLACKSTONE_RITUAL_CIRCLE, mcLoc("block/polished_blackstone")).forEach((block, stone) -> {
+            String circle = block.getId().getPath();
+            getVariantBuilder(block.get()).forAllStates(state -> {
+                String tile = circle + "_" + state.getValue(PatternTileBlock.TILE);
+                return ConfiguredModel.builder().modelFile(models().cubeBottomTop(tile, stone, stone,
+                        modLoc("block/" + tile))).build();
+            });
+        });
         simpleBlock(ModBlocks.MOSSY_SQUARE_STONE_BRICK.get());
         simpleBlock(ModBlocks.SQUARE_MUD_BRICK.get());
         // the facade / quarter facade variants are listed with the decorative blocks above
@@ -407,6 +420,33 @@ public class ModBlockStateProvider extends BlockStateProvider {
             });
         });
 
+        // altar: per-material children of the templates (blockbench/altar_*.bbmodel), a model per
+        // part, and the three side by side for the item
+        Map<DeferredHolder<Block, Block>, ResourceLocation[]> altars = Map.of(
+                ModBlocks.DEEPSLATE_ALTAR, new ResourceLocation[] {mcLoc("block/polished_deepslate"),
+                        mcLoc("block/polished_deepslate"), mcLoc("block/chiseled_deepslate")});
+        altars.forEach((block, tex) -> {
+            String name = block.getId().getPath();
+            altarModel(name, "item", tex);
+            getVariantBuilder(block.get()).forAllStatesExcept(state -> ConfiguredModel.builder()
+                    .modelFile(altarModel(name, state.getValue(AltarBlock.PART).getSerializedName(), tex))
+                    .rotationY(yaw(state.getValue(AltarBlock.FACING))).build(), AltarBlock.WATERLOGGED);
+        });
+
+        // offering bowl: a child of the templates per contents (blockbench/offering_bowl.bbmodel),
+        // its metal or stone per material ("stone" is the template's key); cutout for the flames
+        Map<DeferredHolder<Block, Block>, ResourceLocation> bowls = Map.of(
+                ModBlocks.COPPER_OFFERING_BOWL, mcLoc("block/oxidized_copper"));
+        bowls.forEach((block, stone) -> {
+            String name = block.getId().getPath();
+            getVariantBuilder(block.get()).forAllStatesExcept(state -> {
+                String contents = state.getValue(OfferingBowlBlock.CONTENTS).getSerializedName();
+                return ConfiguredModel.builder().modelFile(models()
+                        .withExistingParent(name + "_" + contents, modLoc("block/template_offering_bowl_" + contents))
+                        .texture("stone", stone).texture("particle", stone).renderType("minecraft:cutout")).build();
+            }, OfferingBowlBlock.WATERLOGGED);
+        });
+
         // iron maiden: multipart, so each state layers the Blockbench body over the OBJ spikes
         MultiPartBlockStateBuilder maiden = getMultipartBuilder(ModBlocks.IRON_MAIDEN.get());
         for (Direction facing : Direction.Plane.HORIZONTAL) {
@@ -561,6 +601,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
             doorBlock((DoorBlock) block.get(), wall, wall);
         });
         simpleBlock(ModBlocks.PEDESTAL.get(), models().getExistingFile(modLoc("block/pedestal")));
+        // the blackstone pedestal: the same model (blockbench/pedestal.bbmodel), retextured
+        simpleBlock(ModBlocks.BLACKSTONE_PEDESTAL.get(), models().withExistingParent("blackstone_pedestal",
+                        modLoc("block/pedestal")).texture("stone", mcLoc("block/polished_blackstone"))
+                .texture("particle", mcLoc("block/polished_blackstone")));
 
         // chain fixtures hung as blocks: the same Blockbench models SwingingChainRenderer draws in a
         // swinging chain's bottom link, which are symmetrical enough to need no facing
@@ -602,15 +646,52 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 objModel("gargoyle_statue_lower", "gargoyle_statue_lower", gargoyle, plinth).renderType("minecraft:cutout"),
                 objModel("gargoyle_statue_upper", "gargoyle_statue_upper", gargoyle, plinth).renderType("minecraft:cutout"));
         objModel("gargoyle_statue_item", "gargoyle_statue_item", gargoyle, plinth).renderType("minecraft:cutout");
+        // the same models in deepslate, on polished deepslate plinths
+        ResourceLocation deepslateGargoyle = modLoc("block/deepslate_gargoyle_statue");
+        ResourceLocation deepslatePlinth = mcLoc("block/polished_deepslate");
+        horizontalBlock(ModBlocks.PERCHED_DEEPSLATE_GARGOYLE.get(),
+                objModel("perched_deepslate_gargoyle", "gargoyle_perched", deepslateGargoyle, deepslatePlinth).renderType("minecraft:cutout"));
+        horizontalBlock(ModBlocks.DEEPSLATE_GARGOYLE_BUST.get(),
+                objModel("deepslate_gargoyle_bust", "gargoyle_bust", deepslateGargoyle, deepslatePlinth).renderType("minecraft:cutout"));
+        tallProp(ModBlocks.DEEPSLATE_GARGOYLE_STATUE,
+                objModel("deepslate_gargoyle_statue_lower", "gargoyle_statue_lower", deepslateGargoyle, deepslatePlinth).renderType("minecraft:cutout"),
+                objModel("deepslate_gargoyle_statue_upper", "gargoyle_statue_upper", deepslateGargoyle, deepslatePlinth).renderType("minecraft:cutout"));
+        objModel("deepslate_gargoyle_statue_item", "gargoyle_statue_item", deepslateGargoyle, deepslatePlinth).renderType("minecraft:cutout");
 
         // bone pile: a model per stage
         horizontalBlock(ModBlocks.BONE_PILE.get(), state -> models().getExistingFile(
                 modLoc("block/bone_pile_" + state.getValue(BonePileBlock.BONES))));
+        horizontalBlock(ModBlocks.SKULL_PILE.get(), state -> models().getExistingFile(
+                modLoc("block/skull_pile_" + state.getValue(BonePileBlock.BONES))));
 
         // chandelier: lit and unlit differ only in the candles' wicks
         getVariantBuilder(ModBlocks.CHANDELIER.get()).forAllStates(state -> ConfiguredModel.builder()
                 .modelFile(models().getExistingFile(modLoc(state.getValue(ChandelierBlock.LIT)
                         ? "block/chandelier_lit" : "block/chandelier"))).build());
+
+        // large candles: a model per size or half, lit and unlit, which differ only in the wax's glow
+        getVariantBuilder(ModBlocks.LARGE_CANDLE.get()).forAllStatesExcept(state -> candle(state,
+                "large_candle_" + state.getValue(LargeCandleBlock.SIZE).getSerializedName()), CandlePropBlock.WATERLOGGED);
+        getVariantBuilder(ModBlocks.HUGE_CANDLE.get()).forAllStatesExcept(state -> candle(state,
+                "huge_candle_" + state.getValue(HugeCandleBlock.HALF).getSerializedName()), CandlePropBlock.WATERLOGGED);
+        // the cluster turned to its FACING: the model is authored with its short candles to the north
+        getVariantBuilder(ModBlocks.CANDLE_CLUSTER.get()).forAllStatesExcept(state -> ConfiguredModel.builder()
+                .modelFile(candle(state, "candle_cluster")[0].model)
+                .rotationY(yaw(state.getValue(CandleClusterBlock.FACING))).build(), CandlePropBlock.WATERLOGGED);
+    }
+
+    private ConfiguredModel[] candle(BlockState state, String model) {
+        return ConfiguredModel.builder().modelFile(models().getExistingFile(
+                modLoc("block/" + model + (state.getValue(CandlePropBlock.LIT) ? "_lit" : "")))).build();
+    }
+
+    /** A PatternTileBlock: a cube per TILE, textured <name>_<tile>. */
+    private void patternTiles(DeferredHolder<Block, Block> block) {
+        String name = block.getId().getPath();
+        getVariantBuilder(block.get()).forAllStates(state -> {
+            String tile = name + "_" + state.getValue(PatternTileBlock.TILE);
+            return ConfiguredModel.builder().modelFile(models().cubeAll(tile, modLoc("block/" + tile))).build();
+        });
     }
 
     /** A TallPropBlock: a model per half, turned to its FACING. */
@@ -625,6 +706,13 @@ public class ModBlockStateProvider extends BlockStateProvider {
                         modLoc("block/template_sarcophagus_" + part + "_" + variant))
                 .texture("side", tex[0]).texture("lid", tex[1]).texture("effigy", tex[2])
                 .texture("particle", tex[1]);
+    }
+
+    /** `tex` is body, top, panel. */
+    private ModelFile altarModel(String name, String part, ResourceLocation[] tex) {
+        return models().withExistingParent(name + "_" + part, modLoc("block/template_altar_" + part))
+                .texture("body", tex[0]).texture("top", tex[1]).texture("panel", tex[2])
+                .texture("particle", tex[0]);
     }
 
     /** The y rotation that turns a north-authored model to face `facing`. */

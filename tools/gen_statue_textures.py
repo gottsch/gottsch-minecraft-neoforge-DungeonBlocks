@@ -15,7 +15,9 @@ weathered stone) while keeping the skin's own shading range, so the muscles stil
 keeps the eye sockets and the mouth dark - they are what make the face.
 
 Targets: the skin lands near luma 128-135, beside vanilla stone (125.5) and andesite (136); see
-memory stone-texture-luma-calibration.
+memory stone-texture-luma-calibration. The deepslate statues use the same curve scaled by 0.6, so
+the carving reads the same in a darker stone: mean luma near 77, beside deepslate (80.4) and
+polished deepslate (72.6), with deepslate's faint blue cast.
 
 Run from the repo root:
     python tools/gen_statue_textures.py
@@ -30,9 +32,15 @@ STONE_CURVE = [(0, 30), (20, 45), (55, 100), (86, 114), (124, 144), (205, 190), 
 # neutral, a breath cool: vanilla stone is R=G=B
 STONE_TINT = (0.98, 0.99, 1.02)
 
+# the stone curve x 0.6: the same carving, in deepslate's range
+DEEPSLATE_CURVE = [(x, round(y * 0.6)) for x, y in STONE_CURVE]
+# deepslate is a little blue: vanilla's averages (80.1, 80.1, 82.6)
+DEEPSLATE_TINT = (0.99, 0.99, 1.03)
+
 # (source, output, curve, tint)
 JOBS = [
     ("gargoyle", "gargoyle_statue", STONE_CURVE, STONE_TINT),
+    ("gargoyle", "deepslate_gargoyle_statue", DEEPSLATE_CURVE, DEEPSLATE_TINT),
 ]
 
 

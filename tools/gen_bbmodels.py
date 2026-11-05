@@ -279,6 +279,16 @@ def catacomb_niche():
         femur(p, g, f"femur_{n}", (x, 2, 6.5), 10, along="z")
     for n, (x, z) in enumerate(((2, 2), (8, 4.5))):
         skull(p, g, f"skull_{n}", x, 4, z, size=6)
+
+    # skull_heap: the recess packed with skulls, floor to lintel, as an ossuary wall is. Two 6px
+    # skulls side by side fill its width; a third behind them shows in the gap, and the top course
+    # is one skull flanked by femurs laid knuckles out. Square, as on the shelf above.
+    g = "remains_skull_heap"
+    for n, (x, y, z) in enumerate(((2, 2, 1), (8, 2, 1.5), (5, 2, 6), (5, 8, 2))):
+        skull(p, g, f"skull_{n}", x, y, z, size=6)
+    for n, x in enumerate((3.25, 12.75)):
+        femur(p, g, f"femur_{n}", (x, 8, 6.5), 10, along="z")
+        femur(p, g, f"femur_{n}_upper", (x, 10, 6.5), 10, along="z")
     return p
 
 
@@ -333,6 +343,35 @@ def bone_pile():
     return p
 
 
+def skull_pile():
+    """The bone pile's skull-heavy twin, in the same four fill stages: skull_pile_1 is two skulls on
+    the floor, skull_pile_4 a heap of six with one crowning it. A few femurs wedge between them so
+    the heap reads as remains rather than as stacked blocks. Authored facing north, the skulls
+    turned off it by 22.5 or 45 degrees, each kept inside the block when turned. 6px skulls, as
+    the bone pile's: at 8 the heap is three skulls and nothing else."""
+    p = Project("skull_pile", {"skull": SKULL, "bone": BONE})
+
+    def placed(group, name, x, y, z, yaw):
+        skull(p, group, name, x, y, z, size=6)
+        p.groups[group][-1].update(rotation=[0, yaw, 0], origin=[x + 3, y + 3, z + 3])
+
+    # stage 1: two skulls on the floor, a femur by them
+    placed("pile_1", "skull_1", 1.5, 0, 2, 22.5)
+    placed("pile_1", "skull_2", 9, 0, 7.5, -22.5)
+    femur(p, "pile_1", "f1", (11, 0, 3.5), 8, yaw=-22.5)
+    # stage 2: a third skull at the back, a femur across the gap
+    placed("pile_2", "skull_3", 2, 0, 8.5, -45)
+    femur(p, "pile_2", "f2", (7.5, 0, 8), 9, along="z", yaw=22.5)
+    # stage 3: two skulls resting on the bottom course
+    placed("pile_3", "skull_4", 3, 5, 5, -22.5)
+    placed("pile_3", "skull_5", 8.5, 5, 7, 22.5)
+    femur(p, "pile_3", "f3", (8, 5, 3.5), 8, tilt=-22.5)
+    # stage 4: one skull crowning the heap
+    placed("pile_4", "skull_6", 5.5, 10, 6, 45)
+    femur(p, "pile_4", "f4", (4.5, 6, 11.5), 8, tilt=22.5)
+    return p
+
+
 def skull_pike(half, head_texture=None, name="skull_pike"):
     """A skull impaled on a pike, two blocks tall: a 2px pole of spruce bark, the skull on its top
     with the point driven out through the crown. Authored facing north: the skull looks that way.
@@ -370,6 +409,67 @@ def candle(p, group, name, x, z, y, height=4):
         p.box(group, f"{name}_wick_{n}", (x - 0.5, y + height, z), (x + 0.5, y + height + 1, z),
               {"north": "candle", "south": "candle"}, uv={"north": [0, 5, 1, 6], "south": [0, 5, 1, 6]},
               rot=("y", angle), origin=(x, y + height, z))
+
+
+# The large candles' wax (tools/gen_large_candle_textures.py, placeholder art): `wax` is the side
+# sheet, `top` the top and the wick. The lit models swap both for their _lit twins.
+LARGE_CANDLE_TEX = {"wax": "dungeonblocks:block/large_candle", "top": "dungeonblocks:block/large_candle_top"}
+# the huge candle's side is one strip cut across its two halves (huge_candle.png), so it reads as
+# one candle rather than two stacked
+HUGE_CANDLE_TEX = {"wax": "dungeonblocks:block/huge_candle", "top": "dungeonblocks:block/large_candle_top"}
+# LargeCandleBlock's sizes: (width, height, wick height), all centred on the block
+LARGE_CANDLE_SIZES = {"small": (4, 6, 1), "medium": (4, 10, 2), "large": (6, 13, 2)}
+
+
+def wax_candle(p, group, name, cx, cz, w, h, wick, y=0, body=False):
+    """A large candle `w` px square and `h` tall standing at (cx, y, cz), its rim and drips at the
+    top of its sides, and a wick of `wick` px on crossed planes as vanilla's candle has. A `body` is
+    the part of a candle below another's rim (the huge candle's lower half): its sides from the
+    sheet's right half, no top and no wick."""
+    x0, z0 = cx - w / 2, cz - w / 2
+    sides = ("north", "east", "south", "west")
+    if body:
+        p.box(group, name, (x0, y, z0), (x0 + w, y + h, z0 + w), "wax", skip=("up", "down"),
+              uv={d: [8, 0, 8 + w, h] for d in sides})
+        return
+    p.box(group, name, (x0, y, z0), (x0 + w, y + h, z0 + w), {d: "wax" for d in sides} | {"up": "top"},
+          uv={d: [0, 0, w, h] for d in sides} | {"up": [4 - w / 2, 4 - w / 2, 4 + w / 2, 4 + w / 2]})
+    for n, angle in enumerate((45, -45)):
+        p.box(group, f"{name}_wick_{n}", (cx - 0.5, y + h, cz), (cx + 0.5, y + h + wick, cz),
+              {"north": "top", "south": "top"}, uv={"north": [12, 0, 13, wick], "south": [12, 0, 13, wick]},
+              rot=("y", angle), origin=(cx, y + h, cz))
+
+
+def large_candle():
+    """LargeCandleBlock's three sizes, a group each: the converter builds one model per size."""
+    p = Project("large_candle", LARGE_CANDLE_TEX)
+    for size, (w, h, wick) in LARGE_CANDLE_SIZES.items():
+        wax_candle(p, size, "candle", 8, 8, w, h, wick)
+    return p
+
+
+def huge_candle(half):
+    """A candle 24px tall and 8 across, in two blocks: the lower is all body, the upper carries the
+    rim, the drips and the wick."""
+    p = Project(f"huge_candle_{half}", HUGE_CANDLE_TEX)
+    if half == "lower":
+        wax_candle(p, "candle", "candle", 8, 8, 8, 16, 0, body=True)
+    else:
+        wax_candle(p, "candle", "candle", 8, 8, 8, 8, 2)
+    return p
+
+
+# the candle cluster's candles: (cx, cz, width, height, wick). CandleClusterBlock's flames and
+# shape are worked out from the same numbers - keep them in step.
+CANDLE_CLUSTER = [(4, 10, 4, 12, 2), (11, 11, 4, 8, 2), (8, 5, 4, 5, 1), (12, 4, 2, 3, 1)]
+
+
+def candle_cluster():
+    """Four candles of mixed heights burnt down unevenly in one cell, the tallest at the back."""
+    p = Project("candle_cluster", LARGE_CANDLE_TEX)
+    for n, (cx, cz, w, h, wick) in enumerate(CANDLE_CLUSTER):
+        wax_candle(p, "candles", f"candle_{n}", cx, cz, w, h, wick)
+    return p
 
 
 # a chandelier's candles, on its ring: the four corners and the four mid-edges
@@ -689,17 +789,81 @@ def dark_iron_ladder():
     return p
 
 
+ALTAR_TEX = {"body": "minecraft:block/polished_deepslate", "top": "minecraft:block/polished_deepslate",
+             "panel": "minecraft:block/chiseled_deepslate"}
+
+
+def altar(part):
+    """An altar three blocks wide (left, middle, right as seen from in front), authored facing north:
+    its front, the side a congregation sees, is the north face, so the viewer's left is east and the
+    left part's open end is at x=16. A plinth, an inset body, a moulding and a top slab that
+    overhangs the body all round; a carved panel on the middle's front and a pilaster at each outer
+    front corner. The top is a whole 16x16 at every part, so candles stand on it. The parts only
+    differ at their ends; the joins (west of left, east of right, both of middle) are left open.
+    Texture keys body / top / panel are templates: datagen gives each material its own."""
+    p = Project(f"altar_{part}", ALTAR_TEX)
+    left, right = part == "left", part == "right"
+    x0 = lambda inset: inset if right else 0          # the west end: open unless this is the right part
+    x1 = lambda inset: 16 - inset if left else 16     # the east end: open unless this is the left part
+    joins = (("west",) if not right else ()) + (("east",) if not left else ())
+    p.box("altar", "plinth", (x0(1), 0, 1), (x1(1), 2, 15), "body", skip=joins)
+    p.box("altar", "body", (x0(2), 2, 3), (x1(2), 12, 13), "body", skip=joins + ("down", "up"))
+    p.box("altar", "moulding", (x0(1), 12, 2), (x1(1), 13, 14), "body", skip=joins + ("up",))
+    p.box("altar", "top", (0, 13, 0), (16, 16, 16), "top", skip=joins)
+    if part == "middle":
+        p.box("altar", "panel", (3, 4, 2), (13, 10, 3), {"north": "panel", "east": "body", "west": "body",
+                                                         "up": "body", "down": "body"})
+    else:
+        x = (2, 5) if right else (11, 14)
+        p.box("altar", "pilaster", (x[0], 2, 2), (x[1], 12, 3), "body", skip=("down", "up", "south"))
+    return p
+
+
+def offering_bowl():
+    """A bowl on a short foot (oxidized copper as shipped, so it reads apart from the stone it sits on), for an altar or the floor before it: 8px across and 6 tall. Its
+    contents are groups the converter switches: nothing, `blood` (a still surface just under the
+    rim) or `soul_fire` (a bed of soul soil with two crossed planes of vanilla's soul fire). The soul
+    fire texture is an animation strip, 16 wide and 512 tall, and the project's UV space is the
+    whole strip, so its planes take UV [0, 0, 16, 512]: that converts to 0-16, one frame, which is
+    what the game animates. (Blockbench shows the strip squashed; the game does not.) Texture key
+    `stone` is a template: datagen gives each material its own."""
+    p = Project("offering_bowl", {"stone": "minecraft:block/oxidized_copper", "blood": "dungeonblocks:block/blood_pool",
+                                  "soil": "minecraft:block/soul_soil", "fire": "minecraft:block/soul_fire_0"})
+    p.box("bowl", "foot", (6, 0, 6), (10, 2, 10), "stone", skip=("up",))
+    p.box("bowl", "base", (4, 2, 4), (12, 3, 12), "stone")
+    p.box("bowl", "wall_north", (4, 3, 4), (12, 6, 5), "stone", skip=("down",))
+    p.box("bowl", "wall_south", (4, 3, 11), (12, 6, 12), "stone", skip=("down",))
+    p.box("bowl", "wall_west", (4, 3, 5), (5, 6, 11), "stone", skip=("down", "north", "south"))
+    p.box("bowl", "wall_east", (11, 3, 5), (12, 6, 11), "stone", skip=("down", "north", "south"))
+    p.box("blood", "surface", (5, 3, 5), (11, 5, 11), {"up": "blood"})
+    p.box("soul_fire", "bed", (5, 3, 5), (11, 4, 11), {"up": "soil"})
+    strip = {"north": [0, 0, 16, 512], "south": [0, 0, 16, 512]}
+    for n in (0, 1):
+        p.box("soul_fire", f"flame_{n}", (4, 4, 8), (12, 12, 8), {"north": "fire", "south": "fire"}, uv=strip,
+              rot=("y", 45 if n == 0 else -45), origin=(8, 8, 8))
+    return p
+
+
 PROJECTS = {
+    "offering_bowl": offering_bowl,
+    "altar_left": lambda: altar("left"),
+    "altar_middle": lambda: altar("middle"),
+    "altar_right": lambda: altar("right"),
     "catacomb_niche": catacomb_niche,
     "pedestal": pedestal,
     "rubble_scatter": rubble_scatter,
     "bone_pile": bone_pile,
+    "skull_pile": skull_pile,
     "skull_pike_lower": lambda: skull_pike("lower"),
     "skull_pike_upper": lambda: skull_pike("upper"),
     "zombie_head_pike_upper": lambda: skull_pike("upper", "minecraft:entity/zombie/zombie", "zombie_head_pike"),
     "bloody_steve_head_pike_upper": lambda: skull_pike("upper", "dungeonblocks:block/bloody_steve_head",
                                                        "bloody_steve_head_pike"),
     "chandelier": chandelier,
+    "large_candle": large_candle,
+    "huge_candle_lower": lambda: huge_candle("lower"),
+    "huge_candle_upper": lambda: huge_candle("upper"),
+    "candle_cluster": candle_cluster,
     "chain_fixture_manacles": manacles,
     "chain_fixture_meat_hook": meat_hook,
     "chain_fixture_censer": censer,

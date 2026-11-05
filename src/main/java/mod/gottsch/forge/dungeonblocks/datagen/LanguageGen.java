@@ -148,6 +148,8 @@ public class LanguageGen extends LanguageProvider {
         add("entity." + DungeonBlocks.MOD_ID + ".big_green_potion", "Big Green Potion");
         add(ModItems.GREEN_FLASK.get(), "Green Flask");
         add("entity." + DungeonBlocks.MOD_ID + ".green_flask", "Green Flask");
+        add(ModItems.WOODEN_BUCKET.get(), "Wooden Bucket");
+        add("entity." + DungeonBlocks.MOD_ID + ".wooden_bucket", "Wooden Bucket");
 
         add("entity." + DungeonBlocks.MOD_ID + ".pot_shard", "Pot Shard");
 

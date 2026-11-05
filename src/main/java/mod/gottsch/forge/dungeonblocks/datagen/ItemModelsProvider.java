@@ -105,6 +105,13 @@ public class ItemModelsProvider extends ItemModelProvider {
 		ModBlocks.DUNGEON_DOORS.forEach(door -> basicItem(ModBlocks.MAP.get(door.block()), mcLoc("item/" + door.wood() + "_door")));
 
 		blockItemParent(ModBlocks.MAP.get(ModBlocks.SQUARE_STONE_BRICK));
+		// the pattern's middle tile, which crosses no edge of the sheet
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.FLAGSTONES), modLoc("block/flagstones_4"));
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.CRACKED_FLAGSTONES), modLoc("block/cracked_flagstones_4"));
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.MOSSY_FLAGSTONES), modLoc("block/mossy_flagstones_4"));
+		// the circle's centre, the sun
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.DEEPSLATE_RITUAL_CIRCLE), modLoc("block/deepslate_ritual_circle_4"));
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.BLACKSTONE_RITUAL_CIRCLE), modLoc("block/blackstone_ritual_circle_4"));
 		blockItemParent(ModBlocks.MAP.get(ModBlocks.MOSSY_SQUARE_STONE_BRICK));
 		blockItemParent(ModBlocks.MAP.get(ModBlocks.MOSSY_SQUARE_STONE_BRICK_STAIRS));
 		blockItemParent(ModBlocks.MAP.get(ModBlocks.SQUARE_STONE_BRICK_SLAB));
@@ -184,6 +191,9 @@ public class ItemModelsProvider extends ItemModelProvider {
 		// multi-block props show the part that says what they are: the effigy's head end
 		withExistingParent(ModBlocks.MAP.get(ModBlocks.STONE_SARCOPHAGUS), modLoc("block/stone_sarcophagus_head_closed"));
 		withExistingParent(ModBlocks.MAP.get(ModBlocks.DEEPSLATE_SARCOPHAGUS), modLoc("block/deepslate_sarcophagus_head_closed"));
+		// the altar whole, its three parts side by side
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.DEEPSLATE_ALTAR), modLoc("block/deepslate_altar_item"));
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.COPPER_OFFERING_BOWL), modLoc("block/copper_offering_bowl_empty"));
 		// the iron maiden whole, shut, as the gibbet
 		withExistingParent(ModBlocks.MAP.get(ModBlocks.IRON_MAIDEN), modLoc("block/iron_maiden_item"));
 		// no one block of the gibbet reads as a gibbet, so the item is the whole cage at a third size
@@ -209,7 +219,12 @@ public class ItemModelsProvider extends ItemModelProvider {
 		withExistingParent(ModBlocks.MAP.get(ModBlocks.BLOODY_STEVE_HEAD_PIKE), modLoc("block/bloody_steve_head_pike_upper"));
 		// a full heap, though a placed pile starts small
 		withExistingParent(ModBlocks.MAP.get(ModBlocks.BONE_PILE), modLoc("block/bone_pile_4"));
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.SKULL_PILE), modLoc("block/skull_pile_4"));
 		withExistingParent(ModBlocks.MAP.get(ModBlocks.CHANDELIER), modLoc("block/chandelier"));
+		// the largest size, though a placed one starts small; the huge candle whole, shrunk to fit
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.LARGE_CANDLE), modLoc("block/large_candle_large"));
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.HUGE_CANDLE), modLoc("block/huge_candle_item"));
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.CANDLE_CLUSTER), modLoc("block/candle_cluster"));
 		blockItemParent(ModBlocks.MAP.get(ModBlocks.PERCHED_GARGOYLE));
 		// the lever sconce shows as the torch sconce it pretends to be
 		withExistingParent(ModBlocks.MAP.get(ModBlocks.LEVER_SCONCE), modLoc("block/torch_sconce_block"));
@@ -218,6 +233,7 @@ public class ItemModelsProvider extends ItemModelProvider {
 		ModBlocks.HIDDEN_DOORS.keySet().forEach(b ->
 				basicItem(ModBlocks.MAP.get(b), modLoc("item/" + b.getId().getPath())));
 		blockItemParent(ModBlocks.MAP.get(ModBlocks.PEDESTAL));
+		blockItemParent(ModBlocks.MAP.get(ModBlocks.BLACKSTONE_PEDESTAL));
 		// a tapestry shows its whole scene, shrunk flat (tools/gen_tapestry_textures.py)
 		ModBlocks.TAPESTRIES.forEach(b -> basicItem(ModBlocks.MAP.get(b), modLoc("item/" + b.getId().getPath())));
 		ModBlocks.CRUMBLING_FLOORS.keySet().forEach(b -> blockItemParent(ModBlocks.MAP.get(b)));
@@ -226,6 +242,9 @@ public class ItemModelsProvider extends ItemModelProvider {
 		blockItemParent(ModBlocks.MAP.get(ModBlocks.GARGOYLE_BUST));
 		// the whole statue, shrunk to fit: its top half alone is a pair of wings
 		withExistingParent(ModBlocks.MAP.get(ModBlocks.GARGOYLE_STATUE), modLoc("block/gargoyle_statue_item"));
+		blockItemParent(ModBlocks.MAP.get(ModBlocks.PERCHED_DEEPSLATE_GARGOYLE));
+		blockItemParent(ModBlocks.MAP.get(ModBlocks.DEEPSLATE_GARGOYLE_BUST));
+		withExistingParent(ModBlocks.MAP.get(ModBlocks.DEEPSLATE_GARGOYLE_STATUE), modLoc("block/deepslate_gargoyle_statue_item"));
 		// the chain fixtures show the model they hang as - bar the meat hook, a thin line of iron
 		// at icon size, which has a flat icon (tools/gen_prop_item_icons.py) as vanilla's chain does
 		withExistingParent(ModBlocks.MAP.get(ModBlocks.MANACLES), modLoc("block/chain_fixture_manacles"));
@@ -278,6 +297,7 @@ public class ItemModelsProvider extends ItemModelProvider {
 		potItem(ModItems.BLUE_FLASK);
 		potItem(ModItems.BIG_GREEN_POTION);
 		potItem(ModItems.GREEN_FLASK);
+		potItem(ModItems.WOODEN_BUCKET);
 		// a tome's item is the icon its cover was taken from, as it is
 		ModItems.TOMES.values().forEach(tome -> basicItem(tome.get()));
 		// and a scroll's, likewise

@@ -27,6 +27,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -48,6 +49,7 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.block.state.properties.DoorHingeSide;
 import net.minecraft.world.level.block.state.properties.EnumProperty;
 import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
@@ -312,6 +314,21 @@ public class TallDoorBlock extends Block {
 
     public boolean isOpen(BlockState state) {
         return state.getValue(OPEN);
+    }
+
+    /**
+     * What a mob's pathfinder makes of it, as it does of a vanilla door: open, a shut wooden door
+     * (which a mob that can open or break doors plans a path through), or a shut iron one. Without
+     * this the pathfinder sees only a block it cannot cross, since vanilla recognises a door by its
+     * {@code DoorBlock} class - so no mob ever routed through a tall door, and none could break one.
+     */
+    @Override
+    @Nullable
+    public PathType getBlockPathType(BlockState state, BlockGetter level, BlockPos pos, @Nullable Mob mob) {
+        if (state.getValue(OPEN)) {
+            return PathType.DOOR_OPEN;
+        }
+        return this.type.canOpenByHand() ? PathType.DOOR_WOOD_CLOSED : PathType.DOOR_IRON_CLOSED;
     }
 
     public void setOpen(@Nullable Entity entity, Level level, BlockState state, BlockPos pos, boolean open) {

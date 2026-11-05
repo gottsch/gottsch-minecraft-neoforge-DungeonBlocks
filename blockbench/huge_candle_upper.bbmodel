@@ -1,0 +1,268 @@
+{
+ "meta": {
+  "format_version": "4.9",
+  "model_format": "java_block",
+  "box_uv": false
+ },
+ "name": "huge_candle_upper",
+ "parent": "",
+ "ambientocclusion": true,
+ "front_gui_light": false,
+ "visible_box": [
+  1,
+  1,
+  0
+ ],
+ "variable_placeholders": "",
+ "variable_placeholder_buttons": [],
+ "unhandled_root_fields": {},
+ "resolution": {
+  "width": 16,
+  "height": 16
+ },
+ "elements": [
+  {
+   "name": "candle",
+   "box_uv": false,
+   "rescale": false,
+   "locked": false,
+   "render_order": "default",
+   "from": [
+    4.0,
+    0,
+    4.0
+   ],
+   "to": [
+    12.0,
+    8,
+    12.0
+   ],
+   "autouv": 0,
+   "color": 0,
+   "origin": [
+    8.0,
+    4.0,
+    8.0
+   ],
+   "rotation": [
+    0,
+    0,
+    0
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      0,
+      0,
+      8,
+      8
+     ],
+     "texture": 0
+    },
+    "east": {
+     "uv": [
+      0,
+      0,
+      8,
+      8
+     ],
+     "texture": 0
+    },
+    "south": {
+     "uv": [
+      0,
+      0,
+      8,
+      8
+     ],
+     "texture": 0
+    },
+    "west": {
+     "uv": [
+      0,
+      0,
+      8,
+      8
+     ],
+     "texture": 0
+    },
+    "up": {
+     "uv": [
+      0.0,
+      0.0,
+      8.0,
+      8.0
+     ],
+     "texture": 1
+    }
+   },
+   "type": "cube",
+   "uuid": "58999309-0c5c-5e50-a1a0-d499d636dfb7"
+  },
+  {
+   "name": "candle_wick_0",
+   "box_uv": false,
+   "rescale": false,
+   "locked": false,
+   "render_order": "default",
+   "from": [
+    7.5,
+    8,
+    8
+   ],
+   "to": [
+    8.5,
+    10,
+    8
+   ],
+   "autouv": 0,
+   "color": 0,
+   "origin": [
+    8,
+    8,
+    8
+   ],
+   "rotation": [
+    0,
+    45,
+    0
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      12,
+      0,
+      13,
+      2
+     ],
+     "texture": 1
+    },
+    "south": {
+     "uv": [
+      12,
+      0,
+      13,
+      2
+     ],
+     "texture": 1
+    }
+   },
+   "type": "cube",
+   "uuid": "839cc1a8-7780-5b73-8d30-c75cacebbab5"
+  },
+  {
+   "name": "candle_wick_1",
+   "box_uv": false,
+   "rescale": false,
+   "locked": false,
+   "render_order": "default",
+   "from": [
+    7.5,
+    8,
+    8
+   ],
+   "to": [
+    8.5,
+    10,
+    8
+   ],
+   "autouv": 0,
+   "color": 0,
+   "origin": [
+    8,
+    8,
+    8
+   ],
+   "rotation": [
+    0,
+    -45,
+    0
+   ],
+   "faces": {
+    "north": {
+     "uv": [
+      12,
+      0,
+      13,
+      2
+     ],
+     "texture": 1
+    },
+    "south": {
+     "uv": [
+      12,
+      0,
+      13,
+      2
+     ],
+     "texture": 1
+    }
+   },
+   "type": "cube",
+   "uuid": "9a1fc439-828b-552b-8f2b-80aea63694da"
+  }
+ ],
+ "outliner": [
+  {
+   "name": "candle",
+   "origin": [
+    8,
+    8,
+    8
+   ],
+   "color": 0,
+   "uuid": "eb5fa927-e587-5d28-bcea-07d26538456a",
+   "export": true,
+   "mirror_uv": false,
+   "isOpen": true,
+   "locked": false,
+   "visibility": true,
+   "autouv": 0,
+   "children": [
+    "58999309-0c5c-5e50-a1a0-d499d636dfb7",
+    "839cc1a8-7780-5b73-8d30-c75cacebbab5",
+    "9a1fc439-828b-552b-8f2b-80aea63694da"
+   ]
+  }
+ ],
+ "textures": [
+  {
+   "path": "",
+   "name": "wax",
+   "folder": "block",
+   "namespace": "dungeonblocks",
+   "id": "0",
+   "width": 16,
+   "height": 16,
+   "uv_width": 16,
+   "uv_height": 16,
+   "particle": true,
+   "render_mode": "default",
+   "render_sides": "auto",
+   "visible": true,
+   "internal": true,
+   "saved": false,
+   "uuid": "4bd2daa3-a9b3-55d5-9648-ee345183f9c9",
+   "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA1UlEQVR4nLWTvQoCMRCENyFge8Vx2mrjI/jAPoS9nY2dhRZaWPiDhZ34A5FZHVgj5wXFgSPZkPk2u5e4eJpF+aDreqpjqAq57Y86bidz6Qz6jziel5Irmm3sc4yH1U5cq6cZy25bP8aOJdSdBJsIgdFCEYfNeKQLqAlUygKxORVhgc2ACCOQdZY1EMjbptBEOuu0ZsxtHGxdgNkYJ2LTXup+/lJNIg26LIbaZGuycy+ZoiGde/lR/u+AUBVvnaewFpoArJf3JQV91UTelywAM9rM9lHdAXBXhuB5Bkl2AAAAAElFTkSuQmCC"
+  },
+  {
+   "path": "",
+   "name": "top",
+   "folder": "block",
+   "namespace": "dungeonblocks",
+   "id": "1",
+   "width": 16,
+   "height": 16,
+   "uv_width": 16,
+   "uv_height": 16,
+   "particle": false,
+   "render_mode": "default",
+   "render_sides": "auto",
+   "visible": true,
+   "internal": true,
+   "saved": false,
+   "uuid": "23bbd6e5-7b54-549d-a88c-f9360dd5a2f5",
+   "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZUlEQVR4nGP8//3qfwY8gJFTmxGZr6hg8v/+gzNwMRYQ8f/nPeya2ZXwmY0wAAT+vPrAgAxYxAQYsAFk20GACZlz5dhlMCYFMDFQCFiQOTpWuuQbwILDz0QZwEhEaI+CUcCABwAAb5oWZwjTmHAAAAAASUVORK5CYII="
+  }
+ ]
+}
