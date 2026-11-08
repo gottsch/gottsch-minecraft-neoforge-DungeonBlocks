@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "c": {
+      "item": "dungeonblocks:chandelier"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "k": {
+      "tag": "minecraft:candles"
+    }
+  },
+  "pattern": [
+    "kkk",
+    "ici",
+    "iii"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:medium_chandelier"
+  }
+}

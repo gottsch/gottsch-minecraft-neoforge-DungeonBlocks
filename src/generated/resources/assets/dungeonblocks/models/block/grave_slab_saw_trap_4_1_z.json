@@ -1,0 +1,12 @@
+{
+  "parent": "dungeonblocks:block/template_saw_trap_z",
+  "textures": {
+    "down": "dungeonblocks:block/grave_slab_pavement_4",
+    "east": "dungeonblocks:block/grave_slab_pavement_5",
+    "north": "dungeonblocks:block/grave_slab_pavement_5",
+    "slot": "dungeonblocks:block/grave_slab_saw_trap_slot",
+    "south": "dungeonblocks:block/grave_slab_pavement_4",
+    "up": "dungeonblocks:block/grave_slab_pavement_4",
+    "west": "dungeonblocks:block/grave_slab_pavement_4"
+  }
+}

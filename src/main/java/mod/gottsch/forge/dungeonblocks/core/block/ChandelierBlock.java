@@ -57,6 +57,7 @@ import org.joml.Vector3f;
 import mod.gottsch.forge.dungeonblocks.core.state.properties.ChainFixture;
 
 import javax.annotation.Nullable;
+import java.util.Arrays;
 import java.util.function.Function;
 import java.util.function.ToIntFunction;
 
@@ -84,7 +85,7 @@ public class ChandelierBlock extends Block implements SimpleWaterloggedBlock {
      */
     private static final double[][] FLAMES = {{2.5, 2.5}, {8, 2.5}, {13.5, 2.5}, {2.5, 8}, {13.5, 8},
             {2.5, 13.5}, {8, 13.5}, {13.5, 13.5}};
-    private static final double FLAME_Y = 10.5;
+    static final double FLAME_Y = 10.5;
 
     public ChandelierBlock(Properties properties) {
         super(properties);
@@ -198,19 +199,50 @@ public class ChandelierBlock extends Block implements SimpleWaterloggedBlock {
     /** The same, on the given wicks, each {x, z} in pixels at FLAME_Y. */
     static void flames(double[][] wicks, Level level, RandomSource random, Function<Vector3f, Vec3> place) {
         for (double[] flame : wicks) {
-            Vec3 at = place.apply(new Vector3f((float) (flame[0] / 16.0), (float) (FLAME_Y / 16.0), (float) (flame[1] / 16.0)));
-            double x = at.x;
-            double y = at.y;
-            double z = at.z;
-            float f = random.nextFloat();
-            if (f < 0.3F) {
-                level.addParticle(ParticleTypes.SMOKE, x, y, z, 0.0, 0.0, 0.0);
-                if (f < 0.04F) {
-                    level.playLocalSound(x, y, z, SoundEvents.CANDLE_AMBIENT, SoundSource.BLOCKS,
-                            1.0F + random.nextFloat(), random.nextFloat() * 0.7F + 0.3F, false);
-                }
-            }
-            level.addParticle(ParticleTypes.SMALL_FLAME, x, y, z, 0.0, 0.0, 0.0);
+            flame(flame[0], FLAME_Y, flame[1], level, random, place);
         }
+    }
+
+    /** The same, on wicks at any height, each {x, y, z} in pixels: a chandelier with more than one tier. */
+    static void flamesAt(double[][] wicks, Level level, RandomSource random, Function<Vector3f, Vec3> place) {
+        for (double[] flame : wicks) {
+            flame(flame[0], flame[1], flame[2], level, random, place);
+        }
+    }
+
+    /**
+     * {@code count} wicks round a ring {@code radius} px out from the block's centre, from
+     * {@code start} degrees (0 east, 90 south), at height {@code y}: ring_points in tools/gen_bbmodels.py.
+     */
+    static double[][] ring(double radius, int count, double start, double y) {
+        double[][] wicks = new double[count][];
+        for (int n = 0; n < count; n++) {
+            double a = Math.toRadians(start + n * 360.0 / count);
+            wicks[n] = new double[] {8 + radius * Math.cos(a), y, 8 + radius * Math.sin(a)};
+        }
+        return wicks;
+    }
+
+    /** Rings of wicks as one list. */
+    static double[][] concat(double[][]... rings) {
+        return Arrays.stream(rings).flatMap(Arrays::stream).toArray(double[][]::new);
+    }
+
+    /** One wick's flame, and now and then its smoke and crackle; the wick in pixels of the model. */
+    private static void flame(double px, double py, double pz, Level level, RandomSource random,
+                              Function<Vector3f, Vec3> place) {
+        Vec3 at = place.apply(new Vector3f((float) (px / 16.0), (float) (py / 16.0), (float) (pz / 16.0)));
+        double x = at.x;
+        double y = at.y;
+        double z = at.z;
+        float f = random.nextFloat();
+        if (f < 0.3F) {
+            level.addParticle(ParticleTypes.SMOKE, x, y, z, 0.0, 0.0, 0.0);
+            if (f < 0.04F) {
+                level.playLocalSound(x, y, z, SoundEvents.CANDLE_AMBIENT, SoundSource.BLOCKS,
+                        1.0F + random.nextFloat(), random.nextFloat() * 0.7F + 0.3F, false);
+            }
+        }
+        level.addParticle(ParticleTypes.SMALL_FLAME, x, y, z, 0.0, 0.0, 0.0);
     }
 }

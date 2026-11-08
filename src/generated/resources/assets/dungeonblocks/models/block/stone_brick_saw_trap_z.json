@@ -1,0 +1,12 @@
+{
+  "parent": "dungeonblocks:block/template_saw_trap_z",
+  "textures": {
+    "down": "minecraft:block/stone_bricks",
+    "east": "minecraft:block/stone_bricks",
+    "north": "minecraft:block/stone_bricks",
+    "slot": "dungeonblocks:block/stone_brick_saw_trap_slot",
+    "south": "minecraft:block/stone_bricks",
+    "up": "minecraft:block/stone_bricks",
+    "west": "minecraft:block/stone_bricks"
+  }
+}

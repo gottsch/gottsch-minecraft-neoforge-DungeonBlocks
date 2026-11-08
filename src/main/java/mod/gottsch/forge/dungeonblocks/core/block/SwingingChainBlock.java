@@ -132,7 +132,9 @@ public class SwingingChainBlock extends Block implements EntityBlock {
 			case CHANDELIER -> ChandelierBlock.SHAPE;
 			case BONE_CHANDELIER -> BoneChandelierBlock.SHAPE;
 			case MEDIUM_BONE_CHANDELIER -> MediumBoneChandelierBlock.SHAPE;
+			case MEDIUM_CHANDELIER -> MediumChandelierBlock.SHAPE;
 			case FIRE_BASKET, SOUL_FIRE_BASKET -> FireBasketBlock.SHAPE;
+			case OIL_LAMP -> HangingOilLampBlock.SHAPE;
 			default -> SHAPE;
 		};
 	}
@@ -345,8 +347,14 @@ public class SwingingChainBlock extends Block implements EntityBlock {
 		if (stack.is(ModBlocks.MEDIUM_BONE_CHANDELIER.get().asItem())) {
 			return ChainFixture.MEDIUM_BONE_CHANDELIER;
 		}
+		if (stack.is(ModBlocks.MEDIUM_CHANDELIER.get().asItem())) {
+			return ChainFixture.MEDIUM_CHANDELIER;
+		}
 		if (stack.is(ModBlocks.FIRE_BASKET.get().asItem())) {
 			return ChainFixture.FIRE_BASKET;
+		}
+		if (stack.is(ModBlocks.HANGING_OIL_LAMP.get().asItem())) {
+			return ChainFixture.OIL_LAMP;
 		}
 		return ChainFixture.NONE;
 	}
@@ -362,7 +370,9 @@ public class SwingingChainBlock extends Block implements EntityBlock {
 			case CHANDELIER -> new ItemStack(ModBlocks.CHANDELIER.get());
 			case BONE_CHANDELIER -> new ItemStack(ModBlocks.BONE_CHANDELIER.get());
 			case MEDIUM_BONE_CHANDELIER -> new ItemStack(ModBlocks.MEDIUM_BONE_CHANDELIER.get());
+			case MEDIUM_CHANDELIER -> new ItemStack(ModBlocks.MEDIUM_CHANDELIER.get());
 			case FIRE_BASKET, SOUL_FIRE_BASKET -> new ItemStack(ModBlocks.FIRE_BASKET.get());
+			case OIL_LAMP -> new ItemStack(ModBlocks.HANGING_OIL_LAMP.get());
 			case NONE -> ItemStack.EMPTY;
 		};
 	}
@@ -414,6 +424,14 @@ public class SwingingChainBlock extends Block implements EntityBlock {
 		}
 		if (fixture == ChainFixture.MEDIUM_BONE_CHANDELIER) {
 			MediumBoneChandelierBlock.flames(level, random, wick -> chain.bottomPoint(level.getGameTime(), wick));
+			return;
+		}
+		if (fixture == ChainFixture.MEDIUM_CHANDELIER) {
+			MediumChandelierBlock.flames(level, random, wick -> chain.bottomPoint(level.getGameTime(), wick));
+			return;
+		}
+		if (fixture == ChainFixture.OIL_LAMP) {
+			HangingOilLampBlock.flame(level, random, at -> chain.bottomPoint(level.getGameTime(), at));
 			return;
 		}
 		if (fixture.isFireBasket()) {

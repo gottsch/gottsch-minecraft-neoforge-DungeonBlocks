@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "dungeonblocks:brick_rubble"
+    }
+  ],
+  "result": {
+    "count": 4,
+    "id": "dungeonblocks:brick_rubble_scatter"
+  }
+}

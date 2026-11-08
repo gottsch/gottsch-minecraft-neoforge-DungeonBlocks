@@ -1,0 +1,652 @@
+{
+  "variants": {
+    "axis=x,layer=0,powered=false,raised=false,tile=0": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_0_0_x"
+    },
+    "axis=x,layer=0,powered=false,raised=false,tile=1": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_1_0_x"
+    },
+    "axis=x,layer=0,powered=false,raised=false,tile=2": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_2_0_x"
+    },
+    "axis=x,layer=0,powered=false,raised=false,tile=3": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_3_0_x"
+    },
+    "axis=x,layer=0,powered=false,raised=false,tile=4": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_4_0_x"
+    },
+    "axis=x,layer=0,powered=false,raised=false,tile=5": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_5_0_x"
+    },
+    "axis=x,layer=0,powered=false,raised=false,tile=6": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_6_0_x"
+    },
+    "axis=x,layer=0,powered=false,raised=false,tile=7": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_7_0_x"
+    },
+    "axis=x,layer=0,powered=false,raised=false,tile=8": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_8_0_x"
+    },
+    "axis=x,layer=0,powered=false,raised=true,tile=0": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_0_0_x"
+    },
+    "axis=x,layer=0,powered=false,raised=true,tile=1": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_1_0_x"
+    },
+    "axis=x,layer=0,powered=false,raised=true,tile=2": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_2_0_x"
+    },
+    "axis=x,layer=0,powered=false,raised=true,tile=3": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_3_0_x"
+    },
+    "axis=x,layer=0,powered=false,raised=true,tile=4": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_4_0_x"
+    },
+    "axis=x,layer=0,powered=false,raised=true,tile=5": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_5_0_x"
+    },
+    "axis=x,layer=0,powered=false,raised=true,tile=6": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_6_0_x"
+    },
+    "axis=x,layer=0,powered=false,raised=true,tile=7": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_7_0_x"
+    },
+    "axis=x,layer=0,powered=false,raised=true,tile=8": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_8_0_x"
+    },
+    "axis=x,layer=0,powered=true,raised=false,tile=0": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_0_0_x"
+    },
+    "axis=x,layer=0,powered=true,raised=false,tile=1": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_1_0_x"
+    },
+    "axis=x,layer=0,powered=true,raised=false,tile=2": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_2_0_x"
+    },
+    "axis=x,layer=0,powered=true,raised=false,tile=3": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_3_0_x"
+    },
+    "axis=x,layer=0,powered=true,raised=false,tile=4": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_4_0_x"
+    },
+    "axis=x,layer=0,powered=true,raised=false,tile=5": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_5_0_x"
+    },
+    "axis=x,layer=0,powered=true,raised=false,tile=6": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_6_0_x"
+    },
+    "axis=x,layer=0,powered=true,raised=false,tile=7": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_7_0_x"
+    },
+    "axis=x,layer=0,powered=true,raised=false,tile=8": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_8_0_x"
+    },
+    "axis=x,layer=0,powered=true,raised=true,tile=0": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_0_0_x"
+    },
+    "axis=x,layer=0,powered=true,raised=true,tile=1": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_1_0_x"
+    },
+    "axis=x,layer=0,powered=true,raised=true,tile=2": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_2_0_x"
+    },
+    "axis=x,layer=0,powered=true,raised=true,tile=3": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_3_0_x"
+    },
+    "axis=x,layer=0,powered=true,raised=true,tile=4": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_4_0_x"
+    },
+    "axis=x,layer=0,powered=true,raised=true,tile=5": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_5_0_x"
+    },
+    "axis=x,layer=0,powered=true,raised=true,tile=6": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_6_0_x"
+    },
+    "axis=x,layer=0,powered=true,raised=true,tile=7": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_7_0_x"
+    },
+    "axis=x,layer=0,powered=true,raised=true,tile=8": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_8_0_x"
+    },
+    "axis=x,layer=1,powered=false,raised=false,tile=0": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_0_1_x"
+    },
+    "axis=x,layer=1,powered=false,raised=false,tile=1": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_1_1_x"
+    },
+    "axis=x,layer=1,powered=false,raised=false,tile=2": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_2_1_x"
+    },
+    "axis=x,layer=1,powered=false,raised=false,tile=3": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_3_1_x"
+    },
+    "axis=x,layer=1,powered=false,raised=false,tile=4": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_4_1_x"
+    },
+    "axis=x,layer=1,powered=false,raised=false,tile=5": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_5_1_x"
+    },
+    "axis=x,layer=1,powered=false,raised=false,tile=6": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_6_1_x"
+    },
+    "axis=x,layer=1,powered=false,raised=false,tile=7": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_7_1_x"
+    },
+    "axis=x,layer=1,powered=false,raised=false,tile=8": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_8_1_x"
+    },
+    "axis=x,layer=1,powered=false,raised=true,tile=0": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_0_1_x"
+    },
+    "axis=x,layer=1,powered=false,raised=true,tile=1": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_1_1_x"
+    },
+    "axis=x,layer=1,powered=false,raised=true,tile=2": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_2_1_x"
+    },
+    "axis=x,layer=1,powered=false,raised=true,tile=3": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_3_1_x"
+    },
+    "axis=x,layer=1,powered=false,raised=true,tile=4": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_4_1_x"
+    },
+    "axis=x,layer=1,powered=false,raised=true,tile=5": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_5_1_x"
+    },
+    "axis=x,layer=1,powered=false,raised=true,tile=6": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_6_1_x"
+    },
+    "axis=x,layer=1,powered=false,raised=true,tile=7": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_7_1_x"
+    },
+    "axis=x,layer=1,powered=false,raised=true,tile=8": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_8_1_x"
+    },
+    "axis=x,layer=1,powered=true,raised=false,tile=0": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_0_1_x"
+    },
+    "axis=x,layer=1,powered=true,raised=false,tile=1": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_1_1_x"
+    },
+    "axis=x,layer=1,powered=true,raised=false,tile=2": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_2_1_x"
+    },
+    "axis=x,layer=1,powered=true,raised=false,tile=3": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_3_1_x"
+    },
+    "axis=x,layer=1,powered=true,raised=false,tile=4": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_4_1_x"
+    },
+    "axis=x,layer=1,powered=true,raised=false,tile=5": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_5_1_x"
+    },
+    "axis=x,layer=1,powered=true,raised=false,tile=6": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_6_1_x"
+    },
+    "axis=x,layer=1,powered=true,raised=false,tile=7": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_7_1_x"
+    },
+    "axis=x,layer=1,powered=true,raised=false,tile=8": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_8_1_x"
+    },
+    "axis=x,layer=1,powered=true,raised=true,tile=0": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_0_1_x"
+    },
+    "axis=x,layer=1,powered=true,raised=true,tile=1": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_1_1_x"
+    },
+    "axis=x,layer=1,powered=true,raised=true,tile=2": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_2_1_x"
+    },
+    "axis=x,layer=1,powered=true,raised=true,tile=3": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_3_1_x"
+    },
+    "axis=x,layer=1,powered=true,raised=true,tile=4": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_4_1_x"
+    },
+    "axis=x,layer=1,powered=true,raised=true,tile=5": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_5_1_x"
+    },
+    "axis=x,layer=1,powered=true,raised=true,tile=6": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_6_1_x"
+    },
+    "axis=x,layer=1,powered=true,raised=true,tile=7": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_7_1_x"
+    },
+    "axis=x,layer=1,powered=true,raised=true,tile=8": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_8_1_x"
+    },
+    "axis=x,layer=2,powered=false,raised=false,tile=0": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_0_2_x"
+    },
+    "axis=x,layer=2,powered=false,raised=false,tile=1": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_1_2_x"
+    },
+    "axis=x,layer=2,powered=false,raised=false,tile=2": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_2_2_x"
+    },
+    "axis=x,layer=2,powered=false,raised=false,tile=3": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_3_2_x"
+    },
+    "axis=x,layer=2,powered=false,raised=false,tile=4": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_4_2_x"
+    },
+    "axis=x,layer=2,powered=false,raised=false,tile=5": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_5_2_x"
+    },
+    "axis=x,layer=2,powered=false,raised=false,tile=6": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_6_2_x"
+    },
+    "axis=x,layer=2,powered=false,raised=false,tile=7": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_7_2_x"
+    },
+    "axis=x,layer=2,powered=false,raised=false,tile=8": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_8_2_x"
+    },
+    "axis=x,layer=2,powered=false,raised=true,tile=0": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_0_2_x"
+    },
+    "axis=x,layer=2,powered=false,raised=true,tile=1": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_1_2_x"
+    },
+    "axis=x,layer=2,powered=false,raised=true,tile=2": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_2_2_x"
+    },
+    "axis=x,layer=2,powered=false,raised=true,tile=3": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_3_2_x"
+    },
+    "axis=x,layer=2,powered=false,raised=true,tile=4": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_4_2_x"
+    },
+    "axis=x,layer=2,powered=false,raised=true,tile=5": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_5_2_x"
+    },
+    "axis=x,layer=2,powered=false,raised=true,tile=6": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_6_2_x"
+    },
+    "axis=x,layer=2,powered=false,raised=true,tile=7": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_7_2_x"
+    },
+    "axis=x,layer=2,powered=false,raised=true,tile=8": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_8_2_x"
+    },
+    "axis=x,layer=2,powered=true,raised=false,tile=0": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_0_2_x"
+    },
+    "axis=x,layer=2,powered=true,raised=false,tile=1": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_1_2_x"
+    },
+    "axis=x,layer=2,powered=true,raised=false,tile=2": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_2_2_x"
+    },
+    "axis=x,layer=2,powered=true,raised=false,tile=3": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_3_2_x"
+    },
+    "axis=x,layer=2,powered=true,raised=false,tile=4": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_4_2_x"
+    },
+    "axis=x,layer=2,powered=true,raised=false,tile=5": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_5_2_x"
+    },
+    "axis=x,layer=2,powered=true,raised=false,tile=6": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_6_2_x"
+    },
+    "axis=x,layer=2,powered=true,raised=false,tile=7": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_7_2_x"
+    },
+    "axis=x,layer=2,powered=true,raised=false,tile=8": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_8_2_x"
+    },
+    "axis=x,layer=2,powered=true,raised=true,tile=0": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_0_2_x"
+    },
+    "axis=x,layer=2,powered=true,raised=true,tile=1": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_1_2_x"
+    },
+    "axis=x,layer=2,powered=true,raised=true,tile=2": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_2_2_x"
+    },
+    "axis=x,layer=2,powered=true,raised=true,tile=3": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_3_2_x"
+    },
+    "axis=x,layer=2,powered=true,raised=true,tile=4": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_4_2_x"
+    },
+    "axis=x,layer=2,powered=true,raised=true,tile=5": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_5_2_x"
+    },
+    "axis=x,layer=2,powered=true,raised=true,tile=6": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_6_2_x"
+    },
+    "axis=x,layer=2,powered=true,raised=true,tile=7": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_7_2_x"
+    },
+    "axis=x,layer=2,powered=true,raised=true,tile=8": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_8_2_x"
+    },
+    "axis=z,layer=0,powered=false,raised=false,tile=0": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_0_0_z"
+    },
+    "axis=z,layer=0,powered=false,raised=false,tile=1": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_1_0_z"
+    },
+    "axis=z,layer=0,powered=false,raised=false,tile=2": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_2_0_z"
+    },
+    "axis=z,layer=0,powered=false,raised=false,tile=3": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_3_0_z"
+    },
+    "axis=z,layer=0,powered=false,raised=false,tile=4": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_4_0_z"
+    },
+    "axis=z,layer=0,powered=false,raised=false,tile=5": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_5_0_z"
+    },
+    "axis=z,layer=0,powered=false,raised=false,tile=6": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_6_0_z"
+    },
+    "axis=z,layer=0,powered=false,raised=false,tile=7": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_7_0_z"
+    },
+    "axis=z,layer=0,powered=false,raised=false,tile=8": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_8_0_z"
+    },
+    "axis=z,layer=0,powered=false,raised=true,tile=0": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_0_0_z"
+    },
+    "axis=z,layer=0,powered=false,raised=true,tile=1": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_1_0_z"
+    },
+    "axis=z,layer=0,powered=false,raised=true,tile=2": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_2_0_z"
+    },
+    "axis=z,layer=0,powered=false,raised=true,tile=3": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_3_0_z"
+    },
+    "axis=z,layer=0,powered=false,raised=true,tile=4": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_4_0_z"
+    },
+    "axis=z,layer=0,powered=false,raised=true,tile=5": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_5_0_z"
+    },
+    "axis=z,layer=0,powered=false,raised=true,tile=6": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_6_0_z"
+    },
+    "axis=z,layer=0,powered=false,raised=true,tile=7": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_7_0_z"
+    },
+    "axis=z,layer=0,powered=false,raised=true,tile=8": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_8_0_z"
+    },
+    "axis=z,layer=0,powered=true,raised=false,tile=0": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_0_0_z"
+    },
+    "axis=z,layer=0,powered=true,raised=false,tile=1": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_1_0_z"
+    },
+    "axis=z,layer=0,powered=true,raised=false,tile=2": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_2_0_z"
+    },
+    "axis=z,layer=0,powered=true,raised=false,tile=3": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_3_0_z"
+    },
+    "axis=z,layer=0,powered=true,raised=false,tile=4": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_4_0_z"
+    },
+    "axis=z,layer=0,powered=true,raised=false,tile=5": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_5_0_z"
+    },
+    "axis=z,layer=0,powered=true,raised=false,tile=6": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_6_0_z"
+    },
+    "axis=z,layer=0,powered=true,raised=false,tile=7": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_7_0_z"
+    },
+    "axis=z,layer=0,powered=true,raised=false,tile=8": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_8_0_z"
+    },
+    "axis=z,layer=0,powered=true,raised=true,tile=0": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_0_0_z"
+    },
+    "axis=z,layer=0,powered=true,raised=true,tile=1": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_1_0_z"
+    },
+    "axis=z,layer=0,powered=true,raised=true,tile=2": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_2_0_z"
+    },
+    "axis=z,layer=0,powered=true,raised=true,tile=3": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_3_0_z"
+    },
+    "axis=z,layer=0,powered=true,raised=true,tile=4": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_4_0_z"
+    },
+    "axis=z,layer=0,powered=true,raised=true,tile=5": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_5_0_z"
+    },
+    "axis=z,layer=0,powered=true,raised=true,tile=6": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_6_0_z"
+    },
+    "axis=z,layer=0,powered=true,raised=true,tile=7": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_7_0_z"
+    },
+    "axis=z,layer=0,powered=true,raised=true,tile=8": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_8_0_z"
+    },
+    "axis=z,layer=1,powered=false,raised=false,tile=0": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_0_1_z"
+    },
+    "axis=z,layer=1,powered=false,raised=false,tile=1": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_1_1_z"
+    },
+    "axis=z,layer=1,powered=false,raised=false,tile=2": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_2_1_z"
+    },
+    "axis=z,layer=1,powered=false,raised=false,tile=3": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_3_1_z"
+    },
+    "axis=z,layer=1,powered=false,raised=false,tile=4": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_4_1_z"
+    },
+    "axis=z,layer=1,powered=false,raised=false,tile=5": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_5_1_z"
+    },
+    "axis=z,layer=1,powered=false,raised=false,tile=6": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_6_1_z"
+    },
+    "axis=z,layer=1,powered=false,raised=false,tile=7": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_7_1_z"
+    },
+    "axis=z,layer=1,powered=false,raised=false,tile=8": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_8_1_z"
+    },
+    "axis=z,layer=1,powered=false,raised=true,tile=0": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_0_1_z"
+    },
+    "axis=z,layer=1,powered=false,raised=true,tile=1": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_1_1_z"
+    },
+    "axis=z,layer=1,powered=false,raised=true,tile=2": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_2_1_z"
+    },
+    "axis=z,layer=1,powered=false,raised=true,tile=3": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_3_1_z"
+    },
+    "axis=z,layer=1,powered=false,raised=true,tile=4": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_4_1_z"
+    },
+    "axis=z,layer=1,powered=false,raised=true,tile=5": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_5_1_z"
+    },
+    "axis=z,layer=1,powered=false,raised=true,tile=6": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_6_1_z"
+    },
+    "axis=z,layer=1,powered=false,raised=true,tile=7": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_7_1_z"
+    },
+    "axis=z,layer=1,powered=false,raised=true,tile=8": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_8_1_z"
+    },
+    "axis=z,layer=1,powered=true,raised=false,tile=0": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_0_1_z"
+    },
+    "axis=z,layer=1,powered=true,raised=false,tile=1": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_1_1_z"
+    },
+    "axis=z,layer=1,powered=true,raised=false,tile=2": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_2_1_z"
+    },
+    "axis=z,layer=1,powered=true,raised=false,tile=3": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_3_1_z"
+    },
+    "axis=z,layer=1,powered=true,raised=false,tile=4": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_4_1_z"
+    },
+    "axis=z,layer=1,powered=true,raised=false,tile=5": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_5_1_z"
+    },
+    "axis=z,layer=1,powered=true,raised=false,tile=6": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_6_1_z"
+    },
+    "axis=z,layer=1,powered=true,raised=false,tile=7": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_7_1_z"
+    },
+    "axis=z,layer=1,powered=true,raised=false,tile=8": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_8_1_z"
+    },
+    "axis=z,layer=1,powered=true,raised=true,tile=0": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_0_1_z"
+    },
+    "axis=z,layer=1,powered=true,raised=true,tile=1": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_1_1_z"
+    },
+    "axis=z,layer=1,powered=true,raised=true,tile=2": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_2_1_z"
+    },
+    "axis=z,layer=1,powered=true,raised=true,tile=3": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_3_1_z"
+    },
+    "axis=z,layer=1,powered=true,raised=true,tile=4": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_4_1_z"
+    },
+    "axis=z,layer=1,powered=true,raised=true,tile=5": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_5_1_z"
+    },
+    "axis=z,layer=1,powered=true,raised=true,tile=6": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_6_1_z"
+    },
+    "axis=z,layer=1,powered=true,raised=true,tile=7": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_7_1_z"
+    },
+    "axis=z,layer=1,powered=true,raised=true,tile=8": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_8_1_z"
+    },
+    "axis=z,layer=2,powered=false,raised=false,tile=0": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_0_2_z"
+    },
+    "axis=z,layer=2,powered=false,raised=false,tile=1": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_1_2_z"
+    },
+    "axis=z,layer=2,powered=false,raised=false,tile=2": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_2_2_z"
+    },
+    "axis=z,layer=2,powered=false,raised=false,tile=3": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_3_2_z"
+    },
+    "axis=z,layer=2,powered=false,raised=false,tile=4": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_4_2_z"
+    },
+    "axis=z,layer=2,powered=false,raised=false,tile=5": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_5_2_z"
+    },
+    "axis=z,layer=2,powered=false,raised=false,tile=6": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_6_2_z"
+    },
+    "axis=z,layer=2,powered=false,raised=false,tile=7": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_7_2_z"
+    },
+    "axis=z,layer=2,powered=false,raised=false,tile=8": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_8_2_z"
+    },
+    "axis=z,layer=2,powered=false,raised=true,tile=0": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_0_2_z"
+    },
+    "axis=z,layer=2,powered=false,raised=true,tile=1": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_1_2_z"
+    },
+    "axis=z,layer=2,powered=false,raised=true,tile=2": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_2_2_z"
+    },
+    "axis=z,layer=2,powered=false,raised=true,tile=3": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_3_2_z"
+    },
+    "axis=z,layer=2,powered=false,raised=true,tile=4": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_4_2_z"
+    },
+    "axis=z,layer=2,powered=false,raised=true,tile=5": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_5_2_z"
+    },
+    "axis=z,layer=2,powered=false,raised=true,tile=6": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_6_2_z"
+    },
+    "axis=z,layer=2,powered=false,raised=true,tile=7": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_7_2_z"
+    },
+    "axis=z,layer=2,powered=false,raised=true,tile=8": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_8_2_z"
+    },
+    "axis=z,layer=2,powered=true,raised=false,tile=0": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_0_2_z"
+    },
+    "axis=z,layer=2,powered=true,raised=false,tile=1": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_1_2_z"
+    },
+    "axis=z,layer=2,powered=true,raised=false,tile=2": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_2_2_z"
+    },
+    "axis=z,layer=2,powered=true,raised=false,tile=3": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_3_2_z"
+    },
+    "axis=z,layer=2,powered=true,raised=false,tile=4": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_4_2_z"
+    },
+    "axis=z,layer=2,powered=true,raised=false,tile=5": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_5_2_z"
+    },
+    "axis=z,layer=2,powered=true,raised=false,tile=6": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_6_2_z"
+    },
+    "axis=z,layer=2,powered=true,raised=false,tile=7": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_7_2_z"
+    },
+    "axis=z,layer=2,powered=true,raised=false,tile=8": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_8_2_z"
+    },
+    "axis=z,layer=2,powered=true,raised=true,tile=0": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_0_2_z"
+    },
+    "axis=z,layer=2,powered=true,raised=true,tile=1": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_1_2_z"
+    },
+    "axis=z,layer=2,powered=true,raised=true,tile=2": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_2_2_z"
+    },
+    "axis=z,layer=2,powered=true,raised=true,tile=3": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_3_2_z"
+    },
+    "axis=z,layer=2,powered=true,raised=true,tile=4": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_4_2_z"
+    },
+    "axis=z,layer=2,powered=true,raised=true,tile=5": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_5_2_z"
+    },
+    "axis=z,layer=2,powered=true,raised=true,tile=6": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_6_2_z"
+    },
+    "axis=z,layer=2,powered=true,raised=true,tile=7": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_7_2_z"
+    },
+    "axis=z,layer=2,powered=true,raised=true,tile=8": {
+      "model": "dungeonblocks:block/grave_slab_saw_trap_8_2_z"
+    }
+  }
+}

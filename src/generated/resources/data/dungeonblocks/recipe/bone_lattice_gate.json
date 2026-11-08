@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "b": {
+      "item": "minecraft:bone"
+    },
+    "k": {
+      "item": "minecraft:bone_block"
+    }
+  },
+  "pattern": [
+    "bb",
+    "kb",
+    "bb"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:bone_lattice_gate"
+  }
+}

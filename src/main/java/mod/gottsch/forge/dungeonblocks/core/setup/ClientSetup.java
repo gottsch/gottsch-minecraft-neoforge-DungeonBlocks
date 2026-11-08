@@ -6,6 +6,11 @@ import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.minecraft.client.resources.model.ModelResourceLocation;
+import mod.gottsch.forge.dungeonblocks.core.blockentity.client.LargeChandelierRenderer;
+import net.minecraft.client.renderer.entity.NoopRenderer;
+import mod.gottsch.forge.dungeonblocks.core.entity.client.SkeletonRemainsRenderer;
+import mod.gottsch.forge.dungeonblocks.core.blockentity.client.TombDoorRenderer;
+import mod.gottsch.forge.dungeonblocks.core.blockentity.client.SawTrapRenderer;
 import mod.gottsch.forge.dungeonblocks.DungeonBlocks;
 import mod.gottsch.forge.dungeonblocks.core.block.BubblingCauldronBlock;
 import mod.gottsch.forge.dungeonblocks.core.block.ModBlocks;
@@ -176,9 +181,15 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntityTypes.POT_SHARD.get(), PotShardRenderer::new);
         event.registerEntityRenderer(ModEntityTypes.TOME.get(), TomeRenderer::new);
         event.registerEntityRenderer(ModEntityTypes.SCROLL.get(), ScrollRenderer::new);
+        event.registerEntityRenderer(ModEntityTypes.SKELETON_REMAINS.get(), SkeletonRemainsRenderer::new);
+        // a bench seat is never drawn: the player sitting on it is
+        event.registerEntityRenderer(ModEntityTypes.SEAT.get(), NoopRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntityTypes.SWINGING_CHAIN.get(), SwingingChainRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntityTypes.DUNGEON_BANNER.get(), DungeonBannerRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntityTypes.SARCOPHAGUS.get(), SarcophagusRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntityTypes.TOMB_DOOR.get(), TombDoorRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntityTypes.SAW_TRAP.get(), SawTrapRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntityTypes.LARGE_CHANDELIER.get(), LargeChandelierRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntityTypes.WEAPON_RACK.get(), WeaponRackRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntityTypes.PEDESTAL.get(), PedestalRenderer::new);
     }
@@ -193,6 +204,19 @@ public class ClientSetup {
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void registerAdditionalModels(ModelEvent.RegisterAdditional event) {
+        event.register(TombDoorRenderer.SLAB);
+        event.register(SawTrapRenderer.BLADE);
+        event.register(SkeletonRemainsRenderer.SHACKLES);
+        // the large chandelier's nine parts, unlit and lit, per chandelier
+        for (DeferredHolder<Block, Block> block : List.of(ModBlocks.LARGE_CHANDELIER, ModBlocks.LARGE_BONE_CHANDELIER)) {
+            for (boolean lit : new boolean[] {false, true}) {
+                for (int x = 0; x < 3; x++) {
+                    for (int z = 0; z < 3; z++) {
+                        event.register(LargeChandelierRenderer.partModel(block.getId(), lit, x, z));
+                    }
+                }
+            }
+        }
         List<DeferredHolder<Block, Block>> tombs = new ArrayList<>(List.of(ModBlocks.STONE_SARCOPHAGUS, ModBlocks.DEEPSLATE_SARCOPHAGUS));
         tombs.addAll(ModBlocks.COFFINS);
         for (DeferredHolder<Block, Block> block : tombs) {

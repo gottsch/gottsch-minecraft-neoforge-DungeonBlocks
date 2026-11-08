@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:bone_block"
+    },
+    "k": {
+      "tag": "minecraft:candles"
+    },
+    "m": {
+      "item": "dungeonblocks:medium_bone_chandelier"
+    }
+  },
+  "pattern": [
+    "kkk",
+    "mbm",
+    "bbb"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:large_bone_chandelier"
+  }
+}

@@ -409,6 +409,35 @@ public class Recipes extends RecipeProvider {
 					.define('b', Blocks.BONE_BLOCK)
 					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.BONE_CHANDELIER.get()))
 					.save(recipe);
+			// large bone chandelier: two medium ones, more bone blocks and candles
+			ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LARGE_BONE_CHANDELIER.get())
+					.pattern("kkk")
+					.pattern("mbm")
+					.pattern("bbb")
+					.define('m', ModBlocks.MEDIUM_BONE_CHANDELIER.get())
+					.define('k', ItemTags.CANDLES)
+					.define('b', Blocks.BONE_BLOCK)
+					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.MEDIUM_BONE_CHANDELIER.get()))
+					.save(recipe);
+			// medium and large iron chandeliers: the same steps up, in iron
+			ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MEDIUM_CHANDELIER.get())
+					.pattern("kkk")
+					.pattern("ici")
+					.pattern("iii")
+					.define('c', ModBlocks.CHANDELIER.get())
+					.define('k', ItemTags.CANDLES)
+					.define('i', Items.IRON_INGOT)
+					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.CHANDELIER.get()))
+					.save(recipe);
+			ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.LARGE_CHANDELIER.get())
+					.pattern("kkk")
+					.pattern("mim")
+					.pattern("iii")
+					.define('m', ModBlocks.MEDIUM_CHANDELIER.get())
+					.define('k', ItemTags.CANDLES)
+					.define('i', Items.IRON_INGOT)
+					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.MEDIUM_CHANDELIER.get()))
+					.save(recipe);
 
 			// soul vent: a dark iron grate over a soul campfire
 			ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, ModBlocks.SOUL_VENT.get())
@@ -508,13 +537,19 @@ public class Recipes extends RecipeProvider {
 			cutPieces(recipe, ModBlocks.SQUARE_STONE_BRICK, ModBlocks.SQUARE_STONE_BRICK_STAIRS, ModBlocks.SQUARE_STONE_BRICK_SLAB,
 					ModBlocks.SQUARE_STONE_BRICK_FACADE_BLOCK, ModBlocks.SQUARE_STONE_BRICK_QUARTER_FACADE_BLOCK);
 			cutPieces(recipe, ModBlocks.MOSSY_SQUARE_STONE_BRICK, ModBlocks.MOSSY_SQUARE_STONE_BRICK_STAIRS, ModBlocks.MOSSY_SQUARE_STONE_BRICK_SLAB,
-					null, null);
-			cutPieces(recipe, ModBlocks.SQUARE_MUD_BRICK, ModBlocks.SQUARE_MUD_BRICK_STAIRS, null,
+					ModBlocks.MOSSY_SQUARE_STONE_BRICK_FACADE_BLOCK, ModBlocks.MOSSY_SQUARE_STONE_BRICK_QUARTER_FACADE_BLOCK);
+			cutPieces(recipe, ModBlocks.SQUARE_MUD_BRICK, ModBlocks.SQUARE_MUD_BRICK_STAIRS, ModBlocks.SQUARE_MUD_BRICK_SLAB,
 					ModBlocks.SQUARE_MUD_BRICK_FACADE_BLOCK, ModBlocks.SQUARE_MUD_BRICK_QUARTER_FACADE_BLOCK);
 			cutPieces(recipe, ModBlocks.SQUARE_DEEPSLATE_BRICK, ModBlocks.SQUARE_DEEPSLATE_BRICK_STAIRS, ModBlocks.SQUARE_DEEPSLATE_BRICK_SLAB,
 					ModBlocks.SQUARE_DEEPSLATE_BRICK_FACADE_BLOCK, ModBlocks.SQUARE_DEEPSLATE_BRICK_QUARTER_FACADE_BLOCK);
 			cutPieces(recipe, ModBlocks.MOSSY_SQUARE_DEEPSLATE_BRICK, ModBlocks.MOSSY_SQUARE_DEEPSLATE_BRICK_STAIRS, ModBlocks.MOSSY_SQUARE_DEEPSLATE_BRICK_SLAB,
 					ModBlocks.MOSSY_SQUARE_DEEPSLATE_BRICK_FACADE_BLOCK, ModBlocks.MOSSY_SQUARE_DEEPSLATE_BRICK_QUARTER_FACADE_BLOCK);
+			cutPieces(recipe, ModBlocks.MOSSY_SQUARE_MUD_BRICK, ModBlocks.MOSSY_SQUARE_MUD_BRICK_STAIRS, ModBlocks.MOSSY_SQUARE_MUD_BRICK_SLAB,
+					ModBlocks.MOSSY_SQUARE_MUD_BRICK_FACADE_BLOCK, ModBlocks.MOSSY_SQUARE_MUD_BRICK_QUARTER_FACADE_BLOCK);
+			cutPieces(recipe, ModBlocks.SQUARE_BRICK, ModBlocks.SQUARE_BRICK_STAIRS, ModBlocks.SQUARE_BRICK_SLAB,
+					ModBlocks.SQUARE_BRICK_FACADE_BLOCK, ModBlocks.SQUARE_BRICK_QUARTER_FACADE_BLOCK);
+			cutPieces(recipe, ModBlocks.MOSSY_SQUARE_BRICK, ModBlocks.MOSSY_SQUARE_BRICK_STAIRS, ModBlocks.MOSSY_SQUARE_BRICK_SLAB,
+					ModBlocks.MOSSY_SQUARE_BRICK_FACADE_BLOCK, ModBlocks.MOSSY_SQUARE_BRICK_QUARTER_FACADE_BLOCK);
 			cutPieces(recipe, ModBlocks.LARGE_BRICKS, ModBlocks.LARGE_BRICK_STAIRS, null, null, null);
 			cutPieces(recipe, ModBlocks.MOSSY_LARGE_BRICKS, ModBlocks.MOSSY_LARGE_BRICK_STAIRS, null, null, null);
 
@@ -541,6 +576,25 @@ public class Recipes extends RecipeProvider {
 			cutPiece(recipe, ModBlocks.OSSUARY_BRICKS, ModBlocks.OSSUARY_BRICK_STAIRS, 1);
 			cutPiece(recipe, ModBlocks.MOSSY_OSSUARY_BRICKS, ModBlocks.MOSSY_OSSUARY_BRICK_STAIRS, 1);
 			cutPiece(recipe, ModBlocks.HEWN_TUFA, ModBlocks.HEWN_TUFA_STAIRS, 1);
+			cutPiece(recipe, ModBlocks.HEWN_TUFA, ModBlocks.HEWN_TUFA_SLAB, 2);
+			cutPiece(recipe, ModBlocks.HEWN_TUFA, ModBlocks.HEWN_TUFA_WALL, 1);
+			cutPiece(recipe, ModBlocks.MOSSY_HEWN_TUFA, ModBlocks.MOSSY_HEWN_TUFA_STAIRS, 1);
+			cutPiece(recipe, ModBlocks.OSSUARY_BRICKS, ModBlocks.OSSUARY_BRICK_SLAB, 2);
+			cutPiece(recipe, ModBlocks.OSSUARY_BRICKS, ModBlocks.OSSUARY_BRICK_WALL, 1);
+			cutPiece(recipe, ModBlocks.MOSSY_OSSUARY_BRICKS, ModBlocks.MOSSY_OSSUARY_BRICK_SLAB, 2);
+			cutPiece(recipe, ModBlocks.MOSSY_OSSUARY_BRICKS, ModBlocks.MOSSY_OSSUARY_BRICK_WALL, 1);
+			cutPiece(recipe, ModBlocks.SQUARE_OSSUARY_BRICK, ModBlocks.SQUARE_OSSUARY_BRICK_STAIRS, 1);
+			// mossy square ossuary brick: cut from mossy ossuary bricks, or the plain one and a vine or moss
+			cutPiece(recipe, ModBlocks.MOSSY_OSSUARY_BRICKS, ModBlocks.MOSSY_SQUARE_OSSUARY_BRICK, 1);
+			mossy(recipe, ModBlocks.MOSSY_SQUARE_OSSUARY_BRICK, ModBlocks.SQUARE_OSSUARY_BRICK.get());
+			cutPiece(recipe, ModBlocks.MOSSY_SQUARE_OSSUARY_BRICK, ModBlocks.MOSSY_SQUARE_OSSUARY_BRICK_STAIRS, 1);
+			cutPiece(recipe, ModBlocks.SQUARE_OSSUARY_BRICK, ModBlocks.SQUARE_OSSUARY_BRICK_SLAB, 2);
+			cutPiece(recipe, ModBlocks.MOSSY_SQUARE_OSSUARY_BRICK, ModBlocks.MOSSY_SQUARE_OSSUARY_BRICK_SLAB, 2);
+			// large tufa bricks are cut from hewn tufa (the mossy ones from mossy hewn tufa), as the
+			// other large bricks are from their bricks
+			cutBricks(recipe, ModBlocks.HEWN_TUFA.get(), ModBlocks.MOSSY_HEWN_TUFA.get(), Map.of(
+					ModBlocks.LEFT_LARGE_TUFA_BRICK, ModBlocks.MOSSY_LEFT_LARGE_TUFA_BRICK,
+					ModBlocks.RIGHT_LARGE_TUFA_BRICK, ModBlocks.MOSSY_RIGHT_LARGE_TUFA_BRICK));
 			slabTable(recipe, ModBlocks.OSSUARY_BRICKS_SLAB_TABLE, ModBlocks.OSSUARY_BRICKS.get(), ModBlocks.OSSUARY_BRICKS.get());
 			// hewn tufa is cut from tuff, and the grave slabs from that
 			SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.TUFF), RecipeCategory.BUILDING_BLOCKS, ModBlocks.HEWN_TUFA.get())
@@ -549,10 +603,44 @@ public class Recipes extends RecipeProvider {
 			SingleItemRecipeBuilder.stonecutting(Ingredient.of(ModBlocks.HEWN_TUFA.get()), RecipeCategory.BUILDING_BLOCKS, ModBlocks.GRAVE_SLAB_PAVEMENT.get())
 					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.HEWN_TUFA.get()))
 					.save(recipe);
+			// cracked in a furnace, as the flagstones are
+			SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModBlocks.GRAVE_SLAB_PAVEMENT.get()), RecipeCategory.BUILDING_BLOCKS,
+							ModBlocks.CRACKED_GRAVE_SLAB_PAVEMENT.get(), 0.1F, 200)
+					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.GRAVE_SLAB_PAVEMENT.get()))
+					.save(recipe);
+			// ossuary cobblestone is cobblestone bleached with bone meal, as its bricks are; mossy
+			// with a vine or a moss block; stairs, slabs and walls cut from either
+			ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.OSSUARY_COBBLESTONE.get())
+					.requires(Blocks.COBBLESTONE)
+					.requires(Items.BONE_MEAL)
+					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(Items.BONE_MEAL))
+					.save(recipe);
+			mossy(recipe, ModBlocks.MOSSY_OSSUARY_COBBLESTONE, ModBlocks.OSSUARY_COBBLESTONE.get());
+			cutPiece(recipe, ModBlocks.OSSUARY_COBBLESTONE, ModBlocks.OSSUARY_COBBLESTONE_STAIRS, 1);
+			cutPiece(recipe, ModBlocks.OSSUARY_COBBLESTONE, ModBlocks.OSSUARY_COBBLESTONE_SLAB, 2);
+			cutPiece(recipe, ModBlocks.OSSUARY_COBBLESTONE, ModBlocks.OSSUARY_COBBLESTONE_WALL, 1);
+			cutPiece(recipe, ModBlocks.MOSSY_OSSUARY_COBBLESTONE, ModBlocks.MOSSY_OSSUARY_COBBLESTONE_STAIRS, 1);
+			cutPiece(recipe, ModBlocks.MOSSY_OSSUARY_COBBLESTONE, ModBlocks.MOSSY_OSSUARY_COBBLESTONE_SLAB, 2);
+			cutPiece(recipe, ModBlocks.MOSSY_OSSUARY_COBBLESTONE, ModBlocks.MOSSY_OSSUARY_COBBLESTONE_WALL, 1);
 			// herringbone bricks are relaid bricks
 			SingleItemRecipeBuilder.stonecutting(Ingredient.of(Blocks.BRICKS), RecipeCategory.BUILDING_BLOCKS, ModBlocks.HERRINGBONE_BRICKS.get())
 					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.BRICKS))
 					.save(recipe);
+			// stone benches are cut from their stone's bricks, one for one
+			for (var entry : java.util.Map.of(ModBlocks.STONE_BENCH, Blocks.STONE_BRICKS, ModBlocks.DEEPSLATE_BENCH, Blocks.DEEPSLATE_BRICKS,
+					ModBlocks.OSSUARY_BENCH, ModBlocks.OSSUARY_BRICKS.get(), ModBlocks.BRICK_BENCH, Blocks.BRICKS,
+					ModBlocks.MUD_BRICK_BENCH, Blocks.MUD_BRICKS).entrySet()) {
+				SingleItemRecipeBuilder.stonecutting(Ingredient.of(entry.getValue()), RecipeCategory.DECORATIONS, entry.getKey().get())
+						.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(entry.getValue()))
+						.save(recipe, ResourceLocation.fromNamespaceAndPath(DungeonBlocks.MOD_ID, entry.getKey().getId().getPath() + "_stonecutting"));
+			}
+			// mixed ashlar is stone recut, from stone or stone bricks
+			for (Block from : List.of(Blocks.STONE, Blocks.STONE_BRICKS)) {
+				SingleItemRecipeBuilder.stonecutting(Ingredient.of(from), RecipeCategory.BUILDING_BLOCKS, ModBlocks.MIXED_ASHLAR.get())
+						.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(from))
+						.save(recipe, ResourceLocation.fromNamespaceAndPath(DungeonBlocks.MOD_ID, "mixed_ashlar_from_" + BuiltInRegistries.BLOCK.getKey(from).getPath() + "_stonecutting"));
+			}
+			mossy(recipe, ModBlocks.MOSSY_MIXED_ASHLAR, ModBlocks.MIXED_ASHLAR.get());
 			// bone walls are hewn tufa packed with a bone block for the skulls, as on the skull
 			// pike, or with bones; knucklebone paving is cobblestone set with a bone
 			ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, ModBlocks.PACKED_SKULLS.get())
@@ -718,6 +806,11 @@ public class Recipes extends RecipeProvider {
 					.requires(ModBlocks.RUBBLE.get())
 					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.RUBBLE.get()))
 					.save(recipe);
+			ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, ModBlocks.BRICK_RUBBLE_SCATTER.get(), 4)
+					.requires(ModBlocks.BRICK_RUBBLE.get())
+					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.BRICK_RUBBLE.get()))
+					.save(recipe);
+			mossy(recipe, ModBlocks.MOSSY_BRICK_RUBBLE, ModBlocks.BRICK_RUBBLE.get());
 
 			// chain fixtures. Manacles: two iron cuffs on a chain
 			ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModBlocks.MANACLES.get())
@@ -752,6 +845,58 @@ public class Recipes extends RecipeProvider {
 					.define('c', Blocks.CHAIN)
 					.define('b', ModBlocks.BRAZIER.get())
 					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.BRAZIER.get()))
+					.save(recipe);
+
+			// bone lattice gate: bones round a bone block, in a door's shape
+			ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, ModBlocks.BONE_LATTICE_GATE.get())
+					.pattern("bb")
+					.pattern("kb")
+					.pattern("bb")
+					.define('b', Items.BONE)
+					.define('k', Blocks.BONE_BLOCK)
+					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(Items.BONE))
+					.save(recipe);
+
+			// duckboards: planks laid across two sticks, six at a time
+			for (var entry : java.util.Map.of(ModBlocks.OAK_DUCKBOARDS, Blocks.OAK_PLANKS, ModBlocks.SPRUCE_DUCKBOARDS,
+					Blocks.SPRUCE_PLANKS, ModBlocks.DARK_OAK_DUCKBOARDS, Blocks.DARK_OAK_PLANKS).entrySet()) {
+				ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, entry.getKey().get(), 6)
+						.pattern("ppp")
+						.pattern("s s")
+						.define('p', entry.getValue())
+						.define('s', Items.STICK)
+						.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(entry.getValue()))
+						.save(recipe);
+			}
+
+			// saw traps: the floor block with an iron blade set in it, sprung by redstone
+			for (var trap : List.of(Map.entry(ModBlocks.STONE_BRICK_SAW_TRAP.get(), Blocks.STONE_BRICKS.asItem()),
+					Map.entry(ModBlocks.GRAVE_SLAB_SAW_TRAP.get(), ModBlocks.GRAVE_SLAB_PAVEMENT.get().asItem()))) {
+				ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, trap.getKey())
+						.pattern("iBi")
+						.pattern(" r ")
+						.define('i', Items.IRON_INGOT)
+						.define('B', trap.getValue())
+						.define('r', Items.REDSTONE)
+						.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(trap.getValue()))
+						.save(recipe);
+			}
+
+			// tomb door: a slab of smooth stone, in a door's shape
+			ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, ModBlocks.TOMB_DOOR.get())
+					.pattern("ss")
+					.pattern("ss")
+					.pattern("ss")
+					.define('s', Blocks.SMOOTH_STONE)
+					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.SMOOTH_STONE))
+					.save(recipe);
+
+			// hanging oil lamp: a clay pot, a chain to hang it by, string for the wick
+			ShapelessRecipeBuilder.shapeless(RecipeCategory.DECORATIONS, ModBlocks.HANGING_OIL_LAMP.get())
+					.requires(Blocks.FLOWER_POT)
+					.requires(Blocks.CHAIN)
+					.requires(Items.STRING)
+					.unlockedBy(CRITERIA, InventoryChangeTrigger.TriggerInstance.hasItems(Blocks.FLOWER_POT))
 					.save(recipe);
 
 			// bubbling cauldron: a cauldron, water, and nether wart for the brew; it starts green

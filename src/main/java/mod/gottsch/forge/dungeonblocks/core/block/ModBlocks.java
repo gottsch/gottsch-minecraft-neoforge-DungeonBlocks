@@ -199,6 +199,21 @@ public class ModBlocks {
     // its weathered twins, the same pattern with the same TILE, so a weathering rule can swap them
     public static final DeferredHolder<Block, Block> CRACKED_FLAGSTONES = stone("cracked_flagstones",
             () -> new StackedPatternTileBlock(Properties.ofFullCopy(Blocks.CRACKED_STONE_BRICKS)));
+
+    // Saw traps: a floor block with a circular saw inside that rises, after a click and a short delay,
+    // to cut whatever stands on it. Only a slot across the top gives it away. Drawn by SawTrapRenderer.
+    public static final List<DeferredHolder<Block, ? extends SawTrapBlock>> SAW_TRAPS = new ArrayList<>();
+    public static final DeferredHolder<Block, SawTrapBlock> STONE_BRICK_SAW_TRAP = sawTrap("stone_brick",
+            () -> new SawTrapBlock(Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+    // the grave slab one keeps the pavement's TILE and LAYER, so it shows the floor's own slice
+    public static final DeferredHolder<Block, SawTrapBlock> GRAVE_SLAB_SAW_TRAP = sawTrap("grave_slab",
+            () -> new PatternSawTrapBlock(Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+
+    private static DeferredHolder<Block, SawTrapBlock> sawTrap(String stone, Supplier<SawTrapBlock> block) {
+        DeferredHolder<Block, SawTrapBlock> trap = stone(stone + "_saw_trap", block);
+        SAW_TRAPS.add(trap);
+        return trap;
+    }
     public static final DeferredHolder<Block, Block> MOSSY_FLAGSTONES = stone("mossy_flagstones",
             () -> new StackedPatternTileBlock(Properties.ofFullCopy(Blocks.MOSSY_STONE_BRICKS)));
     // A floor of small setts laid in overlapping arcs, fan paving, on the same three-block pattern
@@ -274,6 +289,18 @@ public class ModBlocks {
     public static final DeferredHolder<Block, Block> SQUARE_MUD_BRICK_QUARTER_FACADE_BLOCK = stone("square_mud_brick_quarter_facade_block", () -> {
         return new FacadeShapeBlock(Properties.ofFullCopy(Blocks.MUD_BRICKS), DecorType.QUARTER_FACADE);
     });
+    public static final DeferredHolder<Block, Block> MOSSY_SQUARE_STONE_BRICK_FACADE_BLOCK = stone("mossy_square_stone_brick_facade_block", () -> {
+        return new FacadeShapeBlock(Properties.ofFullCopy(Blocks.MOSSY_STONE_BRICKS), DecorType.FACADE);
+    });
+    public static final DeferredHolder<Block, Block> MOSSY_SQUARE_STONE_BRICK_QUARTER_FACADE_BLOCK = stone("mossy_square_stone_brick_quarter_facade_block", () -> {
+        return new FacadeShapeBlock(Properties.ofFullCopy(Blocks.MOSSY_STONE_BRICKS), DecorType.QUARTER_FACADE);
+    });
+    public static final DeferredHolder<Block, Block> MOSSY_SQUARE_MUD_BRICK_FACADE_BLOCK = stone("mossy_square_mud_brick_facade_block", () -> {
+        return new FacadeShapeBlock(Properties.ofFullCopy(Blocks.MUD_BRICKS), DecorType.FACADE);
+    });
+    public static final DeferredHolder<Block, Block> MOSSY_SQUARE_MUD_BRICK_QUARTER_FACADE_BLOCK = stone("mossy_square_mud_brick_quarter_facade_block", () -> {
+        return new FacadeShapeBlock(Properties.ofFullCopy(Blocks.MUD_BRICKS), DecorType.QUARTER_FACADE);
+    });
     public static final DeferredHolder<Block, Block> LEFT_LARGE_STONE_BRICK = stone("left_large_stone_brick", () -> {
         return new FacingBlock(Properties.ofFullCopy(Blocks.STONE_BRICKS));
     });
@@ -299,6 +326,9 @@ public class ModBlocks {
     // copy - and their moss is the mod's usual overlay, unchanged from the stone and clay variants.
     public static final DeferredHolder<Block, Block> MOSSY_SQUARE_MUD_BRICK = stone("mossy_square_mud_brick", () -> {
         return new Block(Properties.ofFullCopy(Blocks.MUD_BRICKS));
+    });
+    public static final DeferredHolder<Block, StairBlock> MOSSY_SQUARE_MUD_BRICK_STAIRS = stone("mossy_square_mud_brick_stairs", () -> {
+        return new StairBlock(MOSSY_SQUARE_MUD_BRICK.get().defaultBlockState(), Properties.ofFullCopy(Blocks.MUD_BRICK_STAIRS));
     });
     public static final DeferredHolder<Block, Block> MOSSY_LEFT_LARGE_MUD_BRICK = stone("mossy_left_large_mud_brick", () -> {
         return new FacingBlock(Properties.ofFullCopy(Blocks.MUD_BRICKS));
@@ -424,15 +454,60 @@ public class ModBlocks {
     public static final DeferredHolder<Block, StairBlock> HEWN_TUFA_STAIRS = stone("hewn_tufa_stairs", () -> {
         return new StairBlock(HEWN_TUFA.get().defaultBlockState(), Properties.ofFullCopy(Blocks.TUFF));
     });
+    public static final DeferredHolder<Block, StairBlock> MOSSY_HEWN_TUFA_STAIRS = stone("mossy_hewn_tufa_stairs", () -> {
+        return new StairBlock(MOSSY_HEWN_TUFA.get().defaultBlockState(), Properties.ofFullCopy(Blocks.TUFF));
+    });
+    // slabs and walls for the catacombs' bricks and rock, as Ossuary Cobblestone has
+    public static final DeferredHolder<Block, SlabBlock> OSSUARY_BRICK_SLAB = stone("ossuary_brick_slab", () -> {
+        return new SlabBlock(Properties.ofFullCopy(Blocks.STONE_BRICK_SLAB));
+    });
+    public static final DeferredHolder<Block, WallBlock> OSSUARY_BRICK_WALL = stone("ossuary_brick_wall", () -> {
+        return new WallBlock(Properties.ofFullCopy(Blocks.STONE_BRICK_WALL));
+    });
+    public static final DeferredHolder<Block, SlabBlock> MOSSY_OSSUARY_BRICK_SLAB = stone("mossy_ossuary_brick_slab", () -> {
+        return new SlabBlock(Properties.ofFullCopy(Blocks.MOSSY_STONE_BRICK_SLAB));
+    });
+    public static final DeferredHolder<Block, WallBlock> MOSSY_OSSUARY_BRICK_WALL = stone("mossy_ossuary_brick_wall", () -> {
+        return new WallBlock(Properties.ofFullCopy(Blocks.MOSSY_STONE_BRICK_WALL));
+    });
+    public static final DeferredHolder<Block, SlabBlock> HEWN_TUFA_SLAB = stone("hewn_tufa_slab", () -> {
+        return new SlabBlock(Properties.ofFullCopy(Blocks.TUFF));
+    });
+    public static final DeferredHolder<Block, WallBlock> HEWN_TUFA_WALL = stone("hewn_tufa_wall", () -> {
+        return new WallBlock(Properties.ofFullCopy(Blocks.TUFF).forceSolidOn());
+    });
 
     public static final DeferredHolder<Block, Block> SQUARE_OSSUARY_BRICK = stone("square_ossuary_brick", () -> {
         return new Block(Properties.ofFullCopy(Blocks.STONE_BRICKS));
+    });
+    public static final DeferredHolder<Block, StairBlock> SQUARE_OSSUARY_BRICK_STAIRS = stone("square_ossuary_brick_stairs", () -> {
+        return new StairBlock(SQUARE_OSSUARY_BRICK.get().defaultBlockState(), Properties.ofFullCopy(Blocks.STONE_BRICK_STAIRS));
+    });
+    public static final DeferredHolder<Block, Block> MOSSY_SQUARE_OSSUARY_BRICK = stone("mossy_square_ossuary_brick", () -> {
+        return new Block(Properties.ofFullCopy(Blocks.MOSSY_STONE_BRICKS));
+    });
+    public static final DeferredHolder<Block, StairBlock> MOSSY_SQUARE_OSSUARY_BRICK_STAIRS = stone("mossy_square_ossuary_brick_stairs", () -> {
+        return new StairBlock(MOSSY_SQUARE_OSSUARY_BRICK.get().defaultBlockState(), Properties.ofFullCopy(Blocks.MOSSY_STONE_BRICK_STAIRS));
     });
     public static final DeferredHolder<Block, Block> LEFT_LARGE_OSSUARY_BRICK = stone("left_large_ossuary_brick", () -> {
         return new FacingBlock(Properties.ofFullCopy(Blocks.STONE_BRICKS));
     });
     public static final DeferredHolder<Block, Block> RIGHT_LARGE_OSSUARY_BRICK = stone("right_large_ossuary_brick", () -> {
         return new FacingBlock(Properties.ofFullCopy(Blocks.STONE_BRICKS));
+    });
+    // large tufa bricks: the large stone brick pair retoned to hewn tufa's palette, plain and mossy;
+    // tuff's properties, as hewn tufa's
+    public static final DeferredHolder<Block, Block> LEFT_LARGE_TUFA_BRICK = stone("left_large_tufa_brick", () -> {
+        return new FacingBlock(Properties.ofFullCopy(Blocks.TUFF));
+    });
+    public static final DeferredHolder<Block, Block> RIGHT_LARGE_TUFA_BRICK = stone("right_large_tufa_brick", () -> {
+        return new FacingBlock(Properties.ofFullCopy(Blocks.TUFF));
+    });
+    public static final DeferredHolder<Block, Block> MOSSY_LEFT_LARGE_TUFA_BRICK = stone("mossy_left_large_tufa_brick", () -> {
+        return new FacingBlock(Properties.ofFullCopy(Blocks.TUFF));
+    });
+    public static final DeferredHolder<Block, Block> MOSSY_RIGHT_LARGE_TUFA_BRICK = stone("mossy_right_large_tufa_brick", () -> {
+        return new FacingBlock(Properties.ofFullCopy(Blocks.TUFF));
     });
 
     // Packed Skulls: a wall of skulls crammed together on tufa, a pattern three blocks square.
@@ -449,6 +524,39 @@ public class ModBlocks {
     // three-block pattern as the flagstones: the joints cross block edges. Stone bricks' properties.
     public static final DeferredHolder<Block, Block> GRAVE_SLAB_PAVEMENT = stone("grave_slab_pavement",
             () -> new StackedPatternTileBlock(Properties.ofFullCopy(Blocks.STONE_BRICKS)));
+    // its weathered twin, the same pattern with the same TILE, so a weathering rule can swap them.
+    // Pavement weathers cracked -> rubble | dirt, never to a cobblestone: it is one layer of slabs.
+    public static final DeferredHolder<Block, Block> CRACKED_GRAVE_SLAB_PAVEMENT = stone("cracked_grave_slab_pavement",
+            () -> new StackedPatternTileBlock(Properties.ofFullCopy(Blocks.CRACKED_STONE_BRICKS)));
+
+    // Ossuary Cobblestone: vanilla cobblestone re-toned to the ossuary bricks' dirty bone, what they
+    // weather down to (bricks -> cracked | mossy -> cobblestone | mossy cobblestone -> rubble | dirt),
+    // so the decay reads as one stone; vanilla's grey cobblestone beside them looked patched in.
+    public static final DeferredHolder<Block, Block> OSSUARY_COBBLESTONE = stone("ossuary_cobblestone", () -> {
+        return new Block(Properties.ofFullCopy(Blocks.COBBLESTONE));
+    });
+    public static final DeferredHolder<Block, Block> MOSSY_OSSUARY_COBBLESTONE = stone("mossy_ossuary_cobblestone", () -> {
+        return new Block(Properties.ofFullCopy(Blocks.MOSSY_COBBLESTONE));
+    });
+    public static final DeferredHolder<Block, StairBlock> OSSUARY_COBBLESTONE_STAIRS = stone("ossuary_cobblestone_stairs", () -> {
+        return new StairBlock(OSSUARY_COBBLESTONE.get().defaultBlockState(), Properties.ofFullCopy(Blocks.COBBLESTONE_STAIRS));
+    });
+    public static final DeferredHolder<Block, StairBlock> MOSSY_OSSUARY_COBBLESTONE_STAIRS = stone("mossy_ossuary_cobblestone_stairs", () -> {
+        return new StairBlock(MOSSY_OSSUARY_COBBLESTONE.get().defaultBlockState(), Properties.ofFullCopy(Blocks.MOSSY_COBBLESTONE_STAIRS));
+    });
+    public static final DeferredHolder<Block, SlabBlock> OSSUARY_COBBLESTONE_SLAB = stone("ossuary_cobblestone_slab", () -> {
+        return new SlabBlock(Properties.ofFullCopy(Blocks.COBBLESTONE_SLAB));
+    });
+    public static final DeferredHolder<Block, SlabBlock> MOSSY_OSSUARY_COBBLESTONE_SLAB = stone("mossy_ossuary_cobblestone_slab", () -> {
+        return new SlabBlock(Properties.ofFullCopy(Blocks.MOSSY_COBBLESTONE_SLAB));
+    });
+    // the mod's first WallBlocks: they join each other and other walls through BlockTags.WALLS
+    public static final DeferredHolder<Block, WallBlock> OSSUARY_COBBLESTONE_WALL = stone("ossuary_cobblestone_wall", () -> {
+        return new WallBlock(Properties.ofFullCopy(Blocks.COBBLESTONE_WALL));
+    });
+    public static final DeferredHolder<Block, WallBlock> MOSSY_OSSUARY_COBBLESTONE_WALL = stone("mossy_ossuary_cobblestone_wall", () -> {
+        return new WallBlock(Properties.ofFullCopy(Blocks.MOSSY_COBBLESTONE_WALL));
+    });
 
     // Knucklebone Paving: a dark pebble floor with small bones set in as a mosaic, on the same
     // three-block pattern. Cobblestone's properties.
@@ -487,6 +595,16 @@ public class ModBlocks {
     public static final DeferredHolder<Block, Block> MOSSY_HERRINGBONE_BRICKS = stone("mossy_herringbone_bricks", () -> {
         return new Block(Properties.ofFullCopy(Blocks.BRICKS));
     });
+    // squared stones of mixed sizes in one repeating block, the one-block form of mixed ashlar;
+    // texture from tools/gen_mixed_ashlar_texture.py
+    public static final DeferredHolder<Block, Block> MIXED_ASHLAR = stone("mixed_ashlar", () -> {
+        return new Block(Properties.ofFullCopy(Blocks.STONE_BRICKS));
+    });
+    // moss grown in its own joints (the same script); no cracked twin, since one block's cracks
+    // would repeat on every block of a floor
+    public static final DeferredHolder<Block, Block> MOSSY_MIXED_ASHLAR = stone("mossy_mixed_ashlar", () -> {
+        return new Block(Properties.ofFullCopy(Blocks.MOSSY_STONE_BRICKS));
+    });
     public static final DeferredHolder<Block, StairBlock> MOSSY_BRICK_STAIRS =stone("mossy_brick_stairs", () -> {
         return new StairBlock(Blocks.BRICKS.defaultBlockState(), Properties.ofFullCopy(Blocks.MOSSY_STONE_BRICK_STAIRS));
     });
@@ -507,6 +625,45 @@ public class ModBlocks {
     });
     public static final DeferredHolder<Block, Block> MOSSY_SQUARE_BRICK = stone("mossy_square_brick", () -> {
         return new Block(Properties.ofFullCopy(Blocks.MOSSY_STONE_BRICKS));
+    });
+    // square brick stairs, plain and mossy, as the stone and deepslate square bricks have
+    public static final DeferredHolder<Block, StairBlock> SQUARE_BRICK_STAIRS = stone("square_brick_stairs", () -> {
+        return new StairBlock(SQUARE_BRICK.get().defaultBlockState(), Properties.ofFullCopy(Blocks.BRICK_STAIRS));
+    });
+    public static final DeferredHolder<Block, StairBlock> MOSSY_SQUARE_BRICK_STAIRS = stone("mossy_square_brick_stairs", () -> {
+        return new StairBlock(MOSSY_SQUARE_BRICK.get().defaultBlockState(), Properties.ofFullCopy(Blocks.BRICK_STAIRS));
+    });
+    // slabs for the square bricks that had none, so every square brick has the full set
+    public static final DeferredHolder<Block, SlabBlock> SQUARE_BRICK_SLAB = stone("square_brick_slab", () -> {
+        return new SlabBlock(Properties.ofFullCopy(Blocks.BRICK_SLAB));
+    });
+    public static final DeferredHolder<Block, SlabBlock> MOSSY_SQUARE_BRICK_SLAB = stone("mossy_square_brick_slab", () -> {
+        return new SlabBlock(Properties.ofFullCopy(Blocks.BRICK_SLAB));
+    });
+    public static final DeferredHolder<Block, SlabBlock> SQUARE_MUD_BRICK_SLAB = stone("square_mud_brick_slab", () -> {
+        return new SlabBlock(Properties.ofFullCopy(Blocks.MUD_BRICK_SLAB));
+    });
+    public static final DeferredHolder<Block, SlabBlock> MOSSY_SQUARE_MUD_BRICK_SLAB = stone("mossy_square_mud_brick_slab", () -> {
+        return new SlabBlock(Properties.ofFullCopy(Blocks.MUD_BRICK_SLAB));
+    });
+    public static final DeferredHolder<Block, SlabBlock> SQUARE_OSSUARY_BRICK_SLAB = stone("square_ossuary_brick_slab", () -> {
+        return new SlabBlock(Properties.ofFullCopy(Blocks.STONE_BRICK_SLAB));
+    });
+    public static final DeferredHolder<Block, SlabBlock> MOSSY_SQUARE_OSSUARY_BRICK_SLAB = stone("mossy_square_ossuary_brick_slab", () -> {
+        return new SlabBlock(Properties.ofFullCopy(Blocks.MOSSY_STONE_BRICK_SLAB));
+    });
+    // square brick facades, as the stone, mud and deepslate square bricks have
+    public static final DeferredHolder<Block, Block> SQUARE_BRICK_FACADE_BLOCK = stone("square_brick_facade_block", () -> {
+        return new FacadeShapeBlock(Properties.ofFullCopy(Blocks.BRICKS), DecorType.FACADE);
+    });
+    public static final DeferredHolder<Block, Block> SQUARE_BRICK_QUARTER_FACADE_BLOCK = stone("square_brick_quarter_facade_block", () -> {
+        return new FacadeShapeBlock(Properties.ofFullCopy(Blocks.BRICKS), DecorType.QUARTER_FACADE);
+    });
+    public static final DeferredHolder<Block, Block> MOSSY_SQUARE_BRICK_FACADE_BLOCK = stone("mossy_square_brick_facade_block", () -> {
+        return new FacadeShapeBlock(Properties.ofFullCopy(Blocks.MOSSY_STONE_BRICKS), DecorType.FACADE);
+    });
+    public static final DeferredHolder<Block, Block> MOSSY_SQUARE_BRICK_QUARTER_FACADE_BLOCK = stone("mossy_square_brick_quarter_facade_block", () -> {
+        return new FacadeShapeBlock(Properties.ofFullCopy(Blocks.MOSSY_STONE_BRICKS), DecorType.QUARTER_FACADE);
     });
     public static final DeferredHolder<Block, Block> LEFT_LARGE_BRICK = stone("left_large_brick", () -> {
         return new FacingBlock(Properties.ofFullCopy(Blocks.BRICKS));
@@ -533,6 +690,14 @@ public class ModBlocks {
     });
     public static final DeferredHolder<Block, Block> MOSSY_RUBBLE = Registration.BLOCKS.register("mossy_rubble", () -> {
         return new Block(Properties.ofFullCopy(Blocks.MOSSY_COBBLESTONE));
+    });
+    // rubble in red brick, plain and mossy: rubble.png recoloured (tools/gen_brick_rubble.py),
+    // bricks' properties
+    public static final DeferredHolder<Block, Block> BRICK_RUBBLE = stone("brick_rubble", () -> {
+        return new Block(Properties.ofFullCopy(Blocks.BRICKS));
+    });
+    public static final DeferredHolder<Block, Block> MOSSY_BRICK_RUBBLE = stone("mossy_brick_rubble", () -> {
+        return new Block(Properties.ofFullCopy(Blocks.BRICKS));
     });
     // a full block only - it has no material family in ModMaterials.STONE, so no decorative
     // pieces and no stonecutting recipes. Vanilla has no mossy chiseled stone bricks, so it is
@@ -731,6 +896,12 @@ public class ModBlocks {
     // iron block set type anyway.
     public static final DeferredHolder<Block, Block> IRON_BARS_DOOR = Registration.BLOCKS.register("iron_bars_door",
             () -> new IronBarsDoorBlock(Properties.ofFullCopy(Blocks.IRON_DOOR)));
+    // An ossuary gate: bones in a diamond lattice in a femur frame. The iron bars door's centred
+    // panel and hand-opening (villagers kept out, zombies can't break it); a bone block's sound.
+    // Textures: tools/gen_bone_lattice_gate_textures.py
+    public static final DeferredHolder<Block, Block> BONE_LATTICE_GATE = Registration.BLOCKS.register("bone_lattice_gate",
+            () -> new IronBarsDoorBlock(Properties.of().mapColor(MapColor.SAND).strength(2.0F).sound(SoundType.BONE_BLOCK)
+                    .requiresCorrectToolForDrops().noOcclusion().pushReaction(PushReaction.DESTROY)));
 
     // Dark iron bars, plain and lightly rusted, each with a matching cell door. Vanilla's own
     // IronBarsBlock, so they connect to each other and to vanilla iron bars exactly as iron bars
@@ -914,6 +1085,10 @@ public class ModBlocks {
     public static final DeferredHolder<Block, Block> RUBBLE_SCATTER = Registration.BLOCKS.register("rubble_scatter",
             () -> new RubbleScatterBlock(Properties.of().mapColor(MapColor.STONE).strength(0.5F).sound(SoundType.STONE)
                     .noOcclusion().pushReaction(PushReaction.DESTROY)));
+    // the same, chips of broken red brick: its models are the rubble scatter's, retextured
+    public static final DeferredHolder<Block, Block> BRICK_RUBBLE_SCATTER = Registration.BLOCKS.register("brick_rubble_scatter",
+            () -> new RubbleScatterBlock(Properties.of().mapColor(MapColor.COLOR_RED).strength(0.5F).sound(SoundType.STONE)
+                    .noOcclusion().pushReaction(PushReaction.DESTROY)));
 
     // Gargoyles: the Monster Manual's gargoyle mob, its own model baked in stone
     // (tools/entity_model.py). Stone's properties, the need for a pickaxe included.
@@ -972,6 +1147,19 @@ public class ModBlocks {
     public static final DeferredHolder<Block, Block> MEDIUM_BONE_CHANDELIER = Registration.BLOCKS.register("medium_bone_chandelier",
             () -> new MediumBoneChandelierBlock(Properties.of().mapColor(MapColor.SAND).strength(2.0F).sound(SoundType.BONE_BLOCK)
                     .lightLevel(ChandelierBlock.LIGHT_EMISSION).noOcclusion().pushReaction(PushReaction.DESTROY)));
+    // The iron chandelier at the medium bone chandelier's size, and the two-tier large ones, which a
+    // renderer draws (LargeChandelierBlock). Each keeps its small one's strength and sound.
+    public static final DeferredHolder<Block, Block> MEDIUM_CHANDELIER = Registration.BLOCKS.register("medium_chandelier",
+            () -> new MediumChandelierBlock(Properties.of().mapColor(MapColor.METAL).strength(3.5F).sound(SoundType.LANTERN)
+                    .lightLevel(ChandelierBlock.LIGHT_EMISSION).noOcclusion().pushReaction(PushReaction.DESTROY)));
+    public static final DeferredHolder<Block, Block> LARGE_CHANDELIER = Registration.BLOCKS.register("large_chandelier",
+            () -> new LargeChandelierBlock(Properties.of().mapColor(MapColor.METAL).strength(3.5F).sound(SoundType.LANTERN)
+                    .lightLevel(ChandelierBlock.LIGHT_EMISSION).noOcclusion().pushReaction(PushReaction.DESTROY),
+                    LargeChandelierBlock.IRON_SHAPE, LargeChandelierBlock.IRON_WICKS));
+    public static final DeferredHolder<Block, Block> LARGE_BONE_CHANDELIER = Registration.BLOCKS.register("large_bone_chandelier",
+            () -> new LargeChandelierBlock(Properties.of().mapColor(MapColor.SAND).strength(2.0F).sound(SoundType.BONE_BLOCK)
+                    .lightLevel(ChandelierBlock.LIGHT_EMISSION).noOcclusion().pushReaction(PushReaction.DESTROY),
+                    LargeChandelierBlock.BONE_SHAPE, LargeChandelierBlock.BONE_WICKS));
     // Leaded stained glass that stacks into a lancet window, and a broken one for a ruined church.
     // A glass pane's strength and sound; textures from tools/gen_stained_glass_window_textures.py
     public static final DeferredHolder<Block, Block> STAINED_GLASS_WINDOW = Registration.BLOCKS.register("stained_glass_window",
@@ -1004,6 +1192,42 @@ public class ModBlocks {
     // An open iron basket of burning logs, on the brazier's FIRE states and light levels
     public static final DeferredHolder<Block, Block> FIRE_BASKET = Registration.BLOCKS.register("fire_basket",
             () -> new FireBasketBlock(fixtureProperties(SoundType.LANTERN).lightLevel(FireBasketBlock.LIGHT_EMISSION)));
+    // Duckboards: a plank walkway over mud or water, in three woods; planks' properties
+    public static final List<DeferredHolder<Block, Block>> DUCKBOARDS = new ArrayList<>();
+    public static final DeferredHolder<Block, Block> OAK_DUCKBOARDS = duckboards("oak", Blocks.OAK_PLANKS);
+    public static final DeferredHolder<Block, Block> SPRUCE_DUCKBOARDS = duckboards("spruce", Blocks.SPRUCE_PLANKS);
+    public static final DeferredHolder<Block, Block> DARK_OAK_DUCKBOARDS = duckboards("dark_oak", Blocks.DARK_OAK_PLANKS);
+
+    private static DeferredHolder<Block, Block> duckboards(String wood, Block planks) {
+        DeferredHolder<Block, Block> block = Registration.BLOCKS.register(wood + "_duckboards",
+                () -> new DuckboardBlock(Properties.ofFullCopy(planks).noOcclusion()));
+        DUCKBOARDS.add(block);
+        return block;
+    }
+
+    // Stone benches to sit on, dressed like the large bricks of their stone; benches side by side join
+    // into one long bench. Each takes its brick block's strength and sound.
+    public static final List<DeferredHolder<Block, Block>> BENCHES = new ArrayList<>();
+    public static final DeferredHolder<Block, Block> STONE_BENCH = bench("stone", () -> Blocks.STONE_BRICKS);
+    public static final DeferredHolder<Block, Block> DEEPSLATE_BENCH = bench("deepslate", () -> Blocks.DEEPSLATE_BRICKS);
+    public static final DeferredHolder<Block, Block> OSSUARY_BENCH = bench("ossuary", () -> OSSUARY_BRICKS.get());
+    public static final DeferredHolder<Block, Block> BRICK_BENCH = bench("brick", () -> Blocks.BRICKS);
+    public static final DeferredHolder<Block, Block> MUD_BRICK_BENCH = bench("mud_brick", () -> Blocks.MUD_BRICKS);
+
+    private static DeferredHolder<Block, Block> bench(String stone, Supplier<Block> bricks) {
+        DeferredHolder<Block, Block> block = stone(stone + "_bench",
+                () -> new StoneBenchBlock(Properties.ofFullCopy(bricks.get()).noOcclusion()));
+        BENCHES.add(block);
+        return block;
+    }
+
+    // A carved stone slab door, two blocks tall, that grinds sideways into the wall to open; drawn by
+    // TombDoorRenderer. Smooth stone's properties.
+    public static final DeferredHolder<Block, Block> TOMB_DOOR = Registration.BLOCKS.register("tomb_door",
+            () -> new TombDoorBlock(Properties.ofFullCopy(Blocks.SMOOTH_STONE).noOcclusion().pushReaction(PushReaction.BLOCK)));
+    // A terracotta oil lamp on a bail and chain; a clay pot's sound, the fixtures' strength
+    public static final DeferredHolder<Block, Block> HANGING_OIL_LAMP = Registration.BLOCKS.register("hanging_oil_lamp",
+            () -> new HangingOilLampBlock(fixtureProperties(SoundType.DECORATED_POT).lightLevel(HangingOilLampBlock.LIGHT_EMISSION)));
 
     // A cauldron of coloured brew at a boil. Vanilla cauldron's properties exactly, so it needs a
     // pickaxe to drop, as a cauldron does (tagged by hand in ModBlockTagGenerator).
@@ -1162,6 +1386,7 @@ public class ModBlocks {
         catacombNiche("bricks", () -> Blocks.BRICKS);
         catacombNiche("mossy_bricks", () -> MOSSY_BRICKS.get());
         catacombNiche("cracked_bricks", () -> CRACKED_BRICKS.get());
+        catacombNiche("large_bricks", () -> LARGE_BRICKS.get());
     }
 
     /** Registers "<source>_catacomb_niche", singular like the capstones: stone_brick_catacomb_niche. */

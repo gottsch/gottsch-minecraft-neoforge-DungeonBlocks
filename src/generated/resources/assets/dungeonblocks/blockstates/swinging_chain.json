@@ -108,6 +108,18 @@
     "fixture=medium_bone_chandelier,lit=true,top=true": {
       "model": "dungeonblocks:block/swinging_chain"
     },
+    "fixture=medium_chandelier,lit=false,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=medium_chandelier,lit=false,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=medium_chandelier,lit=true,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=medium_chandelier,lit=true,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
     "fixture=none,lit=false,top=false": {
       "model": "dungeonblocks:block/swinging_chain"
     },
@@ -118,6 +130,18 @@
       "model": "dungeonblocks:block/swinging_chain"
     },
     "fixture=none,lit=true,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=oil_lamp,lit=false,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=oil_lamp,lit=false,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=oil_lamp,lit=true,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=oil_lamp,lit=true,top=true": {
       "model": "dungeonblocks:block/swinging_chain"
     },
     "fixture=soul_fire_basket,lit=false,top=false": {

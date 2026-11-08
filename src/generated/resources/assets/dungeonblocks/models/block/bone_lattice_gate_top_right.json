@@ -1,0 +1,9 @@
+{
+  "parent": "dungeonblocks:block/template_edged_door_top_right",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "bottom": "dungeonblocks:block/bone_lattice_gate_bottom",
+    "edge": "dungeonblocks:block/bone_lattice_gate_edge",
+    "top": "dungeonblocks:block/bone_lattice_gate_top"
+  }
+}

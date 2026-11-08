@@ -163,6 +163,9 @@ for lit, candle in (("", "candle"), ("_lit", "candle_lit")):
     JOBS.append(("medium_bone_chandelier", f"medium_bone_chandelier{lit}",
                  {**BONES, "candle": f"minecraft:block/{candle}", "chain": "minecraft:block/chain"},
                  {"frame": (0, 0, 0), "candles": (0, 0, 0)}))
+    JOBS.append(("medium_chandelier", f"medium_chandelier{lit}",
+                 {"iron": "dungeonblocks:block/dark_iron", "candle": f"minecraft:block/{candle}", "chain": "minecraft:block/chain"},
+                 {"frame": (0, 0, 0), "candles": (0, 0, 0)}))
     # skull candles: plain and black wax, on the floor and on a wall bracket
     for name, wax in (("skull_candle", "candle"), ("black_skull_candle", "black_candle")):
         for place in ("floor", "wall"):
@@ -191,12 +194,21 @@ STACKS.append(("huge_candle_item", {"wax": "dungeonblocks:block/huge_candle", "t
 # draws in a swinging chain's bottom link when one is hung there.
 IRON_CHAIN = {"iron": "dungeonblocks:block/dark_iron", "chain": "minecraft:block/chain"}
 JOBS.append(("chain_fixture_manacles", "chain_fixture_manacles", IRON_CHAIN, {"fixture": (0, 0, 0)}))
+# the shackles a hanging Skeleton Remains hangs from; SkeletonRemainsRenderer draws them
+JOBS.append(("skeleton_remains_shackles", "skeleton_remains_shackles",
+             {"iron": "dungeonblocks:block/dark_iron", "chain": "minecraft:block/chain"},
+             {"shackles": (0, 0, 0)}))
 JOBS.append(("chain_fixture_meat_hook", "chain_fixture_meat_hook", {"iron": "dungeonblocks:block/dark_iron"},
              {"fixture": (0, 0, 0)}))
 for lit, ember in (("", "coal_block"), ("_lit", "magma")):
     JOBS.append(("chain_fixture_censer", f"chain_fixture_censer{lit}",
                  {"metal": "dungeonblocks:block/dark_iron", "chain": "minecraft:block/chain",
                   "ember": f"minecraft:block/{ember}"}, {"fixture": (0, 0, 0)}))
+# the hanging oil lamp, unlit and lit (the wick's sprite)
+for lit in ("", "_lit"):
+    JOBS.append(("hanging_oil_lamp", f"hanging_oil_lamp{lit}",
+                 {"clay": "minecraft:block/terracotta", "iron": "dungeonblocks:block/dark_iron",
+                  "chain": "minecraft:block/chain", "wick": f"minecraft:block/candle{lit}"}, {"lamp": (0, 0, 0)}))
 # the fire basket, one model per FIRE state; SwingingChainRenderer draws the unlit, lit and soul ones.
 # The logs glow with the campfire's own lit textures; embers are the glowing logs with no flames.
 for state, log, fire in (("", "campfire_log", None), ("_embers", "campfire_log_lit", None),
@@ -255,10 +267,41 @@ STACKS.append(("template_altar_item", {"body": "minecraft:block/polished_deepsla
 # on every side, shrunk to fit the slot
 STACKS.append(("medium_bone_chandelier_item", {**BONES, "candle": "minecraft:block/candle", "chain": "minecraft:block/chain"},
                [("medium_bone_chandelier", {"frame": (0, 0, 0), "candles": (0, 0, 0)})], two_block_display(0.4)))
+STACKS.append(("medium_chandelier_item", {"iron": "dungeonblocks:block/dark_iron", "candle": "minecraft:block/candle",
+                                          "chain": "minecraft:block/chain"},
+               [("medium_chandelier", {"frame": (0, 0, 0), "candles": (0, 0, 0)})], two_block_display(0.4)))
+
+# The large chandeliers are wider than a block model may be (-16..32), so each is SPLIT: every
+# element goes to one of nine parts by where it lies across x and z - the middle (-16..32), west
+# (-32..16, moved a block east) or east (0..48, moved a block west), and the same for z - written
+# as <name>_<x>_<z>.json, 0..2 each, 1 the middle. LargeChandelierRenderer draws part (x, z) moved
+# back x - 1 blocks and z - 1. So a large chandelier may reach -32..48, and no element of it be
+# more than 48 px long. All nine are always written, empty or not, so the
+# renderer can name them without a list. <name>.json is the block's own model: nothing but its
+# break particle, since the renderer draws the whole chandelier.
+LARGE_BONE = {**BONES, "chain": "minecraft:block/chain"}
+LARGE_IRON = {"iron": "dungeonblocks:block/dark_iron", "chain": "minecraft:block/chain"}
+LARGE_BONE_GROUPS = ["upper", "column", "lower", "candles"]
+LARGE_IRON_GROUPS = ["upper", "post", "lower", "struts", "candles"]
+SPLITS = []
+for lit, candle in (("", "candle"), ("_lit", "candle_lit")):
+    SPLITS.append(("large_bone_chandelier", f"large_bone_chandelier{lit}",
+                   {**LARGE_BONE, "candle": f"minecraft:block/{candle}"}, LARGE_BONE_GROUPS))
+    SPLITS.append(("large_chandelier", f"large_chandelier{lit}",
+                   {**LARGE_IRON, "candle": f"minecraft:block/{candle}"}, LARGE_IRON_GROUPS))
+# and their items: the whole chandelier, unlit, shrunk about its hanging point to fit one model and
+# centred on the block (SCALED: name, source, textures, groups, scale, display)
+SCALED = [
+    ("large_bone_chandelier_item", "large_bone_chandelier", {**LARGE_BONE, "candle": "minecraft:block/candle"},
+     LARGE_BONE_GROUPS, 0.5, two_block_display(0.4)),
+    ("large_chandelier_item", "large_chandelier", {**LARGE_IRON, "candle": "minecraft:block/candle"},
+     LARGE_IRON_GROUPS, 0.5, two_block_display(0.4)),
+]
 
 # models whose textures have see-through pixels: the skeleton's ribs, the chain's links. Without
 # cutout those pixels draw black.
-CUTOUT = ("gibbet", "chandelier", "bone_chandelier", "medium_bone_chandelier", "skull_candle", "black_skull_candle", "chain_fixture_", "occupied_", "fire_basket")
+CUTOUT = ("skeleton_remains_shackles", "gibbet", "chandelier", "bone_chandelier", "medium_bone_chandelier", "medium_chandelier",
+          "large_chandelier", "large_bone_chandelier", "skull_candle", "black_skull_candle", "chain_fixture_", "occupied_", "fire_basket", "hanging_oil_lamp")
 
 BOUNDARY = {"north": (2, 0, "from"), "south": (2, 16, "to"), "west": (0, 0, "from"),
             "east": (0, 16, "to"), "down": (1, 0, "from"), "up": (1, 16, "to")}
@@ -319,6 +362,67 @@ def convert(project, groups, textures):
     return model
 
 
+def band(name, lo, hi):
+    """Which of the three split parts an element from lo to hi (px, on one axis) goes in: 1 if it
+    fits the block model's own -16..32, else 0 (-32..16) or 2 (0..48)."""
+    if lo >= -16 and hi <= 32:
+        return 1
+    if lo >= -32 and hi <= 16:
+        return 0
+    if lo >= 0 and hi <= 48:
+        return 2
+    raise SystemExit(f"{name}: {lo}..{hi} fits none of the split parts")
+
+
+def strip_cullfaces(model):
+    """A part drawn away from its block, or shrunk, must not cull against the block it was built in."""
+    for e in model["elements"]:
+        for f in e["faces"].values():
+            f.pop("cullface", None)
+    return model
+
+
+def split(project, groups, textures):
+    """The nine parts of a model too wide for one, keyed (x, z): see SPLITS."""
+    whole = strip_cullfaces(convert(project, {g: (0, 0, 0) for g in groups}, textures))
+    parts = {(x, z): [] for x in range(3) for z in range(3)}
+    for e in whole["elements"]:
+        if e["from"][1] < -16 or e["to"][1] > 32:
+            raise SystemExit(f"{project['name']}/{e['name']}: y {e['from'][1]}..{e['to'][1]} is outside -16..32")
+        bx = band(e["name"], e["from"][0], e["to"][0])
+        bz = band(e["name"], e["from"][2], e["to"][2])
+        dx, dz = (1 - bx) * 16, (1 - bz) * 16
+        e["from"] = [e["from"][0] + dx, e["from"][1], e["from"][2] + dz]
+        e["to"] = [e["to"][0] + dx, e["to"][1], e["to"][2] + dz]
+        if "rotation" in e:
+            o = e["rotation"]["origin"]
+            e["rotation"]["origin"] = [o[0] + dx, o[1], o[2] + dz]
+        parts[(bx, bz)].append(e)
+    return {k: {**whole, "elements": v} for k, v in parts.items()}
+
+
+def scaled(project, groups, textures, scale):
+    """The model shrunk by `scale` about (8, 0, 8) - a large chandelier's hanging point, the
+    middle of its block's floor - and moved up to the block's centre."""
+    model = strip_cullfaces(convert(project, {g: (0, 0, 0) for g in groups}, textures))
+
+    def at(v):
+        return [round(8 + (v[0] - 8) * scale, 4), round(8 + v[1] * scale, 4), round(8 + (v[2] - 8) * scale, 4)]
+
+    for e in model["elements"]:
+        e["from"], e["to"] = at(e["from"]), at(e["to"])
+        if "rotation" in e:
+            e["rotation"]["origin"] = at(e["rotation"]["origin"])
+    return model
+
+
+def with_render_type(name, model):
+    if render_type(name):
+        return {"parent": model["parent"], "render_type": render_type(name),
+                **{k: v for k, v in model.items() if k != "parent"}}
+    return model
+
+
 def render_type(name):
     return "minecraft:cutout" if name.startswith(CUTOUT) else None
 
@@ -338,6 +442,22 @@ def main():
             model = {"parent": model["parent"], "render_type": render_type(name), **{k: v for k, v in model.items() if k != "parent"}}
         json.dump(model, open(OUT + name + ".json", "w", newline="\n"), indent=2)
         print(f"{' + '.join(s for s, _ in parts)} -> {name}.json ({len(model['elements'])} elements)")
+    for source, name, textures, groups in SPLITS:
+        project = json.load(open(SRC + source + ".bbmodel"))
+        parts = split(project, groups, textures)
+        for (x, z), model in parts.items():
+            json.dump(with_render_type(name, model), open(OUT + f"{name}_{x}_{z}.json", "w", newline="\n"), indent=2)
+        counts = " ".join(f"{x}{z}:{len(m['elements'])}" for (x, z), m in parts.items())
+        print(f"{source}.bbmodel -> {name}_<x>_<z>.json ({counts})")
+        if not name.endswith("_lit"):
+            # the block's own model: only its break particle
+            particle = {"__comment": "Generated by tools/bbmodel_to_block_models.py: LargeChandelierRenderer draws the chandelier.",
+                        "textures": {"particle": textures[project["textures"][0]["name"]]}}
+            json.dump(particle, open(OUT + name + ".json", "w", newline="\n"), indent=2)
+    for name, source, textures, groups, scale, display in SCALED:
+        model = {**scaled(json.load(open(SRC + source + ".bbmodel")), groups, textures, scale), "display": display}
+        json.dump(with_render_type(name, model), open(OUT + name + ".json", "w", newline="\n"), indent=2)
+        print(f"{source}.bbmodel x{scale} -> {name}.json ({len(model['elements'])} elements)")
 
 
 if __name__ == "__main__":

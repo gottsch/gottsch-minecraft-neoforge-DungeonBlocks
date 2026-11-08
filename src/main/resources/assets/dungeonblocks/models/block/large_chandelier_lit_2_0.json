@@ -1,0 +1,11 @@
+{
+  "parent": "block/block",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "candle": "minecraft:block/candle_lit",
+    "chain": "minecraft:block/chain",
+    "iron": "dungeonblocks:block/dark_iron",
+    "particle": "dungeonblocks:block/dark_iron"
+  },
+  "elements": []
+}

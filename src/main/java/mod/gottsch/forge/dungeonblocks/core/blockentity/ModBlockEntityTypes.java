@@ -64,6 +64,24 @@ public class ModBlockEntityTypes {
 									.toArray(net.minecraft.world.level.block.Block[]::new))
 							.build(null));
 
+	/** A tomb door's lower half: where TombDoorRenderer keeps the slab's slide. */
+	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TombDoorBlockEntity>> TOMB_DOOR =
+			Registration.BLOCK_ENTITY_TYPES.register("tomb_door",
+					() -> BlockEntityType.Builder.of(TombDoorBlockEntity::new, ModBlocks.TOMB_DOOR.get()).build(null));
+
+	/** A saw trap: where SawTrapRenderer keeps how far out the blade is. */
+	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<SawTrapBlockEntity>> SAW_TRAP =
+			Registration.BLOCK_ENTITY_TYPES.register("saw_trap",
+					() -> BlockEntityType.Builder.of(SawTrapBlockEntity::new, ModBlocks.SAW_TRAPS.stream()
+							.map(DeferredHolder::get)
+							.toArray(net.minecraft.world.level.block.Block[]::new)).build(null));
+
+	/** A large chandelier's core: only there for LargeChandelierRenderer to draw it. */
+	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<LargeChandelierBlockEntity>> LARGE_CHANDELIER =
+			Registration.BLOCK_ENTITY_TYPES.register("large_chandelier",
+					() -> BlockEntityType.Builder.of(LargeChandelierBlockEntity::new, ModBlocks.LARGE_CHANDELIER.get(),
+							ModBlocks.LARGE_BONE_CHANDELIER.get()).build(null));
+
 	/** The weapons on a weapon rack, for WeaponRackRenderer to draw. */
 	public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<WeaponRackBlockEntity>> WEAPON_RACK =
 			Registration.BLOCK_ENTITY_TYPES.register("weapon_rack",

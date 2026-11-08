@@ -37,9 +37,17 @@ public final class ModDamageTypes {
     public static final ResourceKey<DamageType> SPIKES =
             ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(DungeonBlocks.MOD_ID, "spikes"));
 
+    /** A saw trap's blade. */
+    public static final ResourceKey<DamageType> SAW =
+            ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(DungeonBlocks.MOD_ID, "saw"));
+
     private ModDamageTypes() {}
 
     public static DamageSource spikes(Level level) {
         return new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(SPIKES));
+    }
+
+    public static DamageSource saw(Level level) {
+        return new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(SAW));
     }
 }

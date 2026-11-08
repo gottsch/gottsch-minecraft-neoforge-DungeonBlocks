@@ -1,0 +1,768 @@
+{
+  "parent": "block/block",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "chain": "minecraft:block/chain",
+    "clay": "minecraft:block/terracotta",
+    "iron": "dungeonblocks:block/dark_iron",
+    "wick": "minecraft:block/candle_lit",
+    "particle": "minecraft:block/terracotta"
+  },
+  "elements": [
+    {
+      "name": "foot",
+      "from": [
+        6,
+        1,
+        6
+      ],
+      "to": [
+        10,
+        2,
+        10
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6.0,
+            14.0,
+            10.0,
+            15.0
+          ],
+          "texture": "#clay"
+        },
+        "east": {
+          "uv": [
+            6.0,
+            14.0,
+            10.0,
+            15.0
+          ],
+          "texture": "#clay"
+        },
+        "south": {
+          "uv": [
+            6.0,
+            14.0,
+            10.0,
+            15.0
+          ],
+          "texture": "#clay"
+        },
+        "west": {
+          "uv": [
+            6.0,
+            14.0,
+            10.0,
+            15.0
+          ],
+          "texture": "#clay"
+        },
+        "up": {
+          "uv": [
+            6.0,
+            6.0,
+            10.0,
+            10.0
+          ],
+          "texture": "#clay"
+        },
+        "down": {
+          "uv": [
+            6.0,
+            6.0,
+            10.0,
+            10.0
+          ],
+          "texture": "#clay"
+        }
+      }
+    },
+    {
+      "name": "body",
+      "from": [
+        5,
+        2,
+        5
+      ],
+      "to": [
+        11,
+        4,
+        11
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            5.0,
+            12.0,
+            11.0,
+            14.0
+          ],
+          "texture": "#clay"
+        },
+        "east": {
+          "uv": [
+            5.0,
+            12.0,
+            11.0,
+            14.0
+          ],
+          "texture": "#clay"
+        },
+        "south": {
+          "uv": [
+            5.0,
+            12.0,
+            11.0,
+            14.0
+          ],
+          "texture": "#clay"
+        },
+        "west": {
+          "uv": [
+            5.0,
+            12.0,
+            11.0,
+            14.0
+          ],
+          "texture": "#clay"
+        },
+        "up": {
+          "uv": [
+            5.0,
+            5.0,
+            11.0,
+            11.0
+          ],
+          "texture": "#clay"
+        },
+        "down": {
+          "uv": [
+            5.0,
+            5.0,
+            11.0,
+            11.0
+          ],
+          "texture": "#clay"
+        }
+      }
+    },
+    {
+      "name": "shoulder",
+      "from": [
+        6,
+        4,
+        6
+      ],
+      "to": [
+        10,
+        5,
+        10
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6.0,
+            11.0,
+            10.0,
+            12.0
+          ],
+          "texture": "#clay"
+        },
+        "east": {
+          "uv": [
+            6.0,
+            11.0,
+            10.0,
+            12.0
+          ],
+          "texture": "#clay"
+        },
+        "south": {
+          "uv": [
+            6.0,
+            11.0,
+            10.0,
+            12.0
+          ],
+          "texture": "#clay"
+        },
+        "west": {
+          "uv": [
+            6.0,
+            11.0,
+            10.0,
+            12.0
+          ],
+          "texture": "#clay"
+        },
+        "up": {
+          "uv": [
+            6.0,
+            6.0,
+            10.0,
+            10.0
+          ],
+          "texture": "#clay"
+        },
+        "down": {
+          "uv": [
+            6.0,
+            6.0,
+            10.0,
+            10.0
+          ],
+          "texture": "#clay"
+        }
+      }
+    },
+    {
+      "name": "spout",
+      "from": [
+        7,
+        3,
+        11
+      ],
+      "to": [
+        9,
+        4.5,
+        13.5
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            2.5,
+            11.5,
+            5.0,
+            13.0
+          ],
+          "texture": "#clay"
+        },
+        "south": {
+          "uv": [
+            7.0,
+            11.5,
+            9.0,
+            13.0
+          ],
+          "texture": "#clay"
+        },
+        "west": {
+          "uv": [
+            11.0,
+            11.5,
+            13.5,
+            13.0
+          ],
+          "texture": "#clay"
+        },
+        "up": {
+          "uv": [
+            7.0,
+            11.0,
+            9.0,
+            13.5
+          ],
+          "texture": "#clay"
+        },
+        "down": {
+          "uv": [
+            7.0,
+            2.5,
+            9.0,
+            5.0
+          ],
+          "texture": "#clay"
+        }
+      }
+    },
+    {
+      "name": "handle_top",
+      "from": [
+        7.5,
+        4,
+        3
+      ],
+      "to": [
+        8.5,
+        5,
+        6
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.5,
+            11.0,
+            8.5,
+            12.0
+          ],
+          "texture": "#clay"
+        },
+        "east": {
+          "uv": [
+            10.0,
+            11.0,
+            13.0,
+            12.0
+          ],
+          "texture": "#clay"
+        },
+        "west": {
+          "uv": [
+            3.0,
+            11.0,
+            6.0,
+            12.0
+          ],
+          "texture": "#clay"
+        },
+        "up": {
+          "uv": [
+            7.5,
+            3.0,
+            8.5,
+            6.0
+          ],
+          "texture": "#clay"
+        },
+        "down": {
+          "uv": [
+            7.5,
+            10.0,
+            8.5,
+            13.0
+          ],
+          "texture": "#clay"
+        }
+      }
+    },
+    {
+      "name": "handle_back",
+      "from": [
+        7.5,
+        2.5,
+        3
+      ],
+      "to": [
+        8.5,
+        4,
+        4
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            7.5,
+            12.0,
+            8.5,
+            13.5
+          ],
+          "texture": "#clay"
+        },
+        "east": {
+          "uv": [
+            12.0,
+            12.0,
+            13.0,
+            13.5
+          ],
+          "texture": "#clay"
+        },
+        "west": {
+          "uv": [
+            3.0,
+            12.0,
+            4.0,
+            13.5
+          ],
+          "texture": "#clay"
+        },
+        "down": {
+          "uv": [
+            7.5,
+            12.0,
+            8.5,
+            13.0
+          ],
+          "texture": "#clay"
+        }
+      }
+    },
+    {
+      "name": "wick_0",
+      "from": [
+        7.5,
+        4.5,
+        12.5
+      ],
+      "to": [
+        8.5,
+        5.5,
+        12.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            5.0,
+            1.0,
+            6.0
+          ],
+          "texture": "#wick"
+        },
+        "south": {
+          "uv": [
+            0.0,
+            5.0,
+            1.0,
+            6.0
+          ],
+          "texture": "#wick"
+        }
+      },
+      "rotation": {
+        "angle": 45,
+        "axis": "y",
+        "origin": [
+          8,
+          4.5,
+          12.5
+        ]
+      }
+    },
+    {
+      "name": "wick_1",
+      "from": [
+        7.5,
+        4.5,
+        12.5
+      ],
+      "to": [
+        8.5,
+        5.5,
+        12.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            5.0,
+            1.0,
+            6.0
+          ],
+          "texture": "#wick"
+        },
+        "south": {
+          "uv": [
+            0.0,
+            5.0,
+            1.0,
+            6.0
+          ],
+          "texture": "#wick"
+        }
+      },
+      "rotation": {
+        "angle": -45,
+        "axis": "y",
+        "origin": [
+          8,
+          4.5,
+          12.5
+        ]
+      }
+    },
+    {
+      "name": "bail_w",
+      "from": [
+        4.5,
+        3,
+        7.5
+      ],
+      "to": [
+        5,
+        8,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            11.0,
+            8.0,
+            11.5,
+            13.0
+          ],
+          "texture": "#iron"
+        },
+        "east": {
+          "uv": [
+            7.5,
+            8.0,
+            8.5,
+            13.0
+          ],
+          "texture": "#iron"
+        },
+        "south": {
+          "uv": [
+            4.5,
+            8.0,
+            5.0,
+            13.0
+          ],
+          "texture": "#iron"
+        },
+        "west": {
+          "uv": [
+            7.5,
+            8.0,
+            8.5,
+            13.0
+          ],
+          "texture": "#iron"
+        },
+        "up": {
+          "uv": [
+            4.5,
+            7.5,
+            5.0,
+            8.5
+          ],
+          "texture": "#iron"
+        },
+        "down": {
+          "uv": [
+            4.5,
+            7.5,
+            5.0,
+            8.5
+          ],
+          "texture": "#iron"
+        }
+      }
+    },
+    {
+      "name": "bail_e",
+      "from": [
+        11,
+        3,
+        7.5
+      ],
+      "to": [
+        11.5,
+        8,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.5,
+            8.0,
+            5.0,
+            13.0
+          ],
+          "texture": "#iron"
+        },
+        "east": {
+          "uv": [
+            7.5,
+            8.0,
+            8.5,
+            13.0
+          ],
+          "texture": "#iron"
+        },
+        "south": {
+          "uv": [
+            11.0,
+            8.0,
+            11.5,
+            13.0
+          ],
+          "texture": "#iron"
+        },
+        "west": {
+          "uv": [
+            7.5,
+            8.0,
+            8.5,
+            13.0
+          ],
+          "texture": "#iron"
+        },
+        "up": {
+          "uv": [
+            11.0,
+            7.5,
+            11.5,
+            8.5
+          ],
+          "texture": "#iron"
+        },
+        "down": {
+          "uv": [
+            11.0,
+            7.5,
+            11.5,
+            8.5
+          ],
+          "texture": "#iron"
+        }
+      }
+    },
+    {
+      "name": "bail_bar",
+      "from": [
+        4.5,
+        8,
+        7.5
+      ],
+      "to": [
+        11.5,
+        8.75,
+        8.5
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            4.5,
+            7.25,
+            11.5,
+            8.0
+          ],
+          "texture": "#iron"
+        },
+        "east": {
+          "uv": [
+            7.5,
+            7.25,
+            8.5,
+            8.0
+          ],
+          "texture": "#iron"
+        },
+        "south": {
+          "uv": [
+            4.5,
+            7.25,
+            11.5,
+            8.0
+          ],
+          "texture": "#iron"
+        },
+        "west": {
+          "uv": [
+            7.5,
+            7.25,
+            8.5,
+            8.0
+          ],
+          "texture": "#iron"
+        },
+        "up": {
+          "uv": [
+            4.5,
+            7.5,
+            11.5,
+            8.5
+          ],
+          "texture": "#iron"
+        },
+        "down": {
+          "uv": [
+            4.5,
+            7.5,
+            11.5,
+            8.5
+          ],
+          "texture": "#iron"
+        }
+      }
+    },
+    {
+      "name": "chain_a",
+      "from": [
+        6.5,
+        8.75,
+        8
+      ],
+      "to": [
+        9.5,
+        16,
+        8
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            3.0,
+            0.0,
+            0.0,
+            7.25
+          ],
+          "texture": "#chain"
+        },
+        "south": {
+          "uv": [
+            0.0,
+            0.0,
+            3.0,
+            7.25
+          ],
+          "texture": "#chain"
+        }
+      },
+      "rotation": {
+        "angle": 45,
+        "axis": "y",
+        "origin": [
+          8,
+          8.75,
+          8
+        ]
+      },
+      "shade": false
+    },
+    {
+      "name": "chain_b",
+      "from": [
+        8,
+        8.75,
+        6.5
+      ],
+      "to": [
+        8,
+        16,
+        9.5
+      ],
+      "faces": {
+        "east": {
+          "uv": [
+            3.0,
+            0.0,
+            6.0,
+            7.25
+          ],
+          "texture": "#chain"
+        },
+        "west": {
+          "uv": [
+            6.0,
+            0.0,
+            3.0,
+            7.25
+          ],
+          "texture": "#chain"
+        }
+      },
+      "rotation": {
+        "angle": 45,
+        "axis": "y",
+        "origin": [
+          8,
+          8.75,
+          8
+        ]
+      },
+      "shade": false
+    }
+  ]
+}

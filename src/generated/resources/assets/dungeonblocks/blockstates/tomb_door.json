@@ -1,0 +1,100 @@
+{
+  "variants": {
+    "facing=east,half=lower,open=false,powered=false": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=east,half=lower,open=false,powered=true": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=east,half=lower,open=true,powered=false": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=east,half=lower,open=true,powered=true": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=east,half=upper,open=false,powered=false": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=east,half=upper,open=false,powered=true": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=east,half=upper,open=true,powered=false": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=east,half=upper,open=true,powered=true": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=north,half=lower,open=false,powered=false": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=north,half=lower,open=false,powered=true": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=north,half=lower,open=true,powered=false": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=north,half=lower,open=true,powered=true": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=north,half=upper,open=false,powered=false": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=north,half=upper,open=false,powered=true": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=north,half=upper,open=true,powered=false": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=north,half=upper,open=true,powered=true": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=south,half=lower,open=false,powered=false": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=south,half=lower,open=false,powered=true": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=south,half=lower,open=true,powered=false": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=south,half=lower,open=true,powered=true": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=south,half=upper,open=false,powered=false": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=south,half=upper,open=false,powered=true": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=south,half=upper,open=true,powered=false": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=south,half=upper,open=true,powered=true": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=west,half=lower,open=false,powered=false": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=west,half=lower,open=false,powered=true": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=west,half=lower,open=true,powered=false": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=west,half=lower,open=true,powered=true": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=west,half=upper,open=false,powered=false": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=west,half=upper,open=false,powered=true": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=west,half=upper,open=true,powered=false": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    },
+    "facing=west,half=upper,open=true,powered=true": {
+      "model": "dungeonblocks:block/tomb_door_empty"
+    }
+  }
+}

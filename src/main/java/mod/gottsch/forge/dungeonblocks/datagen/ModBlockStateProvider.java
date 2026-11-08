@@ -57,7 +57,15 @@ public class ModBlockStateProvider extends BlockStateProvider {
         facadeBlock(ModBlocks.SQUARE_STONE_BRICK_QUARTER_FACADE_BLOCK, "quarter_facade", modLoc("block/square_stone_brick"));
         facadeBlock(ModBlocks.SQUARE_MUD_BRICK_QUARTER_FACADE_BLOCK, "quarter_facade", modLoc("block/square_mud_brick"));
         facadeBlock(ModBlocks.SQUARE_DEEPSLATE_BRICK_QUARTER_FACADE_BLOCK, "quarter_facade", modLoc("block/square_deepslate_brick"));
+        facadeBlock(ModBlocks.MOSSY_SQUARE_STONE_BRICK_FACADE_BLOCK, "facade", modLoc("block/mossy_square_stone_brick"));
+        facadeBlock(ModBlocks.MOSSY_SQUARE_STONE_BRICK_QUARTER_FACADE_BLOCK, "quarter_facade", modLoc("block/mossy_square_stone_brick"));
+        facadeBlock(ModBlocks.MOSSY_SQUARE_MUD_BRICK_FACADE_BLOCK, "facade", modLoc("block/mossy_square_mud_brick"));
+        facadeBlock(ModBlocks.MOSSY_SQUARE_MUD_BRICK_QUARTER_FACADE_BLOCK, "quarter_facade", modLoc("block/mossy_square_mud_brick"));
         facadeBlock(ModBlocks.MOSSY_SQUARE_DEEPSLATE_BRICK_QUARTER_FACADE_BLOCK, "quarter_facade", modLoc("block/mossy_square_deepslate_brick"));
+        facadeBlock(ModBlocks.SQUARE_BRICK_FACADE_BLOCK, "facade", modLoc("block/square_brick"));
+        facadeBlock(ModBlocks.SQUARE_BRICK_QUARTER_FACADE_BLOCK, "quarter_facade", modLoc("block/square_brick"));
+        facadeBlock(ModBlocks.MOSSY_SQUARE_BRICK_FACADE_BLOCK, "facade", modLoc("block/mossy_square_brick"));
+        facadeBlock(ModBlocks.MOSSY_SQUARE_BRICK_QUARTER_FACADE_BLOCK, "quarter_facade", modLoc("block/mossy_square_brick"));
 
         // dark iron and copper families: every age (and waxed twin) of a shape is the same model,
         // textured by its age
@@ -105,6 +113,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         // copper doors (waxed variants reuse the un-waxed door textures)
         ModBlocks.COPPER_DOORS.forEach((age, b) -> copperDoor(b, CopperFamily.id(age, "copper_door")));
         edgedDoor(ModBlocks.IRON_BARS_DOOR, "iron_bars_door");
+        edgedDoor(ModBlocks.BONE_LATTICE_GATE, "bone_lattice_gate");
         ModBlocks.DARK_IRON_BARS_DOORS.forEach((age, b) -> edgedDoor(b, age.id("dark_iron_bars_door")));
         ModBlocks.DARK_IRON_BARS.forEach((age, b) -> ironBars(b));
         // the Blockbench model faces north, against a south wall, as vanilla's ladder does
@@ -200,7 +209,22 @@ public class ModBlockStateProvider extends BlockStateProvider {
         patternTiles(ModBlocks.SANDSTONE_ASHLAR);
         patternTiles(ModBlocks.DRIFTED_SANDSTONE_ASHLAR);
         stackedPatternTiles(ModBlocks.GRAVE_SLAB_PAVEMENT);
+        stackedPatternTiles(ModBlocks.CRACKED_GRAVE_SLAB_PAVEMENT);
         stackedPatternTiles(ModBlocks.KNUCKLEBONE_PAVING);
+        // saw traps: the stone's own cube with the slot overlaid on top; the blade is SawTrapRenderer's
+        sawTrap(ModBlocks.STONE_BRICK_SAW_TRAP, "stone_brick", mcLoc("block/stone_bricks"));
+        patternSawTrap(ModBlocks.GRAVE_SLAB_SAW_TRAP, "grave_slab", "grave_slab_pavement");
+        // ossuary cobblestone and its pieces, as vanilla's cobblestone family
+        ResourceLocation cobble = modLoc("block/ossuary_cobblestone");
+        ResourceLocation mossyCobble = modLoc("block/mossy_ossuary_cobblestone");
+        simpleBlock(ModBlocks.OSSUARY_COBBLESTONE.get());
+        simpleBlock(ModBlocks.MOSSY_OSSUARY_COBBLESTONE.get());
+        stairsBlock(ModBlocks.OSSUARY_COBBLESTONE_STAIRS.get(), cobble);
+        stairsBlock(ModBlocks.MOSSY_OSSUARY_COBBLESTONE_STAIRS.get(), mossyCobble);
+        slabBlock(ModBlocks.OSSUARY_COBBLESTONE_SLAB.get(), cobble, cobble);
+        slabBlock(ModBlocks.MOSSY_OSSUARY_COBBLESTONE_SLAB.get(), mossyCobble, mossyCobble);
+        wallBlock(ModBlocks.OSSUARY_COBBLESTONE_WALL.get(), cobble);
+        wallBlock(ModBlocks.MOSSY_OSSUARY_COBBLESTONE_WALL.get(), mossyCobble);
         // the circles are chalked on the top only: their sides and bottom are their plain stone
         Map.of(ModBlocks.DEEPSLATE_RITUAL_CIRCLE, mcLoc("block/polished_deepslate"),
                 ModBlocks.BLACKSTONE_RITUAL_CIRCLE, mcLoc("block/polished_blackstone")).forEach((block, stone) -> {
@@ -224,6 +248,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         largeBrickPair(ModBlocks.MOSSY_LEFT_LARGE_STONE_BRICK, ModBlocks.MOSSY_RIGHT_LARGE_STONE_BRICK);
         largeBrickPair(ModBlocks.LEFT_LARGE_MUD_BRICK, ModBlocks.RIGHT_LARGE_MUD_BRICK);
         simpleBlock(ModBlocks.MOSSY_SQUARE_MUD_BRICK.get());
+        stairsBlock(ModBlocks.MOSSY_SQUARE_MUD_BRICK_STAIRS.get(), modLoc("block/mossy_square_mud_brick"));
         largeBrickPair(ModBlocks.MOSSY_LEFT_LARGE_MUD_BRICK, ModBlocks.MOSSY_RIGHT_LARGE_MUD_BRICK);
 
         simpleBlock(ModBlocks.SQUARE_DEEPSLATE_BRICK.get());
@@ -244,8 +269,34 @@ public class ModBlockStateProvider extends BlockStateProvider {
         stairsBlock(ModBlocks.OSSUARY_BRICK_STAIRS.get(), modLoc("block/ossuary_bricks"));
         stairsBlock(ModBlocks.MOSSY_OSSUARY_BRICK_STAIRS.get(), modLoc("block/mossy_ossuary_bricks"));
         stairsBlock(ModBlocks.HEWN_TUFA_STAIRS.get(), modLoc("block/hewn_tufa"));
+        stairsBlock(ModBlocks.MOSSY_HEWN_TUFA_STAIRS.get(), modLoc("block/mossy_hewn_tufa"));
+        stairsBlock(ModBlocks.SQUARE_OSSUARY_BRICK_STAIRS.get(), modLoc("block/square_ossuary_brick"));
+        simpleBlock(ModBlocks.MOSSY_SQUARE_OSSUARY_BRICK.get());
+        stairsBlock(ModBlocks.MOSSY_SQUARE_OSSUARY_BRICK_STAIRS.get(), modLoc("block/mossy_square_ossuary_brick"));
+        // the square brick slabs; their double slab is the full block's model, passed unchecked
+        squareSlab(ModBlocks.SQUARE_BRICK_SLAB, "square_brick");
+        squareSlab(ModBlocks.MOSSY_SQUARE_BRICK_SLAB, "mossy_square_brick");
+        squareSlab(ModBlocks.SQUARE_MUD_BRICK_SLAB, "square_mud_brick");
+        squareSlab(ModBlocks.MOSSY_SQUARE_MUD_BRICK_SLAB, "mossy_square_mud_brick");
+        squareSlab(ModBlocks.SQUARE_OSSUARY_BRICK_SLAB, "square_ossuary_brick");
+        squareSlab(ModBlocks.MOSSY_SQUARE_OSSUARY_BRICK_SLAB, "mossy_square_ossuary_brick");
+        slabBlock(ModBlocks.OSSUARY_BRICK_SLAB.get(), modLoc("block/ossuary_bricks"), modLoc("block/ossuary_bricks"));
+        wallBlock(ModBlocks.OSSUARY_BRICK_WALL.get(), modLoc("block/ossuary_bricks"));
+        slabBlock(ModBlocks.MOSSY_OSSUARY_BRICK_SLAB.get(),
+                models().slab("mossy_ossuary_brick_slab", modLoc("block/mossy_ossuary_bricks"), modLoc("block/mossy_ossuary_bricks"), modLoc("block/mossy_ossuary_bricks")),
+                models().slabTop("mossy_ossuary_brick_slab_top", modLoc("block/mossy_ossuary_bricks"), modLoc("block/mossy_ossuary_bricks"), modLoc("block/mossy_ossuary_bricks")),
+                new ModelFile.UncheckedModelFile(modLoc("block/mossy_ossuary_bricks")));
+        wallBlock(ModBlocks.MOSSY_OSSUARY_BRICK_WALL.get(), modLoc("block/mossy_ossuary_bricks"));
+        // hewn tufa's block model is generated in this same run, so it can't be looked up as an existing file
+        slabBlock(ModBlocks.HEWN_TUFA_SLAB.get(),
+                models().slab("hewn_tufa_slab", modLoc("block/hewn_tufa"), modLoc("block/hewn_tufa"), modLoc("block/hewn_tufa")),
+                models().slabTop("hewn_tufa_slab_top", modLoc("block/hewn_tufa"), modLoc("block/hewn_tufa"), modLoc("block/hewn_tufa")),
+                new ModelFile.UncheckedModelFile(modLoc("block/hewn_tufa")));
+        wallBlock(ModBlocks.HEWN_TUFA_WALL.get(), modLoc("block/hewn_tufa"));
         simpleBlock(ModBlocks.SQUARE_OSSUARY_BRICK.get());
         largeBrickPair(ModBlocks.LEFT_LARGE_OSSUARY_BRICK, ModBlocks.RIGHT_LARGE_OSSUARY_BRICK);
+        largeBrickPair(ModBlocks.LEFT_LARGE_TUFA_BRICK, ModBlocks.RIGHT_LARGE_TUFA_BRICK);
+        largeBrickPair(ModBlocks.MOSSY_LEFT_LARGE_TUFA_BRICK, ModBlocks.MOSSY_RIGHT_LARGE_TUFA_BRICK);
         // four variants with matching edges, so its pick marks don't repeat block by block
         simpleBlock(ModBlocks.HEWN_TUFA.get(),
                 new ConfiguredModel(cubeAll(ModBlocks.HEWN_TUFA.get())),
@@ -274,6 +325,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(ModBlocks.CRACKED_BRICKS.get());
         simpleBlock(ModBlocks.HERRINGBONE_BRICKS.get());
         simpleBlock(ModBlocks.MOSSY_HERRINGBONE_BRICKS.get());
+        simpleBlock(ModBlocks.MIXED_ASHLAR.get());
+        simpleBlock(ModBlocks.MOSSY_MIXED_ASHLAR.get());
         stairsBlock(ModBlocks.MOSSY_BRICK_STAIRS.get(), modLoc("block/mossy_bricks"));
 
         simpleBlock(ModBlocks.LARGE_BRICKS.get());
@@ -282,6 +335,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         stairsBlock(ModBlocks.MOSSY_LARGE_BRICK_STAIRS.get(), modLoc("block/mossy_large_bricks"));
         simpleBlock(ModBlocks.SQUARE_BRICK.get());
         simpleBlock(ModBlocks.MOSSY_SQUARE_BRICK.get());
+        stairsBlock(ModBlocks.SQUARE_BRICK_STAIRS.get(), modLoc("block/square_brick"));
+        stairsBlock(ModBlocks.MOSSY_SQUARE_BRICK_STAIRS.get(), modLoc("block/mossy_square_brick"));
         largeBrickPair(ModBlocks.LEFT_LARGE_BRICK, ModBlocks.RIGHT_LARGE_BRICK);
         largeBrickPair(ModBlocks.MOSSY_LEFT_LARGE_BRICK, ModBlocks.MOSSY_RIGHT_LARGE_BRICK);
 
@@ -289,6 +344,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(ModBlocks.MOSSY_COBBLESTONE_BRICK.get());
         simpleBlock(ModBlocks.RUBBLE.get());
         simpleBlock(ModBlocks.MOSSY_RUBBLE.get());
+        simpleBlock(ModBlocks.BRICK_RUBBLE.get());
+        simpleBlock(ModBlocks.MOSSY_BRICK_RUBBLE.get());
         simpleBlock(ModBlocks.GRAVEL_BRICK.get());
         simpleBlock(ModBlocks.MOSSY_CHISELED_STONE_BRICKS.get());
 
@@ -669,6 +726,30 @@ public class ModBlockStateProvider extends BlockStateProvider {
         ModelFile censerLit = models().getExistingFile(modLoc("block/chain_fixture_censer_lit"));
         getVariantBuilder(ModBlocks.CENSER.get()).forAllStates(state -> ConfiguredModel.builder()
                 .modelFile(state.getValue(CenserBlock.LIT) ? censerLit : censer).build());
+        ModelFile oilLamp = models().getExistingFile(modLoc("block/hanging_oil_lamp"));
+        ModelFile oilLampLit = models().getExistingFile(modLoc("block/hanging_oil_lamp_lit"));
+        getVariantBuilder(ModBlocks.HANGING_OIL_LAMP.get()).forAllStatesExcept(state -> ConfiguredModel.builder()
+                .modelFile(state.getValue(CenserBlock.LIT) ? oilLampLit : oilLamp).build(), CenserBlock.WATERLOGGED);
+        // duckboards: the template turned for AXIS x, boards of the wood's planks on its stripped log
+        for (DeferredHolder<Block, Block> b : ModBlocks.DUCKBOARDS) {
+            String wood = b.getId().getPath().replace("_duckboards", "");
+            ModelFile model = models().withExistingParent(b.getId().getPath(), modLoc("block/template_duckboard"))
+                    .texture("boards", mcLoc("block/" + wood + "_planks"))
+                    .texture("stringer", mcLoc("block/stripped_" + wood + "_log"))
+                    .renderType("minecraft:cutout");
+            getVariantBuilder(b.get()).forAllStatesExcept(state -> ConfiguredModel.builder().modelFile(model)
+                    .rotationY(state.getValue(DuckboardBlock.AXIS) == Direction.Axis.X ? 90 : 0).build(), DuckboardBlock.WATERLOGGED);
+        }
+        // stone benches: a model per PART (tools/gen_stone_benches.py), authored along x, turned for z
+        for (DeferredHolder<Block, Block> bench : ModBlocks.BENCHES) {
+            String name = bench.getId().getPath();
+            getVariantBuilder(bench.get()).forAllStatesExcept(state -> ConfiguredModel.builder()
+                    .modelFile(models().getExistingFile(modLoc("block/" + name + "_" + state.getValue(StoneBenchBlock.PART).getSerializedName())))
+                    .rotationY(state.getValue(StoneBenchBlock.AXIS) == Direction.Axis.Z ? 90 : 0).build(), StoneBenchBlock.WATERLOGGED);
+        }
+        // the tomb door: an empty model for both halves; TombDoorRenderer draws the slab
+        ModelFile tombDoorEmpty = models().getExistingFile(modLoc("block/tomb_door_empty"));
+        getVariantBuilder(ModBlocks.TOMB_DOOR.get()).forAllStates(state -> ConfiguredModel.builder().modelFile(tombDoorEmpty).build());
         // the fire basket: one model per brazier FIRE state
         getVariantBuilder(ModBlocks.FIRE_BASKET.get()).forAllStatesExcept(state -> ConfiguredModel.builder()
                 .modelFile(models().getExistingFile(modLoc("block/fire_basket" + switch (state.getValue(FireBasketBlock.FIRE)) {
@@ -695,6 +776,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
             getVariantBuilder(ModBlocks.RUBBLE_SCATTER.get()).partialState().with(RubbleScatterBlock.CHIPS, chips)
                     .setModels(ConfiguredModel.allYRotations(
                             models().getExistingFile(modLoc("block/rubble_scatter_" + chips)), 0, false));
+            // brick chips: the same models, retextured
+            getVariantBuilder(ModBlocks.BRICK_RUBBLE_SCATTER.get()).partialState().with(RubbleScatterBlock.CHIPS, chips)
+                    .setModels(ConfiguredModel.allYRotations(
+                            models().withExistingParent("brick_rubble_scatter_" + chips, modLoc("block/rubble_scatter_" + chips))
+                                    .texture("rubble", modLoc("block/brick_rubble"))
+                                    .texture("particle", modLoc("block/brick_rubble")), 0, false));
         }
 
         // gargoyles: the gargoyle mob's model baked in stone (tools/gen_obj_models.py), on smooth
@@ -733,6 +820,15 @@ public class ModBlockStateProvider extends BlockStateProvider {
         getVariantBuilder(ModBlocks.MEDIUM_BONE_CHANDELIER.get()).forAllStates(state -> ConfiguredModel.builder()
                 .modelFile(models().getExistingFile(modLoc(state.getValue(ChandelierBlock.LIT)
                         ? "block/medium_bone_chandelier_lit" : "block/medium_bone_chandelier"))).build());
+        getVariantBuilder(ModBlocks.MEDIUM_CHANDELIER.get()).forAllStates(state -> ConfiguredModel.builder()
+                .modelFile(models().getExistingFile(modLoc(state.getValue(ChandelierBlock.LIT)
+                        ? "block/medium_chandelier_lit" : "block/medium_chandelier"))).build());
+        // the large chandeliers: the block's model is only its break particle; LargeChandelierRenderer
+        // draws the chandelier, lit or not
+        for (DeferredHolder<Block, Block> large : List.of(ModBlocks.LARGE_CHANDELIER, ModBlocks.LARGE_BONE_CHANDELIER)) {
+            ModelFile particle = models().getExistingFile(modLoc("block/" + large.getId().getPath()));
+            getVariantBuilder(large.get()).forAllStates(state -> ConfiguredModel.builder().modelFile(particle).build());
+        }
         // stained glass windows: a 2px panel per PART, running along X; turned for a Z window. The
         // back face is mirrored, so a broken pane's hole lines up from both sides. The broken middle
         // has two variants, picked by position.
@@ -828,6 +924,53 @@ public class ModBlockStateProvider extends BlockStateProvider {
             return ConfiguredModel.builder().modelFile(models()
                     .cube(name + "_" + tile + "_" + layer, ends, ends, north, south, east, west)
                     .texture("particle", ends)).build();
+        });
+    }
+
+    /**
+     * A saw trap of one texture all round: a model per AXIS from template_saw_trap_x/_z
+     * (tools/gen_saw_trap.py), which turn only the slot overlay, so the stone itself never turns.
+     * RAISED changes nothing baked: the blade is drawn by SawTrapRenderer.
+     */
+    private void sawTrap(DeferredHolder<Block, ? extends Block> block, String stone, ResourceLocation texture) {
+        String name = block.getId().getPath();
+        ResourceLocation slot = modLoc("block/" + stone + "_saw_trap_slot");
+        getVariantBuilder(block.get()).forAllStates(state -> {
+            String axis = state.getValue(SawTrapBlock.AXIS).getName();
+            return ConfiguredModel.builder().modelFile(models()
+                    .withExistingParent(name + "_" + axis, modLoc("block/template_saw_trap_" + axis))
+                    .texture("down", texture).texture("up", texture)
+                    .texture("north", texture).texture("south", texture)
+                    .texture("east", texture).texture("west", texture)
+                    .texture("slot", slot)).build();
+        });
+    }
+
+    /**
+     * A saw trap in a stacked pattern floor: the floor's model for each TILE and LAYER (as
+     * {@link #stackedPatternTiles} makes them, from the slices &lt;floor&gt;_&lt;n&gt;), per AXIS, with the slot
+     * overlaid on top.
+     */
+    private void patternSawTrap(DeferredHolder<Block, ? extends Block> block, String stone, String floor) {
+        String name = block.getId().getPath();
+        int span = PatternTileBlock.SPAN;
+        ResourceLocation slot = modLoc("block/" + stone + "_saw_trap_slot");
+        getVariantBuilder(block.get()).forAllStates(state -> {
+            String axis = state.getValue(SawTrapBlock.AXIS).getName();
+            int tile = state.getValue(PatternTileBlock.TILE);
+            int layer = state.getValue(StackedPatternTileBlock.LAYER);
+            int x = tile % span;
+            int z = tile / span;
+            int row = span - 1 - layer;
+            ResourceLocation ends = modLoc("block/" + floor + "_" + tile);
+            return ConfiguredModel.builder().modelFile(models()
+                    .withExistingParent(name + "_" + tile + "_" + layer + "_" + axis, modLoc("block/template_saw_trap_" + axis))
+                    .texture("down", ends).texture("up", ends)
+                    .texture("north", modLoc("block/" + floor + "_" + (Math.floorMod(-x, span) + span * row)))
+                    .texture("south", modLoc("block/" + floor + "_" + (x + span * row)))
+                    .texture("east", modLoc("block/" + floor + "_" + (Math.floorMod(-z, span) + span * row)))
+                    .texture("west", modLoc("block/" + floor + "_" + (z + span * row)))
+                    .texture("slot", slot)).build();
         });
     }
 
@@ -1591,5 +1734,13 @@ public class ModBlockStateProvider extends BlockStateProvider {
                             .uvLock(uvlock)
                             .build();
                 }, StairBlock.WATERLOGGED);
+    }
+
+    /** A slab of a square brick, its sides, top and bottom all the brick's texture. */
+    private void squareSlab(DeferredHolder<Block, SlabBlock> slab, String texture) {
+        ResourceLocation tex = modLoc("block/" + texture);
+        String name = slab.getId().getPath();
+        slabBlock(slab.get(), models().slab(name, tex, tex, tex), models().slabTop(name + "_top", tex, tex, tex),
+                new ModelFile.UncheckedModelFile(tex));
     }
 }

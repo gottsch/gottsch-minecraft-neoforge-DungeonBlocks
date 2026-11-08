@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "dungeonblocks:block/hanging_oil_lamp"
+    },
+    "lit=true": {
+      "model": "dungeonblocks:block/hanging_oil_lamp_lit"
+    }
+  }
+}

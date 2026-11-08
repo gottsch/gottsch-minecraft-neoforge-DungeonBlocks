@@ -1,0 +1,61 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "particle": "dungeonblocks:block/ossuary_bench_side",
+    "side": "dungeonblocks:block/ossuary_bench_side",
+    "end": "dungeonblocks:block/ossuary_bench_end",
+    "top": "dungeonblocks:block/ossuary_bench_top_middle"
+  },
+  "elements": [
+    {
+      "from": [
+        0,
+        6,
+        2
+      ],
+      "to": [
+        16,
+        9,
+        14
+      ],
+      "faces": {
+        "up": {
+          "uv": [
+            0,
+            2,
+            16,
+            14
+          ],
+          "texture": "#top"
+        },
+        "down": {
+          "uv": [
+            0,
+            2,
+            16,
+            14
+          ],
+          "texture": "#side"
+        },
+        "north": {
+          "uv": [
+            0,
+            7,
+            16,
+            10
+          ],
+          "texture": "#side"
+        },
+        "south": {
+          "uv": [
+            0,
+            7,
+            16,
+            10
+          ],
+          "texture": "#side"
+        }
+      }
+    }
+  ]
+}

@@ -74,6 +74,21 @@ def default_uv(face, frm, to):
             "west": [fz, 16 - ty, tz, 16 - fy], "east": [16 - tz, 16 - ty, 16 - fz, 16 - fy]}[face]
 
 
+def on_sprite(a, b):
+    """One axis of a default UV, moved whole sprites back onto the sprite (0-16) when a part lies
+    outside the block, as the overhanging chandeliers' do; a span longer than the sprite is
+    squeezed onto it. A UV already on the sprite is left as it is."""
+    lo, hi = min(a, b), max(a, b)
+    if lo >= 0 and hi <= 16:
+        return a, b
+    if hi - lo > 16:
+        return (0, 16) if a < b else (16, 0)
+    shift = math.floor(lo / 16) * 16
+    if hi - shift > 16:
+        shift = hi - 16
+    return a - shift, b - shift
+
+
 class Project:
     """One Blockbench project: textures in order (the first is the particle) and groups of boxes."""
 
@@ -107,6 +122,8 @@ class Project:
             else:
                 w, h = self.size(key)
                 u0, v0, u1, v1 = default_uv(d, frm, to)
+                u0, u1 = on_sprite(u0, u1)
+                v0, v1 = on_sprite(v0, v1)
                 u = [u0 * w / 16, v0 * h / 16, u1 * w / 16, v1 * h / 16]
             face = {"uv": [round(c, 4) for c in u], "texture": key}
             if face_rot and d in face_rot:
@@ -572,21 +589,9 @@ MEDIUM_BONE_CHANDELIER_CANDLES = [
 def bone_between(p, group, name, a, b, y, trim=0.0):
     """A femur lying from (ax, az) to (bx, bz) at height y, shortened by `trim` at each end. It must
     run at a JSON-legal angle (a multiple of 22.5 degrees, within 45 of x or z)."""
-    dx, dz = b[0] - a[0], b[1] - a[1]
-    length = math.hypot(dx, dz) - 2 * trim
+    along, yaw, length = _lay(name, a, b)
     centre = ((a[0] + b[0]) / 2, y, (a[1] + b[1]) / 2)
-    if abs(dx) >= abs(dz):
-        if dx < 0:
-            dx, dz = -dx, -dz
-        along, yaw = "x", math.degrees(math.atan2(-dz, dx))
-    else:
-        if dz < 0:
-            dx, dz = -dx, -dz
-        along, yaw = "z", math.degrees(math.atan2(dx, dz))
-    yaw = round(yaw, 3)
-    if abs(yaw - round(yaw / 22.5) * 22.5) > 0.01:
-        raise SystemExit(f"{name}: {yaw} degrees is not a JSON-legal angle")
-    femur(p, group, name, centre, round(length, 2), along=along, yaw=round(yaw / 22.5) * 22.5 or None)
+    femur(p, group, name, centre, round(length - 2 * trim, 2), along=along, yaw=yaw)
 
 
 def medium_bone_chandelier():
@@ -624,6 +629,248 @@ def medium_bone_chandelier():
              rot=(axis, angle), origin=centre)
     for n, (x, z) in enumerate(MEDIUM_BONE_CHANDELIER_CANDLES):
         candle(p, "candles", f"candle_{n}", x, z, CHANDELIER_CANDLE_Y, CHANDELIER_CANDLE_HEIGHT)
+    return p
+
+
+def ring_points(radius, count, start=0.0):
+    """`count` points round a ring `radius` px from the block's centre, from `start` degrees
+    (0 = east, 90 = south), as (x, z) rounded to hundredths."""
+    return [(round(8 + radius * math.cos(math.radians(start + a * 360 / count)), 2),
+             round(8 + radius * math.sin(math.radians(start + a * 360 / count)), 2)) for a in range(count)]
+
+
+def _lay(name, a, b):
+    """How to lay a straight piece from (ax, az) to (bx, bz): the axis it runs along, its yaw about
+    y and its length. It must run at a JSON-legal angle (a multiple of 22.5 within 45 of x or z)."""
+    dx, dz = b[0] - a[0], b[1] - a[1]
+    if abs(dx) >= abs(dz):
+        if dx < 0:
+            dx, dz = -dx, -dz
+        along, yaw = "x", math.degrees(math.atan2(-dz, dx))
+    else:
+        if dz < 0:
+            dx, dz = -dx, -dz
+        along, yaw = "z", math.degrees(math.atan2(dx, dz))
+    yaw = round(yaw, 3)
+    # points are rounded to hundredths, which can put a legal angle a few hundredths off
+    if abs(yaw - round(yaw / 22.5) * 22.5) > 0.1:
+        raise SystemExit(f"{name}: {yaw} degrees is not a JSON-legal angle")
+    return along, round(yaw / 22.5) * 22.5 or None, math.hypot(dx, dz)
+
+
+def bar_between(p, group, name, a, b, y0, y1, width=1.5, tex="iron", extend=0.0):
+    """A square iron bar lying from (ax, az) to (bx, bz) between heights y0 and y1, `extend` px
+    longer at each end (so the corners of a polygon of bars close)."""
+    along, yaw, length = _lay(name, a, b)
+    cx, cz = (a[0] + b[0]) / 2, (a[1] + b[1]) / 2
+    half, w = length / 2 + extend, width / 2
+    if along == "x":
+        frm, to = (cx - half, y0, cz - w), (cx + half, y1, cz + w)
+    else:
+        frm, to = (cx - w, y0, cz - half), (cx + w, y1, cz + half)
+    p.box(group, name, frm, to, tex, rot=("y", yaw) if yaw else None, origin=(cx, (y0 + y1) / 2, cz))
+
+
+def lean(p, group, name, bearing, r, y, length, angle, width=1.0, tex="iron", bone_tex=False):
+    """A strut or rib `length` long, its centre `r` px out from the middle at height y on a
+    cardinal `bearing` (0 east, 90 south, 180 west, 270 north), leaning `angle` degrees with its
+    top toward the middle. Only cardinal ones can lean: a diagonal would turn on two axes."""
+    rad = math.radians(bearing)
+    cx, cz = 8 + r * math.cos(rad), 8 + r * math.sin(rad)
+    h, w = length / 2, width / 2
+    # the signs the chandeliers' struts have always had: east and north lean on +, west and south on -
+    axis, sign = {0: ("z", 1), 180: ("z", -1), 270: ("x", 1), 90: ("x", -1)}[bearing]
+    frm, to = (cx - w, y - h, cz - w), (cx + w, y + h, cz + w)
+    if bone_tex:
+        bone(p, group, name, frm, to, axis="y", rot=(axis, sign * angle), origin=(cx, y, cz))
+    else:
+        p.box(group, name, frm, to, tex, rot=(axis, sign * angle), origin=(cx, y, cz))
+
+
+def skull_facing(bearing):
+    """The facing and yaw of a skull looking out along `bearing` (a multiple of 22.5): the nearest
+    of east/south/west/north, preferring south or north on a diagonal, turned the rest of the way."""
+    bearing %= 360
+    if bearing % 90 == 45:
+        c = 90 if bearing < 180 else 270
+    else:
+        c = round(bearing / 90) * 90 % 360
+    facing = {0: "east", 90: "south", 180: "west", 270: "north"}[c]
+    yaw = c - bearing
+    if yaw > 180:
+        yaw -= 360
+    if yaw < -180:
+        yaw += 360
+    return facing, (yaw or None)
+
+
+# The large bone chandelier: the medium one as its upper tier (8 skulls, radius 14, y 0), turned
+# 22.5 degrees so the cardinal ribs from the lower tier land on its rim between two skulls - square
+# on, they ran into a skull's face (Nov 4: "a big nose, or the skull eating a bone"). The lower tier
+# a block down: 8 skulls at the corners of an octagon of femurs (radius 30) and 8 more at the middles
+# of its sides. LargeChandelierBlock's wicks for it match these.
+LARGE_BONE_UPPER = ring_points(MEDIUM_CHANDELIER_RADIUS, 8, 22.5)
+LARGE_BONE_LOWER_VERTICES = ring_points(30, 8)
+LARGE_BONE_LOWER_SIDES = ring_points(30 * math.cos(math.radians(22.5)), 8, 22.5)
+LARGE_BONE_LOWER_SKULL = 6
+LARGE_BONE_LOWER_Y = -12
+
+
+def large_bone_chandelier():
+    """A two-tier Sedlec bone chandelier about four blocks across and two tall, hung from the
+    block above its core: the medium bone chandelier as the upper tier; a block below it a ring of
+    16 larger skulls on an octagon of femurs, each with a candle on its crown, eight femur spokes
+    to the vertebra column and four ribs up to the upper tier. (Small skulls hanging under the ring
+    were tried and dropped by the user, Nov 4.) Wider than a block model may be: the converter splits
+    it into parts that LargeChandelierRenderer draws side by side."""
+    p = Project("large_bone_chandelier", {"bone": BONE, "skull": SKULL, "candle": "minecraft:block/candle",
+                                          "chain": CHAIN})
+    # --- the upper tier: the medium bone chandelier's ring, spokes, rim and ribs, turned 22.5
+    half = MEDIUM_CHANDELIER_SKULL / 2
+    for n, (cx, cz) in enumerate(LARGE_BONE_UPPER):
+        facing, yaw = skull_facing(22.5 + n * 45)
+        skull(p, "upper", f"skull_{n}", cx - half, 0, cz - half, size=MEDIUM_CHANDELIER_SKULL, facing=facing, yaw=yaw)
+        bone_between(p, "upper", f"spoke_{n}", (8, 8), (cx, cz), 1.5)
+        nx, nz = LARGE_BONE_UPPER[(n + 1) % 8]
+        bone_between(p, "upper", f"rim_{n}", (cx, cz), (nx, nz), 1.5, trim=1.5)
+    for n, bearing in enumerate((180, 0, 270, 90)):
+        lean(p, "upper", f"rib_{n}", bearing, 4, 7, 10, 22.5, bone_tex=True)
+    # --- the column: vertebrae from the lower hub up to the chain
+    for n in range(10):
+        y = LARGE_BONE_LOWER_Y + n * 2.5
+        bone(p, "column", f"vertebra_{n}", (6, y, 6), (10, y + 1.5, 10), axis="y")
+        bone(p, "column", f"disc_{n}", (7, y + 1.5, 7), (9, y + 2.5, 9), axis="y")
+    chain(p, "column", "chain", 8, 8, 12.5, 16)
+    # --- the lower tier
+    size, y0 = LARGE_BONE_LOWER_SKULL, LARGE_BONE_LOWER_Y
+    ring = [pt for pair in zip(LARGE_BONE_LOWER_VERTICES, LARGE_BONE_LOWER_SIDES) for pt in pair]
+    for n, (cx, cz) in enumerate(ring):
+        facing, yaw = skull_facing(n * 22.5)
+        skull(p, "lower", f"skull_{n}", cx - size / 2, y0, cz - size / 2, size=size, facing=facing, yaw=yaw)
+        nx, nz = ring[(n + 1) % 16]
+        bone_between(p, "lower", f"rim_{n}", (cx, cz), (nx, nz), y0 + 2, trim=size / 2)
+    # each spoke two femurs end to end: one 30 px femur would straddle two of the parts the
+    # converter splits the model into
+    for n, (cx, cz) in enumerate(LARGE_BONE_LOWER_VERTICES):
+        mid = ((8 + cx) / 2, (8 + cz) / 2)
+        bone_between(p, "lower", f"spoke_{n}_inner", (8, 8), mid, y0 + 2.5)
+        bone_between(p, "lower", f"spoke_{n}_outer", mid, (cx, cz), y0 + 2.5)
+    # ribs at 45 degrees from the back of each cardinal lower skull up to the middle of the upper
+    # tier's rim femur above it (13 px out, its top at y 2.5)
+    # Each rib is two bones meeting at a knuckle: one 19 px bone stretched the 16 px bone strip
+    # over it (Nov 4).
+    rib_half = 13.5 * math.sqrt(2) / 2
+    step = rib_half / 2 / math.sqrt(2)
+    for n, bearing in enumerate((180, 0, 270, 90)):
+        lean(p, "lower", f"rib_{n}_inner", bearing, 20.25 - step, -4.25 + step, rib_half, 45, bone_tex=True)
+        lean(p, "lower", f"rib_{n}_outer", bearing, 20.25 + step, -4.25 - step, rib_half, 45, bone_tex=True)
+        rad = math.radians(bearing)
+        kx, kz = 8 + 20.25 * math.cos(rad), 8 + 20.25 * math.sin(rad)
+        bone(p, "lower", f"rib_{n}_knuckle", (kx - 1, -5.25, kz - 1), (kx + 1, -3.25, kz + 1), axis="y")
+    for n, (x, z) in enumerate(LARGE_BONE_UPPER):
+        candle(p, "candles", f"upper_candle_{n}", x, z, CHANDELIER_CANDLE_Y, CHANDELIER_CANDLE_HEIGHT)
+    for n, (x, z) in enumerate(ring):
+        candle(p, "candles", f"lower_candle_{n}", x, z, y0 + size, CHANDELIER_CANDLE_HEIGHT)
+    return p
+
+
+def iron_octagon(p, group, name, corners, y0, y1, width=1.5):
+    """A ring of iron bars through `corners`, each bar run long enough to close its corner."""
+    for n, a in enumerate(corners):
+        bar_between(p, group, f"{name}_{n}", a, corners[(n + 1) % len(corners)], y0, y1, width, extend=width / 2)
+
+
+def pans_and_drops(p, group, name, points, y, drop=True):
+    """A 3px drip pan just under height y beneath each candle, and a small iron drop under it."""
+    for n, (x, z) in enumerate(points):
+        p.box(group, f"{name}_pan_{n}", (x - 1.5, y - 0.5, z - 1.5), (x + 1.5, y, z + 1.5), "iron")
+        if drop:
+            p.box(group, f"{name}_drop_{n}", (x - 0.5, y - 4, z - 0.5), (x + 0.5, y - 2, z + 0.5), "iron")
+
+
+# The medium iron chandelier: an octagonal wheel (corners 20 px out, at 22.5 + 45n degrees, so
+# its sides run square and diagonal) with a candle at each corner, and a square inner ring with
+# four more. MediumChandelierBlock's FLAMES match.
+MEDIUM_IRON_CORNERS = ring_points(20, 8, 22.5)
+MEDIUM_IRON_INNER = ring_points(9, 4)
+
+
+def medium_chandelier():
+    """The iron chandelier grown to a room's centrepiece, one block whose model overhangs its
+    neighbours, as the medium bone chandelier does: an octagonal wheel of eight candles on eight
+    spokes, a square inner ring of four more, struts from the inner ring to the chain, an iron drop
+    under each corner and a finial under the hub. Candles at the small chandelier's y and height,
+    so its FLAME_Y holds."""
+    p = Project("medium_chandelier", {"iron": DARK_IRON, "candle": "minecraft:block/candle", "chain": CHAIN})
+    iron_octagon(p, "frame", "rim", MEDIUM_IRON_CORNERS, 3, 4.5)
+    for n, c in enumerate(MEDIUM_IRON_CORNERS):
+        bar_between(p, "frame", f"spoke_{n}", (8, 8), c, 3.25, 4.25, 1)
+    # the inner ring: a square through the four inner candles, its corners on the diagonals
+    iron_octagon(p, "frame", "inner", ring_points(9 * math.sqrt(2), 4, 45), 3, 4.5)
+    pans_and_drops(p, "frame", "corner", MEDIUM_IRON_CORNERS, 5)
+    pans_and_drops(p, "frame", "inner", MEDIUM_IRON_INNER, 5, drop=False)
+    # the hub, a finial under it and the chain above
+    p.box("frame", "hub", (6.5, 2, 6.5), (9.5, 6, 9.5), "iron")
+    p.box("frame", "finial", (7.25, -1, 7.25), (8.75, 2, 8.75), "iron")
+    p.box("frame", "finial_tip", (7.75, -2, 7.75), (8.25, -1, 8.25), "iron")
+    chain(p, "frame", "chain", 8, 8, 6, 16)
+    # struts from the inner ring up to the chain, 45 degrees
+    for n, bearing in enumerate((180, 0, 270, 90)):
+        lean(p, "frame", f"strut_{n}", bearing, 4.75, 9, 12.5, 45)
+    for n, (x, z) in enumerate(MEDIUM_IRON_CORNERS + MEDIUM_IRON_INNER):
+        candle(p, "candles", f"candle_{n}", x, z, CHANDELIER_CANDLE_Y, CHANDELIER_CANDLE_HEIGHT)
+    return p
+
+
+# The large iron chandelier: an upper wheel (corners 16 px out) of 8 candles at y 5, and a block down
+# a lower wheel (corners 30 px out) with 16: one at each corner and one at the middle of each side.
+# LargeChandelierBlock's wicks for it match.
+LARGE_IRON_UPPER = ring_points(16, 8, 22.5)
+LARGE_IRON_LOWER_CORNERS = ring_points(30, 8, 22.5)
+LARGE_IRON_LOWER_SIDES = ring_points(30 * math.cos(math.radians(22.5)), 8)
+LARGE_IRON_LOWER_Y = -10
+
+
+def large_chandelier():
+    """A two-tier iron chandelier about four blocks across and two tall: an octagonal upper wheel of
+    eight candles, and a block below it a wider wheel of sixteen with an inner ring, both on spokes
+    from a central post; four struts brace the lower wheel to the upper. Split by the converter into
+    parts that LargeChandelierRenderer draws side by side."""
+    p = Project("large_chandelier", {"iron": DARK_IRON, "candle": "minecraft:block/candle", "chain": CHAIN})
+    # --- upper wheel
+    iron_octagon(p, "upper", "rim", LARGE_IRON_UPPER, 3, 4.5)
+    for n, c in enumerate(LARGE_IRON_UPPER):
+        bar_between(p, "upper", f"spoke_{n}", (8, 8), c, 3.25, 4.25, 1)
+    pans_and_drops(p, "upper", "upper", LARGE_IRON_UPPER, 5)
+    # --- the post: a hub on each wheel, a finial under the lower one, the chain above
+    y = LARGE_IRON_LOWER_Y
+    p.box("post", "post", (7.25, y - 2, 7.25), (8.75, 6, 8.75), "iron")
+    p.box("post", "upper_hub", (6.5, 2, 6.5), (9.5, 6, 9.5), "iron")
+    p.box("post", "lower_hub", (6.5, y - 3, 6.5), (9.5, y + 1, 9.5), "iron")
+    p.box("post", "finial", (7.25, y - 5, 7.25), (8.75, y - 3, 8.75), "iron")
+    p.box("post", "finial_tip", (7.75, y - 6, 7.75), (8.25, y - 5, 8.25), "iron")
+    chain(p, "post", "chain", 8, 8, 6, 16)
+    # --- lower wheel: the rim, an inner ring halfway out, spokes, pans
+    iron_octagon(p, "lower", "rim", LARGE_IRON_LOWER_CORNERS, y - 2, y - 0.5)
+    iron_octagon(p, "lower", "inner", ring_points(15, 8, 22.5), y - 2, y - 0.5, 1)
+    # each spoke in two halves, meeting at the inner ring: one 30 px bar would straddle two of the
+    # parts the converter splits the model into
+    for n, c in enumerate(LARGE_IRON_LOWER_CORNERS):
+        mid = ((8 + c[0]) / 2, (8 + c[1]) / 2)
+        bar_between(p, "lower", f"spoke_{n}_inner", (8, 8), mid, y - 1.75, y - 0.75, 1)
+        bar_between(p, "lower", f"spoke_{n}_outer", mid, c, y - 1.75, y - 0.75, 1)
+    pans_and_drops(p, "lower", "corner", LARGE_IRON_LOWER_CORNERS, y)
+    pans_and_drops(p, "lower", "side", LARGE_IRON_LOWER_SIDES, y, drop=False)
+    # struts from the middles of the lower wheel's square sides up to the upper wheel's, 45 degrees
+    lower_r = 30 * math.cos(math.radians(22.5))
+    upper_r = 16 * math.cos(math.radians(22.5))
+    for n, bearing in enumerate((180, 0, 270, 90)):
+        lean(p, "struts", f"strut_{n}", bearing, (lower_r + upper_r) / 2, (y - 0.5 + 3) / 2,
+             (lower_r - upper_r) * math.sqrt(2), 45)
+    for n, (x, z) in enumerate(LARGE_IRON_UPPER):
+        candle(p, "candles", f"upper_candle_{n}", x, z, CHANDELIER_CANDLE_Y, CHANDELIER_CANDLE_HEIGHT)
+    for n, (x, z) in enumerate(LARGE_IRON_LOWER_CORNERS + LARGE_IRON_LOWER_SIDES):
+        candle(p, "candles", f"lower_candle_{n}", x, z, y, CHANDELIER_CANDLE_HEIGHT)
     return p
 
 
@@ -733,6 +980,43 @@ def manacles():
     return p
 
 
+def skeleton_remains_shackles():
+    """What a hanging Skeleton Remains hangs from: an iron plate and eye on the ceiling, two chains
+    splaying down from the eye at 45 degrees, and a cuff round each wrist. Not a block:
+    SkeletonRemainsRenderer draws it over the raised hands. y 0 is level with the hands' tips and the
+    ceiling is y 8 (SkeletonRemainsEntity.HANGING_REACH is the raised hands' 2.25 blocks plus this half
+    block); the wrists are 5.9px either side of the middle, where the raised, spread arms put them.
+    The chains are vanilla's chain texture on two crossed planes, as the mod's other chains are (the
+    first try, small iron boxes for links, read as blocks, Nov 4). The cuffs lie flat round the
+    wrist, 1.5px tall, with a 2.2px hole for the 2px arm."""
+    p = Project("skeleton_remains_shackles", {"iron": DARK_IRON, "chain": CHAIN})
+    g = "shackles"
+    p.box(g, "plate", (6, 7.25, 6), (10, 8, 10), "iron")
+    iron_ring(p, g, "eye", (8, 6, 8), 2.5, "xy", bar=0.5, depth=0.75)
+    wrist, top, cuff_top = 5.9, 5.0, -1.5
+    drop = top - cuff_top                     # the chain runs at 45: as far out as it drops
+    length = drop * math.sqrt(2)
+    for side, sx in (("w", -1), ("e", 1)):
+        cx = 8 + sx * (wrist - drop / 2)
+        cy = (top + cuff_top) / 2
+        # the top leans in toward the eye: + on the east side, - on the west (as the struts' signs)
+        rot = ("z", 45 * sx)
+        v1 = min(16, round(length, 2))
+        p.box(g, f"chain_{side}_a", (cx - 1.5, cy - length / 2, 8), (cx + 1.5, cy + length / 2, 8),
+              {"north": "chain", "south": "chain"}, uv={"north": [3, 0, 0, v1], "south": [0, 0, 3, v1]},
+              rot=rot, origin=(cx, cy, 8))
+        p.box(g, f"chain_{side}_b", (cx, cy - length / 2, 6.5), (cx, cy + length / 2, 9.5),
+              {"west": "chain", "east": "chain"}, uv={"west": [6, 0, 3, v1], "east": [3, 0, 6, v1]},
+              rot=rot, origin=(cx, cy, 8))
+        # the cuff: four walls round the wrist
+        wx, y0, y1, o, i = 8 + sx * wrist, -3, cuff_top, 1.75, 1.1
+        p.box(g, f"cuff_{side}_n", (wx - o, y0, 8 - o), (wx + o, y1, 8 - i), "iron")
+        p.box(g, f"cuff_{side}_s", (wx - o, y0, 8 + i), (wx + o, y1, 8 + o), "iron")
+        p.box(g, f"cuff_{side}_w", (wx - o, y0, 8 - i), (wx - i, y1, 8 + i), "iron", skip=("north", "south"))
+        p.box(g, f"cuff_{side}_e", (wx + i, y0, 8 - i), (wx + o, y1, 8 + i), "iron", skip=("north", "south"))
+    return p
+
+
 def meat_hook():
     """Chain fixture: a butcher's hook - an eye at the top, a long shank and a J turned up to a
     point - built flat, then turned 45 degrees so no side sees it edge-on."""
@@ -764,6 +1048,33 @@ def censer():
     p.box("fixture", "ember", (5.5, 5.5, 5.5), (10.5, 6.5, 10.5), "ember", skip=("up", "down"))
     p.box("fixture", "bowl", (5, 2.5, 5), (11, 5.5, 11), "metal")
     p.box("fixture", "foot", (6, 1.5, 6), (10, 2.5, 10), "metal")
+    return p
+
+
+def hanging_oil_lamp():
+    """Chain fixture: a terracotta oil lamp - a squat bowl with a spout at the front and a loop
+    handle at the back - hung from a dark iron bail on a chain. `wick` is the candle sprite's wick,
+    swapped for candle_lit's in the lit model; the flame is a particle at the spout's tip
+    (HangingOilLampBlock.FLAME)."""
+    p = Project("hanging_oil_lamp", {"clay": "minecraft:block/terracotta", "iron": DARK_IRON,
+                                     "chain": CHAIN, "wick": "minecraft:block/candle"})
+    # the bowl: a foot, a wide body, a narrower shoulder round the filling hole
+    p.box("lamp", "foot", (6, 1, 6), (10, 2, 10), "clay")
+    p.box("lamp", "body", (5, 2, 5), (11, 4, 11), "clay")
+    p.box("lamp", "shoulder", (6, 4, 6), (10, 5, 10), "clay")
+    # the spout, pinched to the front (south), and the loop handle at the back
+    p.box("lamp", "spout", (7, 3, 11), (9, 4.5, 13.5), "clay", skip=("north",))
+    p.box("lamp", "handle_top", (7.5, 4, 3), (8.5, 5, 6), "clay", skip=("south",))
+    p.box("lamp", "handle_back", (7.5, 2.5, 3), (8.5, 4, 4), "clay", skip=("up", "south"))
+    # the wick standing out of the spout's tip
+    for n, angle in enumerate((45, -45)):
+        p.box("lamp", f"wick_{n}", (7.5, 4.5, 12.5), (8.5, 5.5, 12.5), {"north": "wick", "south": "wick"},
+              uv={"north": [0, 5, 1, 6], "south": [0, 5, 1, 6]}, rot=("y", angle), origin=(8, 4.5, 12.5))
+    # the bail: two arms from the bowl's sides up to a bar, and the chain from the bar to the ceiling
+    p.box("lamp", "bail_w", (4.5, 3, 7.5), (5, 8, 8.5), "iron")
+    p.box("lamp", "bail_e", (11, 3, 7.5), (11.5, 8, 8.5), "iron")
+    p.box("lamp", "bail_bar", (4.5, 8, 7.5), (11.5, 8.75, 8.5), "iron")
+    chain(p, "lamp", "chain", 8, 8, 8.75, 16)
     return p
 
 
@@ -1111,6 +1422,9 @@ PROJECTS = {
     "chandelier": chandelier,
     "bone_chandelier": bone_chandelier,
     "medium_bone_chandelier": medium_bone_chandelier,
+    "large_bone_chandelier": large_bone_chandelier,
+    "medium_chandelier": medium_chandelier,
+    "large_chandelier": large_chandelier,
     "shelf": shelf,
     "skull_candle": skull_candle,
     "large_candle": large_candle,
@@ -1119,8 +1433,10 @@ PROJECTS = {
     "candle_cluster": candle_cluster,
     "chain_fixture_manacles": manacles,
     "chain_fixture_meat_hook": meat_hook,
+    "skeleton_remains_shackles": skeleton_remains_shackles,
     "chain_fixture_censer": censer,
     "fire_basket": fire_basket,
+    "hanging_oil_lamp": hanging_oil_lamp,
     "pillory_lower": lambda: pillory("lower"),
     "pillory_upper": lambda: pillory("upper"),
     "torture_rack_head": lambda: torture_rack("head"),

@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "B": {
+      "item": "dungeonblocks:grave_slab_pavement"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "r": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    "iBi",
+    " r "
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:grave_slab_saw_trap"
+  }
+}

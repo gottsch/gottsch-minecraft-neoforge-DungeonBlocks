@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "dungeonblocks:block/hewn_tufa_slab"
+    },
+    "type=double": {
+      "model": "dungeonblocks:block/hewn_tufa"
+    },
+    "type=top": {
+      "model": "dungeonblocks:block/hewn_tufa_slab_top"
+    }
+  }
+}
