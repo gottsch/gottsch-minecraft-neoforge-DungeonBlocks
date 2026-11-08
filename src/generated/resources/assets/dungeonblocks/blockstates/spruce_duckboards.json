@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "dungeonblocks:block/spruce_duckboards",
+      "y": 90
+    },
+    "axis=z": {
+      "model": "dungeonblocks:block/spruce_duckboards"
+    }
+  }
+}

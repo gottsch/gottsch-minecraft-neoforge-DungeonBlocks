@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "dungeonblocks:block/mossy_flagstones_2",
+    "east": "dungeonblocks:block/mossy_flagstones_0",
+    "north": "dungeonblocks:block/mossy_flagstones_1",
+    "particle": "dungeonblocks:block/mossy_flagstones_2",
+    "south": "dungeonblocks:block/mossy_flagstones_2",
+    "up": "dungeonblocks:block/mossy_flagstones_2",
+    "west": "dungeonblocks:block/mossy_flagstones_0"
+  }
+}

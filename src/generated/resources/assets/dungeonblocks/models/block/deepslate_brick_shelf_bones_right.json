@@ -1,0 +1,7 @@
+{
+  "parent": "dungeonblocks:block/template_shelf_bones",
+  "textures": {
+    "brick": "dungeonblocks:block/right_large_deepslate_brick",
+    "particle": "dungeonblocks:block/right_large_deepslate_brick"
+  }
+}

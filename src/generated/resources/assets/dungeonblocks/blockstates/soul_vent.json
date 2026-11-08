@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "dungeonblocks:block/soul_vent_unlit"
+    },
+    "lit=true": {
+      "model": "dungeonblocks:block/soul_vent"
+    }
+  }
+}

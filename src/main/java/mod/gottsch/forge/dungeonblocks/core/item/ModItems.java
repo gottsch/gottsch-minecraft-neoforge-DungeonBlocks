@@ -19,6 +19,8 @@
  */
 package mod.gottsch.forge.dungeonblocks.core.item;
 
+import mod.gottsch.forge.dungeonblocks.DungeonBlocks;
+import mod.gottsch.forge.dungeonblocks.core.block.ChainSize;
 import mod.gottsch.forge.dungeonblocks.core.block.ModBlocks;
 import mod.gottsch.forge.dungeonblocks.core.entity.ModEntityTypes;
 import mod.gottsch.forge.dungeonblocks.core.entity.ScrollVariant;
@@ -60,6 +62,13 @@ public class ModItems {
 	public static DeferredHolder<Item, BlockItem> MOLD = fromBlock(ModBlocks.MOLD, ITEM_PROPERTIES);
 	public static DeferredHolder<Item, BlockItem> LICHEN = fromBlock(ModBlocks.LICHEN, ITEM_PROPERTIES);
 	public static DeferredHolder<Item, SkeletonItem> SKELETON = Registration.ITEMS.register("skeleton", () -> new SkeletonItem(ModBlocks.SKELETON.get(), new Item.Properties()));
+
+	// hung between two chain anchors; one makes one chain
+	// a posed skeleton entity, placed off the block grid (creative only, as the Skeleton block is)
+	public static final DeferredHolder<Item, Item> SKELETON_REMAINS = Registration.ITEMS.register("skeleton_remains",
+			() -> new SkeletonRemainsItem(new Item.Properties()));
+	public static final DeferredHolder<Item, Item> GIANT_CHAIN = Registration.ITEMS.register("giant_chain", () -> new ChainItem(new Item.Properties(), ChainSize.GIANT));
+	public static final DeferredHolder<Item, Item> MEDIUM_CHAIN = Registration.ITEMS.register("medium_chain", () -> new ChainItem(new Item.Properties(), ChainSize.MEDIUM));
 
 	// entity-backed decorative props. The lambdas defer ModEntityTypes' class init so it isn't
 	// forced during ModItems' own static initialization.
@@ -105,6 +114,8 @@ public class ModItems {
 			() -> new PotItem(() -> ModEntityTypes.GREEN_FLASK.get(), new Item.Properties()));
 	public static final DeferredHolder<Item, Item> WOODEN_BUCKET = Registration.ITEMS.register("wooden_bucket",
 			() -> new PotItem(() -> ModEntityTypes.WOODEN_BUCKET.get(), new Item.Properties()));
+	public static final DeferredHolder<Item, Item> CINERARY_URN = Registration.ITEMS.register("cinerary_urn",
+			() -> new PotItem(() -> ModEntityTypes.CINERARY_URN.get(), new Item.Properties()));
 
 	/** A tome item per cover, each laying down a TomeEntity with that cover. */
 	public static final Map<TomeVariant, DeferredHolder<Item, Item>> TOMES = tomes();
@@ -136,6 +147,7 @@ public class ModItems {
 	 * DungeonBlocks Entities tab instead — see {@link ModCreativeModeTabs}.
 	 */
 	public static final List<DeferredHolder<Item, Item>> ENTITY_ITEMS = Stream.concat(Stream.of(
+			SKELETON_REMAINS,
 			POT, SQUAT_CLAY_POT, THIN_CLAY_POT,
 			STONE_POT, SQUAT_STONE_POT, THIN_STONE_POT,
 			RED_POT, SQUAT_RED_POT, THIN_RED_POT,
@@ -144,7 +156,7 @@ public class ModItems {
 			BIG_YELLOW_POTION, YELLOW_FLASK,
 			BIG_BLUE_POTION, BLUE_FLASK,
 			BIG_GREEN_POTION, GREEN_FLASK,
-			WOODEN_BUCKET), Stream.concat(TOMES.values().stream(), SCROLLS.values().stream())).toList();
+			WOODEN_BUCKET, CINERARY_URN), Stream.concat(TOMES.values().stream(), SCROLLS.values().stream())).toList();
 
 	public static void register(IEventBus bus) {
 		// cycle through all block and create items

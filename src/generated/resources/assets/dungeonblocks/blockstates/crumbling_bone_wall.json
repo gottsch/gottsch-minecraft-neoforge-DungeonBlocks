@@ -1,0 +1,166 @@
+{
+  "variants": {
+    "shaking=false,x=0,y=0,z=0": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_0_0_0"
+    },
+    "shaking=false,x=0,y=0,z=1": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_0_0_1"
+    },
+    "shaking=false,x=0,y=0,z=2": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_0_0_2"
+    },
+    "shaking=false,x=0,y=1,z=0": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_0_1_0"
+    },
+    "shaking=false,x=0,y=1,z=1": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_0_1_1"
+    },
+    "shaking=false,x=0,y=1,z=2": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_0_1_2"
+    },
+    "shaking=false,x=0,y=2,z=0": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_0_2_0"
+    },
+    "shaking=false,x=0,y=2,z=1": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_0_2_1"
+    },
+    "shaking=false,x=0,y=2,z=2": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_0_2_2"
+    },
+    "shaking=false,x=1,y=0,z=0": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_1_0_0"
+    },
+    "shaking=false,x=1,y=0,z=1": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_1_0_1"
+    },
+    "shaking=false,x=1,y=0,z=2": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_1_0_2"
+    },
+    "shaking=false,x=1,y=1,z=0": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_1_1_0"
+    },
+    "shaking=false,x=1,y=1,z=1": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_1_1_1"
+    },
+    "shaking=false,x=1,y=1,z=2": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_1_1_2"
+    },
+    "shaking=false,x=1,y=2,z=0": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_1_2_0"
+    },
+    "shaking=false,x=1,y=2,z=1": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_1_2_1"
+    },
+    "shaking=false,x=1,y=2,z=2": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_1_2_2"
+    },
+    "shaking=false,x=2,y=0,z=0": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_2_0_0"
+    },
+    "shaking=false,x=2,y=0,z=1": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_2_0_1"
+    },
+    "shaking=false,x=2,y=0,z=2": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_2_0_2"
+    },
+    "shaking=false,x=2,y=1,z=0": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_2_1_0"
+    },
+    "shaking=false,x=2,y=1,z=1": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_2_1_1"
+    },
+    "shaking=false,x=2,y=1,z=2": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_2_1_2"
+    },
+    "shaking=false,x=2,y=2,z=0": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_2_2_0"
+    },
+    "shaking=false,x=2,y=2,z=1": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_2_2_1"
+    },
+    "shaking=false,x=2,y=2,z=2": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_2_2_2"
+    },
+    "shaking=true,x=0,y=0,z=0": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_0_0_0"
+    },
+    "shaking=true,x=0,y=0,z=1": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_0_0_1"
+    },
+    "shaking=true,x=0,y=0,z=2": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_0_0_2"
+    },
+    "shaking=true,x=0,y=1,z=0": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_0_1_0"
+    },
+    "shaking=true,x=0,y=1,z=1": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_0_1_1"
+    },
+    "shaking=true,x=0,y=1,z=2": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_0_1_2"
+    },
+    "shaking=true,x=0,y=2,z=0": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_0_2_0"
+    },
+    "shaking=true,x=0,y=2,z=1": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_0_2_1"
+    },
+    "shaking=true,x=0,y=2,z=2": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_0_2_2"
+    },
+    "shaking=true,x=1,y=0,z=0": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_1_0_0"
+    },
+    "shaking=true,x=1,y=0,z=1": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_1_0_1"
+    },
+    "shaking=true,x=1,y=0,z=2": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_1_0_2"
+    },
+    "shaking=true,x=1,y=1,z=0": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_1_1_0"
+    },
+    "shaking=true,x=1,y=1,z=1": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_1_1_1"
+    },
+    "shaking=true,x=1,y=1,z=2": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_1_1_2"
+    },
+    "shaking=true,x=1,y=2,z=0": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_1_2_0"
+    },
+    "shaking=true,x=1,y=2,z=1": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_1_2_1"
+    },
+    "shaking=true,x=1,y=2,z=2": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_1_2_2"
+    },
+    "shaking=true,x=2,y=0,z=0": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_2_0_0"
+    },
+    "shaking=true,x=2,y=0,z=1": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_2_0_1"
+    },
+    "shaking=true,x=2,y=0,z=2": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_2_0_2"
+    },
+    "shaking=true,x=2,y=1,z=0": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_2_1_0"
+    },
+    "shaking=true,x=2,y=1,z=1": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_2_1_1"
+    },
+    "shaking=true,x=2,y=1,z=2": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_2_1_2"
+    },
+    "shaking=true,x=2,y=2,z=0": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_2_2_0"
+    },
+    "shaking=true,x=2,y=2,z=1": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_2_2_1"
+    },
+    "shaking=true,x=2,y=2,z=2": {
+      "model": "dungeonblocks:block/crumbling_bone_wall_shaking_2_2_2"
+    }
+  }
+}

@@ -36,6 +36,7 @@ CONVENTIONS
 import base64
 import io
 import json
+import math
 import os
 import sys
 import uuid
@@ -73,6 +74,21 @@ def default_uv(face, frm, to):
             "west": [fz, 16 - ty, tz, 16 - fy], "east": [16 - tz, 16 - ty, 16 - fz, 16 - fy]}[face]
 
 
+def on_sprite(a, b):
+    """One axis of a default UV, moved whole sprites back onto the sprite (0-16) when a part lies
+    outside the block, as the overhanging chandeliers' do; a span longer than the sprite is
+    squeezed onto it. A UV already on the sprite is left as it is."""
+    lo, hi = min(a, b), max(a, b)
+    if lo >= 0 and hi <= 16:
+        return a, b
+    if hi - lo > 16:
+        return (0, 16) if a < b else (16, 0)
+    shift = math.floor(lo / 16) * 16
+    if hi - shift > 16:
+        shift = hi - 16
+    return a - shift, b - shift
+
+
 class Project:
     """One Blockbench project: textures in order (the first is the particle) and groups of boxes."""
 
@@ -106,6 +122,8 @@ class Project:
             else:
                 w, h = self.size(key)
                 u0, v0, u1, v1 = default_uv(d, frm, to)
+                u0, u1 = on_sprite(u0, u1)
+                v0, v1 = on_sprite(v0, v1)
                 u = [u0 * w / 16, v0 * h / 16, u1 * w / 16, v1 * h / 16]
             face = {"uv": [round(c, 4) for c in u], "texture": key}
             if face_rot and d in face_rot:
@@ -179,15 +197,17 @@ DARK_IRON = "dungeonblocks:block/dark_iron"
 CHAIN = "minecraft:block/chain"
 
 
-def skull(p, group, name, x, y, z, size=6, facing="north"):
-    """A skull `size` px across, its corner at (x, y, z), its face toward `facing`."""
+def skull(p, group, name, x, y, z, size=6, facing="north", yaw=None):
+    """A skull `size` px across, its corner at (x, y, z), its face toward `facing`, turned `yaw`
+    degrees about its own centre (a JSON-legal angle) to face a diagonal."""
     faces = {"north": [0, 0, 8, 8], "south": [8, 8, 16, 16], "east": [0, 8, 8, 16],
              "west": [0, 8, 8, 16], "up": [8, 0, 16, 8], "down": [8, 0, 16, 8]}
     turn = {"north": {}, "south": {"north": "south", "south": "north"},
             "east": {"north": "east", "east": "south", "south": "west", "west": "north"},
             "west": {"north": "west", "west": "south", "south": "east", "east": "north"}}[facing]
     uv = {turn.get(d, d): faces[d] for d in faces}
-    p.box(group, name, (x, y, z), (x + size, y + size, z + size), "skull", uv=uv)
+    p.box(group, name, (x, y, z), (x + size, y + size, z + size), "skull", uv=uv,
+          rot=("y", yaw) if yaw else None)
 
 
 def head(p, group, name, x, y, z, key="head"):
@@ -233,19 +253,38 @@ def chain(p, group, name, x, z, y0, y1):
 # projects
 # ---------------------------------------------------------------------------------------------
 
+def niche_wall(p):
+    """The wall around a recess x 2-14, y 2-14, 12 deep. Every face takes vanilla's default UV, so
+    the stone's courses run on unbroken across the pieces and into the neighbouring blocks."""
+    p.box("wall", "sill", (0, 0, 0), (16, 2, 16), "stone")
+    p.box("wall", "lintel", (0, 14, 0), (16, 16, 16), "stone")
+    p.box("wall", "jamb_west", (0, 2, 0), (2, 14, 16), "stone", skip=("up", "down"))
+    p.box("wall", "jamb_east", (14, 2, 0), (16, 14, 16), "stone", skip=("up", "down"))
+    p.box("wall", "back", (2, 2, 12), (14, 14, 16), "stone", skip=("up", "down", "east", "west"))
+
+
+def catacomb_niche_soul_lamp():
+    """The niche's SOUL_LAMP remains, its own project so catacomb_niche.bbmodel and any edits to it
+    stay untouched: a stone dish of soul soil in the middle of the recess, with a crossed soul flame."""
+    p = Project("catacomb_niche_soul_lamp", {"stone": "minecraft:block/stone_bricks",
+                                             "soil": "minecraft:block/soul_soil", "flame": "minecraft:block/soul_fire_0"})
+    niche_wall(p)
+    p.box("lamp", "dish", (4, 2, 2), (12, 4, 10), {"north": "stone", "south": "stone", "east": "stone", "west": "stone", "up": "soil"})
+    # the whole first frame: an animated sprite's project UV spans its whole strip, one frame in game
+    w, h = p.size("flame")
+    for n, angle in enumerate((45, -45)):
+        p.box("lamp", f"flame_{n}", (4, 4, 6), (12, 12, 6), {"north": "flame", "south": "flame"},
+              uv={"north": [0, 0, w, h], "south": [0, 0, w, h]}, rot=("y", angle), origin=(8, 4, 6))
+    return p
+
+
 def catacomb_niche():
     """A burial niche cut into a wall, authored facing north (the opening is the north face), with a
     group for each thing that can lie in it - CatacombNicheBlock's REMAINS, "remains_<value>", one
     template per value in bbmodel_to_block_models.py. `stone` is filled per material by datagen;
     the template's stone bricks are only for display."""
     p = Project("catacomb_niche", {"stone": "minecraft:block/stone_bricks", "skull": SKULL, "bone": BONE})
-    # the wall around a recess x 2-14, y 2-14, 12 deep. Every face takes vanilla's default UV, so
-    # the stone's courses run on unbroken across the pieces and into the neighbouring blocks.
-    p.box("wall", "sill", (0, 0, 0), (16, 2, 16), "stone")
-    p.box("wall", "lintel", (0, 14, 0), (16, 16, 16), "stone")
-    p.box("wall", "jamb_west", (0, 2, 0), (2, 14, 16), "stone", skip=("up", "down"))
-    p.box("wall", "jamb_east", (14, 2, 0), (16, 14, 16), "stone", skip=("up", "down"))
-    p.box("wall", "back", (2, 2, 12), (14, 14, 16), "stone", skip=("up", "down", "east", "west"))
+    niche_wall(p)
 
     # skull_and_bones: a skull on one side, turned to look out past the two femurs heaped on the
     # other. Two symmetric layouts were tried first. A skull on crossed femurs hid the crossing, and
@@ -505,6 +544,403 @@ def chandelier():
     return p
 
 
+# a bone chandelier's candles, one on the crown of each skull. BoneChandelierBlock's FLAMES match.
+BONE_CHANDELIER_CANDLES = [(8, 3), (8, 13), (3, 8), (13, 8)]
+
+
+def bone_chandelier():
+    """Sedlec's idea in one block: four skulls looking outward, a candle on each crown, femurs from
+    skull to skull and across the middle, four ribs up to the chain. 5px skulls: at 6 neighbours
+    cut into each other at the corners. The candles are the iron chandelier's height at the same y,
+    so the flames sit at the same FLAME_Y."""
+    p = Project("bone_chandelier", {"bone": BONE, "skull": SKULL, "candle": "minecraft:block/candle",
+                                    "chain": CHAIN})
+    for n, (x, z, facing) in enumerate(((5.5, 0.5, "north"), (5.5, 10.5, "south"), (0.5, 5.5, "west"),
+                                        (10.5, 5.5, "east"))):
+        skull(p, "frame", f"skull_{n}", x, 0, z, size=5, facing=facing)
+    # femurs from skull to skull, across each corner
+    for n, (x, z, yaw) in enumerate(((4.5, 4.5, 45), (11.5, 4.5, -45), (4.5, 11.5, -45), (11.5, 11.5, 45))):
+        femur(p, "frame", f"corner_{n}", (x, 2, z), 8, yaw=yaw)
+    # the hub, the arms out to the backs of the skulls, and the chain
+    bone(p, "frame", "hub", (7, 0, 7), (9, 5, 9), axis="y")
+    bone(p, "frame", "arm_x", (5.5, 2, 7.25), (10.5, 3.5, 8.75), axis="x")
+    bone(p, "frame", "arm_z", (7.25, 2, 5.5), (8.75, 3.5, 10.5), axis="z")
+    chain(p, "frame", "chain", 8, 8, 5, 16)
+    # ribs from behind each skull's crown up to the chain
+    for n, (axis, angle, centre) in enumerate((("z", -22.5, (6.5, 8, 8)), ("z", 22.5, (9.5, 8, 8)),
+                                                ("x", 22.5, (8, 8, 6.5)), ("x", -22.5, (8, 8, 9.5)))):
+        cx, cy, cz = centre
+        bone(p, "frame", f"rib_{n}", (cx - 0.5, cy - 3.5, cz - 0.5), (cx + 0.5, cy + 3.5, cz + 0.5), axis="y",
+             rot=(axis, angle), origin=centre)
+    for n, (x, z) in enumerate(BONE_CHANDELIER_CANDLES):
+        candle(p, "candles", f"candle_{n}", x, z, CHANDELIER_CANDLE_Y, CHANDELIER_CANDLE_HEIGHT)
+    return p
+
+
+# the medium bone chandelier: 8 skulls round a ring this far from the centre, in pixels, each with a
+# candle on its crown. MediumBoneChandelierBlock's FLAMES match MEDIUM_BONE_CHANDELIER_CANDLES.
+MEDIUM_CHANDELIER_RADIUS = 14
+MEDIUM_CHANDELIER_SKULL = 5
+MEDIUM_BONE_CHANDELIER_CANDLES = [
+    (round(8 + MEDIUM_CHANDELIER_RADIUS * math.cos(math.radians(a)), 2),
+     round(8 + MEDIUM_CHANDELIER_RADIUS * math.sin(math.radians(a)), 2)) for a in range(0, 360, 45)]
+
+
+def bone_between(p, group, name, a, b, y, trim=0.0):
+    """A femur lying from (ax, az) to (bx, bz) at height y, shortened by `trim` at each end. It must
+    run at a JSON-legal angle (a multiple of 22.5 degrees, within 45 of x or z)."""
+    along, yaw, length = _lay(name, a, b)
+    centre = ((a[0] + b[0]) / 2, y, (a[1] + b[1]) / 2)
+    femur(p, group, name, centre, round(length - 2 * trim, 2), along=along, yaw=yaw)
+
+
+def medium_bone_chandelier():
+    """A Sedlec-style bone chandelier about 2.5 blocks across, one block whose model overhangs its
+    eight neighbours: a vertebra column for the hub, eight femur spokes
+    out to eight skulls looking outward, a candle on each skull's crown, a femur rim from skull to
+    skull, and four ribs leaning in to the chain. (A small skull finial under the hub was tried and
+    dropped by the user, Nov 3.) The candles stand where the iron chandelier's do
+    (y 5, 4 tall), so ChandelierBlock's FLAME_Y holds."""
+    p = Project("medium_bone_chandelier", {"bone": BONE, "skull": SKULL, "candle": "minecraft:block/candle",
+                                           "chain": CHAIN})
+    half = MEDIUM_CHANDELIER_SKULL / 2
+    # skulls, cardinal ones squarely outward, diagonal ones turned 45 from north or south
+    facings = {0: ("east", None), 45: ("south", 45), 90: ("south", None), 135: ("south", -45),
+               180: ("west", None), 225: ("north", 45), 270: ("north", None), 315: ("north", -45)}
+    for n, (cx, cz) in enumerate(MEDIUM_BONE_CHANDELIER_CANDLES):
+        facing, yaw = facings[n * 45]
+        skull(p, "frame", f"skull_{n}", cx - half, 0, cz - half, size=MEDIUM_CHANDELIER_SKULL,
+              facing=facing, yaw=yaw)
+    # spokes from the hub to each skull, at mid-skull height; the rim from skull to skull
+    for n, (cx, cz) in enumerate(MEDIUM_BONE_CHANDELIER_CANDLES):
+        bone_between(p, "frame", f"spoke_{n}", (8, 8), (cx, cz), 1.5, trim=0)
+        nx, nz = MEDIUM_BONE_CHANDELIER_CANDLES[(n + 1) % 8]
+        bone_between(p, "frame", f"rim_{n}", (cx, cz), (nx, nz), 1.5, trim=1.5)
+    # the hub: vertebrae stacked up to the chain
+    for n, y in enumerate((0, 2.5, 5, 7.5, 10)):
+        bone(p, "frame", f"vertebra_{n}", (6, y, 6), (10, y + 1.5, 10), axis="y")
+        bone(p, "frame", f"disc_{n}", (7, y + 1.5, 7), (9, y + 2.5, 9), axis="y")
+    chain(p, "frame", "chain", 8, 8, 12.5, 16)
+    # ribs from the spokes up to the top of the hub, leaning in
+    for n, (axis, angle, centre) in enumerate((("z", -22.5, (4, 7, 8)), ("z", 22.5, (12, 7, 8)),
+                                                ("x", 22.5, (8, 7, 4)), ("x", -22.5, (8, 7, 12)))):
+        cx, cy, cz = centre
+        bone(p, "frame", f"rib_{n}", (cx - 0.5, cy - 5, cz - 0.5), (cx + 0.5, cy + 5, cz + 0.5), axis="y",
+             rot=(axis, angle), origin=centre)
+    for n, (x, z) in enumerate(MEDIUM_BONE_CHANDELIER_CANDLES):
+        candle(p, "candles", f"candle_{n}", x, z, CHANDELIER_CANDLE_Y, CHANDELIER_CANDLE_HEIGHT)
+    return p
+
+
+def ring_points(radius, count, start=0.0):
+    """`count` points round a ring `radius` px from the block's centre, from `start` degrees
+    (0 = east, 90 = south), as (x, z) rounded to hundredths."""
+    return [(round(8 + radius * math.cos(math.radians(start + a * 360 / count)), 2),
+             round(8 + radius * math.sin(math.radians(start + a * 360 / count)), 2)) for a in range(count)]
+
+
+def _lay(name, a, b):
+    """How to lay a straight piece from (ax, az) to (bx, bz): the axis it runs along, its yaw about
+    y and its length. It must run at a JSON-legal angle (a multiple of 22.5 within 45 of x or z)."""
+    dx, dz = b[0] - a[0], b[1] - a[1]
+    if abs(dx) >= abs(dz):
+        if dx < 0:
+            dx, dz = -dx, -dz
+        along, yaw = "x", math.degrees(math.atan2(-dz, dx))
+    else:
+        if dz < 0:
+            dx, dz = -dx, -dz
+        along, yaw = "z", math.degrees(math.atan2(dx, dz))
+    yaw = round(yaw, 3)
+    # points are rounded to hundredths, which can put a legal angle a few hundredths off
+    if abs(yaw - round(yaw / 22.5) * 22.5) > 0.1:
+        raise SystemExit(f"{name}: {yaw} degrees is not a JSON-legal angle")
+    return along, round(yaw / 22.5) * 22.5 or None, math.hypot(dx, dz)
+
+
+def bar_between(p, group, name, a, b, y0, y1, width=1.5, tex="iron", extend=0.0):
+    """A square iron bar lying from (ax, az) to (bx, bz) between heights y0 and y1, `extend` px
+    longer at each end (so the corners of a polygon of bars close)."""
+    along, yaw, length = _lay(name, a, b)
+    cx, cz = (a[0] + b[0]) / 2, (a[1] + b[1]) / 2
+    half, w = length / 2 + extend, width / 2
+    if along == "x":
+        frm, to = (cx - half, y0, cz - w), (cx + half, y1, cz + w)
+    else:
+        frm, to = (cx - w, y0, cz - half), (cx + w, y1, cz + half)
+    p.box(group, name, frm, to, tex, rot=("y", yaw) if yaw else None, origin=(cx, (y0 + y1) / 2, cz))
+
+
+def lean(p, group, name, bearing, r, y, length, angle, width=1.0, tex="iron", bone_tex=False):
+    """A strut or rib `length` long, its centre `r` px out from the middle at height y on a
+    cardinal `bearing` (0 east, 90 south, 180 west, 270 north), leaning `angle` degrees with its
+    top toward the middle. Only cardinal ones can lean: a diagonal would turn on two axes."""
+    rad = math.radians(bearing)
+    cx, cz = 8 + r * math.cos(rad), 8 + r * math.sin(rad)
+    h, w = length / 2, width / 2
+    # the signs the chandeliers' struts have always had: east and north lean on +, west and south on -
+    axis, sign = {0: ("z", 1), 180: ("z", -1), 270: ("x", 1), 90: ("x", -1)}[bearing]
+    frm, to = (cx - w, y - h, cz - w), (cx + w, y + h, cz + w)
+    if bone_tex:
+        bone(p, group, name, frm, to, axis="y", rot=(axis, sign * angle), origin=(cx, y, cz))
+    else:
+        p.box(group, name, frm, to, tex, rot=(axis, sign * angle), origin=(cx, y, cz))
+
+
+def skull_facing(bearing):
+    """The facing and yaw of a skull looking out along `bearing` (a multiple of 22.5): the nearest
+    of east/south/west/north, preferring south or north on a diagonal, turned the rest of the way."""
+    bearing %= 360
+    if bearing % 90 == 45:
+        c = 90 if bearing < 180 else 270
+    else:
+        c = round(bearing / 90) * 90 % 360
+    facing = {0: "east", 90: "south", 180: "west", 270: "north"}[c]
+    yaw = c - bearing
+    if yaw > 180:
+        yaw -= 360
+    if yaw < -180:
+        yaw += 360
+    return facing, (yaw or None)
+
+
+# The large bone chandelier: the medium one as its upper tier (8 skulls, radius 14, y 0), turned
+# 22.5 degrees so the cardinal ribs from the lower tier land on its rim between two skulls - square
+# on, they ran into a skull's face (Nov 4: "a big nose, or the skull eating a bone"). The lower tier
+# a block down: 8 skulls at the corners of an octagon of femurs (radius 30) and 8 more at the middles
+# of its sides. LargeChandelierBlock's wicks for it match these.
+LARGE_BONE_UPPER = ring_points(MEDIUM_CHANDELIER_RADIUS, 8, 22.5)
+LARGE_BONE_LOWER_VERTICES = ring_points(30, 8)
+LARGE_BONE_LOWER_SIDES = ring_points(30 * math.cos(math.radians(22.5)), 8, 22.5)
+LARGE_BONE_LOWER_SKULL = 6
+LARGE_BONE_LOWER_Y = -12
+
+
+def large_bone_chandelier():
+    """A two-tier Sedlec bone chandelier about four blocks across and two tall, hung from the
+    block above its core: the medium bone chandelier as the upper tier; a block below it a ring of
+    16 larger skulls on an octagon of femurs, each with a candle on its crown, eight femur spokes
+    to the vertebra column and four ribs up to the upper tier. (Small skulls hanging under the ring
+    were tried and dropped by the user, Nov 4.) Wider than a block model may be: the converter splits
+    it into parts that LargeChandelierRenderer draws side by side."""
+    p = Project("large_bone_chandelier", {"bone": BONE, "skull": SKULL, "candle": "minecraft:block/candle",
+                                          "chain": CHAIN})
+    # --- the upper tier: the medium bone chandelier's ring, spokes, rim and ribs, turned 22.5
+    half = MEDIUM_CHANDELIER_SKULL / 2
+    for n, (cx, cz) in enumerate(LARGE_BONE_UPPER):
+        facing, yaw = skull_facing(22.5 + n * 45)
+        skull(p, "upper", f"skull_{n}", cx - half, 0, cz - half, size=MEDIUM_CHANDELIER_SKULL, facing=facing, yaw=yaw)
+        bone_between(p, "upper", f"spoke_{n}", (8, 8), (cx, cz), 1.5)
+        nx, nz = LARGE_BONE_UPPER[(n + 1) % 8]
+        bone_between(p, "upper", f"rim_{n}", (cx, cz), (nx, nz), 1.5, trim=1.5)
+    for n, bearing in enumerate((180, 0, 270, 90)):
+        lean(p, "upper", f"rib_{n}", bearing, 4, 7, 10, 22.5, bone_tex=True)
+    # --- the column: vertebrae from the lower hub up to the chain
+    for n in range(10):
+        y = LARGE_BONE_LOWER_Y + n * 2.5
+        bone(p, "column", f"vertebra_{n}", (6, y, 6), (10, y + 1.5, 10), axis="y")
+        bone(p, "column", f"disc_{n}", (7, y + 1.5, 7), (9, y + 2.5, 9), axis="y")
+    chain(p, "column", "chain", 8, 8, 12.5, 16)
+    # --- the lower tier
+    size, y0 = LARGE_BONE_LOWER_SKULL, LARGE_BONE_LOWER_Y
+    ring = [pt for pair in zip(LARGE_BONE_LOWER_VERTICES, LARGE_BONE_LOWER_SIDES) for pt in pair]
+    for n, (cx, cz) in enumerate(ring):
+        facing, yaw = skull_facing(n * 22.5)
+        skull(p, "lower", f"skull_{n}", cx - size / 2, y0, cz - size / 2, size=size, facing=facing, yaw=yaw)
+        nx, nz = ring[(n + 1) % 16]
+        bone_between(p, "lower", f"rim_{n}", (cx, cz), (nx, nz), y0 + 2, trim=size / 2)
+    # each spoke two femurs end to end: one 30 px femur would straddle two of the parts the
+    # converter splits the model into
+    for n, (cx, cz) in enumerate(LARGE_BONE_LOWER_VERTICES):
+        mid = ((8 + cx) / 2, (8 + cz) / 2)
+        bone_between(p, "lower", f"spoke_{n}_inner", (8, 8), mid, y0 + 2.5)
+        bone_between(p, "lower", f"spoke_{n}_outer", mid, (cx, cz), y0 + 2.5)
+    # ribs at 45 degrees from the back of each cardinal lower skull up to the middle of the upper
+    # tier's rim femur above it (13 px out, its top at y 2.5)
+    # Each rib is two bones meeting at a knuckle: one 19 px bone stretched the 16 px bone strip
+    # over it (Nov 4).
+    rib_half = 13.5 * math.sqrt(2) / 2
+    step = rib_half / 2 / math.sqrt(2)
+    for n, bearing in enumerate((180, 0, 270, 90)):
+        lean(p, "lower", f"rib_{n}_inner", bearing, 20.25 - step, -4.25 + step, rib_half, 45, bone_tex=True)
+        lean(p, "lower", f"rib_{n}_outer", bearing, 20.25 + step, -4.25 - step, rib_half, 45, bone_tex=True)
+        rad = math.radians(bearing)
+        kx, kz = 8 + 20.25 * math.cos(rad), 8 + 20.25 * math.sin(rad)
+        bone(p, "lower", f"rib_{n}_knuckle", (kx - 1, -5.25, kz - 1), (kx + 1, -3.25, kz + 1), axis="y")
+    for n, (x, z) in enumerate(LARGE_BONE_UPPER):
+        candle(p, "candles", f"upper_candle_{n}", x, z, CHANDELIER_CANDLE_Y, CHANDELIER_CANDLE_HEIGHT)
+    for n, (x, z) in enumerate(ring):
+        candle(p, "candles", f"lower_candle_{n}", x, z, y0 + size, CHANDELIER_CANDLE_HEIGHT)
+    return p
+
+
+def iron_octagon(p, group, name, corners, y0, y1, width=1.5):
+    """A ring of iron bars through `corners`, each bar run long enough to close its corner."""
+    for n, a in enumerate(corners):
+        bar_between(p, group, f"{name}_{n}", a, corners[(n + 1) % len(corners)], y0, y1, width, extend=width / 2)
+
+
+def pans_and_drops(p, group, name, points, y, drop=True):
+    """A 3px drip pan just under height y beneath each candle, and a small iron drop under it."""
+    for n, (x, z) in enumerate(points):
+        p.box(group, f"{name}_pan_{n}", (x - 1.5, y - 0.5, z - 1.5), (x + 1.5, y, z + 1.5), "iron")
+        if drop:
+            p.box(group, f"{name}_drop_{n}", (x - 0.5, y - 4, z - 0.5), (x + 0.5, y - 2, z + 0.5), "iron")
+
+
+# The medium iron chandelier: an octagonal wheel (corners 20 px out, at 22.5 + 45n degrees, so
+# its sides run square and diagonal) with a candle at each corner, and a square inner ring with
+# four more. MediumChandelierBlock's FLAMES match.
+MEDIUM_IRON_CORNERS = ring_points(20, 8, 22.5)
+MEDIUM_IRON_INNER = ring_points(9, 4)
+
+
+def medium_chandelier():
+    """The iron chandelier grown to a room's centrepiece, one block whose model overhangs its
+    neighbours, as the medium bone chandelier does: an octagonal wheel of eight candles on eight
+    spokes, a square inner ring of four more, struts from the inner ring to the chain, an iron drop
+    under each corner and a finial under the hub. Candles at the small chandelier's y and height,
+    so its FLAME_Y holds."""
+    p = Project("medium_chandelier", {"iron": DARK_IRON, "candle": "minecraft:block/candle", "chain": CHAIN})
+    iron_octagon(p, "frame", "rim", MEDIUM_IRON_CORNERS, 3, 4.5)
+    for n, c in enumerate(MEDIUM_IRON_CORNERS):
+        bar_between(p, "frame", f"spoke_{n}", (8, 8), c, 3.25, 4.25, 1)
+    # the inner ring: a square through the four inner candles, its corners on the diagonals
+    iron_octagon(p, "frame", "inner", ring_points(9 * math.sqrt(2), 4, 45), 3, 4.5)
+    pans_and_drops(p, "frame", "corner", MEDIUM_IRON_CORNERS, 5)
+    pans_and_drops(p, "frame", "inner", MEDIUM_IRON_INNER, 5, drop=False)
+    # the hub, a finial under it and the chain above
+    p.box("frame", "hub", (6.5, 2, 6.5), (9.5, 6, 9.5), "iron")
+    p.box("frame", "finial", (7.25, -1, 7.25), (8.75, 2, 8.75), "iron")
+    p.box("frame", "finial_tip", (7.75, -2, 7.75), (8.25, -1, 8.25), "iron")
+    chain(p, "frame", "chain", 8, 8, 6, 16)
+    # struts from the inner ring up to the chain, 45 degrees
+    for n, bearing in enumerate((180, 0, 270, 90)):
+        lean(p, "frame", f"strut_{n}", bearing, 4.75, 9, 12.5, 45)
+    for n, (x, z) in enumerate(MEDIUM_IRON_CORNERS + MEDIUM_IRON_INNER):
+        candle(p, "candles", f"candle_{n}", x, z, CHANDELIER_CANDLE_Y, CHANDELIER_CANDLE_HEIGHT)
+    return p
+
+
+# The large iron chandelier: an upper wheel (corners 16 px out) of 8 candles at y 5, and a block down
+# a lower wheel (corners 30 px out) with 16: one at each corner and one at the middle of each side.
+# LargeChandelierBlock's wicks for it match.
+LARGE_IRON_UPPER = ring_points(16, 8, 22.5)
+LARGE_IRON_LOWER_CORNERS = ring_points(30, 8, 22.5)
+LARGE_IRON_LOWER_SIDES = ring_points(30 * math.cos(math.radians(22.5)), 8)
+LARGE_IRON_LOWER_Y = -10
+
+
+def large_chandelier():
+    """A two-tier iron chandelier about four blocks across and two tall: an octagonal upper wheel of
+    eight candles, and a block below it a wider wheel of sixteen with an inner ring, both on spokes
+    from a central post; four struts brace the lower wheel to the upper. Split by the converter into
+    parts that LargeChandelierRenderer draws side by side."""
+    p = Project("large_chandelier", {"iron": DARK_IRON, "candle": "minecraft:block/candle", "chain": CHAIN})
+    # --- upper wheel
+    iron_octagon(p, "upper", "rim", LARGE_IRON_UPPER, 3, 4.5)
+    for n, c in enumerate(LARGE_IRON_UPPER):
+        bar_between(p, "upper", f"spoke_{n}", (8, 8), c, 3.25, 4.25, 1)
+    pans_and_drops(p, "upper", "upper", LARGE_IRON_UPPER, 5)
+    # --- the post: a hub on each wheel, a finial under the lower one, the chain above
+    y = LARGE_IRON_LOWER_Y
+    p.box("post", "post", (7.25, y - 2, 7.25), (8.75, 6, 8.75), "iron")
+    p.box("post", "upper_hub", (6.5, 2, 6.5), (9.5, 6, 9.5), "iron")
+    p.box("post", "lower_hub", (6.5, y - 3, 6.5), (9.5, y + 1, 9.5), "iron")
+    p.box("post", "finial", (7.25, y - 5, 7.25), (8.75, y - 3, 8.75), "iron")
+    p.box("post", "finial_tip", (7.75, y - 6, 7.75), (8.25, y - 5, 8.25), "iron")
+    chain(p, "post", "chain", 8, 8, 6, 16)
+    # --- lower wheel: the rim, an inner ring halfway out, spokes, pans
+    iron_octagon(p, "lower", "rim", LARGE_IRON_LOWER_CORNERS, y - 2, y - 0.5)
+    iron_octagon(p, "lower", "inner", ring_points(15, 8, 22.5), y - 2, y - 0.5, 1)
+    # each spoke in two halves, meeting at the inner ring: one 30 px bar would straddle two of the
+    # parts the converter splits the model into
+    for n, c in enumerate(LARGE_IRON_LOWER_CORNERS):
+        mid = ((8 + c[0]) / 2, (8 + c[1]) / 2)
+        bar_between(p, "lower", f"spoke_{n}_inner", (8, 8), mid, y - 1.75, y - 0.75, 1)
+        bar_between(p, "lower", f"spoke_{n}_outer", mid, c, y - 1.75, y - 0.75, 1)
+    pans_and_drops(p, "lower", "corner", LARGE_IRON_LOWER_CORNERS, y)
+    pans_and_drops(p, "lower", "side", LARGE_IRON_LOWER_SIDES, y, drop=False)
+    # struts from the middles of the lower wheel's square sides up to the upper wheel's, 45 degrees
+    lower_r = 30 * math.cos(math.radians(22.5))
+    upper_r = 16 * math.cos(math.radians(22.5))
+    for n, bearing in enumerate((180, 0, 270, 90)):
+        lean(p, "struts", f"strut_{n}", bearing, (lower_r + upper_r) / 2, (y - 0.5 + 3) / 2,
+             (lower_r - upper_r) * math.sqrt(2), 45)
+    for n, (x, z) in enumerate(LARGE_IRON_UPPER):
+        candle(p, "candles", f"upper_candle_{n}", x, z, CHANDELIER_CANDLE_Y, CHANDELIER_CANDLE_HEIGHT)
+    for n, (x, z) in enumerate(LARGE_IRON_LOWER_CORNERS + LARGE_IRON_LOWER_SIDES):
+        candle(p, "candles", f"lower_candle_{n}", x, z, y, CHANDELIER_CANDLE_HEIGHT)
+    return p
+
+
+def skull_candle():
+    """A full-size skull with a candle melted on its crown, on the floor (`floor`) or on an iron
+    bracket against a wall to the south (`wall`). The poured wax has its own texture key, always the
+    unlit sprite: the lit one paints the flame's glow on the rows it samples, which turned every run
+    of wax orange. SkullCandleBlock's shapes and flames match these numbers."""
+    p = Project("skull_candle", {"skull": SKULL, "candle": "minecraft:block/candle", "wax": "minecraft:block/candle",
+                                 "iron": DARK_IRON})
+    wax_side = [0, 8, 1, 9]
+    wax_top = [0, 6, 2, 8]
+
+    def wax(box_group, name, frm, to):
+        p.box(box_group, name, frm, to, "wax",
+              uv={"north": wax_side, "south": wax_side, "east": wax_side, "west": wax_side,
+                  "up": wax_top, "down": wax_top})
+
+    for group, y, z in (("floor", 0, 4), ("wall", 2, 8)):
+        top = y + 8
+        skull(p, group, "skull", 4, y, z, size=8)
+        # a pool on the crown, the candle in it, and runs of wax over the brow and one side
+        wax(group, "pool", (6, top, z + 2), (10, top + 1, z + 6))
+        candle(p, group, "candle", 8, z + 4, top + 1, 3)
+        # sunk half a pixel into the skull: a full pixel proud, they read as legs gripping it
+        wax(group, "run_brow_long", (9, top - 0.5, z + 0.5), (10, top + 0.5, z + 2))
+        wax(group, "drip_brow_long", (9, top - 2, z - 0.5), (10, top + 0.5, z + 0.5))
+        wax(group, "run_brow_short", (6, top - 0.5, z + 0.5), (7, top + 0.5, z + 2))
+        wax(group, "drip_brow_short", (6, top - 1, z - 0.5), (7, top + 0.5, z + 0.5))
+        wax(group, "run_side", (10, top - 0.5, z + 3), (11.5, top + 0.5, z + 4))
+        wax(group, "drip_side", (11.5, top - 3, z + 3), (12.5, top + 0.5, z + 4))
+    p.box("wall", "bracket", (4, 1, 8), (12, 2, 16), "iron")
+    return p
+
+
+def shelf():
+    """A wall shelf, authored facing north with its wall to the south: a 4px board 10 deep on a
+    stepped corbel, a template per ShelfBlock CONTENTS (`brick` is filled per material by datagen).
+    The board's front is the brick's bottom band, joint along its foot, and its top runs the joint
+    along the wall, so a run of them reads as one long brick. `empty` holds only the board: a tome
+    lies on it."""
+    p = Project("shelf", {"brick": "minecraft:block/stone_bricks", "skull": SKULL, "bone": BONE})
+    band = [0, 12, 16, 16]
+    p.box("board", "board", (0, 4, 6), (16, 8, 16), "brick", skip=("south",),
+          uv={"north": band, "up": [0, 6, 16, 16], "down": [0, 6, 16, 16], "west": [0, 12, 10, 16],
+              "east": [6, 12, 16, 16]})
+    p.box("board", "corbel_upper", (5, 2, 10), (11, 4, 16), "brick", skip=("south", "up"),
+          uv={"north": [5, 8, 11, 10], "down": [5, 6, 11, 12], "west": [0, 8, 6, 10], "east": [10, 8, 16, 10]})
+    p.box("board", "corbel_lower", (5, 0, 13), (11, 2, 16), "brick", skip=("south", "up"),
+          uv={"north": [5, 10, 11, 12], "down": [5, 9, 11, 12], "west": [0, 10, 3, 12], "east": [13, 10, 16, 12]})
+
+    # bones: long bones stacked knuckles out, a course of five with the next in its hollows. Femurs,
+    # not plain boxes: touching 3px boxes merged into one solid white block.
+    g = "contents_bones"
+    for row, (y, xs) in enumerate(((8, (2, 5, 8, 11, 14)), (10, (3.5, 6.5, 9.5, 12.5)), (12, (5, 8, 11)))):
+        for n, x in enumerate(xs):
+            femur(p, g, f"femur_{row}_{n}", (x, y, 11), 9, along="z")
+
+    # skulls: two side by side, looking out
+    for n, x in enumerate((1.5, 8.5)):
+        skull(p, "contents_skulls", f"skull_{n}", x, 8, 8, size=6)
+
+    # skull_and_bones: a skull at one end, a little stack of femurs at the other
+    g = "contents_skull_and_bones"
+    skull(p, g, "skull", 2, 8, 8, size=6)
+    for n, (x, y) in enumerate(((10, 8), (13, 8), (11.5, 10))):
+        femur(p, g, f"femur_{n}", (x, y, 11), 9, along="z")
+    return p
+
+
 def iron_ring(p, group, name, centre, size, plane, bar=0.75, depth=1.5):
     """A square ring of iron bars, `size` px across, in the "xy" or "zy" plane, `depth` thick."""
     cx, cy, cz = centre
@@ -544,6 +980,43 @@ def manacles():
     return p
 
 
+def skeleton_remains_shackles():
+    """What a hanging Skeleton Remains hangs from: an iron plate and eye on the ceiling, two chains
+    splaying down from the eye at 45 degrees, and a cuff round each wrist. Not a block:
+    SkeletonRemainsRenderer draws it over the raised hands. y 0 is level with the hands' tips and the
+    ceiling is y 8 (SkeletonRemainsEntity.HANGING_REACH is the raised hands' 2.25 blocks plus this half
+    block); the wrists are 5.9px either side of the middle, where the raised, spread arms put them.
+    The chains are vanilla's chain texture on two crossed planes, as the mod's other chains are (the
+    first try, small iron boxes for links, read as blocks, Nov 4). The cuffs lie flat round the
+    wrist, 1.5px tall, with a 2.2px hole for the 2px arm."""
+    p = Project("skeleton_remains_shackles", {"iron": DARK_IRON, "chain": CHAIN})
+    g = "shackles"
+    p.box(g, "plate", (6, 7.25, 6), (10, 8, 10), "iron")
+    iron_ring(p, g, "eye", (8, 6, 8), 2.5, "xy", bar=0.5, depth=0.75)
+    wrist, top, cuff_top = 5.9, 5.0, -1.5
+    drop = top - cuff_top                     # the chain runs at 45: as far out as it drops
+    length = drop * math.sqrt(2)
+    for side, sx in (("w", -1), ("e", 1)):
+        cx = 8 + sx * (wrist - drop / 2)
+        cy = (top + cuff_top) / 2
+        # the top leans in toward the eye: + on the east side, - on the west (as the struts' signs)
+        rot = ("z", 45 * sx)
+        v1 = min(16, round(length, 2))
+        p.box(g, f"chain_{side}_a", (cx - 1.5, cy - length / 2, 8), (cx + 1.5, cy + length / 2, 8),
+              {"north": "chain", "south": "chain"}, uv={"north": [3, 0, 0, v1], "south": [0, 0, 3, v1]},
+              rot=rot, origin=(cx, cy, 8))
+        p.box(g, f"chain_{side}_b", (cx, cy - length / 2, 6.5), (cx, cy + length / 2, 9.5),
+              {"west": "chain", "east": "chain"}, uv={"west": [6, 0, 3, v1], "east": [3, 0, 6, v1]},
+              rot=rot, origin=(cx, cy, 8))
+        # the cuff: four walls round the wrist
+        wx, y0, y1, o, i = 8 + sx * wrist, -3, cuff_top, 1.75, 1.1
+        p.box(g, f"cuff_{side}_n", (wx - o, y0, 8 - o), (wx + o, y1, 8 - i), "iron")
+        p.box(g, f"cuff_{side}_s", (wx - o, y0, 8 + i), (wx + o, y1, 8 + o), "iron")
+        p.box(g, f"cuff_{side}_w", (wx - o, y0, 8 - i), (wx - i, y1, 8 + i), "iron", skip=("north", "south"))
+        p.box(g, f"cuff_{side}_e", (wx + i, y0, 8 - i), (wx + o, y1, 8 + i), "iron", skip=("north", "south"))
+    return p
+
+
 def meat_hook():
     """Chain fixture: a butcher's hook - an eye at the top, a long shank and a J turned up to a
     point - built flat, then turned 45 degrees so no side sees it edge-on."""
@@ -575,6 +1048,92 @@ def censer():
     p.box("fixture", "ember", (5.5, 5.5, 5.5), (10.5, 6.5, 10.5), "ember", skip=("up", "down"))
     p.box("fixture", "bowl", (5, 2.5, 5), (11, 5.5, 11), "metal")
     p.box("fixture", "foot", (6, 1.5, 6), (10, 2.5, 10), "metal")
+    return p
+
+
+def hanging_oil_lamp():
+    """Chain fixture: a terracotta oil lamp - a squat bowl with a spout at the front and a loop
+    handle at the back - hung from a dark iron bail on a chain. `wick` is the candle sprite's wick,
+    swapped for candle_lit's in the lit model; the flame is a particle at the spout's tip
+    (HangingOilLampBlock.FLAME)."""
+    p = Project("hanging_oil_lamp", {"clay": "minecraft:block/terracotta", "iron": DARK_IRON,
+                                     "chain": CHAIN, "wick": "minecraft:block/candle"})
+    # the bowl: a foot, a wide body, a narrower shoulder round the filling hole
+    p.box("lamp", "foot", (6, 1, 6), (10, 2, 10), "clay")
+    p.box("lamp", "body", (5, 2, 5), (11, 4, 11), "clay")
+    p.box("lamp", "shoulder", (6, 4, 6), (10, 5, 10), "clay")
+    # the spout, pinched to the front (south), and the loop handle at the back
+    p.box("lamp", "spout", (7, 3, 11), (9, 4.5, 13.5), "clay", skip=("north",))
+    p.box("lamp", "handle_top", (7.5, 4, 3), (8.5, 5, 6), "clay", skip=("south",))
+    p.box("lamp", "handle_back", (7.5, 2.5, 3), (8.5, 4, 4), "clay", skip=("up", "south"))
+    # the wick standing out of the spout's tip
+    for n, angle in enumerate((45, -45)):
+        p.box("lamp", f"wick_{n}", (7.5, 4.5, 12.5), (8.5, 5.5, 12.5), {"north": "wick", "south": "wick"},
+              uv={"north": [0, 5, 1, 6], "south": [0, 5, 1, 6]}, rot=("y", angle), origin=(8, 4.5, 12.5))
+    # the bail: two arms from the bowl's sides up to a bar, and the chain from the bar to the ceiling
+    p.box("lamp", "bail_w", (4.5, 3, 7.5), (5, 8, 8.5), "iron")
+    p.box("lamp", "bail_e", (11, 3, 7.5), (11.5, 8, 8.5), "iron")
+    p.box("lamp", "bail_bar", (4.5, 8, 7.5), (11.5, 8.75, 8.5), "iron")
+    chain(p, "lamp", "chain", 8, 8, 8.75, 16)
+    return p
+
+
+def fire_basket_log(p, group, name, frm, to, along):
+    """A campfire log lying along `along` ("x" or "z"): bark down its length, the cut end at its
+    ends. campfire_log's bark is rows 0-4, its end [0,4,4,8]."""
+    a = "xz".index(along) * 2
+    length = to[a] - frm[a]
+    bark = [0, 0, length, 4]
+    end = [0, 4, 4, 8]
+    ends = ("east", "west") if along == "x" else ("north", "south")
+    uv = {d: end if d in ends else bark for d in DIRS}
+    # bark runs along u: on a log along z the top and bottom see it turned a quarter
+    turned = {"up": 90, "down": 90} if along == "z" else {}
+    p.box(group, name, frm, to, "log", uv=uv, face_rot=turned)
+
+
+def fire_basket():
+    """Chain fixture: a cresset - an open dark iron basket of burning logs, hung on four rods from
+    an eye. The basket steps out from a 6px base through a lower hoop (8px) to the rim (10px), with
+    bars between, so the fire shows through it. Groups: `cage` (iron), `fuel` (the logs, textured
+    per state: campfire_log, or its lit/soul glow) and `flames` (two crossed planes of vanilla fire,
+    only in the burning models)."""
+    p = Project("fire_basket", {"iron": DARK_IRON, "log": "minecraft:block/campfire_log",
+                                "fire": "minecraft:block/fire_0"})
+    # the base, the lower hoop and the rim
+    p.box("cage", "base", (5, 1, 5), (11, 2, 11), "iron")
+    for name, lo, hi, y0, y1 in (("hoop", 4, 12, 4.5, 5.5), ("rim", 3, 13, 8, 9)):
+        p.box("cage", f"{name}_n", (lo, y0, lo), (hi, y1, lo + 1), "iron")
+        p.box("cage", f"{name}_s", (lo, y0, hi - 1), (hi, y1, hi), "iron")
+        p.box("cage", f"{name}_w", (lo, y0, lo + 1), (lo + 1, y1, hi - 1), "iron", skip=("north", "south"))
+        p.box("cage", f"{name}_e", (hi - 1, y0, lo + 1), (hi, y1, hi - 1), "iron", skip=("north", "south"))
+    # bars: base to hoop, then hoop to rim, at the corners and the middle of each side. Each stands
+    # half a pixel outside the part below it, so its underside shows from beneath: keep "down"
+    for name, lo, hi, y0, y1 in (("low", 4.5, 11.5, 2, 4.5), ("high", 3.5, 12.5, 5.5, 8)):
+        for n, (x, z) in enumerate(((lo, lo), (8, lo), (hi, lo), (lo, 8), (hi, 8), (lo, hi), (8, hi), (hi, hi))):
+            p.box("cage", f"bar_{name}_{n}", (x - 0.5, y0, z - 0.5), (x + 0.5, y1, z + 0.5), "iron",
+                  skip=("up",))
+    # prongs standing up from the rim's corners
+    for n, (x, z) in enumerate(((3, 3), (12, 3), (3, 12), (12, 12))):
+        p.box("cage", f"prong_{n}", (x, 9, z), (x + 1, 10.5, z + 1), "iron", skip=("down",))
+    # four rods from the middle of each side of the rim up to the eye, leaning in at 45 degrees
+    # (the bone chandelier's rib signs: x+ leans a north rod south, z- leans a west rod east)
+    rod = 6.4
+    for n, (axis, angle, (x, z)) in enumerate((("x", 45, (8, 3.5)), ("x", -45, (8, 12.5)),
+                                                ("z", -45, (3.5, 8)), ("z", 45, (12.5, 8)))):
+        p.box("cage", f"rod_{n}", (x - 0.5, 9, z - 0.5), (x + 0.5, 9 + rod, z + 0.5), "iron",
+              rot=(axis, angle), origin=(x, 9, z))
+    iron_ring(p, "cage", "eye", (8, 14.5, 8), 3, "xy", bar=0.75, depth=1)
+    # the logs: two along x on the base, two along z across them
+    fire_basket_log(p, "fuel", "log_0", (5, 2, 5), (11, 4.5, 7.5), "x")
+    fire_basket_log(p, "fuel", "log_1", (5, 2, 8.5), (11, 4.5, 11), "x")
+    fire_basket_log(p, "fuel", "log_2", (5.5, 4.5, 5), (8, 7, 11), "z")
+    fire_basket_log(p, "fuel", "log_3", (8.5, 4.5, 5), (11, 7, 11), "z")
+    # the flames: vanilla fire on two crossed planes, as the campfire draws it
+    p.box("flames", "fire_a", (3.5, 4.5, 8), (12.5, 14, 8), {"north": "fire", "south": "fire"},
+          uv={"north": [0, 0, 16, 16], "south": [0, 0, 16, 16]}, rot=("y", 45), origin=(8, 8, 8))
+    p.box("flames", "fire_b", (8, 4.5, 3.5), (8, 14, 12.5), {"west": "fire", "east": "fire"},
+          uv={"west": [0, 0, 16, 16], "east": [0, 0, 16, 16]}, rot=("y", 45), origin=(8, 8, 8))
     return p
 
 
@@ -850,6 +1409,7 @@ PROJECTS = {
     "altar_middle": lambda: altar("middle"),
     "altar_right": lambda: altar("right"),
     "catacomb_niche": catacomb_niche,
+    "catacomb_niche_soul_lamp": catacomb_niche_soul_lamp,
     "pedestal": pedestal,
     "rubble_scatter": rubble_scatter,
     "bone_pile": bone_pile,
@@ -860,13 +1420,23 @@ PROJECTS = {
     "bloody_steve_head_pike_upper": lambda: skull_pike("upper", "dungeonblocks:block/bloody_steve_head",
                                                        "bloody_steve_head_pike"),
     "chandelier": chandelier,
+    "bone_chandelier": bone_chandelier,
+    "medium_bone_chandelier": medium_bone_chandelier,
+    "large_bone_chandelier": large_bone_chandelier,
+    "medium_chandelier": medium_chandelier,
+    "large_chandelier": large_chandelier,
+    "shelf": shelf,
+    "skull_candle": skull_candle,
     "large_candle": large_candle,
     "huge_candle_lower": lambda: huge_candle("lower"),
     "huge_candle_upper": lambda: huge_candle("upper"),
     "candle_cluster": candle_cluster,
     "chain_fixture_manacles": manacles,
     "chain_fixture_meat_hook": meat_hook,
+    "skeleton_remains_shackles": skeleton_remains_shackles,
     "chain_fixture_censer": censer,
+    "fire_basket": fire_basket,
+    "hanging_oil_lamp": hanging_oil_lamp,
     "pillory_lower": lambda: pillory("lower"),
     "pillory_upper": lambda: pillory("upper"),
     "torture_rack_head": lambda: torture_rack("head"),

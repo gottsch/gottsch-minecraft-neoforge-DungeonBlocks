@@ -39,7 +39,7 @@ COL_WIDTH = 64      # blocks of row in each column, before a family wraps to the
 LINE_PITCH = 5      # wall, then up to three blocks deep (a torture rack), then a gap
 WALL_H = 4          # tall enough for a four-block door
 CEILING_Y = 3       # hanging blocks hang at CEILING_Y - 1
-HANGING = {"chandelier", "censer", "manacles", "meat_hook", "swinging_chain", "roots_body", "roots_head"}
+HANGING = {"chandelier", "bone_chandelier", "censer", "manacles", "meat_hook", "swinging_chain", "roots_body", "roots_head"}
 POINTS_UP = ("_capstone", "_spikes")   # facing=up stands them on the floor
 WIDE = {"_tapestry": 5, "gargoyle_statue": 4, "_cheval_de_frise": 3, "skeleton": 2}
 

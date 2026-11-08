@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": {
+    "item": "dungeonblocks:mossy_ossuary_cobblestone"
+  },
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:mossy_ossuary_cobblestone_stairs"
+  }
+}

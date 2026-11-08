@@ -1,0 +1,176 @@
+{
+  "parent": "block/block",
+  "textures": {
+    "bone": "dungeonblocks:block/skeleton_bottom",
+    "brick": "minecraft:block/stone_bricks",
+    "skull": "dungeonblocks:block/skeleton_head",
+    "particle": "minecraft:block/stone_bricks"
+  },
+  "elements": [
+    {
+      "name": "board",
+      "from": [
+        0,
+        4,
+        6
+      ],
+      "to": [
+        16,
+        8,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0.0,
+            12.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#brick"
+        },
+        "east": {
+          "uv": [
+            6.0,
+            12.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#brick",
+          "cullface": "east"
+        },
+        "west": {
+          "uv": [
+            0.0,
+            12.0,
+            10.0,
+            16.0
+          ],
+          "texture": "#brick",
+          "cullface": "west"
+        },
+        "up": {
+          "uv": [
+            0.0,
+            6.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#brick"
+        },
+        "down": {
+          "uv": [
+            0.0,
+            6.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#brick"
+        }
+      }
+    },
+    {
+      "name": "corbel_upper",
+      "from": [
+        5,
+        2,
+        10
+      ],
+      "to": [
+        11,
+        4,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            5.0,
+            8.0,
+            11.0,
+            10.0
+          ],
+          "texture": "#brick"
+        },
+        "east": {
+          "uv": [
+            10.0,
+            8.0,
+            16.0,
+            10.0
+          ],
+          "texture": "#brick"
+        },
+        "west": {
+          "uv": [
+            0.0,
+            8.0,
+            6.0,
+            10.0
+          ],
+          "texture": "#brick"
+        },
+        "down": {
+          "uv": [
+            5.0,
+            6.0,
+            11.0,
+            12.0
+          ],
+          "texture": "#brick"
+        }
+      }
+    },
+    {
+      "name": "corbel_lower",
+      "from": [
+        5,
+        0,
+        13
+      ],
+      "to": [
+        11,
+        2,
+        16
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            5.0,
+            10.0,
+            11.0,
+            12.0
+          ],
+          "texture": "#brick"
+        },
+        "east": {
+          "uv": [
+            13.0,
+            10.0,
+            16.0,
+            12.0
+          ],
+          "texture": "#brick"
+        },
+        "west": {
+          "uv": [
+            0.0,
+            10.0,
+            3.0,
+            12.0
+          ],
+          "texture": "#brick"
+        },
+        "down": {
+          "uv": [
+            5.0,
+            9.0,
+            11.0,
+            12.0
+          ],
+          "texture": "#brick",
+          "cullface": "down"
+        }
+      }
+    }
+  ]
+}

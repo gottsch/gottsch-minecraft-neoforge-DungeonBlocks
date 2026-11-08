@@ -32,6 +32,16 @@ One source -- chiseled_stone_bricks -- is vanilla's rather than the mod's, so it
 straight out of the ForgeGradle client-extra jar instead of being copied into the repo; the
 mod ships only the retoned result.
 
+The ossuary bricks use the same remap from vanilla stone_bricks onto a bone palette: vanilla
+bone_block's warm hue, but darkened to mean luma ~130 (bone_block is ~225, stone_bricks ~122)
+because near-white reads far too bright across a whole wall and, at ~148, bone piles and skulls
+disappeared into the wall by torchlight. Its low shades are pushed toward brown so the joints
+look dirty.
+
+The large tufa bricks use the same remap onto hewn_tufa's palette (gen_hewn_tufa_texture.py:
+its four base shades, its lit edge and grave_slab_pavement's one lighter shade at the top, its
+pits for the joints), so a course of them sits in a hewn tufa wall. Moss passes through, as above.
+
 Re-run after changing any of the stone sources. Hand edits to the generated PNGs will be
 overwritten. Run from the repo root:  python tools/gen_deepslate_brick_textures.py
 """
@@ -56,6 +66,44 @@ SHADE = {
     (90, 89, 90):    (36, 36, 36),
 }
 
+# vanilla stone_bricks -> dirty bone, brightest first
+BONE_SHADE = {
+    (156, 153, 156): (173, 168, 145),
+    (139, 137, 139): (158, 152, 130),
+    (127, 127, 127): (145, 140, 117),
+    (120, 118, 120): (137, 130, 108),
+    (106, 109, 106): (121, 114, 93),
+    (99, 99, 99):    (103, 96, 77),
+    (90, 89, 90):    (86, 79, 63),
+}
+
+# vanilla cobblestone -> the same dirty bone, brightest first. Cobblestone has six shades, not
+# seven, and a wider spread than stone_bricks (luma 181..82), so it gets its own ramp: the middle
+# four are BONE_SHADE's own classes and the top two carry the bone hue brighter, which keeps
+# cobblestone's rougher contrast. Ossuary Cobblestone is what Ossuary Bricks weather down to (D2's
+# bricks -> cracked | mossy -> cobblestone chain), so it must read as the same stone: vanilla's grey
+# cobblestone beside the warm bricks looked like a patch from another building.
+COBBLE_BONE_SHADE = {
+    (181, 181, 181): (188, 183, 159),
+    (166, 166, 166): (173, 168, 145),
+    (136, 135, 136): (145, 140, 117),
+    (110, 109, 109): (121, 114, 93),
+    (97, 97, 97):    (103, 96, 77),
+    (82, 82, 82):    (86, 79, 63),
+}
+
+# vanilla stone_bricks -> hewn tufa, brightest first. The face shade (127) lands on hewn tufa's
+# middle shade, so the brick is no brighter than the tufa wall round it; the joints are its pits.
+TUFA_SHADE = {
+    (156, 153, 156): (122, 115, 99),
+    (139, 137, 139): (112, 105, 90),
+    (127, 127, 127): (102, 96, 82),
+    (120, 118, 120): (94, 88, 75),
+    (106, 109, 106): (86, 80, 68),
+    (99, 99, 99):    (76, 71, 60),
+    (90, 89, 90):    (66, 61, 51),
+}
+
 LUMA = (0.299, 0.587, 0.114)
 luma = lambda c: sum(w * v for w, v in zip(LUMA, c))
 
@@ -71,12 +119,38 @@ PAIRS = [
     ("mossy_chiseled_stone_bricks",    "mossy_chiseled_deepslate_bricks",    False),
 ]
 
+# As PAIRS, retoned with BONE_SHADE instead.
+BONE_PAIRS = [
+    ("stone_bricks",                   "ossuary_bricks",                     True),
+    ("mossy_stone_bricks",             "mossy_ossuary_bricks",               True),
+    ("cracked_stone_bricks",           "cracked_ossuary_bricks",             True),
+    ("square_stone_brick",             "square_ossuary_brick",               False),
+    ("mossy_square_stone_brick",       "mossy_square_ossuary_brick",         False),
+    ("left_large_stone_brick",         "left_large_ossuary_brick",           False),
+    ("right_large_stone_brick",        "right_large_ossuary_brick",          False),
+]
 
-def convert(px):
+# As PAIRS, retoned with COBBLE_BONE_SHADE. Vanilla mossy_cobblestone keeps its greys at
+# cobblestone's exact shades, so the same table retones it and the moss passes through.
+COBBLE_BONE_PAIRS = [
+    ("cobblestone",                    "ossuary_cobblestone",                True),
+    ("mossy_cobblestone",              "mossy_ossuary_cobblestone",          True),
+]
+
+# As PAIRS, retoned with TUFA_SHADE.
+TUFA_PAIRS = [
+    ("left_large_stone_brick",         "left_large_tufa_brick",              False),
+    ("right_large_stone_brick",        "right_large_tufa_brick",             False),
+    ("mossy_left_large_stone_brick",   "mossy_left_large_tufa_brick",        False),
+    ("mossy_right_large_stone_brick",  "mossy_right_large_tufa_brick",       False),
+]
+
+
+def convert(px, shade):
     """Retone the stone; leave everything else (i.e. the moss) exactly as it is."""
     r, g, b, a = px
-    if (r, g, b) in SHADE:
-        return SHADE[(r, g, b)] + (a,)
+    if (r, g, b) in shade:
+        return shade[(r, g, b)] + (a,)
     return px
 
 
@@ -92,10 +166,11 @@ def load(name, vanilla):
     return Image.open(io.BytesIO(data)).convert("RGBA")
 
 
-for src, dst, vanilla in PAIRS:
+for src, dst, vanilla, shade in [p + (SHADE,) for p in PAIRS] + [p + (BONE_SHADE,) for p in BONE_PAIRS] \
+        + [p + (COBBLE_BONE_SHADE,) for p in COBBLE_BONE_PAIRS] + [p + (TUFA_SHADE,) for p in TUFA_PAIRS]:
     im = load(src, vanilla)
     out = Image.new("RGBA", im.size)
-    out.putdata([convert(p) for p in im.getdata()])
+    out.putdata([convert(p, shade) for p in im.getdata()])
     out.save(TEX + dst + ".png")
     mean = sum(luma(p[:3]) for p in out.getdata()) / (im.size[0] * im.size[1])
     print(f"{src}.png{' (vanilla)' if vanilla else ''} -> {dst}.png  (mean luma {mean:.1f})")

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 200,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "dungeonblocks:grave_slab_pavement"
+  },
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:cracked_grave_slab_pavement"
+  }
+}

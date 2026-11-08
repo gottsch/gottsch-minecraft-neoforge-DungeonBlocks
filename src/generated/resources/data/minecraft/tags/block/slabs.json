@@ -3,6 +3,17 @@
     "dungeonblocks:square_stone_brick_slab",
     "dungeonblocks:mossy_square_stone_brick_slab",
     "dungeonblocks:square_deepslate_brick_slab",
-    "dungeonblocks:mossy_square_deepslate_brick_slab"
+    "dungeonblocks:mossy_square_deepslate_brick_slab",
+    "dungeonblocks:ossuary_cobblestone_slab",
+    "dungeonblocks:mossy_ossuary_cobblestone_slab",
+    "dungeonblocks:ossuary_brick_slab",
+    "dungeonblocks:mossy_ossuary_brick_slab",
+    "dungeonblocks:hewn_tufa_slab",
+    "dungeonblocks:square_brick_slab",
+    "dungeonblocks:mossy_square_brick_slab",
+    "dungeonblocks:square_mud_brick_slab",
+    "dungeonblocks:mossy_square_mud_brick_slab",
+    "dungeonblocks:square_ossuary_brick_slab",
+    "dungeonblocks:mossy_square_ossuary_brick_slab"
   ]
 }

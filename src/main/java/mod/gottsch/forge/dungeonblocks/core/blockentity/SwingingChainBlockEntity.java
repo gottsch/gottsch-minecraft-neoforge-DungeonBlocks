@@ -342,8 +342,9 @@ public class SwingingChainBlockEntity extends BlockEntity {
 	 */
 	// read by the renderer: NeoForge 21.1 moved the render bounds to BlockEntityRenderer
 	public AABB getRenderBoundingBox() {
-		// a block of margin past the run, so a swung fixture at the end can't clip the box
+		// a block of margin past the run, so a swung fixture at the end can't clip the box; wider
+		// still for the medium bone chandelier, whose ring reaches a block past its own
 		int length = this.getChainLength();
-		return new AABB(this.worldPosition).expandTowards(0.0D, -(length + 1), 0.0D).inflate(0.5D, 0.0D, 0.5D);
+		return new AABB(this.worldPosition).expandTowards(0.0D, -(length + 1), 0.0D).inflate(1.5D, 0.0D, 1.5D);
 	}
 }

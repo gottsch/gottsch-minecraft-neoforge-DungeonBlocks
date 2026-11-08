@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "dungeonblocks:block/hewn_tufa",
+    "east": "dungeonblocks:block/jumbled_femurs_4",
+    "north": "dungeonblocks:block/jumbled_femurs_3",
+    "particle": "dungeonblocks:block/jumbled_femurs_3",
+    "south": "dungeonblocks:block/jumbled_femurs_3",
+    "up": "dungeonblocks:block/hewn_tufa",
+    "west": "dungeonblocks:block/jumbled_femurs_5"
+  }
+}

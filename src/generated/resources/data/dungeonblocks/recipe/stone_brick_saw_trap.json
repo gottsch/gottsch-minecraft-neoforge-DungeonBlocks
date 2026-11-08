@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "B": {
+      "item": "minecraft:stone_bricks"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "r": {
+      "item": "minecraft:redstone"
+    }
+  },
+  "pattern": [
+    "iBi",
+    " r "
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:stone_brick_saw_trap"
+  }
+}

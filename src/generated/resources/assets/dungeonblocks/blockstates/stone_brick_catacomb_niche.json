@@ -24,6 +24,10 @@
       "model": "dungeonblocks:block/stone_brick_catacomb_niche_skulls",
       "y": 90
     },
+    "facing=east,remains=soul_lamp": {
+      "model": "dungeonblocks:block/stone_brick_catacomb_niche_soul_lamp",
+      "y": 90
+    },
     "facing=north,remains=bones": {
       "model": "dungeonblocks:block/stone_brick_catacomb_niche_bones"
     },
@@ -41,6 +45,9 @@
     },
     "facing=north,remains=skulls": {
       "model": "dungeonblocks:block/stone_brick_catacomb_niche_skulls"
+    },
+    "facing=north,remains=soul_lamp": {
+      "model": "dungeonblocks:block/stone_brick_catacomb_niche_soul_lamp"
     },
     "facing=south,remains=bones": {
       "model": "dungeonblocks:block/stone_brick_catacomb_niche_bones",
@@ -66,6 +73,10 @@
       "model": "dungeonblocks:block/stone_brick_catacomb_niche_skulls",
       "y": 180
     },
+    "facing=south,remains=soul_lamp": {
+      "model": "dungeonblocks:block/stone_brick_catacomb_niche_soul_lamp",
+      "y": 180
+    },
     "facing=west,remains=bones": {
       "model": "dungeonblocks:block/stone_brick_catacomb_niche_bones",
       "y": 270
@@ -88,6 +99,10 @@
     },
     "facing=west,remains=skulls": {
       "model": "dungeonblocks:block/stone_brick_catacomb_niche_skulls",
+      "y": 270
+    },
+    "facing=west,remains=soul_lamp": {
+      "model": "dungeonblocks:block/stone_brick_catacomb_niche_soul_lamp",
       "y": 270
     }
   }

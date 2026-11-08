@@ -6,6 +6,11 @@ import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.minecraft.client.resources.model.ModelResourceLocation;
+import mod.gottsch.forge.dungeonblocks.core.blockentity.client.LargeChandelierRenderer;
+import net.minecraft.client.renderer.entity.NoopRenderer;
+import mod.gottsch.forge.dungeonblocks.core.entity.client.SkeletonRemainsRenderer;
+import mod.gottsch.forge.dungeonblocks.core.blockentity.client.TombDoorRenderer;
+import mod.gottsch.forge.dungeonblocks.core.blockentity.client.SawTrapRenderer;
 import mod.gottsch.forge.dungeonblocks.DungeonBlocks;
 import mod.gottsch.forge.dungeonblocks.core.block.BubblingCauldronBlock;
 import mod.gottsch.forge.dungeonblocks.core.block.ModBlocks;
@@ -18,6 +23,7 @@ import mod.gottsch.forge.dungeonblocks.core.blockentity.client.SwingingChainRend
 import mod.gottsch.forge.dungeonblocks.core.blockentity.client.WeaponRackRenderer;
 import mod.gottsch.forge.dungeonblocks.core.entity.ModEntityTypes;
 import mod.gottsch.forge.dungeonblocks.core.entity.client.BigRedPotionModel;
+import mod.gottsch.forge.dungeonblocks.core.entity.client.CineraryUrnModel;
 import mod.gottsch.forge.dungeonblocks.core.entity.client.PotItemRenderer;
 import mod.gottsch.forge.dungeonblocks.core.entity.client.PotModel;
 import mod.gottsch.forge.dungeonblocks.core.entity.client.PotRenderer;
@@ -33,6 +39,7 @@ import mod.gottsch.forge.dungeonblocks.core.entity.client.ScrollModel;
 import mod.gottsch.forge.dungeonblocks.core.entity.client.ScrollRenderer;
 import mod.gottsch.forge.dungeonblocks.core.entity.client.TomeModel;
 import mod.gottsch.forge.dungeonblocks.core.entity.client.TomeRenderer;
+import mod.gottsch.forge.dungeonblocks.core.block.ChainSize;
 import mod.gottsch.forge.dungeonblocks.core.state.properties.ChainFixture;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.resources.ResourceLocation;
@@ -109,7 +116,10 @@ public class ClientSetup {
                     PotVariant.entityTexture("green_flask"), 0.8125F, 0.4375F, 0.5F),
             // 10px tall, 12px across the long side it tips onto
             new PotVariant(ModEntityTypes.WOODEN_BUCKET, WoodenBucketModel.LAYER_LOCATION, WoodenBucketModel::new,
-                    PotVariant.entityTexture("wooden_bucket"), 0.625F, 0.75F));
+                    PotVariant.entityTexture("wooden_bucket"), 0.625F, 0.75F),
+            // 12px tall, 8px across the shoulder
+            new PotVariant(ModEntityTypes.CINERARY_URN, CineraryUrnModel.LAYER_LOCATION, CineraryUrnModel::new,
+                    PotVariant.entityTexture("cinerary_urn"), 0.75F, 0.5F));
 
     /**
      * Register the {@link IBlockColor} handlers.
@@ -146,6 +156,7 @@ public class ClientSetup {
         event.registerLayerDefinition(BigRedPotionModel.LAYER_LOCATION, BigRedPotionModel::createBodyLayer);
         event.registerLayerDefinition(RedFlaskModel.LAYER_LOCATION, RedFlaskModel::createBodyLayer);
         event.registerLayerDefinition(WoodenBucketModel.LAYER_LOCATION, WoodenBucketModel::createBodyLayer);
+        event.registerLayerDefinition(CineraryUrnModel.LAYER_LOCATION, CineraryUrnModel::createBodyLayer);
         event.registerLayerDefinition(ScrollModel.LAYER_LOCATION, ScrollModel::createBodyLayer);
         for (TomeVariant.Shape shape : TomeVariant.Shape.values()) {
             event.registerLayerDefinition(TomeModel.layer(shape), () -> TomeModel.createBodyLayer(shape));
@@ -170,9 +181,15 @@ public class ClientSetup {
         event.registerEntityRenderer(ModEntityTypes.POT_SHARD.get(), PotShardRenderer::new);
         event.registerEntityRenderer(ModEntityTypes.TOME.get(), TomeRenderer::new);
         event.registerEntityRenderer(ModEntityTypes.SCROLL.get(), ScrollRenderer::new);
+        event.registerEntityRenderer(ModEntityTypes.SKELETON_REMAINS.get(), SkeletonRemainsRenderer::new);
+        // a bench seat is never drawn: the player sitting on it is
+        event.registerEntityRenderer(ModEntityTypes.SEAT.get(), NoopRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntityTypes.SWINGING_CHAIN.get(), SwingingChainRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntityTypes.DUNGEON_BANNER.get(), DungeonBannerRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntityTypes.SARCOPHAGUS.get(), SarcophagusRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntityTypes.TOMB_DOOR.get(), TombDoorRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntityTypes.SAW_TRAP.get(), SawTrapRenderer::new);
+        event.registerBlockEntityRenderer(ModBlockEntityTypes.LARGE_CHANDELIER.get(), LargeChandelierRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntityTypes.WEAPON_RACK.get(), WeaponRackRenderer::new);
         event.registerBlockEntityRenderer(ModBlockEntityTypes.PEDESTAL.get(), PedestalRenderer::new);
     }
@@ -187,6 +204,19 @@ public class ClientSetup {
     @OnlyIn(Dist.CLIENT)
     @SubscribeEvent
     public static void registerAdditionalModels(ModelEvent.RegisterAdditional event) {
+        event.register(TombDoorRenderer.SLAB);
+        event.register(SawTrapRenderer.BLADE);
+        event.register(SkeletonRemainsRenderer.SHACKLES);
+        // the large chandelier's nine parts, unlit and lit, per chandelier
+        for (DeferredHolder<Block, Block> block : List.of(ModBlocks.LARGE_CHANDELIER, ModBlocks.LARGE_BONE_CHANDELIER)) {
+            for (boolean lit : new boolean[] {false, true}) {
+                for (int x = 0; x < 3; x++) {
+                    for (int z = 0; z < 3; z++) {
+                        event.register(LargeChandelierRenderer.partModel(block.getId(), lit, x, z));
+                    }
+                }
+            }
+        }
         List<DeferredHolder<Block, Block>> tombs = new ArrayList<>(List.of(ModBlocks.STONE_SARCOPHAGUS, ModBlocks.DEEPSLATE_SARCOPHAGUS));
         tombs.addAll(ModBlocks.COFFINS);
         for (DeferredHolder<Block, Block> block : tombs) {
@@ -201,6 +231,10 @@ public class ClientSetup {
                     event.register(ModelResourceLocation.standalone(ResourceLocation.fromNamespaceAndPath(DungeonBlocks.MOD_ID, "block/" + model)));
                 }
             }
+        }
+        // each chain size's link, which ChainRenderer draws along every chain
+        for (ChainSize size : ChainSize.values()) {
+            event.register(ModelResourceLocation.standalone(size.getLinkModel()));
         }
     }
 

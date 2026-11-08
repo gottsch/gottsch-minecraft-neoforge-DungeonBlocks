@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/outer_stairs",
+  "textures": {
+    "bottom": "dungeonblocks:block/mossy_ossuary_cobblestone",
+    "side": "dungeonblocks:block/mossy_ossuary_cobblestone",
+    "top": "dungeonblocks:block/mossy_ossuary_cobblestone"
+  }
+}

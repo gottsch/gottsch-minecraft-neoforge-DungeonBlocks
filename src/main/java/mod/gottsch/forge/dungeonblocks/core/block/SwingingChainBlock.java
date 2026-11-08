@@ -127,7 +127,16 @@ public class SwingingChainBlock extends Block implements EntityBlock {
 
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-		return SHAPE;
+		// a chandelier is mostly wheel: a player clicks that to light it, not the chain up its middle
+		return switch (state.getValue(FIXTURE)) {
+			case CHANDELIER -> ChandelierBlock.SHAPE;
+			case BONE_CHANDELIER -> BoneChandelierBlock.SHAPE;
+			case MEDIUM_BONE_CHANDELIER -> MediumBoneChandelierBlock.SHAPE;
+			case MEDIUM_CHANDELIER -> MediumChandelierBlock.SHAPE;
+			case FIRE_BASKET, SOUL_FIRE_BASKET -> FireBasketBlock.SHAPE;
+			case OIL_LAMP -> HangingOilLampBlock.SHAPE;
+			default -> SHAPE;
+		};
 	}
 
 	/** Walk-through: you're meant to be able to push through a chain, which is what makes it swing. */
@@ -242,10 +251,14 @@ public class SwingingChainBlock extends Block implements EntityBlock {
 	protected ItemInteractionResult useItemOn(ItemStack held, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
 		ChainFixture fixture = state.getValue(FIXTURE);
 
-		if (fixture.isLightable() && !state.getValue(LIT)
-				&& (held.is(Items.FLINT_AND_STEEL) || held.is(Blocks.TORCH.asItem()))) {
+		// a soul torch lights a fire basket with soul fire, which is its own fixture
+		boolean soul = fixture.isFireBasket() && held.is(Blocks.SOUL_TORCH.asItem());
+		boolean igniter = soul || held.is(Items.FLINT_AND_STEEL) || held.is(Blocks.TORCH.asItem());
+		if (fixture.isLightable() && !state.getValue(LIT) && igniter) {
 			if (!level.isClientSide) {
-				level.setBlock(pos, state.setValue(LIT, true), Block.UPDATE_ALL);
+				ChainFixture burning = !fixture.isFireBasket() ? fixture
+						: soul ? ChainFixture.SOUL_FIRE_BASKET : ChainFixture.FIRE_BASKET;
+				level.setBlock(pos, state.setValue(FIXTURE, burning).setValue(LIT, true), Block.UPDATE_ALL);
 				level.playSound(null, pos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, 1.0F);
 				if (held.is(Items.FLINT_AND_STEEL)) {
 					held.hurtAndBreak(1, player, LivingEntity.getSlotForHand(hand));
@@ -280,7 +293,9 @@ public class SwingingChainBlock extends Block implements EntityBlock {
 		}
 		if (!level.isClientSide) {
 			if (fixture.isLightable() && state.getValue(LIT)) {
-				level.setBlock(pos, state.setValue(LIT, false), Block.UPDATE_ALL);
+				// soul fire put out leaves a plain fire basket
+				ChainFixture out = fixture == ChainFixture.SOUL_FIRE_BASKET ? ChainFixture.FIRE_BASKET : fixture;
+				level.setBlock(pos, state.setValue(FIXTURE, out).setValue(LIT, false), Block.UPDATE_ALL);
 				level.playSound(null, pos, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS, 0.5F, 1.5F);
 			} else {
 				detachFixture(state, level, pos);
@@ -323,6 +338,24 @@ public class SwingingChainBlock extends Block implements EntityBlock {
 		if (stack.is(ModBlocks.CENSER.get().asItem())) {
 			return ChainFixture.CENSER;
 		}
+		if (stack.is(ModBlocks.CHANDELIER.get().asItem())) {
+			return ChainFixture.CHANDELIER;
+		}
+		if (stack.is(ModBlocks.BONE_CHANDELIER.get().asItem())) {
+			return ChainFixture.BONE_CHANDELIER;
+		}
+		if (stack.is(ModBlocks.MEDIUM_BONE_CHANDELIER.get().asItem())) {
+			return ChainFixture.MEDIUM_BONE_CHANDELIER;
+		}
+		if (stack.is(ModBlocks.MEDIUM_CHANDELIER.get().asItem())) {
+			return ChainFixture.MEDIUM_CHANDELIER;
+		}
+		if (stack.is(ModBlocks.FIRE_BASKET.get().asItem())) {
+			return ChainFixture.FIRE_BASKET;
+		}
+		if (stack.is(ModBlocks.HANGING_OIL_LAMP.get().asItem())) {
+			return ChainFixture.OIL_LAMP;
+		}
 		return ChainFixture.NONE;
 	}
 
@@ -334,6 +367,12 @@ public class SwingingChainBlock extends Block implements EntityBlock {
 			case MANACLES -> new ItemStack(ModBlocks.MANACLES.get());
 			case MEAT_HOOK -> new ItemStack(ModBlocks.MEAT_HOOK.get());
 			case CENSER -> new ItemStack(ModBlocks.CENSER.get());
+			case CHANDELIER -> new ItemStack(ModBlocks.CHANDELIER.get());
+			case BONE_CHANDELIER -> new ItemStack(ModBlocks.BONE_CHANDELIER.get());
+			case MEDIUM_BONE_CHANDELIER -> new ItemStack(ModBlocks.MEDIUM_BONE_CHANDELIER.get());
+			case MEDIUM_CHANDELIER -> new ItemStack(ModBlocks.MEDIUM_CHANDELIER.get());
+			case FIRE_BASKET, SOUL_FIRE_BASKET -> new ItemStack(ModBlocks.FIRE_BASKET.get());
+			case OIL_LAMP -> new ItemStack(ModBlocks.HANGING_OIL_LAMP.get());
 			case NONE -> ItemStack.EMPTY;
 		};
 	}
@@ -362,16 +401,42 @@ public class SwingingChainBlock extends Block implements EntityBlock {
 	}
 
 	/**
-	 * A lit censer smokes. The smoke rises from where the censer is drawn - swung aside, the smoke
-	 * goes with it - which {@link SwingingChainBlockEntity#bottomPoint} works out from the same swing
-	 * the renderer draws.
+	 * A lit censer smokes, and a lit chandelier burns. The particles rise from where the fixture is
+	 * drawn - swung aside, they go with it - which {@link SwingingChainBlockEntity#bottomPoint} works
+	 * out from the same swing the renderer draws.
 	 */
 	@Override
 	public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-		if (state.getValue(FIXTURE) != ChainFixture.CENSER || !state.getValue(LIT)) {
+		ChainFixture fixture = state.getValue(FIXTURE);
+		if (!fixture.isLightable() || fixture == ChainFixture.DUNGEON_LANTERN || !state.getValue(LIT)) {
 			return;
 		}
 		if (!(level.getBlockEntity(findTop(level, pos)) instanceof SwingingChainBlockEntity chain)) {
+			return;
+		}
+		if (fixture == ChainFixture.CHANDELIER) {
+			ChandelierBlock.flames(level, random, wick -> chain.bottomPoint(level.getGameTime(), wick));
+			return;
+		}
+		if (fixture == ChainFixture.BONE_CHANDELIER) {
+			BoneChandelierBlock.flames(level, random, wick -> chain.bottomPoint(level.getGameTime(), wick));
+			return;
+		}
+		if (fixture == ChainFixture.MEDIUM_BONE_CHANDELIER) {
+			MediumBoneChandelierBlock.flames(level, random, wick -> chain.bottomPoint(level.getGameTime(), wick));
+			return;
+		}
+		if (fixture == ChainFixture.MEDIUM_CHANDELIER) {
+			MediumChandelierBlock.flames(level, random, wick -> chain.bottomPoint(level.getGameTime(), wick));
+			return;
+		}
+		if (fixture == ChainFixture.OIL_LAMP) {
+			HangingOilLampBlock.flame(level, random, at -> chain.bottomPoint(level.getGameTime(), at));
+			return;
+		}
+		if (fixture.isFireBasket()) {
+			FireBasketBlock.particles(fixture == ChainFixture.SOUL_FIRE_BASKET ? BrazierBlock.BrazierFire.SOUL
+					: BrazierBlock.BrazierFire.LIT, level, random, at -> chain.bottomPoint(level.getGameTime(), at));
 			return;
 		}
 		Vec3 at = chain.bottomPoint(level.getGameTime(), CenserBlock.smokeOrigin(random));

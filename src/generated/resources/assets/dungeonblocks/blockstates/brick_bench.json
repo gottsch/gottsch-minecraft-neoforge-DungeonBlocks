@@ -1,0 +1,32 @@
+{
+  "variants": {
+    "axis=x,part=end": {
+      "model": "dungeonblocks:block/brick_bench_end"
+    },
+    "axis=x,part=middle": {
+      "model": "dungeonblocks:block/brick_bench_middle"
+    },
+    "axis=x,part=single": {
+      "model": "dungeonblocks:block/brick_bench_single"
+    },
+    "axis=x,part=start": {
+      "model": "dungeonblocks:block/brick_bench_start"
+    },
+    "axis=z,part=end": {
+      "model": "dungeonblocks:block/brick_bench_end",
+      "y": 90
+    },
+    "axis=z,part=middle": {
+      "model": "dungeonblocks:block/brick_bench_middle",
+      "y": 90
+    },
+    "axis=z,part=single": {
+      "model": "dungeonblocks:block/brick_bench_single",
+      "y": 90
+    },
+    "axis=z,part=start": {
+      "model": "dungeonblocks:block/brick_bench_start",
+      "y": 90
+    }
+  }
+}

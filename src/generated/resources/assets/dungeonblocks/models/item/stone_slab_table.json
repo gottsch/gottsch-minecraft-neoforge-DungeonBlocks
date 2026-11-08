@@ -1,3 +1,7 @@
 {
-  "parent": "dungeonblocks:block/stone_slab_table_foot"
+  "parent": "dungeonblocks:block/slab_table_item",
+  "textures": {
+    "left": "minecraft:block/stone",
+    "right": "minecraft:block/stone"
+  }
 }

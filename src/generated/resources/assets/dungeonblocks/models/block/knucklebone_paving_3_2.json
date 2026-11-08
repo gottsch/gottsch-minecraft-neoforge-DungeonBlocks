@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "dungeonblocks:block/knucklebone_paving_3",
+    "east": "dungeonblocks:block/knucklebone_paving_2",
+    "north": "dungeonblocks:block/knucklebone_paving_0",
+    "particle": "dungeonblocks:block/knucklebone_paving_3",
+    "south": "dungeonblocks:block/knucklebone_paving_0",
+    "up": "dungeonblocks:block/knucklebone_paving_3",
+    "west": "dungeonblocks:block/knucklebone_paving_1"
+  }
+}

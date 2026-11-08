@@ -1,3 +1,7 @@
 {
-  "parent": "dungeonblocks:block/mossy_stone_bricks_slab_table_foot"
+  "parent": "dungeonblocks:block/slab_table_item",
+  "textures": {
+    "left": "dungeonblocks:block/mossy_left_large_stone_brick",
+    "right": "dungeonblocks:block/mossy_right_large_stone_brick"
+  }
 }

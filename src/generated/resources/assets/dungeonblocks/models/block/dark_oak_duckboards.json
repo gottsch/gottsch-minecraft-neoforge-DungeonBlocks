@@ -1,0 +1,8 @@
+{
+  "parent": "dungeonblocks:block/template_duckboard",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "boards": "minecraft:block/dark_oak_planks",
+    "stringer": "minecraft:block/stripped_dark_oak_log"
+  }
+}

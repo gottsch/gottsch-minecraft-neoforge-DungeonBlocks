@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "x": {
+      "item": "dungeonblocks:ossuary_bricks"
+    },
+    "y": {
+      "item": "dungeonblocks:ossuary_bricks"
+    }
+  },
+  "pattern": [
+    "xxx",
+    "y y"
+  ],
+  "result": {
+    "count": 1,
+    "id": "dungeonblocks:ossuary_bricks_slab_table"
+  }
+}

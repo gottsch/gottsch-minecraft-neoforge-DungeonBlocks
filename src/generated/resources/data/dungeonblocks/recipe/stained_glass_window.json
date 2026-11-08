@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:blue_stained_glass_pane"
+    },
+    "n": {
+      "item": "minecraft:iron_nugget"
+    },
+    "r": {
+      "item": "minecraft:red_stained_glass_pane"
+    }
+  },
+  "pattern": [
+    "rbr",
+    "bnb",
+    "rbr"
+  ],
+  "result": {
+    "count": 8,
+    "id": "dungeonblocks:stained_glass_window"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "dungeonblocks:block/hewn_tufa",
+    "east": "dungeonblocks:block/packed_skulls_3",
+    "north": "dungeonblocks:block/packed_skulls_3",
+    "particle": "dungeonblocks:block/packed_skulls_3",
+    "south": "dungeonblocks:block/packed_skulls_3",
+    "up": "dungeonblocks:block/hewn_tufa",
+    "west": "dungeonblocks:block/packed_skulls_3"
+  }
+}

@@ -2,6 +2,8 @@
   "values": [
     "dungeonblocks:large_candle",
     "dungeonblocks:huge_candle",
-    "dungeonblocks:candle_cluster"
+    "dungeonblocks:candle_cluster",
+    "dungeonblocks:skull_candle",
+    "dungeonblocks:black_skull_candle"
   ]
 }

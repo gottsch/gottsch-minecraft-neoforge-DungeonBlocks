@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "axis=x,powered=false,raised=false": {
+      "model": "dungeonblocks:block/stone_brick_saw_trap_x"
+    },
+    "axis=x,powered=false,raised=true": {
+      "model": "dungeonblocks:block/stone_brick_saw_trap_x"
+    },
+    "axis=x,powered=true,raised=false": {
+      "model": "dungeonblocks:block/stone_brick_saw_trap_x"
+    },
+    "axis=x,powered=true,raised=true": {
+      "model": "dungeonblocks:block/stone_brick_saw_trap_x"
+    },
+    "axis=z,powered=false,raised=false": {
+      "model": "dungeonblocks:block/stone_brick_saw_trap_z"
+    },
+    "axis=z,powered=false,raised=true": {
+      "model": "dungeonblocks:block/stone_brick_saw_trap_z"
+    },
+    "axis=z,powered=true,raised=false": {
+      "model": "dungeonblocks:block/stone_brick_saw_trap_z"
+    },
+    "axis=z,powered=true,raised=true": {
+      "model": "dungeonblocks:block/stone_brick_saw_trap_z"
+    }
+  }
+}

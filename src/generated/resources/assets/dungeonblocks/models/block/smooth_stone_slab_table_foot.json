@@ -1,6 +1,7 @@
 {
   "parent": "dungeonblocks:block/slab_table",
   "textures": {
-    "all": "minecraft:block/smooth_stone"
+    "left": "minecraft:block/smooth_stone",
+    "right": "minecraft:block/smooth_stone"
   }
 }

@@ -1,0 +1,836 @@
+{
+  "__comment": "Generated once from template_heavy_grate_block's top bars and rivets plus an iron box; edit by hand. The lit model's bed and fire carry forge_data block_light 15 so they glow at the bottom of a dark pit.",
+  "parent": "block/block",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "iron": "dungeonblocks:block/dark_iron",
+    "soil": "minecraft:block/soul_soil",
+    "particle": "dungeonblocks:block/dark_iron"
+  },
+  "elements": [
+    {
+      "name": "floor",
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        2,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#iron",
+          "cullface": "north"
+        },
+        "east": {
+          "texture": "#iron",
+          "cullface": "east"
+        },
+        "south": {
+          "texture": "#iron",
+          "cullface": "south"
+        },
+        "west": {
+          "texture": "#iron",
+          "cullface": "west"
+        },
+        "up": {
+          "texture": "#iron"
+        },
+        "down": {
+          "texture": "#iron",
+          "cullface": "down"
+        }
+      }
+    },
+    {
+      "name": "north_wall",
+      "from": [
+        0,
+        2,
+        0
+      ],
+      "to": [
+        16,
+        16,
+        2
+      ],
+      "faces": {
+        "north": {
+          "texture": "#iron",
+          "cullface": "north"
+        },
+        "east": {
+          "texture": "#iron",
+          "cullface": "east"
+        },
+        "south": {
+          "texture": "#iron"
+        },
+        "west": {
+          "texture": "#iron",
+          "cullface": "west"
+        },
+        "up": {
+          "texture": "#iron",
+          "cullface": "up"
+        }
+      }
+    },
+    {
+      "name": "south_wall",
+      "from": [
+        0,
+        2,
+        14
+      ],
+      "to": [
+        16,
+        16,
+        16
+      ],
+      "faces": {
+        "north": {
+          "texture": "#iron"
+        },
+        "east": {
+          "texture": "#iron",
+          "cullface": "east"
+        },
+        "south": {
+          "texture": "#iron",
+          "cullface": "south"
+        },
+        "west": {
+          "texture": "#iron",
+          "cullface": "west"
+        },
+        "up": {
+          "texture": "#iron",
+          "cullface": "up"
+        }
+      }
+    },
+    {
+      "name": "west_wall",
+      "from": [
+        0,
+        2,
+        2
+      ],
+      "to": [
+        2,
+        16,
+        14
+      ],
+      "faces": {
+        "east": {
+          "texture": "#iron"
+        },
+        "west": {
+          "texture": "#iron",
+          "cullface": "west"
+        },
+        "up": {
+          "texture": "#iron",
+          "cullface": "up"
+        }
+      }
+    },
+    {
+      "name": "east_wall",
+      "from": [
+        14,
+        2,
+        2
+      ],
+      "to": [
+        16,
+        16,
+        14
+      ],
+      "faces": {
+        "east": {
+          "texture": "#iron",
+          "cullface": "east"
+        },
+        "west": {
+          "texture": "#iron"
+        },
+        "up": {
+          "texture": "#iron",
+          "cullface": "up"
+        }
+      }
+    },
+    {
+      "name": "north_lip",
+      "from": [
+        2,
+        14,
+        2
+      ],
+      "to": [
+        14,
+        16,
+        3
+      ],
+      "faces": {
+        "south": {
+          "texture": "#iron"
+        },
+        "up": {
+          "texture": "#iron"
+        },
+        "down": {
+          "texture": "#iron"
+        }
+      }
+    },
+    {
+      "name": "south_lip",
+      "from": [
+        2,
+        14,
+        13
+      ],
+      "to": [
+        14,
+        16,
+        14
+      ],
+      "faces": {
+        "north": {
+          "texture": "#iron"
+        },
+        "up": {
+          "texture": "#iron"
+        },
+        "down": {
+          "texture": "#iron"
+        }
+      }
+    },
+    {
+      "name": "west_lip",
+      "from": [
+        2,
+        14,
+        3
+      ],
+      "to": [
+        3,
+        16,
+        13
+      ],
+      "faces": {
+        "east": {
+          "texture": "#iron"
+        },
+        "up": {
+          "texture": "#iron"
+        },
+        "down": {
+          "texture": "#iron"
+        }
+      }
+    },
+    {
+      "name": "east_lip",
+      "from": [
+        13,
+        14,
+        3
+      ],
+      "to": [
+        14,
+        16,
+        13
+      ],
+      "faces": {
+        "west": {
+          "texture": "#iron"
+        },
+        "up": {
+          "texture": "#iron"
+        },
+        "down": {
+          "texture": "#iron"
+        }
+      }
+    },
+    {
+      "name": "bed",
+      "from": [
+        2,
+        2,
+        2
+      ],
+      "to": [
+        14,
+        3,
+        14
+      ],
+      "faces": {
+        "up": {
+          "texture": "#soil"
+        }
+      }
+    },
+    {
+      "name": "nsBar1",
+      "from": [
+        5.66,
+        15,
+        3
+      ],
+      "to": [
+        6.66,
+        16,
+        13
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "east": {
+          "uv": [
+            3,
+            1,
+            13,
+            0
+          ],
+          "texture": "#iron"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "west": {
+          "uv": [
+            3,
+            0,
+            13,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "up": {
+          "uv": [
+            6,
+            3,
+            7,
+            13
+          ],
+          "texture": "#iron"
+        },
+        "down": {
+          "uv": [
+            10,
+            3,
+            11,
+            13
+          ],
+          "texture": "#iron"
+        }
+      }
+    },
+    {
+      "name": "nsBar2",
+      "from": [
+        9.33,
+        15,
+        3
+      ],
+      "to": [
+        10.33,
+        16,
+        13
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "east": {
+          "uv": [
+            3,
+            0,
+            13,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "south": {
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "west": {
+          "uv": [
+            3,
+            0,
+            13,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "up": {
+          "uv": [
+            8,
+            3,
+            9,
+            13
+          ],
+          "texture": "#iron"
+        },
+        "down": {
+          "uv": [
+            5,
+            3,
+            6,
+            13
+          ],
+          "texture": "#iron"
+        }
+      }
+    },
+    {
+      "name": "weBar1",
+      "from": [
+        3,
+        15.001,
+        5.66
+      ],
+      "to": [
+        13,
+        15.999,
+        6.66
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            3,
+            0,
+            13,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "east": {
+          "uv": [
+            0,
+            1,
+            1,
+            2
+          ],
+          "texture": "#iron"
+        },
+        "south": {
+          "uv": [
+            3,
+            0,
+            13,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "up": {
+          "uv": [
+            3,
+            5,
+            13,
+            6
+          ],
+          "texture": "#iron"
+        },
+        "down": {
+          "uv": [
+            3,
+            5,
+            13,
+            6
+          ],
+          "texture": "#iron"
+        }
+      }
+    },
+    {
+      "name": "weBar2",
+      "from": [
+        3,
+        15.001,
+        9.33
+      ],
+      "to": [
+        13,
+        15.999,
+        10.33
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            3,
+            0,
+            13,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "east": {
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "south": {
+          "uv": [
+            3,
+            0,
+            13,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "west": {
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "up": {
+          "uv": [
+            3,
+            10,
+            13,
+            11
+          ],
+          "texture": "#iron"
+        },
+        "down": {
+          "uv": [
+            3,
+            10,
+            13,
+            11
+          ],
+          "texture": "#iron"
+        }
+      }
+    },
+    {
+      "name": "bolt1",
+      "from": [
+        1,
+        15.5,
+        1
+      ],
+      "to": [
+        2,
+        16.5,
+        2
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            0,
+            7,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "east": {
+          "uv": [
+            6,
+            0,
+            7,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "south": {
+          "uv": [
+            6,
+            0,
+            7,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "west": {
+          "uv": [
+            6,
+            0,
+            7,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "up": {
+          "uv": [
+            6,
+            0,
+            7,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "texture": "#iron"
+        }
+      }
+    },
+    {
+      "name": "bolt2",
+      "from": [
+        14,
+        15.5,
+        1
+      ],
+      "to": [
+        15,
+        16.5,
+        2
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            0,
+            7,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "east": {
+          "uv": [
+            6,
+            0,
+            7,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "south": {
+          "uv": [
+            6,
+            0,
+            7,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "west": {
+          "uv": [
+            6,
+            0,
+            7,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "up": {
+          "uv": [
+            6,
+            0,
+            7,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "texture": "#iron"
+        }
+      }
+    },
+    {
+      "name": "bolt3",
+      "from": [
+        1,
+        15.5,
+        14
+      ],
+      "to": [
+        2,
+        16.5,
+        15
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            0,
+            7,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "east": {
+          "uv": [
+            6,
+            0,
+            7,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "south": {
+          "uv": [
+            6,
+            0,
+            7,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "west": {
+          "uv": [
+            6,
+            0,
+            7,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "up": {
+          "uv": [
+            6,
+            0,
+            7,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "texture": "#iron"
+        }
+      }
+    },
+    {
+      "name": "bolt4",
+      "from": [
+        14,
+        15.5,
+        14
+      ],
+      "to": [
+        15,
+        16.5,
+        15
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            6,
+            0,
+            7,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "east": {
+          "uv": [
+            6,
+            0,
+            7,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "south": {
+          "uv": [
+            6,
+            0,
+            7,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "west": {
+          "uv": [
+            6,
+            0,
+            7,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "up": {
+          "uv": [
+            6,
+            0,
+            7,
+            1
+          ],
+          "texture": "#iron"
+        },
+        "down": {
+          "uv": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "texture": "#iron"
+        }
+      }
+    }
+  ]
+}

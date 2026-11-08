@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "dungeonblocks:block/mossy_hewn_tufa"
+      },
+      {
+        "model": "dungeonblocks:block/mossy_hewn_tufa_1"
+      },
+      {
+        "model": "dungeonblocks:block/mossy_hewn_tufa_2"
+      },
+      {
+        "model": "dungeonblocks:block/mossy_hewn_tufa_3"
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "dungeonblocks:block/cracked_grave_slab_pavement_0",
+    "east": "dungeonblocks:block/cracked_grave_slab_pavement_6",
+    "north": "dungeonblocks:block/cracked_grave_slab_pavement_6",
+    "particle": "dungeonblocks:block/cracked_grave_slab_pavement_0",
+    "south": "dungeonblocks:block/cracked_grave_slab_pavement_6",
+    "up": "dungeonblocks:block/cracked_grave_slab_pavement_0",
+    "west": "dungeonblocks:block/cracked_grave_slab_pavement_6"
+  }
+}

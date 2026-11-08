@@ -1,0 +1,18 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "dungeonblocks:block/hewn_tufa"
+      },
+      {
+        "model": "dungeonblocks:block/hewn_tufa_1"
+      },
+      {
+        "model": "dungeonblocks:block/hewn_tufa_2"
+      },
+      {
+        "model": "dungeonblocks:block/hewn_tufa_3"
+      }
+    ]
+  }
+}

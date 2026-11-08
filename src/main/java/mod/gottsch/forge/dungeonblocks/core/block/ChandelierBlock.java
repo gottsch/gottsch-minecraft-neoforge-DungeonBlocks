@@ -48,11 +48,17 @@ import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import org.joml.Vector3f;
+
+import mod.gottsch.forge.dungeonblocks.core.state.properties.ChainFixture;
 
 import javax.annotation.Nullable;
+import java.util.Arrays;
+import java.util.function.Function;
 import java.util.function.ToIntFunction;
 
 /**
@@ -63,6 +69,8 @@ import java.util.function.ToIntFunction;
  * puts it out. Water puts it out, and it cannot be lit waterlogged. The models are
  * blockbench/chandelier.bbmodel, lit and unlit - they differ only in the candles' wicks; the
  * flames are particles, as on vanilla candles.
+ *
+ * <p>On a swinging chain it is attached to the bottom link instead, and swings ({@link ChainFixture}).
  */
 public class ChandelierBlock extends Block implements SimpleWaterloggedBlock {
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
@@ -70,14 +78,14 @@ public class ChandelierBlock extends Block implements SimpleWaterloggedBlock {
     public static final ToIntFunction<BlockState> LIGHT_EMISSION = state -> state.getValue(LIT) ? 15 : 0;
 
     /** The wheel and its candles, and the chain up to the ceiling. */
-    private static final VoxelShape SHAPE = Shapes.or(Block.box(1.5, 3, 1.5, 14.5, 10, 14.5), Block.box(7, 10, 7, 9, 16, 9));
+    static final VoxelShape SHAPE = Shapes.or(Block.box(1.5, 3, 1.5, 14.5, 10, 14.5), Block.box(7, 10, 7, 9, 16, 9));
     /**
      * Where each candle's flame burns, in pixels: its wick's top, for the eight candles on the
      * wheel - the corners and the middle of each side (CHANDELIER_CANDLES in tools/gen_bbmodels.py).
      */
     private static final double[][] FLAMES = {{2.5, 2.5}, {8, 2.5}, {13.5, 2.5}, {2.5, 8}, {13.5, 8},
             {2.5, 13.5}, {8, 13.5}, {13.5, 13.5}};
-    private static final double FLAME_Y = 10.5;
+    static final double FLAME_Y = 10.5;
 
     public ChandelierBlock(Properties properties) {
         super(properties);
@@ -175,22 +183,66 @@ public class ChandelierBlock extends Block implements SimpleWaterloggedBlock {
     /** A flame on every wick, and now and then a wisp of smoke and a candle's crackle - as vanilla candles do. */
     @Override
     public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-        if (!state.getValue(LIT)) {
-            return;
+        if (state.getValue(LIT)) {
+            flames(level, random, at -> new Vec3(pos.getX() + at.x, pos.getY() + at.y, pos.getZ() + at.z));
         }
-        for (double[] flame : FLAMES) {
-            double x = pos.getX() + flame[0] / 16.0;
-            double y = pos.getY() + FLAME_Y / 16.0;
-            double z = pos.getZ() + flame[1] / 16.0;
-            float f = random.nextFloat();
-            if (f < 0.3F) {
-                level.addParticle(ParticleTypes.SMOKE, x, y, z, 0.0, 0.0, 0.0);
-                if (f < 0.04F) {
-                    level.playLocalSound(x, y, z, SoundEvents.CANDLE_AMBIENT, SoundSource.BLOCKS,
-                            1.0F + random.nextFloat(), random.nextFloat() * 0.7F + 0.3F, false);
-                }
+    }
+
+    /**
+     * One tick's flames and smoke. {@code place} takes a wick from the model's block space (0-1) to the
+     * world: straight across for the block, and along the swing on a swinging chain.
+     */
+    static void flames(Level level, RandomSource random, Function<Vector3f, Vec3> place) {
+        flames(FLAMES, level, random, place);
+    }
+
+    /** The same, on the given wicks, each {x, z} in pixels at FLAME_Y. */
+    static void flames(double[][] wicks, Level level, RandomSource random, Function<Vector3f, Vec3> place) {
+        for (double[] flame : wicks) {
+            flame(flame[0], FLAME_Y, flame[1], level, random, place);
+        }
+    }
+
+    /** The same, on wicks at any height, each {x, y, z} in pixels: a chandelier with more than one tier. */
+    static void flamesAt(double[][] wicks, Level level, RandomSource random, Function<Vector3f, Vec3> place) {
+        for (double[] flame : wicks) {
+            flame(flame[0], flame[1], flame[2], level, random, place);
+        }
+    }
+
+    /**
+     * {@code count} wicks round a ring {@code radius} px out from the block's centre, from
+     * {@code start} degrees (0 east, 90 south), at height {@code y}: ring_points in tools/gen_bbmodels.py.
+     */
+    static double[][] ring(double radius, int count, double start, double y) {
+        double[][] wicks = new double[count][];
+        for (int n = 0; n < count; n++) {
+            double a = Math.toRadians(start + n * 360.0 / count);
+            wicks[n] = new double[] {8 + radius * Math.cos(a), y, 8 + radius * Math.sin(a)};
+        }
+        return wicks;
+    }
+
+    /** Rings of wicks as one list. */
+    static double[][] concat(double[][]... rings) {
+        return Arrays.stream(rings).flatMap(Arrays::stream).toArray(double[][]::new);
+    }
+
+    /** One wick's flame, and now and then its smoke and crackle; the wick in pixels of the model. */
+    private static void flame(double px, double py, double pz, Level level, RandomSource random,
+                              Function<Vector3f, Vec3> place) {
+        Vec3 at = place.apply(new Vector3f((float) (px / 16.0), (float) (py / 16.0), (float) (pz / 16.0)));
+        double x = at.x;
+        double y = at.y;
+        double z = at.z;
+        float f = random.nextFloat();
+        if (f < 0.3F) {
+            level.addParticle(ParticleTypes.SMOKE, x, y, z, 0.0, 0.0, 0.0);
+            if (f < 0.04F) {
+                level.playLocalSound(x, y, z, SoundEvents.CANDLE_AMBIENT, SoundSource.BLOCKS,
+                        1.0F + random.nextFloat(), random.nextFloat() * 0.7F + 0.3F, false);
             }
-            level.addParticle(ParticleTypes.SMALL_FLAME, x, y, z, 0.0, 0.0, 0.0);
         }
+        level.addParticle(ParticleTypes.SMALL_FLAME, x, y, z, 0.0, 0.0, 0.0);
     }
 }

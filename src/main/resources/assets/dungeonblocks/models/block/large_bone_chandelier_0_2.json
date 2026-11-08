@@ -1,0 +1,91 @@
+{
+  "parent": "block/block",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "bone": "dungeonblocks:block/skeleton_bottom",
+    "candle": "minecraft:block/candle",
+    "chain": "minecraft:block/chain",
+    "skull": "dungeonblocks:block/skeleton_head",
+    "particle": "dungeonblocks:block/skeleton_bottom"
+  },
+  "elements": [
+    {
+      "name": "skull_6",
+      "from": [
+        -0.21000000000000085,
+        -12,
+        10.21
+      ],
+      "to": [
+        5.789999999999999,
+        -6,
+        16.21
+      ],
+      "faces": {
+        "north": {
+          "uv": [
+            8.0,
+            8.0,
+            16.0,
+            16.0
+          ],
+          "texture": "#skull"
+        },
+        "east": {
+          "uv": [
+            0.0,
+            8.0,
+            8.0,
+            16.0
+          ],
+          "texture": "#skull"
+        },
+        "south": {
+          "uv": [
+            0.0,
+            0.0,
+            8.0,
+            8.0
+          ],
+          "texture": "#skull"
+        },
+        "west": {
+          "uv": [
+            0.0,
+            8.0,
+            8.0,
+            16.0
+          ],
+          "texture": "#skull"
+        },
+        "up": {
+          "uv": [
+            8.0,
+            0.0,
+            16.0,
+            8.0
+          ],
+          "texture": "#skull"
+        },
+        "down": {
+          "uv": [
+            8.0,
+            0.0,
+            16.0,
+            8.0
+          ],
+          "texture": "#skull"
+        }
+      },
+      "rotation": {
+        "angle": -45.0,
+        "axis": "y",
+        "origin": [
+          2.789999999999999,
+          -9.0,
+          13.21
+        ]
+      }
+    }
+  ]
+}

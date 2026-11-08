@@ -1,5 +1,17 @@
 {
   "variants": {
+    "fixture=bone_chandelier,lit=false,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=bone_chandelier,lit=false,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=bone_chandelier,lit=true,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=bone_chandelier,lit=true,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
     "fixture=censer,lit=false,top=false": {
       "model": "dungeonblocks:block/swinging_chain"
     },
@@ -12,6 +24,18 @@
     "fixture=censer,lit=true,top=true": {
       "model": "dungeonblocks:block/swinging_chain"
     },
+    "fixture=chandelier,lit=false,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=chandelier,lit=false,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=chandelier,lit=true,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=chandelier,lit=true,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
     "fixture=dungeon_lantern,lit=false,top=false": {
       "model": "dungeonblocks:block/swinging_chain"
     },
@@ -22,6 +46,18 @@
       "model": "dungeonblocks:block/swinging_chain"
     },
     "fixture=dungeon_lantern,lit=true,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=fire_basket,lit=false,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=fire_basket,lit=false,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=fire_basket,lit=true,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=fire_basket,lit=true,top=true": {
       "model": "dungeonblocks:block/swinging_chain"
     },
     "fixture=lantern,lit=false,top=false": {
@@ -60,6 +96,30 @@
     "fixture=meat_hook,lit=true,top=true": {
       "model": "dungeonblocks:block/swinging_chain"
     },
+    "fixture=medium_bone_chandelier,lit=false,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=medium_bone_chandelier,lit=false,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=medium_bone_chandelier,lit=true,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=medium_bone_chandelier,lit=true,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=medium_chandelier,lit=false,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=medium_chandelier,lit=false,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=medium_chandelier,lit=true,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=medium_chandelier,lit=true,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
     "fixture=none,lit=false,top=false": {
       "model": "dungeonblocks:block/swinging_chain"
     },
@@ -70,6 +130,30 @@
       "model": "dungeonblocks:block/swinging_chain"
     },
     "fixture=none,lit=true,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=oil_lamp,lit=false,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=oil_lamp,lit=false,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=oil_lamp,lit=true,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=oil_lamp,lit=true,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=soul_fire_basket,lit=false,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=soul_fire_basket,lit=false,top=true": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=soul_fire_basket,lit=true,top=false": {
+      "model": "dungeonblocks:block/swinging_chain"
+    },
+    "fixture=soul_fire_basket,lit=true,top=true": {
       "model": "dungeonblocks:block/swinging_chain"
     },
     "fixture=soul_lantern,lit=false,top=false": {
